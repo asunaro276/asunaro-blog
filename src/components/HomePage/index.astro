@@ -1,0 +1,110 @@
+---
+import { Box, Container, Grid, Typography } from "@mui/material";
+import { Header } from "components/common/Header";
+import type { ArticleItem, CategoryItem, TagItem, YearMonthItem } from "/types";
+import Pagination from "./Pagination";
+import PostsList from "./PostsList/index.astro";
+import { Footer } from "components/common/Footer";
+import { SideBar } from "components/common/SideBar";
+
+type Props = {
+  pageNumber: number;
+  blogs: ArticleItem[];
+  categories: CategoryItem[];
+  tags: TagItem[];
+  yearmonths: YearMonthItem[];
+  totalCount: number;
+  category?: CategoryItem;
+  tag?: TagItem;
+  yearmonth?: string;
+  statusCode?: number;
+};
+
+const props = Astro.props;
+
+const dir = (() => {
+  if (props.tag) {
+    return `tag/${props.tag._id}`;
+  } else if (props.category) {
+    return `category/${props.category._id}`;
+  } else if (props.yearmonth) {
+    return `year/${props.yearmonth}`;
+  } else {
+    return "";
+  }
+})();
+---
+
+<Box className="bg-slate-100">
+  <Box>
+    <Header categories={props.categories} />
+  </Box>
+  <div class="container px-6" style={{ paddingTop: "2rem" }}>
+    <div class="grid is-column-gap-4">
+      <div class:list={["cell", "is-col-span-3"]}>
+        <div
+          class:list={[
+            "cell",
+            "fixed-grid",
+            "has-2-cols-tablet",
+            "has-1-cols-mobile",
+          ]}
+        >
+          <!-- {props.tag && (
+            <Box className='my-12 text-center'>
+              {props.blogs.length === 0 ? (
+                <Typography className=''>該当するタグの記事はありません</Typography>
+              ) : (
+                <Typography>{props.tag.tag}に関する記事一覧</Typography>
+              )}
+            </Box>
+          )} -->
+          <!-- {props.category && (
+            <Box className='my-12 text-center'>
+              {props.blogs.length === 0 ? (
+                <Typography className=''>該当するカテゴリーの記事はありません</Typography>
+              ) : (
+                <Typography>
+                  {props.blogs[0].category.displayedName}カテゴリの記事一覧
+                </Typography>
+              )}
+            </Box>
+          )} -->
+          <!-- {props.yearmonth && (
+            <Box className='my-12 text-center'>
+              {props.blogs.length === 0 ? (
+                <Typography className=''>該当する期間の記事はありません</Typography>
+              ) : (
+                <Typography>{props.yearmonth}の記事一覧</Typography>
+              )}
+            </Box>
+          )} -->
+          <!-- {props.statusCode && (
+            <Box>Error{props.statusCode}</Box>
+          )} -->
+          {!props.statusCode && <PostsList blogs={props.blogs} />}
+          {
+            !props.statusCode && (
+              <div
+                class="cell"
+                style={{ marginTop: "50px", justifyContent: "center" }}
+              >
+                <Pagination
+                  dir={dir}
+                  pageNumber={props.pageNumber}
+                  totalCount={props.totalCount}
+                />
+              </div>
+            )
+          }
+        </div>
+      </div>
+      <div class="cell">
+        <SideBar yearmonths={props.yearmonths} tags={props.tags} />
+      </div>
+    </div>
+  </div>
+  <div>
+    <Footer categories={props.categories} />
+  </div>
+</Box>

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { HomePage } from './'
+import { HomePage } from './index.astro'
 import { handlers } from '/mocks/handlers'
 import testData from '/mocks/test-data/index.json'
 import categoryData from '/mocks/test-data/category.json'

@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { fetchBlogData } from "../libs/fetch/fetchBlogData";
-import { HomePage } from "components/HomePage";
+import HomePage from "/components/HomePage/index.astro";
 const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData({ pageNumber: 1 })
 ---
 
@@ -14,7 +14,6 @@ const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
 			tags={tags}
 			yearmonths={yearmonths}
 			totalCount={totalCount}
-			client:load
 		/>
 	</main>
 </Layout>
