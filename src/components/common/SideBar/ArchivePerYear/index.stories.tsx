@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import ArchivePerYear from './'
+import ArchivePerYear from './index.astro'
 import yearmonth from '/mocks/test-data/yearmonth.json'
 
 const meta: Meta<typeof ArchivePerYear> = {

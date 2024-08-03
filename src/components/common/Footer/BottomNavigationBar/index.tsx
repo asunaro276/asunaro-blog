@@ -1,4 +1,3 @@
-import { Box, Divider, Link as MuiLink } from '@mui/material'
 import type { CategoryItem } from '/types'
 
 type Props = {
@@ -7,41 +6,27 @@ type Props = {
 
 export const BottomNavigationBar = (props: Props) => {
   return (
-    <Box className='bg-slate-500' sx={{ height: { xs: '50', sm: '50' } }}>
-      <Box className='flex justify-center pt-5' sx={{ flexDirection: { xs: 'column', sm: 'row' } }}>
+    <div className='bg-slate-500'>
+      <div className='flex justify-center pt-5'>
         {props.categories.map((category, index) => {
           return (
-            <Box key={index}>
+            <div key={index}>
               <div className='mx-4 my-6 text-white md:mx-6'>
-                <MuiLink
+                <a
                   href={`/category/${category._id}`} 
-                  color='inherit'
-                  underline='hover'
                   className='hover:text-slate-200'
                   rel='noopener noreferrer'
                 >
                   {category.displayedName}
-                </MuiLink>
+                </a>
               </div>
               {index < props.categories.length - 1 && (
-                <Divider
-                  variant='fullWidth'
-                  light
-                  sx={{
-                    display: {
-                      xs: 'block',
-                      sm: 'none',
-                      borderTop: '1px dashed',
-                      borderBottom: '0',
-                    },
-                    borderColor: 'white',
-                  }}
-                />
+                <hr />
               )}
-            </Box>
+            </div>
           )
         })}
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }

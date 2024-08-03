@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { SideProfile } from './'
+import { SideProfile } from './index.astro'
 
 const meta: Meta<typeof SideProfile> = {
   component: SideProfile,

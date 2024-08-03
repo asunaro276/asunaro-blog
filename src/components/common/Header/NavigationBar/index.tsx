@@ -1,17 +1,4 @@
 import * as React from 'react'
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Link as MuiLink,
-  Menu,
-  MenuItem,
-  Typography,
-  Grid,
-  Container,
-} from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
 import { pageIcons } from '/constants'
 import type { CategoryItem } from '/types'
 
@@ -48,99 +35,39 @@ export const NavigationBar = (props: Props) => {
     ...props.categories,
   ]
   return (
-    <AppBar position='static' className='bg-slate-500' sx={{ paddingY: { xs: 1, sm: 2, md: 0 } }}>
-      <Toolbar disableGutters sx={{ position: 'relative' }}>
-        <Box
-          sx={{ display: { xs: 'flex', md: 'none' }, position: { sm: 'absolute' }, left: '30px' }}
-        >
-          <IconButton
-            size='large'
-            aria-label='account of current user'
-            aria-controls='menu-appbar'
-            aria-haspopup='true'
+    <header className='bg-slate-500 pt-[16px] pb-[12px]'>
+      <div>
+        <div>
+          <button
+            className='md:hidden'
             onClick={handleOpenNavMenu}
-            color='inherit'
           >
-            <MenuIcon />
-          </IconButton>
-          <Menu
-            id='menu-appbar'
-            anchorEl={anchorElNav}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-            sx={{
-              height: 300,
-              display: { xs: 'block', md: 'none' },
-            }}
-          >
-            {categories.map((category, index) => (
-              <MenuItem
-                key={index}
-                onClick={handleCloseNavMenu}
-                className='text-lg duration-100 ease-out hover:bg-slate-200'
-                sx={{ paddingTop: '10px' }}
-              >
-                <MuiLink
-                  href={category._id ? `/category/${category._id}` : '/'} 
-                  underline='none'
-                  color='inherit'
-                  className='flex'
-                  rel='noopener noreferrer'
-                >
-                  <Box sx={{ marginRight: '5px' }}>{pageIcons[index]}</Box>
-                  <Box>{category.displayedName}</Box>
-                </MuiLink>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box>
-        <Typography
-          className='font-logo'
-          variant='h6'
-          noWrap
-          component='div'
-          sx={{
-            width: '100%',
-            display: { xs: 'flex', md: 'none' },
-            fontSize: { xs: 25, md: 60 },
-            justifyContent: 'center',
-          }}
-        >
-          <MuiLink href='/'  underline='none' color='inherit' rel='noopener noreferrer'>
+            <span className='material-icons'>menu</span>
+          </button>
+        </div>
+        <p className='md:hidden'>
+          <a href='/' rel='noopener noreferrer'>
             {props.logo}
-          </MuiLink>
-        </Typography>
-        <Container sx={{ display: { xs: 'none', md: 'flex' } }}>
-          <Grid container maxWidth='lg'>
+          </a>
+        </p>
+        <div className='hidden md:block'>
+          <div className='flex gap-10'>
             {categories.map((category, index) => (
-              <Box key={index} marginRight='30px'>
-                <MuiLink
+              <div>
+                <a
                   href={category._id ? `/category/${category._id}` : '/'} 
                   onClick={handleCloseNavMenu}
-                  sx={{ display: 'block', paddingBottom: '10px', paddingTop: '14px' }}
-                  underline='none'
-                  color='inherit'
-                  className='flex text-lg duration-100 ease-out hover:bg-slate-400'
-                  variant='button'
+                  className='flex text-lg duration-100 ease-out text-white hover:bg-slate-400'
                   rel='noopener noreferrer'
                 >
-                  <Box sx={{ marginRight: '5px' }}>{pageIcons[index]}</Box>
-                  <Box>{category.displayedName}</Box>
-                </MuiLink>
-              </Box>
+                  <div className='mt-[1.5px] mr-1'>{pageIcons[index]}</div>
+                  <div className=''>{category.displayedName}</div>
+                </a>
+              </div>
             ))}
-          </Grid>
-        </Container>
-      </Toolbar>
-    </AppBar>
+          </div>
+        </div>
+      </div>
+    </header>
   )
 }

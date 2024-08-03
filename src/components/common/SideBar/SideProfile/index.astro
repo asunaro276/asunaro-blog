@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import XIcon from "./XIcon/index.svg";
+import GitHubIcon from "./GitHubIcon/index.svg";
+---
+
+<div class="border shadow bg-white rounded flex flex-col items-center gap-6 pb-12 p-6">
+  <p>profile</p>
+  <div>
+    <Image
+      src="https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3ab0e1e0-e610-4dc9-acb4-f7917add37b1/asunaro.png"
+      alt="プロフィール画像"
+      height="150"
+      width="150"
+    />
+  </div>
+  <p class="border-b-2 px-2">あすなろ</p>
+  <div class="w-full">
+    <div class="flex gap-2">
+      <a href="https://github.com/Asunaro276/asunaro-blog" target="_blank">
+        <Image src={GitHubIcon} alt="GitHubのアイコン" width={24} />
+      </a>
+      <a href="https://twitter.com/asunaro276" target="_blank">
+        <Image src={XIcon} alt="Xのアイコン" width={24} />
+      </a>
+    </div>
+  </div>
+  <p class="w-full">
+    新米エンジニアの技術ブログです。主にWeb技術や数学で遊んでいます。日々楽しみながら学んでいくことを目標としています。
+  </p>
+</div>

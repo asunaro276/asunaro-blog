@@ -1,4 +1,3 @@
-import { Box, Card, Typography } from '@mui/material'
 import { Link as Scroll } from 'react-scroll'
 import type { Heading } from '/types'
 
@@ -9,9 +8,9 @@ type Props = {
 export const SideToc = (props: Props) => {
   var tocCount = [1, 1, 1]
   return (
-    <Card>
-      <Typography className='mt-10 text-center'>目次</Typography>
-      <Box className='flex items-center justify-center'>
+    <div>
+      <p className='mt-10 text-center'>目次</p>
+      <div className='flex items-center justify-center'>
         <ul className='mb-10 w-8/12'>
           {props.headings.map((data, index) => {
             if (data.text === undefined) {
@@ -28,12 +27,12 @@ export const SideToc = (props: Props) => {
                     id={`l${index}`}
                     duration={400}
                   >
-                    <Box className='absolute -left-10 flex aspect-square w-10 items-center justify-center rounded-full border border-solid border-slate-400 bg-slate-200 '>
-                      <Typography className='font-body text-lg'>
+                    <div className='absolute -left-10 flex aspect-square w-10 items-center justify-center rounded-full border border-solid border-slate-400 bg-slate-200 '>
+                      <p className='font-body text-lg'>
                         {(tocCount[0] - 1).toString()}
-                      </Typography>
-                    </Box>
-                    <Box className='ml-2 mt-2'>{data.text}</Box>
+                      </p>
+                    </div>
+                    <div className='ml-2 mt-2'>{data.text}</div>
                   </Scroll>
                 </li>
               )
@@ -49,8 +48,8 @@ export const SideToc = (props: Props) => {
                     id={`${index}`}
                     duration={400}
                   >
-                    <Box className='text-md ml-5 mr-5'>{`${tocCount[1] - 1}`}</Box>
-                    <Box className='ml-2'>{data.text}</Box>
+                    <div className='text-md ml-5 mr-5'>{`${tocCount[1] - 1}`}</div>
+                    <div className='ml-2'>{data.text}</div>
                   </Scroll>
                 </li>
               )
@@ -72,7 +71,7 @@ export const SideToc = (props: Props) => {
             // }
           })}
         </ul>
-      </Box>
-    </Card>
+      </div>
+    </div>
   )
 }

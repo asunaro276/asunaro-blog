@@ -1,0 +1,33 @@
+---
+import { COLOR } from "/constants";
+
+type Props = {
+  to: string;
+  disabled?: boolean;
+  hover?: boolean;
+  number?: boolean;
+};
+
+const { to, disabled = false, hover = false, number = false } = Astro.props;
+console.log(disabled, number);
+---
+
+<li
+  class:list={[
+    "flex",
+    "aspect-square",
+    "w-8",
+    "items-center",
+    "justify-center",
+    "rounded-full",
+    hover ? `hover:backdrop-brightness-95` : ``,
+    disabled && number ? `backdrop-brightness-90` : ``,
+    disabled ? "cursor-default" : "cursor-pointer",
+  ]}
+>
+  <a
+    class={disabled ? "cursor-default" : ""}
+    style={{ color: COLOR.textColor.primary, textDecoration: "none", fontSize: '14px' }}
+    href={disabled ? "javascript:void(0)" : to}><slot /></a
+  >
+</li>

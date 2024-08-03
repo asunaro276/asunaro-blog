@@ -1,0 +1,35 @@
+---
+import { COLOR } from "/constants";
+import type { YearMonthItem } from "/types";
+
+type Props = {
+  yearmonths: YearMonthItem[];
+};
+
+const { yearmonths } = Astro.props;
+---
+
+<div class="shodow border bg-white rounded pb-12 p-6">
+  <div class="font-bold mb-6">Archive</div>
+  <div>
+    {
+      yearmonths.map((yearmonth) => {
+        const [year, month] = yearmonth.yearmonth.split("-");
+        return (
+          <div>
+            <hr />
+            <a href={`/year/${yearmonth.yearmonth}`}>
+              <button
+                class="py-4 px-2"
+                style={{ color: COLOR.textColor.secondary }}
+              >
+                {year}/{month}
+                <span style={{ color: COLOR.textColor.primary }}>{`(${yearmonth.ref.length})`}</span>
+              </button>
+            </a>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

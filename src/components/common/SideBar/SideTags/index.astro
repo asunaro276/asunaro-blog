@@ -1,0 +1,31 @@
+---
+import { COLOR } from "/constants";
+import type { TagItem } from "/types";
+
+type Props = {
+  tags: TagItem[];
+};
+
+const { tags } = Astro.props;
+---
+
+<div class="shodow border bg-white rounded pb-12 p-6">
+  <div class="font-bold mb-6">Tag</div>
+  <div class="flex flex-wrap gap-2 overflow-y-scroll" style={{ height: '280px' }}>
+    {
+      tags.map((tag) => {
+        return (
+          <div>
+            <a href={`/tag/${tag._id}`}>
+              <button class="mr-4 whitespace-nowrap py-1 px-2 border rounded-md align-middle text-white" style={{ fontSize: '12px', backgroundColor: COLOR.secondary }}>
+                <span class="material-icons align-middle" style={{ fontSize: '14px' }}>local_offer</span>
+                {tag.tag}
+                <span>（{tag.ref?.length ?? 0}）</span>
+              </button>
+            </a>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

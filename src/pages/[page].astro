@@ -1,0 +1,38 @@
+---
+import type { GetStaticPaths } from "astro";
+import HomePage from "/components/HomePage/index.astro";
+import { ARTICLE_NUM_PER_PAGE } from "/constants";
+import { newtClient } from "/libs/client";
+import type { ArticleItem } from "/types";
+import Layout from "/layouts/Layout.astro";
+import { fetchBlogData } from "/libs/fetch/fetchBlogData";
+import { ConstructionOutlined } from "@mui/icons-material";
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const totalNum = (
+		await newtClient.getContents({ appUid: "asunaroblog", modelUid: "article" })
+	).total;
+	const range = (start: number, end: number) =>
+		[...Array(end - start + 1)].map((_, i) => start + i);
+	const paths = range(1, totalNum);
+	return paginate(paths, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props
+const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
+	{ pageNumber: page.currentPage},
+);
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<HomePage
+			pageNumber={page.currentPage}
+			blogs={blogs}
+			categories={categories}
+			tags={tags}
+			yearmonths={yearmonths}
+			totalCount={totalCount}
+		/>
+	</main>
+</Layout>

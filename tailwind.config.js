@@ -5,8 +5,14 @@ module.exports = {
     'src/components/**/*.{js,ts,jsx,tsx,astro}',
     'src/libs/parse/*.{js,ts,jsx,tsx,astro}',
   ],
-  important: true,
   theme: {
+    screens: {
+      'sm': '576px',
+      'md': '768px',
+      'lg': '992px',
+      'xl': '1200px',
+      'xxl': '1400px',
+    },
     extend: {
       fontFamily: {
         logo: ['Montserrat Subrayada'],
@@ -17,7 +23,4 @@ module.exports = {
     },
   },
   plugins: [],
-  corePlugins: {
-    preflight: false,
-  },
 }

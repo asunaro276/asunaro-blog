@@ -1,11 +1,11 @@
 ---
-import { Box, Container, Grid, Typography } from "@mui/material";
 import { Header } from "components/common/Header";
 import type { ArticleItem, CategoryItem, TagItem, YearMonthItem } from "/types";
-import Pagination from "./Pagination";
+import Pagination from "./Pagination/index.astro";
 import PostsList from "./PostsList/index.astro";
 import { Footer } from "components/common/Footer";
-import { SideBar } from "components/common/SideBar";
+import SideBar from "/components/common/SideBar/index.astro";
+import { COLOR } from "/constants";
 
 type Props = {
   pageNumber: number;
@@ -35,58 +35,53 @@ const dir = (() => {
 })();
 ---
 
-<Box className="bg-slate-100">
-  <Box>
+<div style={{ backgroundColor: COLOR.bgColor }}>
+  <div>
     <Header categories={props.categories} />
-  </Box>
-  <div class="container px-6" style={{ paddingTop: "2rem" }}>
-    <div class="grid is-column-gap-4">
-      <div class:list={["cell", "is-col-span-3"]}>
-        <div
-          class:list={[
-            "cell",
-            "fixed-grid",
-            "has-2-cols-tablet",
-            "has-1-cols-mobile",
-          ]}
-        >
-          <!-- {props.tag && (
-            <Box className='my-12 text-center'>
+  </div>
+  <div style={{ padding: "32px 16px" }}>
+    <div class="grid grid-cols-1 lg:grid-cols-4">
+      <div class:list={["lg:col-span-3"]}>
+          {props.tag && (
+            <div class='my-12 text-center'>
               {props.blogs.length === 0 ? (
-                <Typography className=''>該当するタグの記事はありません</Typography>
+                <p class=''>該当するタグの記事はありません</p>
               ) : (
-                <Typography>{props.tag.tag}に関する記事一覧</Typography>
+                <p>{props.tag.tag}に関する記事一覧</p>
               )}
-            </Box>
-          )} -->
-          <!-- {props.category && (
-            <Box className='my-12 text-center'>
+            </div>
+          )}
+          {props.category && (
+            <div class='my-12 text-center'>
               {props.blogs.length === 0 ? (
-                <Typography className=''>該当するカテゴリーの記事はありません</Typography>
+                <p>該当するカテゴリーの記事はありません</p>
               ) : (
-                <Typography>
+                <p>
                   {props.blogs[0].category.displayedName}カテゴリの記事一覧
-                </Typography>
+                </p>
               )}
-            </Box>
-          )} -->
-          <!-- {props.yearmonth && (
-            <Box className='my-12 text-center'>
+            </div>
+          )}
+          {props.yearmonth && (
+            <div class='my-12 text-center'>
               {props.blogs.length === 0 ? (
-                <Typography className=''>該当する期間の記事はありません</Typography>
+                <p>該当する期間の記事はありません</p>
               ) : (
-                <Typography>{props.yearmonth}の記事一覧</Typography>
+                <p>{props.yearmonth}の記事一覧</p>
               )}
-            </Box>
-          )} -->
-          <!-- {props.statusCode && (
-            <Box>Error{props.statusCode}</Box>
-          )} -->
-          {!props.statusCode && <PostsList blogs={props.blogs} />}
+            </div>
+          )}
+          {props.statusCode && (
+            <div>Error{props.statusCode}</div>
+          )}
+          {
+            !props.statusCode && (
+              <PostsList blogs={props.blogs} />
+            )
+          }
           {
             !props.statusCode && (
               <div
-                class="cell"
                 style={{ marginTop: "50px", justifyContent: "center" }}
               >
                 <Pagination
@@ -97,9 +92,8 @@ const dir = (() => {
               </div>
             )
           }
-        </div>
       </div>
-      <div class="cell">
+      <div class="lg:col-span-1 mt-20 lg:mt-0 px-4">
         <SideBar yearmonths={props.yearmonths} tags={props.tags} />
       </div>
     </div>
@@ -107,4 +101,4 @@ const dir = (() => {
   <div>
     <Footer categories={props.categories} />
   </div>
-</Box>
+</div>

@@ -1,6 +1,5 @@
 ---
 import type { ArticleItem } from "/types";
-import { Grid } from "@mui/material";
 import PostCard from "./PostCard/index.astro";
 
 type Props = {
@@ -9,13 +8,11 @@ type Props = {
 const props = Astro.props;
 ---
 
-<div class="grid is-col-min-12 is-column-gap-3">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 px-4">
   {
     props.blogs.map((post) => {
       return (
-        <div class="cell">
-          <PostCard blog={post} />
-        </div>
+        <PostCard blog={post} />
       );
     })
   }
