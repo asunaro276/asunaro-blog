@@ -117,7 +117,7 @@ export const parseBody = async (body: string) => {
           })
         }
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
       $(element).replaceWith(`
         <div class="shadow-md shadow-outline bg-slate-100 mt-4 mb-20 hover:brightness-[0.9] duration-300 ease-out">

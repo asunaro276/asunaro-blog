@@ -6,7 +6,6 @@ import HomePage from "/components/HomePage/index.astro";
 import { ARTICLE_NUM_PER_PAGE } from "/constants";
 
 const { page } = Astro.props
-console.log(page)
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const pages = ['a']
