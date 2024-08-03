@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { HomePage } from './index.astro'
+import HomePage from './index.astro'
 import { handlers } from '/mocks/handlers'
 import testData from '/mocks/test-data/index.json'
 import categoryData from '/mocks/test-data/category.json'
 import tagData from '/mocks/test-data/tag.json'
 import yearmonthData from '/mocks/test-data/yearmonth.json'
-import { modes } from '/.storybook/modes'
+import { modes } from '.storybook/modes'
 
 const meta: Meta<typeof HomePage> = {
   component: HomePage,

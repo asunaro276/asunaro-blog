@@ -1,6 +1,6 @@
 import type { CategoryItem } from '/types'
 import { BottomNavigationBar } from './BottomNavigationBar'
-import { CopyRight } from './CopyRight'
+import CopyRight from './CopyRight/index.astro'
 
 type Props = {
   categories: CategoryItem[]

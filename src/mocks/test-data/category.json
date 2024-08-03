@@ -1,0 +1,97 @@
+{
+  "skip": 0,
+  "limit": 100,
+  "total": 4,
+  "items": [
+    {
+      "_id": "641d5f0d0293b870f66ac18c",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-11-19T04:52:00.090Z",
+          "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+          "publishedAt": "2023-11-19T04:52:00.090Z"
+        },
+        "customOrder": 4,
+        "createdAt": "2023-03-24T08:27:57.405Z",
+        "updatedAt": "2023-11-19T04:52:00.090Z"
+      },
+      "displayedName": "CODE",
+      "name": "programming",
+      "ref": [
+        "64808d4a8cb2e6b05150042c",
+        "64684d93bb8301c65ff6547c",
+        "643b9d80729275004e35db8b",
+        "641d81e7b5b671fd667e41b5",
+        "641d7f43b5b671fd667cf43d",
+        "641d7cf4b5b671fd667bc98a",
+        "641d7babb5b671fd667b3688",
+        "641d79cdb5b671fd6679c2ce",
+        "641d5d9a0293b870f6668d22",
+        "641d6dacb5b671fd6673b3c5",
+        "641d72e9b5b671fd66763f59",
+        "641d77aab5b671fd667829c8",
+        "652eb974374d5bf5084661c5"
+      ]
+    },
+    {
+      "_id": "641d5f2a0293b870f66ae525",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T08:28:26.263Z",
+          "updatedAt": "2023-10-30T14:12:43.477Z",
+          "firstPublishedAt": "2023-03-24T08:28:26.263Z",
+          "publishedAt": "2023-10-30T14:12:43.477Z"
+        },
+        "customOrder": 3,
+        "createdAt": "2023-03-24T08:28:26.263Z",
+        "updatedAt": "2023-10-30T14:12:43.477Z"
+      },
+      "displayedName": "BUSINESS",
+      "name": "business",
+      "ref": [
+        "641d6a25b5b671fd6670e71b",
+        "641d7054b5b671fd6674bfbe"
+      ]
+    },
+    {
+      "_id": "641d5f560293b870f66b435b",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T08:29:10.945Z",
+          "updatedAt": "2023-10-30T14:12:53.451Z",
+          "firstPublishedAt": "2023-03-24T08:29:10.945Z",
+          "publishedAt": "2023-10-30T14:12:53.451Z"
+        },
+        "customOrder": 2,
+        "createdAt": "2023-03-24T08:29:10.945Z",
+        "updatedAt": "2023-10-30T14:12:53.451Z"
+      },
+      "displayedName": "MATH",
+      "name": "math",
+      "ref": [
+        "641d753db5b671fd66776ecf"
+      ]
+    },
+    {
+      "_id": "641d5f660293b870f66b50e6",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T08:29:26.807Z",
+          "updatedAt": "2023-10-30T14:13:06.046Z",
+          "firstPublishedAt": "2023-03-24T08:29:26.808Z",
+          "publishedAt": "2023-10-30T14:13:06.046Z"
+        },
+        "customOrder": 1,
+        "createdAt": "2023-03-24T08:29:26.807Z",
+        "updatedAt": "2023-10-30T14:13:06.046Z"
+      },
+      "displayedName": "OTHER",
+      "name": "other",
+      "ref": [
+        "65215f5d505f572f6f199132",
+        "646a31e18a1af05ff746e813"
+      ]
+    }
+  ]
+}

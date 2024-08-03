@@ -1,0 +1,92 @@
+{
+  "skip": 0,
+  "limit": 100,
+  "total": 5,
+  "items": [
+    {
+      "_id": "653fc6b439290fec64cd8556",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-10-30T15:07:32.010Z",
+          "updatedAt": "2023-11-23T12:36:55.753Z",
+          "firstPublishedAt": "2023-10-30T15:07:32.010Z",
+          "publishedAt": "2023-11-19T10:07:41.759Z"
+        },
+        "customOrder": 1,
+        "createdAt": "2023-10-30T15:07:32.010Z",
+        "updatedAt": "2023-11-23T12:36:55.753Z"
+      },
+      "yearmonth": "2023-3",
+      "ref": [
+        "641d81e7b5b671fd667e41b5",
+        "641d7f43b5b671fd667cf43d",
+        "641d7cf4b5b671fd667bc98a",
+        "641d7babb5b671fd667b3688",
+        "641d79cdb5b671fd6679c2ce",
+        "641d77aab5b671fd667829c8",
+        "641d753db5b671fd66776ecf",
+        "641d72e9b5b671fd66763f59",
+        "641d7054b5b671fd6674bfbe",
+        "641d6dacb5b671fd6673b3c5",
+        "641d6a25b5b671fd6670e71b",
+        "641d5d9a0293b870f6668d22"
+      ]
+    },
+    {
+      "_id": "653fc6a139290fec64cd7431",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-10-30T15:07:13.814Z",
+          "updatedAt": "2023-11-23T12:36:55.735Z",
+          "firstPublishedAt": "2023-10-30T15:07:13.814Z",
+          "publishedAt": "2023-10-30T15:21:54.253Z"
+        },
+        "customOrder": 2,
+        "createdAt": "2023-10-30T15:07:13.814Z",
+        "updatedAt": "2023-11-23T12:36:55.735Z"
+      },
+      "yearmonth": "2023-4",
+      "ref": [
+        "643b9d80729275004e35db8b"
+      ]
+    },
+    {
+      "_id": "653fc67739290fec64cd3077",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-10-30T15:06:31.036Z",
+          "updatedAt": "2023-11-23T11:56:01.771Z",
+          "firstPublishedAt": "2023-10-30T15:06:31.036Z",
+          "publishedAt": "2023-10-30T15:22:00.358Z"
+        },
+        "customOrder": 3,
+        "createdAt": "2023-10-30T15:06:31.036Z",
+        "updatedAt": "2023-11-23T11:56:01.771Z"
+      },
+      "yearmonth": "2023-5",
+      "ref": [
+        "646a31e18a1af05ff746e813",
+        "64684d93bb8301c65ff6547c"
+      ]
+    },
+    {
+      "_id": "653fbf7139290fec64c792a4",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-10-30T14:36:33.222Z",
+          "updatedAt": "2023-11-23T12:36:55.744Z",
+          "firstPublishedAt": "2023-10-30T14:36:33.222Z",
+          "publishedAt": "2023-10-30T15:22:06.297Z"
+        },
+        "customOrder": 4,
+        "createdAt": "2023-10-30T14:36:33.222Z",
+        "updatedAt": "2023-11-23T12:36:55.744Z"
+      },
+      "yearmonth": "2023-10",
+      "ref": [
+        "64808d4a8cb2e6b05150042c",
+        "65215f5d505f572f6f199132"
+      ]
+    }
+  ]
+}

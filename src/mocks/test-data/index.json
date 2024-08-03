@@ -1,0 +1,2148 @@
+{
+  "skip": 0,
+  "limit": 100,
+  "total": 100,
+  "items": [
+    {
+      "_id": "65215f5d505f572f6f199132",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-10-07T13:38:37.383Z",
+          "updatedAt": "2023-10-29T10:50:27.617Z",
+          "firstPublishedAt": "2023-10-29T10:50:27.617Z",
+          "publishedAt": "2023-10-29T10:50:27.617Z"
+        },
+        "customOrder": 17,
+        "createdAt": "2023-10-07T13:38:37.383Z",
+        "updatedAt": "2023-10-29T10:50:27.617Z"
+      },
+      "title": "Vue Fes Japan 2023に行ってきた！｜セミナー参加録",
+      "description": "<p>2023/10/28にVue Fes Japan 2023が開催されました。初めてのセミナー参加でアフターパーティまで参加したのでその感想を書き残したいと思います。</p>",
+      "coverImage": {
+        "_id": "652d5f27374d5bf508ea0f0d",
+        "altText": "",
+        "description": "",
+        "fileName": "image(1).webp",
+        "fileSize": 7556,
+        "fileType": "image/webp",
+        "height": 300,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/f6b175ae-9cd5-498d-835d-a84d81bdf7e3/image(1).webp",
+        "title": "",
+        "width": 533
+      },
+      "category": {
+        "_id": "641d5f660293b870f66b50e6",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:29:26.807Z",
+            "updatedAt": "2023-10-30T14:13:06.046Z",
+            "firstPublishedAt": "2023-03-24T08:29:26.808Z",
+            "publishedAt": "2023-10-30T14:13:06.046Z"
+          },
+          "customOrder": 1,
+          "createdAt": "2023-03-24T08:29:26.807Z",
+          "updatedAt": "2023-10-30T14:13:06.046Z"
+        },
+        "displayedName": "OTHER",
+        "name": "other",
+        "ref": ["65215f5d505f572f6f199132", "646a31e18a1af05ff746e813"]
+      },
+      "tags": [
+        {
+          "_id": "65191ada58a874e842ceaac2",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-10-01T07:08:10.107Z",
+              "updatedAt": "2023-11-01T16:00:48.942Z",
+              "firstPublishedAt": "2023-10-01T07:08:10.107Z",
+              "publishedAt": "2023-10-30T13:57:58.607Z"
+            },
+            "customOrder": 32,
+            "createdAt": "2023-10-01T07:08:10.107Z",
+            "updatedAt": "2023-11-01T16:00:48.942Z"
+          },
+          "tag": "Vue",
+          "ref": ["65215f5d505f572f6f199132", "64808d4a8cb2e6b05150042c"]
+        },
+        {
+          "_id": "65191ad158a874e842cea880",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-10-01T07:08:01.318Z",
+              "updatedAt": "2023-11-01T16:00:49.021Z",
+              "firstPublishedAt": "2023-10-01T07:08:01.318Z",
+              "publishedAt": "2023-10-30T13:58:27.222Z"
+            },
+            "customOrder": 31,
+            "createdAt": "2023-10-01T07:08:01.318Z",
+            "updatedAt": "2023-11-01T16:00:49.021Z"
+          },
+          "tag": "Nuxt.js",
+          "ref": ["65215f5d505f572f6f199132", "64808d4a8cb2e6b05150042c"]
+        },
+        {
+          "_id": "641d60bb0293b870f66d60c1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:07.951Z",
+              "updatedAt": "2023-10-30T14:03:00.662Z",
+              "firstPublishedAt": "2023-03-24T08:35:07.951Z",
+              "publishedAt": "2023-10-30T14:03:00.662Z"
+            },
+            "customOrder": 20,
+            "createdAt": "2023-03-24T08:35:07.951Z",
+            "updatedAt": "2023-10-30T14:03:00.662Z"
+          },
+          "tag": "フロントエンド",
+          "ref": [
+            "65215f5d505f572f6f199132",
+            "64808d4a8cb2e6b05150042c",
+            "641d7f43b5b671fd667cf43d",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d77aab5b671fd667829c8"
+          ]
+        },
+        {
+          "_id": "652d5f83374d5bf508ea2e6a",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-10-16T16:06:27.502Z",
+              "updatedAt": "2023-11-01T16:00:48.885Z",
+              "firstPublishedAt": "2023-10-16T16:06:27.502Z",
+              "publishedAt": "2023-10-30T13:56:33.000Z"
+            },
+            "customOrder": 33,
+            "createdAt": "2023-10-16T16:06:27.502Z",
+            "updatedAt": "2023-11-01T16:00:48.885Z"
+          },
+          "tag": "参加録",
+          "ref": ["65215f5d505f572f6f199132"]
+        }
+      ],
+      "body": "<p>2023/10/28にVue Fes Japan 2023が開催されました。<br>\n初めてのセミナー参加でアフターパーティまで参加したのでその感想を書き残したいと思います。</p>\n<h1>全体の感想</h1>\n<p>非常に有意義な時間だったと思います。<br>\nVueの開発者であるEvan YouさんやNuxt LabのCEOであるSebastien Chopinさんなど参加者がまず豪華でした。<br>\nそして、各セッションの内容も自分が困っている部分についてヒントを与えてくださったり、あるいは自分が全く知らない技術情報について発信してくださったりとどれもためになるものばかりでした。</p>\n<h1>特に印象に残ったセッション</h1>\n<h2>山本 一将さん（ユニークビジョン）の発表</h2>\n<p>フロントエンドの精鋭チームで社内UIコンポーネントライブラリを作ったことが社内全体に良い影響を与えたという内容の発表でした。</p>\n<p>自分がまずオモシロイと思ったのは、フロントエンドエンジニアが少ないという事実です。<br>\n私が所属している会社は全員がフルスタックエンジニアなので、フロントエンドエンジニアが少ないとか人数に偏りがあるなど考えたことがなかったので、とても新鮮な気持ちになりました。</p>\n<p>また、各プロダクトチームに所属する精鋭のフロントエンドエンジニアを縦割りにしてUIコンポーネントライブラリチームを作ったという話もとてもおもしろいなと思いました。<br>\n自分たちに寄り添ったドキュメンテーションができれば他のメンバーは効率的にスキルアップができますし、プロダクトのクオリティも上がるので一石二鳥ですよね。<br>\n精鋭にいちばん核となる部分を作ってもらって、他のメンバーはそれを見て周辺を作るというのはフロントエンドに限らず取り入れられそうだなと感じます。</p>\n<h2>鵜木 義秀さん（リンクアンドモチベーション）の発表</h2>\n<p>社内でフロントエンド周りのアーキテクチャを刷新しようと思った際に、その提案がうまく行かなくて開発全体に悪影響がでたという内容でした。</p>\n<p>この発表は結論がとても面白かったです。<br>\n普通は「提案」という工程は、偉い人に承認してもらうための工程であると考えがちですが、実はその後の設計や開発において不確実性を減らすためのいわば最も上流の開発工程なんだという話でした。</p>\n<p>自分も現在、自社で新技術の導入を勧めたいと思っているので、この話はとても身にしみました。<br>\n特に、最後にお話されていた「エンドクライアントだけでなく社内の人に向けても”使う人のことを考える”ということをやった方がいい」という話はとても含蓄のある言葉だと思います。<br>\n自分もまず提案から見直してみようと思います。</p>\n<h2>安積 洋さん（MNTSQ）の発表</h2>\n<p>PMF（プロダクトが市場に受け入れられた状態）後の開発で重要なのは読む速さであり、それを意識したプロジェクト設計についての取り組み事例などを話してくださいました。</p>\n<p>「良いドキュメントは勝手に仕事をしてくれる」とか「大事なところは自分たちで作る、大事じゃないところは流行に乗る」とかかなりいいお言葉をいただけました。<br>\nまた、chromiumの新機能勉強会をやっているという話からは、流行に乗るためには最先端を知っておかないといけないという姿勢が見え、自分もこの考え方を学ばないといけないなと感じさせられました。</p>\n<h2>mizdraさん（はてな）の発表</h2>\n<p>Vueから生まれたVolar.jsというOSSがめちゃくちゃ面白いという話を実際のデモと一緒にお話してくださいました。</p>\n<p>自分はこの発表を聞くまでLanguage Serverというものについて殆ど知らなかったのですが、この発表の秀逸だった部分はそのLanguage Serverがどういうもので、どういう規格のもとに作られていて、どう動くというところから解説していただけたところです。<br>\nこのおかげでVueのLanguage Serverのどこが特殊なのかやVolarがなぜ汎用的に使えるのかということを納得しながら理解することができました。</p>\n<p>自分もVolar.jsを触ってみたいと思いましたし、なにより自分もブログ記事を書く際にはこういう論の立て方をしたいなと思いました。</p>\n<h2>ota-meshiさん（フューチャー）の発表</h2>\n<p>eslint-plugin-vueのcore authorであるota-meshiさんがeslint-plugin-vueのこれまでや今後について話すという内容でした。</p>\n<p>自分はvueの公式推奨eslint pluginが日本人によって開発されているということ自体知りませんでしたし、この発表を聞いてOSSに対する興味が一層高まりました。<br>\nまた、eslintの開発の何が難しいのかと言う部分の一端が理解出来、技術的な知見も含んだとてもいい内容だなと思いました。</p>\n<h1>アフターパーティ</h1>\n<p>アフターパーティは総じてとても楽しく、一瞬で終わった感じでした。<br>\n自分のコミュ力の問題で数人の人にしか話しかけることができませんでしたが、その方々には悩み相談をさせていただいて、自分の課題に対するいくつかのヒントをいただくことができました。<br>\nまた、エンジニアと一口に言っても色々なバックグラウンドの方がいらっしゃって、それぞれに考えながらVueを使っているんだなということを一番実感できた場でした。</p>\n<p>なお、アフターバーティは当初想定していた十倍は豪華で、人もめちゃくちゃたくさんいました。<br>\nなにより食事が美味しかったです（GMOさんに感謝🤜）</p>\n<h1>反省点</h1>\n<p>実は今回反省点がいくつかあるので、次のカンファレンスに向けて書き残します。</p>\n<ul>\n<li>写真を取らなかった\n<ul>\n<li>ブログ用に取ればよかった～</li>\n</ul>\n</li>\n<li>ネームプレート用の会社ロゴステッカーはあった方がいい\n<ul>\n<li>あったほうがコミュニケーションはかどる気がします</li>\n</ul>\n</li>\n<li>アフターパーティでの行動は速く\n<ul>\n<li>話したら絶対楽しいので、最初の一歩を踏み出す勇気がめっちゃ大事</li>\n</ul>\n</li>\n<li>最初に社名と名前を聞いといた方がいい\n<ul>\n<li>無理なら後で名刺交換！（名刺にはXアカウント書いたほうが良いかも）</li>\n<li>つながりは大切にしたい！</li>\n</ul>\n</li>\n<li>X整備\n<ul>\n<li>やっぱみんな発信の主戦場はXっぽいので、プロフィール周りだけでも整備したら良さそう</li>\n</ul>\n</li>\n</ul>\n<p>といったところで反省点もありましたが、総じて楽しかったです！<br>\n次はReactとかScalaとかのカンファレンスもでてみたいですね～</p>\n"
+    },
+    {
+      "_id": "64808d4a8cb2e6b05150042c",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-06-07T13:59:38.558Z",
+          "updatedAt": "2023-10-16T15:45:31.710Z",
+          "firstPublishedAt": "2023-10-16T12:55:39.615Z",
+          "publishedAt": "2023-10-16T15:45:31.710Z"
+        },
+        "customOrder": 16,
+        "createdAt": "2023-06-07T13:59:38.558Z",
+        "updatedAt": "2023-10-16T15:45:31.710Z"
+      },
+      "title": "SPA、SSR、SSGってなんだ？｜フロントエンド",
+      "description": "<p>本エントリーではnuxt.jsやnext.jsでのレンダリングモード周りの話と挙動の違いについてまとめてみます。</p>",
+      "coverImage": {
+        "_id": "64808ded8cb2e6b051500c33",
+        "altText": "",
+        "description": "",
+        "fileName": "image.webp",
+        "fileSize": 4630,
+        "fileType": "image/webp",
+        "height": 463,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/2686b58e-86e0-4c61-a088-91f8998bff3f/image.webp",
+        "title": "",
+        "width": 700
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d603f0293b870f66c9a4e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:33:03.927Z",
+              "updatedAt": "2023-10-30T14:06:51.986Z",
+              "firstPublishedAt": "2023-03-24T08:33:03.927Z",
+              "publishedAt": "2023-10-30T14:06:51.986Z"
+            },
+            "customOrder": 8,
+            "createdAt": "2023-03-24T08:33:03.927Z",
+            "updatedAt": "2023-10-30T14:06:51.986Z"
+          },
+          "tag": "TypeScript",
+          "ref": [
+            "64808d4a8cb2e6b05150042c",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22"
+          ]
+        },
+        {
+          "_id": "65191ada58a874e842ceaac2",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-10-01T07:08:10.107Z",
+              "updatedAt": "2023-11-01T16:00:48.942Z",
+              "firstPublishedAt": "2023-10-01T07:08:10.107Z",
+              "publishedAt": "2023-10-30T13:57:58.607Z"
+            },
+            "customOrder": 32,
+            "createdAt": "2023-10-01T07:08:10.107Z",
+            "updatedAt": "2023-11-01T16:00:48.942Z"
+          },
+          "tag": "Vue",
+          "ref": ["65215f5d505f572f6f199132", "64808d4a8cb2e6b05150042c"]
+        },
+        {
+          "_id": "65191ad158a874e842cea880",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-10-01T07:08:01.318Z",
+              "updatedAt": "2023-11-01T16:00:49.021Z",
+              "firstPublishedAt": "2023-10-01T07:08:01.318Z",
+              "publishedAt": "2023-10-30T13:58:27.222Z"
+            },
+            "customOrder": 31,
+            "createdAt": "2023-10-01T07:08:01.318Z",
+            "updatedAt": "2023-11-01T16:00:49.021Z"
+          },
+          "tag": "Nuxt.js",
+          "ref": ["65215f5d505f572f6f199132", "64808d4a8cb2e6b05150042c"]
+        },
+        {
+          "_id": "641d60bb0293b870f66d60c1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:07.951Z",
+              "updatedAt": "2023-10-30T14:03:00.662Z",
+              "firstPublishedAt": "2023-03-24T08:35:07.951Z",
+              "publishedAt": "2023-10-30T14:03:00.662Z"
+            },
+            "customOrder": 20,
+            "createdAt": "2023-03-24T08:35:07.951Z",
+            "updatedAt": "2023-10-30T14:03:00.662Z"
+          },
+          "tag": "フロントエンド",
+          "ref": [
+            "65215f5d505f572f6f199132",
+            "64808d4a8cb2e6b05150042c",
+            "641d7f43b5b671fd667cf43d",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d77aab5b671fd667829c8"
+          ]
+        }
+      ],
+      "body": "<p>仕事（と趣味）で思ったより忙しくて記事を書く時間がなかなか取れない今日このごろです。<br>\n本エントリーではnuxt.jsやnext.jsでのレンダリングモード周りの話（SSR、SSG、SPAなど）をまとめてみます。</p>\n<ul>\n<li>なんでSSRは静的ホスティングサービスじゃ使えないの？</li>\n<li>SSGは動的なサイトに向かないってどういうこと？</li>\n<li>できることが同じならSSRよりもSPAのほうが開発も楽だし静的ホスティングもできていいじゃん</li>\n<li>SSGって静的なサイト作るって言ってるけどアウトプットファイル見ると普通にjavascript書いてあるし、javascriptのファイルもいっぱいあるんだけどどういうこと？</li>\n</ul>\n<p>といった疑問の答えを提供することを目標に調べたことを書き残したいと思います。</p>\n<h1>基本的な用語の解説</h1>\n<h2>API</h2>\n<p>APIはApplication Programming Interfaceの略です。<br>\n言葉上の意味はアプリケーションにプログラムでアクセスする際のインターフェース（窓口）という感じですが、実際にはこのインターフェースの仕様を言うこともあります。</p>\n<p>例えばSlack BotなどがAPIの代表的な活用事例です。<br>\nこれ以外にも、DOMなどはJavaScriptからHTMLを操作するためのAPIですし、なんらかのライブラリをプログラムで制御するものに関してもAPIと言われます。</p>\n<p>しかし、最もよく使われるのはウェブAPIと呼ばれるAPIの形式で、この代表がRESTと呼ばれる仕様です。<br>\nこれはHTTPを使ったAPIで、ざっくり言うとあるURLにアクセスするとJSONが返ってくるようなアプリケーションのことです。</p>\n<p>近年のウェブ開発ではウェブサーバーとAPIサーバーを用意することが多く、ウェブサーバーから提供されたHTMLをユーザーが閲覧し、その中のボタンなどを押すとAPIサーバーへのリクエストが送られてページの見た目が変わる、といった動きがウェブサービスの定番となっています。</p>\n<p>ところが、SPAならたしかにこの説明は正しいのですが、実はSSGやSSRだと少し事情が変わってくることがあります。<br>\nということで、「APIアクセスがどこから行われるのか？」ということを考えるのは現在のフロントエンド開発では非常に重要なことなのです。</p>\n<h2>イベント</h2>\n<p>クリックやカーソルのホバーなどの何らかの処理を始めるきっかけとなるような動作のことです。<br>\nまた、このようなイベントが発生したときに行う処理のことをイベントハンドラと言います。<br>\nただし、JavaScriptにおいてはこのイベントをキャッチする処理そのものをイベントハンドラということもあります。<br>\nJavaScriptで扱えるイベントハンドラは以下のサイトに一覧化されています。</p>\n<p><a href=\"https://qiita.com/mrpero/items/156968e3512d42fffc5e\">linkCard</a></p>\n<h2>レンダリング（rendering）</h2>\n<p>日本語では「描画」と訳されることの多いこの言葉は、正直かなりわかりにくい言葉です。</p>\n<p>確かにコンピュータグラフィックスやゲーム、ブラウザのHTMLレンダリングエンジンなどについて話題にしているときに使われる「レンダリング」という言葉は描画そのものを表します。<br>\n例えば、ゲームの描画に関する文脈でプリレンダリングとリアルタイムレンダリングという言葉がよく使われたりします。<br>\nこれらの言葉は我々が目にする映像などを実際に画面上に描画するタイミングの違いを表していて、「レンダリング」という言葉も画面に描画するという意味で使っています。</p>\n<p>一方のSSR（サーバーサイドレンダリング）などで出てくる「レンダリング」という言葉はこの意味とは少し違います。<br>\n具体的には、VueやReactなどのJavaScriptを使ってブラウザがすぐに画面に表示できる<strong>HTMLを作る</strong>という作業がここでいうレンダリングの意味です（HTMLファイルができるかというとそうでもない）。<br>\nなのでイメージ的には人間には描画されているようには見えなくても、ブラウザから見ると描画されているも同然という状態まで持っていくこと、と言う感じです。（逆にわかりにくいですかね）</p>\n<h2>ハイドレーション（hydration）</h2>\n<p>日本語では「水分補給」という意味です。<br>\n正直これだけだとわけがわからないですね。<br>\nこの言葉については英語のwikiを引用したいと思います。</p>\n<blockquote>\n<p>In web development, hydration or rehydration is a technique in which client-side JavaScript converts a static HTML web page, delivered either through static hosting or server-side rendering, into a dynamic web page by attaching event handlers to the HTML elements. Because the HTML is pre-rendered on a server, this allows for a fast &quot;first contentful paint&quot; (when useful data is first displayed to the user), but there is a period of time afterward where the page appears to be fully loaded and interactive, but is not until the client-side JavaScript is executed and event handlers have been attached.<br>\nFrameworks that use hydration include Next.js and Nuxt.js. React v16.0 introduced a &quot;hydrate&quot; function, which hydrates an element, in its API.</p>\n</blockquote>\n<p>せっかくなのでChatGPTに翻訳してもらうと以下のようになります。</p>\n<blockquote>\n<p>ウェブ開発において、hydrationまたはrehydrationとは、クライアントサイドのJavaScriptが、静的なHTMLウェブページ（静的ホスティングまたはサーバーサイドレンダリングを介して提供される）を、HTML要素にイベントハンドラをアタッチすることで、動的なウェブページに変換する技術のことです。HTMLはサーバー側で事前にレンダリングされるため、これにより高速な「最初の有用なコンテンツの表示」（ユーザーに有用なデータが最初に表示されるタイミング）が可能になりますが、その後にページが完全にロードされてインタラクティブになるように見えるが、クライアントサイドのJavaScriptが実行され、イベントハンドラがアタッチされるまでの時間があります。<br>\nhydrationを使用するフレームワークには、Next.jsやNuxt.jsなどがあります。React v16.0では、「hydrate」関数が導入され、要素をhydrationするためのAPIとして提供されました。</p>\n</blockquote>\n<p>これはつまり何かというと<strong>SSRの仕組みそのもの</strong>の説明になっています。<br>\n補足するとイベントハンドラをアタッチするというのは、上で説明したクリックイベントなどに応じて画面を切り替えたりAPIにアクセスしたりするjavascriptを<code>addEventListener</code>メソッドなどを使ってDOM要素に関連付ける操作です。<br>\n具体的なコードで言うと以下のような感じです。</p>\n<pre><code>&lt;button id=&quot;myButton&quot;&gt;Click me&lt;/button&gt;\n\n&lt;script&gt;\n  // ボタン要素を取得\n  const button = document.getElementById(&quot;myButton&quot;);\n\n  // クリックイベントハンドラ関数の作成\n  function handleClick() {\n    console.log(&quot;Button clicked!&quot;);\n  }\n\n  // クリックイベントハンドラのアタッチ\n  button.addEventListener(&quot;click&quot;, handleClick);\n&lt;/script&gt;\n</code></pre>\n<p>この操作はブラウザ上でしか行うことができません。<br>\nというのも、この操作では実際に作られたDOMツリー（上のコードのdocumentオブジェクト）を扱う必要があり、これができるのはブラウザ上だけだからです。</p>\n<p>「いやいや、別にサーバーサイドでもbutton要素のonClick属性にイベントハンドラつければhydrationできるやん」という声が聞こえてきそうですが、それはVueやReactに慣れすぎているために出てくる言葉です。</p>\n<p><strong>htmlのbuttonタグにonClickなんて属性はありません。</strong><br>\nなのでhydrationはブラウザ上で行う必要があるというわけです。</p>\n<p>そして、SSGなどでサーバーサイドでHTMLを作っても生成物の中にJavaScriptのファイルが含まれているのはハイドレーションのためのJavaScriptが必要となるためです。</p>\n<h1>各レンダリングモードの概要</h1>\n<p>ここからは各レンダリングモードの概要とメリット・デメリットを解説します。<br>\n各レンダリングモードの呼び方はフロントエンド界隈で一般的な（Next.jsなどで使われている）呼称を用いますが、これはNuxt.jsにおける呼称とは異なるのでその点は注意してください。</p>\n<h2>SPA</h2>\n<p>一枚のHTMLファイルをブラウザ上でJavaScriptを動かすことで書き換えていくレンダリング方式です。<br>\nReactやVueではデフォルトでこの方式を使うようになっています。</p>\n<p>SPAの動きを表したのが下の図です。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/53c63b4c-0e5c-4b7d-a41d-c390f1af4392/SPA.webp\" alt=\"SPA.webp\"></p>\n<h3>メリット</h3>\n<ul>\n<li>静的ファイルを配信するだけでいいのでコストが少ない</li>\n<li>一度ファイルを配信したらあとはネットワーク通信が不要</li>\n<li>UXの幅が増える</li>\n</ul>\n<p>最後の話を補足すると、SPAはコンポーネントを切り替えるだけでルーティングができるので、スタイリッシュなルーティングができたり、ページをまたいで音楽を流すような体験も可能です。<br>\nそういう意味でMPA（multiple page application）にはないUXを実現できるということです。</p>\n<h3>デメリット</h3>\n<ul>\n<li>初期ローディングに時間がかかる</li>\n<li>SEOで不利になる</li>\n</ul>\n<p>特に1つ目の初期表示時間はもろにユーザー離脱率に直結するのでコンテンツによってはかなり重要です。</p>\n<h2>SSR</h2>\n<p>サーバーサイドでページのHTMLをビルドしておいてリクエストのたびにサーバーサイド側でレンダリングを行う方式です。</p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/379acc88-8641-4408-a2c4-a584ada7fbf7/SSR.webp\" alt=\"SSR.webp\"></p>\n<h3>メリット</h3>\n<ul>\n<li>SPAのメリットを享受できる</li>\n<li>初期ローディングの時間が短い</li>\n<li>SEOにおいて有利</li>\n</ul>\n<p>NuxtなどにおけるSSRはブラウザ上ではSPAとして動くので、前項で説明したSPAのメリットはSSRでも得ることができます。<br>\nまたこれに加えてSSRではSPAでデメリットとなっていた初期ローディングの遅さやSEOの問題も解決されています。</p>\n<h3>デメリット</h3>\n<ul>\n<li>バックエンドでレンダリングを行うためのNode.js環境が必要</li>\n</ul>\n<p>これによってサーバー代などのコストがかなりかかります。<br>\n参考として、AWSでSSRを行おうとすると例えばEC2上に乗せるという選択肢が考えられます。<br>\nこの場合、t3.smallなどのかなり弱いマシンを使ったとしても月間100000PVくらいで6,000円以上はかかります。<br>\n一方、SPAならS3から配信を行うことができ、これであれば同様のPVでも3,400円くらいで抑えることができます。</p>\n<h2>SSG</h2>\n<p>全てのページをHTMLとして事前にレンダリングしておく方式です。</p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/65883e17-b202-48d3-a863-4190bbfe2a79/SSG.webp\" alt=\"SSG.webp\"></p>\n<h3>メリット</h3>\n<ul>\n<li>ブラウザ上での処理が少なく、また軽量なHTMLのみを配信するため高速なページの表示が可能</li>\n<li>静的ホスティングサービスで配信することができるためコストが少ない</li>\n<li>SEOに置いて有利</li>\n</ul>\n<p>SSRのメリットに加えて、SSRのデメリットであったコストの大きさについても解決できています。</p>\n<h3>デメリット</h3>\n<ul>\n<li>SPA特有のUXを提供できない</li>\n<li>動的なページを表示するのが難しい</li>\n</ul>\n<p>SSGではレンダリングを事前に行うため、ページの追加などを行おうと思うと全てのページをビルドし直す必要があります。<br>\nなので、ブログやホームページのような表示されるページが変化しないコンテンツを作成するのに向いています。</p>\n<h1>各レンダリングモードの生成物を比較</h1>\n<p>今回以下の2つのページ（index画面とabout画面）を持つウェブサイトをnuxtで作成しました。</p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/6aeab0c5-9df1-4a2c-839f-1a743062507c/index.webp\" alt=\"index.webp\"></p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/dab38d0a-061e-4241-a000-61cc0c584f73/about.webp\" alt=\"about.webp\"></p>\n<p>このサイトについて各レンダリングモードでの生成物とパフォーマンスの比較を行っていきます。<br>\nなお、各ページに遷移時に以下のようなAPIアクセスを行い、これをもとにページ内のコンテンツを表示します。</p>\n<pre><code>const url = 'https://api.github.com/users/Asunaro276'\nconst userData = ref&lt;any&gt;(null)\nconst { data } = await useFetch&lt;any&gt;(url)\nuserData.value = data.value\n</code></pre>\n<h2>SPA</h2>\n<p>SPAでの生成物は以下のようなものになります。（mockServiceWorkerがありますがこれは無視してください。）</p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/5703c713-76c8-4fb6-ae7f-b0fda29b554b/spa-generate.webp\" alt=\"spa-generate.webp\"></p>\n<p>これは<code>nuxt.config.ts</code>で以下の設定をし、</p>\n<pre><code>export default defineNuxtConfig({\n  ssr: false,\n})\n</code></pre>\n<p>次のコマンドで生成します。</p>\n<pre><code>yarn run nuxi generate\n</code></pre>\n<p>まず、<code>public/index.html</code>を見てみましょう</p>\n<pre><code>&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;head&gt;\n  &lt;meta charset=&quot;utf-8&quot;&gt;\n  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/entry.15c5f3da.js&quot;&gt;\n  &lt;link rel=&quot;prefetch&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/error-component.2e03f275.js&quot;&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n  &lt;div id=&quot;__nuxt&quot;&gt;&lt;/div&gt;  &lt;!-- bodyの中に空のdivが一つあるだけ --&gt;\n  &lt;script type=&quot;application/json&quot; id=&quot;__NUXT_DATA__&quot;\n    data-ssr=&quot;false&quot;&gt;[{&quot;_errors&quot;:1,&quot;serverRendered&quot;:2,&quot;data&quot;:3,&quot;state&quot;:4},{},false,{},{}]&lt;/script&gt;\n  &lt;script&gt;window.__NUXT__ = {}; window.__NUXT__.config = { public: {}, app: { baseURL: &quot;/&quot;, buildAssetsDir: &quot;/_nuxt/&quot;, cdnURL: &quot;&quot; } }&lt;/script&gt;\n  &lt;script type=&quot;module&quot; src=&quot;/_nuxt/entry.15c5f3da.js&quot; crossorigin&gt;&lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;\n</code></pre>\n<p>これがindex画面のHTMLファイルです。<br>\n注目すべきはbodyタグの中身です。<br>\nこの中にはdivタグがありますが、この中身は空です。<br>\n他にあるのはscriptのみなので、このHTMLをただ表示しただけだと真っ白なページが表示されます。<br>\nではどうするかというとレスポンスで一緒に返ってきたJavaScriptを動かして要素を作ったり文字を埋め込んだりします。<br>\n実はaboutページもこの<code>public/index.html</code>にJavaScriptを当てることで生成されています。（ただしこれはvue-routerを使った場合の話）<br>\nですので<code>public/about/index.html</code>は普通にアクセスした場合には使われません。</p>\n<p>これがいつ使われるかといえば、いきなりaboutページにアクセスした場合、例えばaboutページでリロードした場合などです。<br>\nこの場合には<code>public/about/index.html</code>が配信され、これをもとにSPAを作るので逆に<code>public/index.html</code>は使われません。</p>\n<p>SPAでこのページを表示したときのパフォーマンスは下の図のようになります。</p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/9ba83aed-0269-43b9-bc5f-c0da0f1327b3/spa-performance.webp\" alt=\"spa-performance.webp\"></p>\n<p>ここ注視すべきなのはFP、FCP、LCPです。<br>\nこれらはそれぞれ次のような意味を持ちます。</p>\n<ul>\n<li>FP (First Paint): 最初に目に見えるものがレンダリングされるまでの表示時間\n<ul>\n<li>ボーダーラインや背景色などのコンテントでないものも含む</li>\n</ul>\n</li>\n<li>FCP (First Contentful Paint): 最初にコンテンツと呼べるものが表示されるまでの時間\n<ul>\n<li>ヘッダーやフッターなど</li>\n</ul>\n</li>\n<li>LCP (Largest Contentful Paing): ページで最も大きいコンテンツが表示されるまでの時間\n<ul>\n<li>ボディなど</li>\n</ul>\n</li>\n</ul>\n<p>今回の場合これらがほぼ同じところにあり、要は最初に何かが表示されるまでの時間がこのタイミングということです。</p>\n<p>SPAではページを表示するために必要な全てのコンテンツをロードした後に表示をしているのでFPがLやDCLのあとにあります。<br>\nまた、必要なものをロードしたあとにDOMを作ったりfetchをしたりとJSによる処理が入っていることがわかります。</p>\n<h2>SSR</h2>\n<p>次にSSRでの成果物は以下のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/4093fef1-5529-4107-b66c-388136a9b341/ssr-explorer.webp\" alt=\"ssr-explorer.webp\"></p>\n<p>これは</p>\n<pre><code>export default defineNuxtConfig({\n  ssr: true,\n})\n</code></pre>\n<p>という設定の上で、下記のコマンドを実行することで生成することができます。</p>\n<pre><code>yarn run nuxi build\n</code></pre>\n<p>SPAとの違いは大きいところで</p>\n<ul>\n<li>public下にHTMLファイルがない</li>\n<li>server下に諸々のjsファイルがある</li>\n</ul>\n<p>という2点です。</p>\n<p>上記の画像のファイルの中で、SSRのエントリーポイントとなっているのはserver/index.mjsなのでこれを見てみましょう。</p>\n<pre><code>globalThis._importMeta_ = { url: import.meta.url, env: process.env };\nimport &quot;node-fetch-native/polyfill&quot;;\nimport &quot;node:http&quot;;\nimport &quot;node:https&quot;;\nimport &quot;destr&quot;;\nimport &quot;h3&quot;;\nexport { n as default } from &quot;./chunks/nitro/node-server.mjs&quot;;\nimport &quot;ofetch&quot;;\nimport &quot;unenv/runtime/fetch/index&quot;;\nimport &quot;hookable&quot;;\nimport &quot;scule&quot;;\nimport &quot;klona&quot;;\nimport &quot;defu&quot;;\nimport &quot;ohash&quot;;\nimport &quot;ufo&quot;;\nimport &quot;unstorage&quot;;\nimport &quot;radix3&quot;;\nimport &quot;node:fs&quot;;\nimport &quot;node:url&quot;;\nimport &quot;pathe&quot;;\n//# sourceMappingURL=index.mjs.map\n</code></pre>\n<p>これを見るとnitro-server.mjsがserverとして機能していることが推測されます。<br>\nnitroはNuxt3から採用されている新サーバーエンジンで、このnitroが使われるのがSSRということです。<br>\nなのでより深くNuxt3のSSRを理解するにはnitroを理解する必要があることがわかります。</p>\n<p>とはいえそれを書き出すと膨大な記事になってしまうので、今回はSSRの生成物からわかることを読み取っていきましょう。</p>\n<p>ここでserver配下の生成物を改めて詳しく見てみます。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/0f191679-4b43-418c-bacf-be88c28ea2a8/ssr-server-explorer.webp\" alt=\"ssr-server-explorer.webp\"></p>\n<p>これをみるとSSRでの処理は次のような感じになりそうなことがわかります。</p>\n<ul>\n<li>nitro/nitro-server.mjsページでserverとしての機能（HTMLファイルを送るなど）をしていそう</li>\n<li>handlers/renderer.mjsで各ページのレンダリングを行っていそう</li>\n<li>app配下のファイルは名前の通りアプリケーションを作るために使いそう</li>\n<li>rollup配下のファイルはモジュールのバンドルに使いそう</li>\n</ul>\n<p>ということがわかります。</p>\n<p>ちなみに、Nuxt3のバンドラーはViteですが、Viteは内部でrollupを使っているのでビルド後の生成物の中にはrollupのファイルがあります。</p>\n<p>また、SSRでのパフォーマンスは次のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/f92acdcf-af2c-425b-aa0c-5d568aac3149/ssr-performance.webp\" alt=\"ssr-performance.webp\"></p>\n<p>この画像から分かる通りLやDCLなどのコンテンツのダウンロードが終わる前にFPやFCPが来ています。<br>\nこれはサーバーサイドで作られるHTMLさえロードし終わればその他のJavaScriptをロードしなくてもコンテンツをレンダリングすることができるためです。<br>\nこれらから分かる通りSSRの初期表示速度はSPAより速く、SSRが130ms程度での表示なのに対しSPAは300ms程度です。</p>\n<p>ただし、サーバーのスペックや状況によってはSPAと同程度のパフォーマンスとなることもあります。</p>\n<h2>SSG</h2>\n<p>最後にSSGでの生成物を見てみます。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/1a59c9b4-57e5-4f67-b0a7-974c594d9376/ssg-explorer.webp\" alt=\"ssg-explorer.webp\"></p>\n<p>これは</p>\n<pre><code>export default defineNuxtConfig({\n  ssr: true,\n})\n</code></pre>\n<p>という設定の上で、下記のコマンドを実行することで生成することができます。</p>\n<pre><code>yarn run nuxi generate\n</code></pre>\n<p>これをみるとSPAの場合と生成されるファイルが近いことがわかります。<br>\nSPAとの違いとしては_payload.jsonが追加されている点です。<br>\nこの_payload.jsonの中身は次のようになっています。</p>\n<pre><code>[\n  { &quot;data&quot;: 1, &quot;prerenderedAt&quot;: 29 },\n  [&quot;Reactive&quot;, 2],\n  { &quot;7U8zAuYCjJ&quot;: 3 },\n  {\n    &quot;login&quot;: 4,\n    &quot;id&quot;: 5,\n    &quot;node_id&quot;: 6,\n    &quot;avatar_url&quot;: 7,\n    &quot;gravatar_id&quot;: 8,\n    &quot;url&quot;: 9,\n    &quot;html_url&quot;: 10,\n    &quot;followers_url&quot;: 11,\n    &quot;following_url&quot;: 12,\n    &quot;gists_url&quot;: 13,\n    &quot;starred_url&quot;: 14,\n    &quot;subscriptions_url&quot;: 15,\n    &quot;organizations_url&quot;: 16,\n    &quot;repos_url&quot;: 17,\n    &quot;events_url&quot;: 18,\n    &quot;received_events_url&quot;: 19,\n    &quot;type&quot;: 20,\n    &quot;site_admin&quot;: 21,\n    &quot;name&quot;: 22,\n    &quot;company&quot;: 23,\n    &quot;blog&quot;: 8,\n    &quot;location&quot;: 23,\n    &quot;email&quot;: 23,\n    &quot;hireable&quot;: 23,\n    &quot;bio&quot;: 23,\n    &quot;twitter_username&quot;: 23,\n    &quot;public_repos&quot;: 24,\n    &quot;public_gists&quot;: 25,\n    &quot;followers&quot;: 26,\n    &quot;following&quot;: 25,\n    &quot;created_at&quot;: 27,\n    &quot;updated_at&quot;: 28\n  },\n  &quot;Asunaro276&quot;,\n  57317148,\n  &quot;MDQ6VXNlcjU3MzE3MTQ4&quot;,\n  &quot;https://avatars.githubusercontent.com/u/57317148?v=4&quot;,\n  &quot;&quot;,\n  &quot;https://api.github.com/users/Asunaro276&quot;,\n  &quot;https://github.com/Asunaro276&quot;,\n  &quot;https://api.github.com/users/Asunaro276/followers&quot;,\n  &quot;https://api.github.com/users/Asunaro276/following{/other_user}&quot;,\n  &quot;https://api.github.com/users/Asunaro276/gists{/gist_id}&quot;,\n  &quot;https://api.github.com/users/Asunaro276/starred{/owner}{/repo}&quot;,\n  &quot;https://api.github.com/users/Asunaro276/subscriptions&quot;,\n  &quot;https://api.github.com/users/Asunaro276/orgs&quot;,\n  &quot;https://api.github.com/users/Asunaro276/repos&quot;,\n  &quot;https://api.github.com/users/Asunaro276/events{/privacy}&quot;,\n  &quot;https://api.github.com/users/Asunaro276/received_events&quot;,\n  &quot;User&quot;,\n  false,\n  &quot;Ryuhei Nakano&quot;,\n  null,\n  15,\n  0,\n  1,\n  &quot;2019-11-03T11:24:44Z&quot;,\n  &quot;2023-05-01T15:39:21Z&quot;,\n  1697256654745\n]\n</code></pre>\n<p>これはindexとaboutで使われている<code>https://api.github.com/users/Asunaro276</code>へのAPIレスポンスです。<br>\nつまり、SSGではビルドを行う時点でAPIアクセスを行い、その結果を_payload.jsonとして格納しているということです。</p>\n<p>続いてpublic/index.htmlの中身を見てみると、その内容はは次のようになっています。</p>\n<pre><code>&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;head&gt;\n  &lt;meta charset=&quot;utf-8&quot;&gt;\n  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;\n  &lt;link rel=&quot;preload&quot; as=&quot;fetch&quot; crossorigin=&quot;anonymous&quot; href=&quot;/_payload.json&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/entry.15c5f3da.js&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/index.364f2f15.js&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/nuxt-link.2885a033.js&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/fetch.756e09a6.js&quot;&gt;\n  &lt;link rel=&quot;prefetch&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/error-component.2e03f275.js&quot;&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n  &lt;div id=&quot;__nuxt&quot;&gt;\n    &lt;div&gt;\n      &lt;div&gt;\n        &lt;h1&gt;Index&lt;/h1&gt;\n        &lt;p&gt;Hello, Nuxt!&lt;/p&gt;&lt;a href=&quot;/about&quot; class=&quot;&quot;&gt;About&lt;/a&gt;\n        &lt;div&gt;Asunaro276&lt;/div&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n  &lt;script type=&quot;application/json&quot; id=&quot;__NUXT_DATA__&quot; data-ssr=&quot;true&quot;\n    data-src=&quot;/_payload.json&quot;&gt;[{&quot;state&quot;:1,&quot;_errors&quot;:3,&quot;serverRendered&quot;:6,&quot;prerenderedAt&quot;:7},[&quot;Reactive&quot;,2],{},[&quot;Reactive&quot;,4],{&quot;7U8zAuYCjJ&quot;:5},null,true,1697204597157]&lt;/script&gt;\n  &lt;script&gt;window.__NUXT__ = {}; window.__NUXT__.config = { public: {}, app: { baseURL: &quot;/&quot;, buildAssetsDir: &quot;/_nuxt/&quot;, cdnURL: &quot;&quot; } }&lt;/script&gt;\n  &lt;script type=&quot;module&quot; src=&quot;/_nuxt/entry.15c5f3da.js&quot; crossorigin&gt;&lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;\n</code></pre>\n<p>これを見るとSSGでは必要なコンテンツがすでにHTMLとしてレンダリングされていることがわかります。</p>\n<p>実際、パフォーマンスを見ると次のようになっています。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/0d991f3f-cd37-4498-8439-af9e1db218dc/ssg-performance.webp\" alt=\"ssg-performance.webp\"></p>\n<p>SSGでのパフォーマンスはSSRと同程度かさらに速いです。<br>\nまた、ブラウザ上での動きに関してはSSRとほとんど同様となっています。</p>\n<h1>まとめ</h1>\n<p>本記事ではSPA、SSR、SSGそれぞれの挙動やパフォーマンスの差を比較しました。<br>\n結論としては作りたいアプリケーションとコストとの兼ね合いで適切なレンダリング方式を選ぶべきということになります。</p>\n<p>それにしても完全に記事の粒度を失敗しました。<br>\n今後は記事の粒度を小さくできるようにネタ探ししていきたいですね。</p>\n"
+    },
+    {
+      "_id": "646a31e18a1af05ff746e813",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-05-21T14:59:45.169Z",
+          "updatedAt": "2023-05-28T10:13:24.683Z",
+          "firstPublishedAt": "2023-05-28T10:13:24.683Z",
+          "publishedAt": "2023-05-28T10:13:24.683Z"
+        },
+        "customOrder": 15,
+        "createdAt": "2023-05-21T14:59:45.169Z",
+        "updatedAt": "2023-05-28T10:13:24.683Z"
+      },
+      "title": "Minecraftに影Modを導入する際の考え方｜Minecraft Java ver.",
+      "description": "<p>MinecraftのModの入れ方が予想以上に難しく、非エンジニアの方とかはかなり苦労しそうだなと思ったので、本記事ではその際に調べたことなどを書き残しておきます。</p>",
+      "coverImage": {
+        "_id": "6472f5fdadb64546bb97094e",
+        "altText": "",
+        "description": "",
+        "fileName": "forge.webp",
+        "fileSize": 5214,
+        "fileType": "image/webp",
+        "height": 429,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/c5e7998b-547c-4da1-9269-d9b463572b68/forge.webp",
+        "title": "",
+        "width": 600
+      },
+      "category": {
+        "_id": "641d5f660293b870f66b50e6",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:29:26.807Z",
+            "updatedAt": "2023-10-30T14:13:06.046Z",
+            "firstPublishedAt": "2023-03-24T08:29:26.808Z",
+            "publishedAt": "2023-10-30T14:13:06.046Z"
+          },
+          "customOrder": 1,
+          "createdAt": "2023-03-24T08:29:26.807Z",
+          "updatedAt": "2023-10-30T14:13:06.046Z"
+        },
+        "displayedName": "OTHER",
+        "name": "other",
+        "ref": ["65215f5d505f572f6f199132", "646a31e18a1af05ff746e813"]
+      },
+      "tags": [
+        {
+          "_id": "6472f659adb64546bb9717d2",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-05-28T06:36:09.724Z",
+              "updatedAt": "2023-11-01T16:00:49.074Z",
+              "firstPublishedAt": "2023-05-28T06:36:09.724Z",
+              "publishedAt": "2023-10-30T13:59:26.280Z"
+            },
+            "customOrder": 30,
+            "createdAt": "2023-05-28T06:36:09.724Z",
+            "updatedAt": "2023-11-01T16:00:49.074Z"
+          },
+          "tag": "ゲーム",
+          "ref": ["646a31e18a1af05ff746e813"]
+        },
+        {
+          "_id": "6472f651a0e96bb384503098",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-05-28T06:36:01.132Z",
+              "updatedAt": "2023-11-01T16:00:49.128Z",
+              "firstPublishedAt": "2023-05-28T06:36:01.132Z",
+              "publishedAt": "2023-10-30T13:59:47.065Z"
+            },
+            "customOrder": 29,
+            "createdAt": "2023-05-28T06:36:01.132Z",
+            "updatedAt": "2023-11-01T16:00:49.128Z"
+          },
+          "tag": "Mod",
+          "ref": ["646a31e18a1af05ff746e813"]
+        },
+        {
+          "_id": "6472f634a0e96bb384502fe6",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-05-28T06:35:32.488Z",
+              "updatedAt": "2023-11-01T16:00:49.187Z",
+              "firstPublishedAt": "2023-05-28T06:35:32.488Z",
+              "publishedAt": "2023-10-30T13:59:55.457Z"
+            },
+            "customOrder": 28,
+            "createdAt": "2023-05-28T06:35:32.488Z",
+            "updatedAt": "2023-11-01T16:00:49.187Z"
+          },
+          "tag": "Minecraft",
+          "ref": ["646a31e18a1af05ff746e813"]
+        }
+      ],
+      "body": "<p>最近初任給をもらえたので念願のゲーミングPCが手に入りました。<br>\nさっそくMinecraftのModを入れようとしたんですが、予想以上に難しくて非エンジニアの方とかはかなり苦労しそうだなと思ったので、本記事ではその際に調べたことなどを書き残しておきます。<br>\n本記事では1.19.4のMinecraftを例に画像などを作っていますが、どのバージョンでも入れられるような説明をしていますので、ご安心ください。<br>\n本記事がMinecraftのModの考え方などを理解する一助になれば幸いです。</p>\n<h1>MinecraftのModに関する用語</h1>\n<p>まず、MinecraftにModを入れる際に重要となるいくつかの用語を紹介します。</p>\n<h2>バージョン</h2>\n<p>Modを導入する際に最も重要となるものの一つがバージョンです。</p>\n<p>Minecraftは世界で最も売れたゲームと呼ばれるほど人気のゲームなので、現在でもマイクロソフトによって活発に開発がされています。<br>\n小さいリリースでいうと数日から数週間に一度程度、1.18 → 1.19 などの大型のアップデートは数ヶ月に一度程度の頻度で行われています。</p>\n<p>各Modは特定のバージョンのMinecraftに合わせて作られているので、想定されているバージョン以外のバージョンのMinecraftを動かそうとするとクラッシュすることが度々あります。<br>\nそのため、MinecraftのModを入れる際には<strong>Minecraft本体とModのバージョンを揃える</strong>ことが非常に重要です。</p>\n<h2>前提Mod</h2>\n<p>Modの中には軽量化Modなどを入れることが前提となっているModがあります。<br>\n例えば影Modなどについても<a href=\"https://irisshaders.net/\">Iris</a>や<a href=\"https://www.optifine.net/home\">OptiFine</a>などの軽量化Modを入れることを前提としているものがほとんどです。</p>\n<p>この前提Modの中にはOptiFineのようにMinecraftの環境を作ってしまえるものがあります。<br>\nしかし、前提Modで環境を作ってしまうと後述するMod管理ツールを利用できなくなってしまうため注意が必要です。</p>\n<h2>Mod管理ツール</h2>\n<p>名前の通りModを管理するためのツールで、有名なものではMinecraft Forgeなどがあります。<br>\nこれ以外にもGUIでModを管理できるCurseForgeなどもありますが、本記事ではForgeの方を使っていきます。</p>\n<p>このMod管理ツールで作った環境に前提Modなどを導入し、その中で影Modなどを使う形となります。<br>\nこれを図で表すと下のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/0ef755be-daf7-4d15-a84a-d56e64d8edbb/Minecraft-1.webp\" alt=\"Minecraft-1.webp\"></p>\n<p>そしてこれらの<strong>ver.A, ver.A', ver.A'', ver.A'''のすべてを合わせてあげないとModどころか最悪ゲーム自体が動かなくなる</strong>こともあります。</p>\n<p>以下では影Modを例にとってこれらのModのバージョンを合わせる方法について説明していきます。</p>\n<h1>影Modの入れ方</h1>\n<p>今回は<a href=\"https://www.curseforge.com/minecraft/customization/bsl-shaders\">BSL</a>という影Modを入れていきます。<br>\n入れた後のイメージはこんな感じ↓<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3adbbf7f-81de-4fa2-88d0-c5d77463c004/image-1.webp\" alt=\"image-1.webp\"></p>\n<p>手順としては、まずOptiFineをダウンロードします。<br>\n次にForgeをダウンロード・インストールし、その中にダウンロードしておいたOptiFineを導入して、最後に影Modを導入するという流れになります。</p>\n<p>前提として、Minecraft Launcheについては入れてあるものとしますので、もし入れていない方はそちらを先に入れてみてください。</p>\n<p><a href=\"https://www.minecraft.net/ja-jp/download\">linkCard</a></p>\n<p>また、この手順を進める前に<strong>必ずワールドデータのバックアップを取っておいてください。</strong><br>\nデフォルトではワールドデータは<code>C:\\Users\\&lt;ユーザーネーム&gt;\\AppData\\Roaming\\.minecraft</code>フォルダ内に入っています。</p>\n<h2>OptiFineのダウンロード</h2>\n<p>まずはOptiFineをダウンロードしてきます。<br>\nOptiFineは以下のリンクからダウンロードすることができます。<br>\n<a href=\"https://optifine.net/downloads\">linkCard</a></p>\n<p>ただし、ここで注意として、OptiFineのバージョンとMinecraftのバージョンを揃える必要があります。<br>\n具体的には下の図で示している2つの数字が一致するようなバージョンを選びます。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/b14eaa16-3435-43ee-996d-45f600f09553/optifine-ver.webp\" alt=\"optifine-ver.webp\"><br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/39faf09c-8cb1-48f7-8684-39d7cc98be8c/minecraft-ver-1.webp\" alt=\"minecraft-ver-1.webp\"></p>\n<p>ダウンロードしてファイルはとりあえず一旦おいておきます。</p>\n<h2>Forgeのダウンロード</h2>\n<p>次にForgeの導入手順を説明します。<br>\nForge導入のためにまずはJavaの実行環境をインストールしていきます。<br>\n最も簡単な方法はPowerShellなどのシェルを使ってコマンドでインストールする方法です。<br>\nPowerShellは↓こういうやつです。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/87026a42-d310-47fa-9e41-bff312130297/powershell.webp\" alt=\"powershell.webp\"><br>\nこれをWindowsの下の検索から開き、次のように打てば最新のJavaの実行環境がインストールできます。</p>\n<pre><code>winget search Microsoft.OpenJDK\nwinget install Microsoft.OpenJDK.表示された中で一番新しいやつ\n例） winget install Microsoft.OpenJDK.17\n</code></pre>\n<p>ただこれは非エンジニアの方には少しハードルが高いかもしれません。</p>\n<p>一応ブラウザからzipファイルをダウンロードしてインストールする方法もあるので、もし難しい方はそちらも検討してみてください。<br>\n<a href=\"https://www.javadrive.jp/start/install/index1.html\">listCard</a></p>\n<p>次にForgeを導入します。<br>\nまず、以下のリンクからインストーラーをダウンロードします。<br>\n<a href=\"https://files.minecraftforge.net/net/minecraftforge/forge/\">linkCard</a></p>\n<p>ここで、現在の自分のマインクラフトのバージョンとForgeのバージョン、そしてOptiFineのバージョンを合わせる必要があります。<br>\nOptiFineとMinecraftのバージョンは先程確認したので、後はForgeとOptiFineのバージョンを合わせれば大丈夫です。<br>\n図の2箇所の数字が一致していることを確認してダウンロードを行ってください。<br>\nOptiFineに表示されているForgeのバージョンとForgeの公式サイトの一番上にあるForgeのバージョンが一致することは殆どないので、下にあるshow all versionから一致するものを探しましょう。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/238db9aa-32a4-426c-9e82-b02e91ca41e8/optifine-ver-forge.webp\" alt=\"optifine-ver-forge.webp\"></p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/00354d43-f14c-4681-891c-99e40e14bd59/forge-ver-1.webp\" alt=\"forge-ver-1.webp\"></p>\n<p>ダウンロードサイトに飛んだら右上のスキップを押せばダウンロードが始まります。</p>\n<h2>影Modのダウンロード</h2>\n<p>後は影Modをダウンロードしてきます。<br>\n今回は以下のBSL Shadersを使いますが、これは好みによって変更してください。<br>\n<a href=\"https://www.curseforge.com/minecraft/customization/bsl-shaders/files?version=1.19.4\">linkCard</a></p>\n<p>上のリンクからBSLのダウンロードサイトに飛べます。<br>\n自分のマインクラフトのバージョンに合うものを選んでダウンロードしてください。<br>\n複数ある場合はとりあえず一番新しいものを選んでおけば大丈夫かと思います。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/01f2628e-ae69-4477-81ea-57d63855af3e/bsl-ver.webp\" alt=\"bsl-ver.webp\"></p>\n<h2>各ツールのインストール</h2>\n<p>まずはForgeをインストールします。<br>\n先程ダウンロードした <code>forge-~</code>というファイルをダブルクリックで実行し、手順に従えばインストールすることができます。<br>\nこの際、必ず<strong>自分のマインクラフトのワールドデータのバックアップを取っておいてください</strong>。<br>\nワールドデータは <code>C:\\Users\\&lt;ユーザーネーム&gt;\\AppData\\Roaming\\.minecraft</code>フォルダ内に入っています。</p>\n<p>次に、先程作ったForge環境にOptiFineを導入します。<br>\n正常にForgeがインストールされていれば <code>C:\\Users\\&lt;ユーザーネーム&gt;\\AppData\\Roaming\\.minecraft</code>に<code>mods</code>というフォルダができているので、ここに先ほどダウンロードしてきた <code>OptiFine-~</code>を置きます。</p>\n<p>この状態でMinecraft Launcherを起動するとForgeの起動構成が追加されているかと思います。<br>\nそのまま起動し、設定画面のビデオ設定からシェーダーの詳細設定を開きます。<br>\nシェーダーフォルダーを押すと <code>C:\\Users\\&lt;ユーザーネーム&gt;\\AppData\\Roaming\\.minecraft\\shaderpacks</code>というフォルダが開かれるので、ここに先ほどダウンロードしてきた影Modのzipファイル（<code>BSL_~</code>）を配置し、シェーダーの詳細でBSLを選択します。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/01be403e-8892-4a3a-937d-380ff90bfc4b/launch-conf.webp\" alt=\"launch-conf.webp\"></p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/5fa83177-7b8c-4f57-b6ea-95938de589b4/micra-home.webp\" alt=\"micra-home.webp\"></p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/7f3f91e9-b7e4-454e-af42-ed9bead726f6/setting.webp\" alt=\"setting.webp\"></p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/67efe71c-39ac-4100-88e6-d26700563bda/setting-video.webp\" alt=\"setting-video.webp\"></p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/93a3dc36-c466-4ba7-8839-097bb0794a20/setting-shader.webp\" alt=\"setting-shader.webp\"></p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/7289e6b8-c390-4a18-b267-f62f2c4a5f1c/setting-shader-bsl.webp\" alt=\"setting-shader-bsl.webp\"></p>\n<p>ここまで来れば、後は起動して確認するだけです。<br>\nブロックの質感が変わっていれば成功です。</p>\n<h1>まとめ</h1>\n<p>長々と説明してきましたが、正直この通りにやってもうまく行かないことはあると思います。<br>\nそういうときはダウンロードしたバージョンが正しいかなどを改めて確認してみてください。</p>\n<p>これもうほとんどデバッグに近いので非エンジニアの方には本当に優しくないと思います。<br>\nマイクラでModを自力で入れられるとこまで来たらかなりITリテラシ高いので、めげずに取り組んでみてください。<br>\nそれでは、よいマイクラライフを！</p>\n"
+    },
+    {
+      "_id": "64684d93bb8301c65ff6547c",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-05-20T04:33:23.130Z",
+          "updatedAt": "2023-06-18T14:30:33.039Z",
+          "firstPublishedAt": "2023-05-20T13:45:20.278Z",
+          "publishedAt": "2023-06-18T14:30:33.039Z"
+        },
+        "customOrder": 14,
+        "createdAt": "2023-05-20T04:33:23.130Z",
+        "updatedAt": "2023-06-18T14:30:33.039Z"
+      },
+      "title": "Dockerを使ってMacでUbuntuを動かす｜LPIC備忘録",
+      "description": "<p>Mac上でDocker on Colimaを使ってUbuntu環境を構築する方法について解説します。</p>",
+      "coverImage": {
+        "_id": "64687a5f8a1af05ff72da0ff",
+        "altText": "",
+        "description": "",
+        "fileName": "Docker-Logo-768x432.webp",
+        "fileSize": 9846,
+        "fileType": "image/webp",
+        "height": 432,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/b10d5788-6a3c-4e01-9d37-ca75a281cd91/Docker-Logo-768x432.webp",
+        "title": "",
+        "width": 768
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "64687a918a1af05ff72db0e5",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-05-20T07:45:21.126Z",
+              "updatedAt": "2023-11-01T16:00:49.251Z",
+              "firstPublishedAt": "2023-05-20T07:45:21.126Z",
+              "publishedAt": "2023-10-30T14:00:19.253Z"
+            },
+            "customOrder": 27,
+            "createdAt": "2023-05-20T07:45:21.126Z",
+            "updatedAt": "2023-11-01T16:00:49.251Z"
+          },
+          "tag": "Docker",
+          "ref": ["64684d93bb8301c65ff6547c"]
+        },
+        {
+          "_id": "64687a8b8a1af05ff72da6b1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-05-20T07:45:15.922Z",
+              "updatedAt": "2023-11-01T16:00:49.312Z",
+              "firstPublishedAt": "2023-05-20T07:45:15.922Z",
+              "publishedAt": "2023-10-30T14:00:46.045Z"
+            },
+            "customOrder": 26,
+            "createdAt": "2023-05-20T07:45:15.922Z",
+            "updatedAt": "2023-11-01T16:00:49.312Z"
+          },
+          "tag": "Linux",
+          "ref": ["64684d93bb8301c65ff6547c"]
+        },
+        {
+          "_id": "64687a83bb8301c65ff85090",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-05-20T07:45:07.048Z",
+              "updatedAt": "2023-11-01T16:00:49.377Z",
+              "firstPublishedAt": "2023-05-20T07:45:07.048Z",
+              "publishedAt": "2023-10-30T14:01:27.764Z"
+            },
+            "customOrder": 25,
+            "createdAt": "2023-05-20T07:45:07.048Z",
+            "updatedAt": "2023-11-01T16:00:49.377Z"
+          },
+          "tag": "インフラ",
+          "ref": ["64684d93bb8301c65ff6547c"]
+        }
+      ],
+      "body": "<p>お久しぶりの投稿です。<br>\nPCが弱弱すぎたことと社会人生活1年めが忙しくてブログの更新ができていませんでした。<br>\n今回は、今度LPICを受けることになったのでその学習のためにUbuntuをMacのDocker上で作った話をします。</p>\n<h1>Dockerの概要</h1>\n<h2>コンテナ型仮想化とは？</h2>\n<p>Dockerについて説明するにはDockerが実現しようとしているコンテナ型仮想化という技術について説明する必要があります。</p>\n<p>コンテナ型仮想化というのは、簡単に言うと軽量な仮想環境のことです。<br>\nここで言うコンテナというのは皆様が想像される通りのあの箱のことです。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3e40e67a-6af1-4dd5-9f08-cb83b655c801/image.webp\" alt=\"image.webp\"></p>\n<p>イメージとしては<strong>箱の中に必要なものだけを詰めてアプリケーションを動かす感じ</strong>です。<br>\nこれによって</p>\n<ul>\n<li>運ぶ（配布する）のが楽になる</li>\n<li>同じような仕組み（Dockerfileなど）を使うことで効率よく環境構築ができる</li>\n<li>開発環境で作ったものをそのままコンテナに入れて本番環境にデプロイできる</li>\n</ul>\n<p>といったようなメリットがあります。</p>\n<p>技術的にはコンテナ型仮想化はゲストOSを使わない仮想化というのが一般的な説明です。<br>\nOSなしでどうやってアプリケーションを動かすのか？というと、ホストOSの力を借ります。<br>\nすなわち、ホストOSのカーネル（OSの重要な機能）を借りることでCPUやメモリにアクセスすることができます。<br>\n環境の中にカーネルが入っていないというためにコンテナは軽量かつ高速になるというからくりです。</p>\n<p>とはいえ、ではどんなOSのカーネルでも借りてくることができるのか？というとそんなことはなく、Linuxのカーネルしか借りてくることができません。<br>\nそのため、WindowsやMac上でコンテナを使うにはまずLinuxをゲストOSとして導入するか、あるいは別途Linuxカーネルを用意する必要があります。<br>\n本記事ではColimaを使ってこの環境を整えます。</p>\n<h2>Dockerとは？</h2>\n<blockquote>\n<p>Docker（ドッカー）は、コンテナ仮想化を用いてアプリケーションを開発・配置・実行するためのオープンプラットフォームである。<br>\n出典: フリー百科事典『ウィキペディア（Wikipedia）』</p>\n</blockquote>\n<p>Dockerはコンテナ型仮想環境を扱う上でのデファクトスタンダードとなっているツールです。<br>\nDocker Hubを使ってDockerイメージ（コンテナを作るための設計書）を配布することができるなど、コンテナを扱う上で便利な機能を有しています。</p>\n<h1>Colimaを使ったDocker環境の構築</h1>\n<h2>Colimaとは？</h2>\n<p><a href=\"https://github.com/abiosoft/colima\">linkCard</a><br>\nCoilimaというのはMac OSとLinux上でDockerを動かすためのランタイム（ツール）です。<br>\n前節で述べた通りDockerはLinux上でしか動きません。<br>\nColimaは<a href=\"https://github.com/lima-vm/lima\">Lima</a>というMac用のLinux仮想環境のラッパーでDockerによるコンテナ仮想環境を動かすことに特化したものです。</p>\n<p>Mac上でDockerを動かす方法にはColimaの他にDocker Desktopを用いる方法もありますが、今回はColimaを使ってみます。</p>\n<h2>Colimaの導入と起動</h2>\n<p>Colimaの導入は基本的に上記のgithubに従えば問題ありません。<br>\n今回はbrewを使ってインストールします。</p>\n<pre><code>brew install colima\n</code></pre>\n<p>インストールが完了したら以下のコードでColimaが起動します。</p>\n<pre><code>colima start\n</code></pre>\n<p>これだけでDockerを動かすことができます。<br>\n非常に簡単ですね。</p>\n<p>ただし、肝心のDockerが入っていなければどうしようもないので、ここからはDockerのインストールについて説明します。</p>\n<h2>Dockerをインストールして起動</h2>\n<p>Dockerもbrewを使ってインストールすることができます。</p>\n<pre><code>brew install docker docker-compose\ndocker ps\n</code></pre>\n<p>dockerが正しく入っていて、なおかつColimaが正常に動いていればcontainer idなどのテーブルが表示されます。</p>\n<h2>Docker上にUbuntuを構築</h2>\n<p>ここからはDocker上に実際にUbuntu環境を構築していきます。<br>\nといっても特段難しいことはなく、イメージを作成→起動を行うだけです。</p>\n<p>今回はDockerfileを使ってDockerイメージを作成します。<br>\nDocker Hubからイメージを取得して、それを起動させるだけでももちろんUbuntu環境を構築することはできますが、Dockerfileを使うとコンテナのビルド時に色々な設定（主にパッケージのインストール）を済ませることができるので後から設定する手間が省けます。</p>\n<p>今回は以下のようなDockerfileを用意しました。</p>\n<pre><code>FROM ubuntu:20.04\n\nENV TZ=Asia/Tokyo\nRUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone\n\n# 以下に行いたい設定を記入\nRUN apt-get update &amp;&amp; apt-get upgrade\nRUN apt-get install -y binutils build-essential golang sysstat python3-matplotlib python3-pil fonts-takao fio qemu-kvm virt-manager libvirt-clients virtinst jp docker.io containerd libvirt-daemon-system\nRUN adduser `id -un ` libvirt\nRUN adduser `id -un ` libvirt-qemu\nRUN adduser `id -un ` kvm\n</code></pre>\n<p>最初の行はubuntu20.04のイメージをDocker Hubから取得しています。<br>\nその次でタイムゾーンの設定をしています。<br>\nその後にパッケージのインストールなどを行っています。<br>\n今回は以下の本の環境を作りたかったので、そのような設定を行っていますが、ここは作りたい環境によって適宜書き直してください。<br>\n<a href=\"https://amzn.to/43i4hCP\">linkCard</a></p>\n<p>このDockerfileをもとにDockerイメージをビルドします。<br>\nDockerイメージは動作環境（コンテナ）を作るためのテンプレートファイルです。<br>\nこの中にはOS、コマンド、データ（ファイルなど）、メタデータ（バージョン情報など）が入っています。<br>\nDockerイメージは次のようなコマンドを用いることでビルドすることができます。</p>\n<pre><code>docker build -t ubuntu .\n</code></pre>\n<p>上記のように<code>docker build &lt;Dockerfileのパス&gt;</code>でDockerイメージをビルドします。<br>\nここで、docker buildの<code>-t</code>オプションは<code>--tag</code>の省略記法でdockerイメージに名前をつけることができます。<br>\nまた、dockerイメージのビルドにはdocker composeなどを使うこともありますが、今回はdockerコマンドのみで作っています。</p>\n<h2>コンテナを立ち上げる</h2>\n<p>最後に上で作成したDockerイメージをもとにDockerコンテナを立ち上げ、bashにアクセスします。</p>\n<pre><code>docker run -it ubuntu bash\nroot@◯◯◯◯◯◯:/#\n</code></pre>\n<p>上記のようなプロンプトが出ていればdockerコンテナの立ち上げは成功です。<br>\nここで、docker runのシグネチャーは<code>docker run [OPTIONS] &lt;dockerイメージ&gt; &lt;コマンド&gt;</code>で、今回は<code>-i</code>オプションと<code>-t</code>オプションの2つを指定しています。<br>\n<code>-i</code>オプションは<code>--interactive</code>の省略記法で、コンテナの標準入出力を開き続けます。<br>\n<code>-t</code>オプションは<code>--tty</code>の省略記法で、コンテナに疑似ttyを割り当てます。<br>\nttyというのは簡単に言うとターミナルのことです。<br>\n例えば、<code>-i</code>オプションのみを付した場合、ターミナルが割り当てられないのでプロンプトが表示されません。<br>\nその反面、コンテナの標準入出力は開いているので<code>ls</code>コマンドを打ち込むとファイル・ディレクトリの一覧が表示されます。<br>\n一方、<code>-t</code>オプションのみを付すとターミナルがアタッチされるのでプロンプトは表示されますが、コンテナの標準入出力が開いていないのでコンテナにコマンドを送ることができなくなります。</p>\n<h1>まとめ</h1>\n<p>本記事ではMac OSでDocker on Colima上にUbuntu環境を構築する方法を説明しました。<br>\nこんな簡単なことでも仮想化・Linuxの基礎的な部分の勉強ができて結構おもしろいです。<br>\nこの環境上でLPICの勉強するぞ～</p>\n<h1>おまけ</h1>\n<p>ColimaはMacをシャットダウンすると停止してしまい、再起動のたびにターミナルで起動し直す必要があります。<br>\nこれは非常に面倒くさいので、頻繁にDocker環境を使う場合にはMac OSのAutomatorを使うことをおすすめします。<br>\nこれはアプリケーションなどのトリガーを設定できる機能で、起動した際にシェルスクリプトを実行させるようなこともできます。</p>\n<p>設定は簡単で以下のような手順です。</p>\n<ol>\n<li>FinderのアプリケーションからAutomatorを選択</li>\n<li>アプリケーションを選択</li>\n<li>検索ボックスに「シェル」と打ち込み、「シェルスクリプトを実行」を選択</li>\n<li>右のアクション設定で以下のように打ち込む。注意点としてAutomatorからのパスが全然通っていないので、1行目がないとcommand not foundになってしまう。</li>\n</ol>\n<pre><code>export PATH=/opt/homebrew/bin:$PATH\ncolima start\n</code></pre>\n<ol start=\"5\">\n<li>実行を押してテスト</li>\n<li>うまく行ったらファイル→保存で保存。この際*.appという名前をつける。</li>\n<li>システム設定で「ログイン項目」で検索し、ログイン時に開くの+を押して先程作ったファイルを追加</li>\n</ol>\n<p>これで設定完了です。<br>\nぜひお試しを。</p>\n"
+    },
+    {
+      "_id": "643b9d80729275004e35db8b",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-04-16T07:02:24.182Z",
+          "updatedAt": "2023-04-16T14:14:22.678Z",
+          "firstPublishedAt": "2023-04-16T08:03:21.659Z",
+          "publishedAt": "2023-04-16T14:14:22.678Z"
+        },
+        "customOrder": 13,
+        "createdAt": "2023-04-16T07:02:24.182Z",
+        "updatedAt": "2023-04-16T14:14:22.678Z"
+      },
+      "title": "Next.js+Newt+KaTeXで改めて数式をきれいに表示する｜自作ブログ",
+      "description": "<p>以前KaTeXを使って数式をきれいに表示する方法を解説しましたが、しばらく使ってみたところこのやり方だと色々と問題があることに気づいたので、別の方法を模索して実装し直しました。新しい方法のメリット・デメリットも含め解説していきたいと思います。</p>",
+      "coverImage": {
+        "_id": "641d757cb5b671fd667780b5",
+        "altText": "KATEXのロゴ",
+        "description": "",
+        "fileName": "katex.webp",
+        "fileSize": 2862,
+        "fileType": "image/webp",
+        "height": 263,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/5ee80325-8481-4659-a8da-cfb9e031b98d%2Fkatex.webp",
+        "title": "KATEXのロゴ",
+        "width": 500
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d60820293b870f66d29e0",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:10.896Z",
+              "updatedAt": "2023-10-30T14:04:33.603Z",
+              "firstPublishedAt": "2023-03-24T08:34:10.896Z",
+              "publishedAt": "2023-10-30T14:04:33.603Z"
+            },
+            "customOrder": 14,
+            "createdAt": "2023-03-24T08:34:10.896Z",
+            "updatedAt": "2023-10-30T14:04:33.603Z"
+          },
+          "tag": "KaTeX",
+          "ref": ["641d77aab5b671fd667829c8", "643b9d80729275004e35db8b"]
+        },
+        {
+          "_id": "641d60780293b870f66d1e8f",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:00.436Z",
+              "updatedAt": "2023-10-30T14:05:08.638Z",
+              "firstPublishedAt": "2023-03-24T08:34:00.436Z",
+              "publishedAt": "2023-10-30T14:05:08.638Z"
+            },
+            "customOrder": 13,
+            "createdAt": "2023-03-24T08:34:00.436Z",
+            "updatedAt": "2023-10-30T14:05:08.638Z"
+          },
+          "tag": "ブログ",
+          "ref": [
+            "643b9d80729275004e35db8b",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d77aab5b671fd667829c8"
+          ]
+        },
+        {
+          "_id": "641d5ff60293b870f66c4600",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:31:50.856Z",
+              "updatedAt": "2023-10-30T14:11:19.620Z",
+              "firstPublishedAt": "2023-03-24T08:31:50.856Z",
+              "publishedAt": "2023-10-30T14:11:19.620Z"
+            },
+            "customOrder": 3,
+            "createdAt": "2023-03-24T08:31:50.856Z",
+            "updatedAt": "2023-10-30T14:11:19.620Z"
+          },
+          "tag": "Next.js",
+          "ref": [
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d77aab5b671fd667829c8",
+            "643b9d80729275004e35db8b"
+          ]
+        }
+      ],
+      "body": "<p>やっと社会人になって多少忙しくなったのですが、このブログは備忘録的に続けていきたいと思います。<br>\n以前KaTeXを使って数式をきれいに表示する方法を解説しました。<br>\n<a href=\"https://asunaroblog.net/blog/641d77aab5b671fd667829c8\">linkCard</a></p>\n<p>しばらく使ってみたところこのやり方だと色々と問題があることに気づいたので、別の方法を模索して実装し直しました。<br>\n新しい方法のメリット・デメリットも含め解説していきたいと思います。</p>\n<h1>環境</h1>\n<ul>\n<li>Next.js: 12.1.5</li>\n<li>Katex: 0.16.2</li>\n<li>newt-client-js: 3.2.4</li>\n</ul>\n<h1>解説と実装</h1>\n<h2>解説</h2>\n<p>前に書いた方法との大きな違いは、前はKaTeXの<code>rendetToString</code>を使っていました。<br>\nこの関数にはdelimiter（どこからどこまでが数式なのかの識別子）を判別したり、削除したりする機能がありませんでした。<br>\nそのため、正規表現とTypeScriptの文字列操作を使ってmicroCMSのAPIによって取得したHTMLタグ付き文字列から無理やり数式部分を抜き出していました。</p>\n<p>一方、今回の方法ではKaTeXのauto-render extensionを使います。<br>\nこの方法は開発者が特に何もしなくても生成したdomツリーから指定したdelimiterを元に勝手に数式部分を抜き出して数式をきれいにレンダリングしてくれます。</p>\n<p>今回この方法を採用した背景には、ヘッドレスCMSを変更したことがあります（別の記事で書くかもしれませんが、microCMSからNewtというヘッドレスCMSにお引越ししました）。<br>\nそれに伴って各CMSから送られてくるHTMLタグ付き文字列の内容に微妙な違いがあり、それが原因でKaTeXが動かなくなってしまいました。<br>\nそのため、この修正と合わせてKaTeXによる数式レンダリングの方法を今回改めて見直しています。</p>\n<h2>新手法のメリット・デメリット</h2>\n<p>この方法のメリットは以下のようになります。</p>\n<ul>\n<li>複雑な文字列操作をしなくても数式部分を勝手に抜き出してくれるため、楽に数式をレンダリングできる。</li>\n<li>導入が簡単</li>\n<li>動作不良を起こしにくい</li>\n</ul>\n<p>一方、この方法にはデメリットもあります</p>\n<ul>\n<li>DOMツリーを元に数式をレンダリングするため、DOMツリー内で別のノードとして認識されると数式表示できなくなる</li>\n<li>サーバーサイドで修飾したHTMLを受け取るわけではないのでパフォーマンス的には若干不利（？）</li>\n</ul>\n<p>このうち、1つ目のデメリットの意味としては、例えば数式内に改行タグ（<code>&lt;br&gt;</code>）等があるとうまく数式として認識されなかったりします。<br>\nそのため、数式を一行で書く必要があり、CMS上でLaTeX表現を書くのが多少不便だったりします。<br>\nとはいえ、今のところそんなに大量の数式を書く予定はないので、当面はこれで大丈夫でしょう。</p>\n<h2>実装</h2>\n<p>実装自体は前に書いた方法に比べかなり簡単です。</p>\n<pre><code>import { useEffect } from &quot;react&quot;;\nimport renderMathInElement from &quot;katex/contrib/auto-render&quot;;\nimport 'katex/dist/katex.min.css'\n\nconst PostBody = (props: Props) =&gt; {\n  useEffect(() =&gt; {\n    renderMathInElement(document.body, {\n      delimiters: [\n        { left: '$$', right: '$$', display: true },\n        { left: '$', right: '$', display: false },\n        { left: &quot;\\\\(&quot;, right: &quot;\\\\)&quot;, display: false },\n        { left: &quot;\\[&quot;, right: &quot;\\]&quot;, display: true }\n      ],\n      ignoredTags: [&quot;code&quot;]\n    })\n  }, [])\n  return (\n        &lt;div dangerouslySetInnerHTML={{ __html: props.blog.body }} /&gt;\n  )\n}\n\n</code></pre>\n<p>これだけでHTMLタグ付き文字列から数式部分を取り出してレンダリングまでしてくれます。<br>\nポイントはuseEffectを使っている点です。<br>\nuseEffectの第2引数に空の配列を指定することで最初にレンダリングしたタイミングでのみrenderMathInElementを作用させます。</p>\n<p>また、renderMathInElementの第2引数はオプションになっており、ここではdelimiters（識別子）とignoredTagsを指定しています。<br>\nignoredTagsにcodeを指定しているのはcheerioなどのjQuery系のライブラリを使う際にドルマークを使ったりしますし、コードブロック内に数式を書く機会はないだろうという判断から無視するようしています。</p>\n<h1>まとめ</h1>\n<p>実はこの方法はchatGPTが提案してくれた方法です。<br>\nこの方法にたどり着くまでにサーバー側でjsdomを動かして仮想DOMツリーを元に数式のレンダリングをしたあと、さらにHTMLタグ付き文字列を作り直すという回りくどい方法を試したりもしました。<br>\nやっぱりchatGPTからうまいこと知りたい答えを引き出すのって難しいですね。<br>\nとはいえ、それって人間に対する質問でも同じなので結局コミュニケーションが難しいってことなんでしょうか。。。</p>\n"
+    },
+    {
+      "_id": "641d81e7b5b671fd667e41b5",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T10:56:39.161Z",
+          "updatedAt": "2023-03-29T06:08:37.696Z",
+          "firstPublishedAt": "2023-03-24T10:56:39.161Z",
+          "publishedAt": "2023-03-24T12:37:32.733Z"
+        },
+        "customOrder": 12,
+        "createdAt": "2023-03-24T10:56:39.161Z",
+        "updatedAt": "2023-03-29T06:08:37.696Z"
+      },
+      "title": "CORSについてやさしく解説｜webセキュリティの基礎",
+      "description": "<p>Webセキュリティの基本のキである同一オリジンポリシーやCORSについてまとめた記事です。</p>",
+      "coverImage": {
+        "_id": "641d7f64b5b671fd667d03d5",
+        "altText": "デジタルな背景と錠前",
+        "description": "",
+        "fileName": "security.webp",
+        "fileSize": 28212,
+        "fileType": "image/webp",
+        "height": 360,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/94ffdffd-088b-478f-bde6-eb5adf51f848%2Fsecurity.webp",
+        "title": "",
+        "width": 600
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d60ca0293b870f66d6ff8",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:22.072Z",
+              "updatedAt": "2023-11-01T15:59:24.354Z",
+              "firstPublishedAt": "2023-03-24T08:35:22.072Z",
+              "publishedAt": "2023-11-01T15:59:24.354Z"
+            },
+            "customOrder": 22,
+            "createdAt": "2023-03-24T08:35:22.072Z",
+            "updatedAt": "2023-11-01T15:59:24.354Z"
+          },
+          "tag": "Webセキュリティ",
+          "ref": ["641d81e7b5b671fd667e41b5"]
+        },
+        {
+          "_id": "641d60d30293b870f66da145",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:31.125Z",
+              "updatedAt": "2023-10-30T14:02:14.990Z",
+              "firstPublishedAt": "2023-03-24T08:35:31.125Z",
+              "publishedAt": "2023-10-30T14:02:14.990Z"
+            },
+            "customOrder": 23,
+            "createdAt": "2023-03-24T08:35:31.125Z",
+            "updatedAt": "2023-10-30T14:02:14.990Z"
+          },
+          "tag": "HTTP",
+          "ref": ["641d81e7b5b671fd667e41b5"]
+        },
+        {
+          "_id": "641d60c10293b870f66d6527",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:13.795Z",
+              "updatedAt": "2023-10-30T14:02:38.144Z",
+              "firstPublishedAt": "2023-03-24T08:35:13.795Z",
+              "publishedAt": "2023-10-30T14:02:38.144Z"
+            },
+            "customOrder": 21,
+            "createdAt": "2023-03-24T08:35:13.795Z",
+            "updatedAt": "2023-10-30T14:02:38.144Z"
+          },
+          "tag": "API",
+          "ref": ["641d81e7b5b671fd667e41b5", "641d7f43b5b671fd667cf43d"]
+        },
+        {
+          "_id": "641d60d90293b870f66dbf71",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:37.865Z",
+              "updatedAt": "2023-11-01T16:00:49.446Z",
+              "firstPublishedAt": "2023-03-24T08:35:37.865Z",
+              "publishedAt": "2023-10-30T14:01:51.057Z"
+            },
+            "customOrder": 24,
+            "createdAt": "2023-03-24T08:35:37.865Z",
+            "updatedAt": "2023-11-01T16:00:49.446Z"
+          },
+          "tag": "ネットワーク",
+          "ref": ["641d81e7b5b671fd667e41b5"]
+        }
+      ],
+      "body": "<p>修論書きがようやく終わり、久しぶりの投稿です。<br>\nその手始めに、Webセキュリティの基本のキである同一オリジンポリシーやCORSについてまとめたものを書き残したいと思います。</p>\n<h1>同一オリジンポリシー</h1>\n<h2>オリジン</h2>\n<p>はじめにそもそもオリジンとはなんなのかを説明します。<br>\nオリジンとはウェブコンテンツにアクセスするために使うURLの中のプロトコル、ドメイン、ポート番号という3つの値の組のことです。<br>\nもっと直感的にはウェブコンテンツの配給元の詳細で、どのサーバーから（ドメイン）どの出口を通って（ポート番号）どのよう配給されたのか（プロトコル）という情報です。</p>\n<p>例えば</p>\n<ol>\n<li><code>http://example.com/app1/index.html</code></li>\n<li><code>http://example.com/app2/index.html</code></li>\n</ol>\n<p>というhtmlファイルの位置を示す2つのURLがあったとします。<br>\nこのとき、1のhtmlファイルについて言えば、</p>\n<ul>\n<li>プロトコル：http</li>\n<li>ドメイン：example.com</li>\n<li>ポート番号：80（WebサーバはHTTPコンテンツを配信するのに80番を既定で使う）</li>\n</ul>\n<p>となり、この組み合わせがそのままオリジンと呼ばれます。<br>\n一方で、2のhtmlファイルのオリジンはどうかというと、実は1のhtmlファイルのオリジンと同じになります。<br>\nこのように2つのリソース（ファイルなど）が同じオリジンから提供されていることを同一オリジンであるといいます。</p>\n<h2>同一オリジンポリシー</h2>\n<p>上の説明を読めばだいたい分かるかもしれませんが、同一オリジンポリシーというのはあるリソースについて、そのリソースからアクセスできるのは同一オリジンのリソースに限るという約束事のことです。<br>\n同一オリジンポリシーを守ったリソース間アクセスをざっくりと図解すると次のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/452a9360-da3a-41e5-9fb5-2686e414faae%2F%E5%90%8C%E4%B8%80%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BCOK.webp\" alt=\"同一オリジンポリシーOK.webp\"></p>\n<p>この場合、ファイルAもファイルBも共に<code>http://example.com:80</code>という同一のオリジンから提供されたファイルなのでファイルAからファイルBへは同一オリジンポリシーに反することなくアクセスできます。</p>\n<p>逆に、同一オリジンポリシーに反するリソース間アクセスは次のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/63020eb1-ceaa-4bd2-be3d-1cc2e1dd743d%2F%E5%90%8C%E4%B8%80%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BCNG.webp\" alt=\"同一オリジンポリシーNG.webp\"></p>\n<p>この場合、ファイルAのオリジンは<code>http://example.com:80</code>である一方で、ファイルBのオリジンは<code>http://www.example.com:80</code>でありこれらはドメインが異なっているため異なるオリジンのリソースです。<br>\nなので、ファイルAからファイルBへのアクセスは同一オリジンポリシーに基づいて制限されます。</p>\n<h2>同一オリジンポリシーが必要な理由</h2>\n<p>どうして同一オリジンポリシーなんて言うめんどくさいルールがあるのか？<br>\nそれはひとえに、これを設けることで防げる攻撃があるためです。<br>\nその例を下に示します。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/f50e6cd7-426a-420f-af74-9b998a4b0bf3%2F%E5%90%8C%E4%B8%80%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E7%BD%A0.webp\" alt=\"同一オリジンポリシー罠.webp\"></p>\n<p>これは罠サイトを使ったサイバー攻撃の一つで、次のような仕掛けになっています。</p>\n<p>まず、利用者はexample.comにアクセスしようとします。<br>\nしかし、誘導により罠サイトのtrap.example.comを閲覧してしまいます。<br>\ntrap.example.comから送られたhtmlにはexample.comのページが埋め込まれており、パッと見では罠にかかったと気づきません。<br>\nそして、利用者はパスワードなどを打ち込んで送信します。</p>\n<p>このような仕掛けはhtmlのiframe要素を使えば作ることができます。<br>\nこの時、仮に同一オリジンポリシーが無いとすればtrap.example.comから送られたhtml（の中のスクリプト）からexample.comのhtmlにアクセスできてしまうので、上で説明したようにその情報を抜き出すことができます。<br>\nしかし、実際には同一オリジンポリシーがあるため、trap.example.comとexample.comという別のオリジンのコンテンツ間のアクセスは制限され、クライアントは守られるようになっています。<br>\nこれが同一オリジンポリシーによって防げる攻撃です。</p>\n<h1>CORS</h1>\n<h2>CORSの必要性</h2>\n<p>上で説明したように、別のオリジンから提供されたコンテンツ同士のアクセスは同一オリジンポリシーによって制限されます。<br>\nしかし、時と場合によっては同一オリジンポリシーによる制限が邪魔になるケースもあります。</p>\n<p>例えば、このブログはmicroCMSというheadless CMSを使って管理しています。<br>\nこれは同一オリジンポリシーに則ると、このブログの記事はmicroCMS上で管理されているコンテンツにしかアクセスできないということです。<br>\nこれだとこのブログ記事に貼る画像などもmicroCMS上にないといけませんし、アマゾンの商品説明などにも気軽にアクセスできず、非常に不便です。<br>\nそこで、「同一オリジンポリシーを超えて異なるオリジンのコンテンツ間アクセスをできるようにしよう」というのがCORSです。</p>\n<h2>CORS</h2>\n<p>上でも説明したように、CORS（Cross-Origin-Resource Sharing）とは「異なるコンテンツ間アクセスを可能にする仕組み」のことです。<br>\nCORSの実現はコンテンツ間のリクエストの種類によって次の2種類に分けられます。</p>\n<ol>\n<li>単純なリクエストの場合：アクセスによる機密情報の漏洩などの心配がないので特に何もしなくてもコンテンツ間アクセスを許可</li>\n<li>単純でないリクエストの場合：プリフライトリクエストを使って許可されたオリジンからのリクエストかどうかを確認</li>\n</ol>\n<p>ここで、「単純なリクエスト」と「プリフライトリクエスト」という2つの概念が出てきました。<br>\n以下ではこれらのリクエストについて説明したいと思います。</p>\n<h3>単純なリクエスト</h3>\n<p>単純なリクエストというのは以下のような要件を満たすリクエストのことです。</p>\n<ul>\n<li>メソッド：次のうちのいずれか\n<ul>\n<li>GET</li>\n<li>HEAD（ヘッダのみをGETするメソッド）</li>\n<li>POST</li>\n</ul>\n</li>\n<li>ヘッダーの種類：次のうちのいずれか\n<ul>\n<li>Accept</li>\n<li>Accept-Language</li>\n<li>Content-Language</li>\n<li>Content-Type</li>\n<li>Range</li>\n<li>ユーザーエージェント（ざっくり言うとクライアントのOSとブラウザのこと）によって自動的に指定されたヘッダー（Connection、User-Agentなど）</li>\n</ul>\n</li>\n<li>Content-Type：次のうちのいずれかのメディアタイプ\n<ul>\n<li>application/x-www-form-urlencoded（urlをパーセントエンコーディングしたもの）</li>\n<li>multipart/form-data（フォームのデータで複数種類のデータをもつもの）</li>\n<li>text/plain（プレーンテキスト）</li>\n</ul>\n</li>\n</ul>\n<p>これ以外にも細かい仕様がいくつかありますが、おおきいところではこの辺になります。</p>\n<p>要するに単純なリクエストというのは「HTMLフォームから送られるリクエストと同程度のリスクであるようなリクエスト」であるといえます。<br>\nというのも同一オリジンポリシーの目的がXMLHttpRequest（JavaScriptからの非同期な通信）などによるクロスオリジンアクセスを全開放すると危ないので、これを制限しようというものでした。<br>\nHTMLフォームからのアクセスで悪さをするのは難しいので、これに合わせているということです。</p>\n<p>ただし、この要件によってクロスサイトリクエストフォージェリなどの危険性は高まってしまうので、全く同程度のリスクとはいかないようです。</p>\n<h3>プリフライトリクエスト</h3>\n<p>クロスオリジンリクエストが単純なリクエスト出なかった場合、クライアントは自動的にプリフライトリクエストといういわばテストリクエストを送ります。<br>\nプリフライトリクエストは次のような内容のリクエストです。</p>\n<ul>\n<li>メソッド：OPTIONS</li>\n<li>パス：クライアントの送り先</li>\n<li>ヘッダー：Access-Control-Request-Method、Access-Control-Request-Origin、 Originなど</li>\n<li>ボディ：なし</li>\n</ul>\n<p>Access-Control-Request~系のヘッダーは実際のリクエストがどのようなもの（オリジン、ヘッダの種類など）であればリソース共有を許可するかということを指定します。<br>\nまた、メソッドにはOPTIONSという変わったものを使います。<br>\nこれはサーバが受取可能なメソッドの一覧を返すメソッドで、プリフライトにはぴったりなメソッドです。</p>\n<h1>終わりに</h1>\n<p>CORSを含めセキュリティ関連のお話は、Web系の勉強をするなら真っ先にやるべき項目だと思ったので今回まとめてみました。<br>\nセキュリティ系の話を勉強するとHTTPなどネットワーク系の話も一緒に勉強できるので、大変ですが得るものが多いですね。<br>\n今後もセキュリティ系の話題は積極的に上げていきたいと思います。</p>\n"
+    },
+    {
+      "_id": "641d7f43b5b671fd667cf43d",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T10:45:23.520Z",
+          "updatedAt": "2023-03-29T06:08:37.808Z",
+          "firstPublishedAt": "2023-03-24T10:45:23.520Z",
+          "publishedAt": "2023-03-24T10:45:23.520Z"
+        },
+        "customOrder": 11,
+        "createdAt": "2023-03-24T10:45:23.520Z",
+        "updatedAt": "2023-03-29T06:08:37.808Z"
+      },
+      "title": "Connect-WebをMSWでモックする方法｜Webフロントエンド",
+      "description": "<p><br></p><p>Connect-WebはgRPCを使いたい人にとっては導入も簡単で使い勝手の良いブラウザ用APIライブラリです。一方で新しい技術であることからも日本語ドキュメントが少ないという現状があります。今回は、Connect-Webのモックについて述べた記事があまりなかったので、これについて調べた内容を書き残します。</p>",
+      "coverImage": {
+        "_id": "641d7d1eb5b671fd667bd586",
+        "altText": "gRPCのロゴ",
+        "description": "",
+        "fileName": "gRPC.webp",
+        "fileSize": 5406,
+        "fileType": "image/webp",
+        "height": 450,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/d9ac22d9-5a2d-41e1-bc3f-423a3883834a%2FgRPC.webp",
+        "title": "",
+        "width": 800
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d60c10293b870f66d6527",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:13.795Z",
+              "updatedAt": "2023-10-30T14:02:38.144Z",
+              "firstPublishedAt": "2023-03-24T08:35:13.795Z",
+              "publishedAt": "2023-10-30T14:02:38.144Z"
+            },
+            "customOrder": 21,
+            "createdAt": "2023-03-24T08:35:13.795Z",
+            "updatedAt": "2023-10-30T14:02:38.144Z"
+          },
+          "tag": "API",
+          "ref": ["641d81e7b5b671fd667e41b5", "641d7f43b5b671fd667cf43d"]
+        },
+        {
+          "_id": "641d60bb0293b870f66d60c1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:07.951Z",
+              "updatedAt": "2023-10-30T14:03:00.662Z",
+              "firstPublishedAt": "2023-03-24T08:35:07.951Z",
+              "publishedAt": "2023-10-30T14:03:00.662Z"
+            },
+            "customOrder": 20,
+            "createdAt": "2023-03-24T08:35:07.951Z",
+            "updatedAt": "2023-10-30T14:03:00.662Z"
+          },
+          "tag": "フロントエンド",
+          "ref": [
+            "65215f5d505f572f6f199132",
+            "64808d4a8cb2e6b05150042c",
+            "641d7f43b5b671fd667cf43d",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d77aab5b671fd667829c8"
+          ]
+        },
+        {
+          "_id": "641d60b10293b870f66d549c",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:57.950Z",
+              "updatedAt": "2023-10-30T14:03:14.592Z",
+              "firstPublishedAt": "2023-03-24T08:34:57.950Z",
+              "publishedAt": "2023-10-30T14:03:14.592Z"
+            },
+            "customOrder": 19,
+            "createdAt": "2023-03-24T08:34:57.950Z",
+            "updatedAt": "2023-10-30T14:03:14.592Z"
+          },
+          "tag": "gRPC",
+          "ref": ["641d7f43b5b671fd667cf43d"]
+        },
+        {
+          "_id": "641d60a60293b870f66d4ee5",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:46.720Z",
+              "updatedAt": "2023-10-30T14:03:24.822Z",
+              "firstPublishedAt": "2023-03-24T08:34:46.720Z",
+              "publishedAt": "2023-10-30T14:03:24.822Z"
+            },
+            "customOrder": 18,
+            "createdAt": "2023-03-24T08:34:46.720Z",
+            "updatedAt": "2023-10-30T14:03:24.822Z"
+          },
+          "tag": "Connect",
+          "ref": ["641d7f43b5b671fd667cf43d"]
+        },
+        {
+          "_id": "641d609d0293b870f66d4844",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:37.685Z",
+              "updatedAt": "2023-10-30T14:03:41.045Z",
+              "firstPublishedAt": "2023-03-24T08:34:37.685Z",
+              "publishedAt": "2023-10-30T14:03:41.045Z"
+            },
+            "customOrder": 17,
+            "createdAt": "2023-03-24T08:34:37.685Z",
+            "updatedAt": "2023-10-30T14:03:41.045Z"
+          },
+          "tag": "MSW",
+          "ref": ["641d7f43b5b671fd667cf43d"]
+        }
+      ],
+      "body": "<p>Connect-WebはgRPCを使いたい人にとっては導入も簡単で使い勝手の良いブラウザ用APIライブラリです。<br>\n一方で新しい技術であることからも日本語ドキュメントが少ないという弱点もある。</p>\n<p>今回は、Connect-Webのモックについて述べた記事があまりなかったので、これについて調べた内容を書き残します。</p>\n<h1>Connect-Web</h1>\n<h2>Connect-Webの概要</h2>\n<p>Connect-Webはブラウザで利用できるgRPC互換のHTTP通信用のライブラリです。<br>\ngRPC互換であることからもわかる通りProtocol Buffersを使ってインターフェースの定義を行います。<br>\nまた、クライアントなどの作成も全てProtocol Buffersに基づいて自動生成することができます。</p>\n<h2>gRPC-webとの違い</h2>\n<p>送受信の方法など細かい違いがあれど、一番大きな違いはconnect-webにはproxyが必要ないということです。<br>\nこのおかげでproxyの煩わしい設定なしにいきなりgRPCを使うことができるため、導入が非常に簡単です。</p>\n<h1>MSW</h1>\n<h2>MSWの概要</h2>\n<p>MSW（Mock Service Worker）はサービスワーカーを用いてブラウザとサーバーのAPI通信をモックするためのライブラリです。<br>\n<a href=\"https://mswjs.io/\">linkCard</a></p>\n<h2>モックとは？</h2>\n<p>そもそもモックとはなにかというと、外見だけそれっぽく作ったとりあえずの試作品のことです。<br>\nこの場合ではAPIの試作品のことを指しています。<br>\nつまり、サーバー側の処理やAPIがまだできていないときに、リクエストに対するレスポンスを適当に作っておくということです。<br>\nこれによってバックエンドが開発できていなくてもフロントエンドの開発を滞りなく進めることができます。</p>\n<h2>MSWのメリット</h2>\n<p>MSWのメリットはいくつかありますが主には次のようなものが挙げられます。</p>\n<ul>\n<li>実際のリクエストをそのままインターセプトしてモックできる。</li>\n<li>GraphQLのモックができる</li>\n<li>storybook内でも利用できる</li>\n</ul>\n<p>特に一番最後のstorybook内でも使えるというのはフロントエンドのコンポーネント開発を行う上では非常にありがたいです。</p>\n<h1>実装</h1>\n<p>実際にConnect-Webのチュートリアルをモックしてみる。</p>\n<h2>Connect-Webのチュートリアル</h2>\n<p>まず、適当なディレクトリでcreate react-appを行います。<br>\n今回は適当にconnectという名前のアプリにしておきます。</p>\n<pre><code>npm create vite@latest -- connect-msw-example --template react-ts\n</code></pre>\n<p>次にsrc/protosにeliza.protoを作成します。</p>\n<pre><code>cd src\nmkdir protos\ncd protos\ntouch eliza.proto\n</code></pre>\n<p>これがAPIのインターフェース定義になっており、これに基づいてAPIのクライアントを作ったりします。</p>\n<p>eliza.protoの内容は次のようになります。</p>\n<pre><code>syntax = &quot;proto3&quot;;\n\npackage buf.connect.demo.eliza.v1;\n\nservice ElizaService {\n  rpc Say(SayRequest) returns (SayResponse) {}\n  rpc Converse(stream ConverseRequest) returns (stream ConverseResponse) {}\n  rpc Introduce(IntroduceRequest) returns (stream IntroduceResponse) {}\n}\n\nmessage SayRequest {\n  string sentence = 1;\n}\n\nmessage SayResponse {\n  string sentence = 1;\n}\n\nmessage ConverseRequest {\n  string sentence = 1;\n}\n\nmessage ConverseResponse {\n  string sentence = 1;\n}\n\nmessage IntroduceRequest {\n  string name = 1;\n}\n\nmessage IntroduceResponse {\n  string sentence = 1;\n}\n</code></pre>\n<p>protoファイルを含めProtocol Buffersについては別記事で詳しく書こうと思います。</p>\n<p>次に、eliza.protoから必要なコードを生成します。<br>\nそのための準備としてprotoファイルのコンパイラーをインストールします。<br>\n今回はConnectのチュートリアルでも紹介されており、Connectと連携が強いbufというコンパイラーを採用します。</p>\n<pre><code>npm install --save-dev @bufbuild/protoc-gen-connect-web @bufbuild/protoc-gen-es\nnpm install @bufbuild/connect-web @bufbuild/protobuf\n</code></pre>\n<p>続いてコンパイラーの設定ファイルを用意します。</p>\n<p>package.jsonと同じディレクトリにbuf.gen.yamlを作成し、次の内容を書きます。</p>\n<pre><code>version: v1\nplugins:\n  - name: es\n    out: src/codegen\n    opt: target=ts\n  - name: connect-web\n    out: src/codegen\n    opt: target=ts\n</code></pre>\n<p>さらに、protoファイルをコンパイルするスクリプトをpackage.jsonに登録しておきます。</p>\n<pre><code>&quot;scripts&quot;: {\n  ...\n  &quot;buf:generate&quot;: &quot;buf generate ./protos&quot;\n},\n</code></pre>\n<p>これでターミナルに次のように入力すればsrc/codegen下にtypescriptファイルが生成できます。</p>\n<pre><code>npm run buf:generate\n</code></pre>\n<p>App.tsxの内容を次のように書き換えるとチュートリアルのアプリを動かせるようになります。</p>\n<pre><code>import { useState } from 'react'\nimport './App.css'\n\nimport {\n  createConnectTransport,\n  createPromiseClient,\n} from &quot;@bufbuild/connect-web&quot;;\nimport { ElizaService } from './codegen/eliza_connectweb';\n\n// Import service definition that you want to connect to.\n\n// The transport defines what type of endpoint we're hitting.\n// In our example we'll be communicating with a Connect endpoint.\nconst transport = createConnectTransport({\n  baseUrl: &quot;https://demo.connect.build&quot;,\n});\n\n// Here we make the client itself, combining the service\n// definition with the transport.\nconst client = createPromiseClient(ElizaService, transport);\n\nfunction App() {\n  const [inputValue, setInputValue] = useState(&quot;&quot;);\n  const [messages, setMessages] = useState&lt;\n      {\n        fromMe: boolean;\n        message: string;\n      }[]\n      &gt;([]);\n  return &lt;&gt;\n    &lt;ol&gt;\n      {messages.map((msg, index) =&gt; (\n          &lt;li key={index}&gt;\n            {`${msg.fromMe ? &quot;ME:&quot; : &quot;ELIZA:&quot;} ${msg.message}`}\n          &lt;/li&gt;\n      ))}\n    &lt;/ol&gt;\n    &lt;form onSubmit={async (e) =&gt; {\n      e.preventDefault();\n      // Clear inputValue since the user has submitted.\n      setInputValue(&quot;&quot;);\n      // Store the inputValue in the chain of messages and\n      // mark this message as coming from &quot;me&quot;\n      setMessages((prev) =&gt; [\n        ...prev,\n        {\n          fromMe: true,\n          message: inputValue,\n        },\n      ]);\n      const response = await client.say({\n        sentence: inputValue,\n      });\n      setMessages((prev) =&gt; [\n        ...prev,\n        {\n          fromMe: false,\n          message: response.sentence,\n        },\n      ]);\n    }}&gt;\n      &lt;input value={inputValue} onChange={e =&gt; setInputValue(e.target.value)} /&gt;\n      &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;\n    &lt;/form&gt;\n  &lt;/&gt;;\n}\n\nexport default App\n</code></pre>\n<p>試し起動してみる。</p>\n<pre><code>npm run dev\n</code></pre>\n<p>すると次のようなアプリが起動し、connectが無事に動いていることが確認できる。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/e14342b5-c7c8-4ea0-bb4e-24ddb810de92%2Fconnect-msw.gif\" alt=\"connect-msw.gif\"><br>\nここまでがconnectのチュートリアルの内容です。<br>\n次は、現在バックエンドと通信している部分をモックに置き換える作業を行っていきます。</p>\n<h2>MSWの導入</h2>\n<p>まず、以下のコマンドでMSWを導入します。</p>\n<pre><code>npm install msw --save-dev\n</code></pre>\n<p>次にいくつかの設定を行っていきます。<br>\nまず、MSWの初期化とサービスワーカーの配置を行うために次のコマンドを打ちます。</p>\n<pre><code>npx msw init public/ --save\n</code></pre>\n<p>これでブラウザからのリクエストをサービスワーカーがインターセプトすることができるようになります。</p>\n<p>続いて、src下にmockディレクトリを作成し、その中にhandlers.tsとbrowser.tsを作成します。</p>\n<pre><code>cd src\nmkdir mock\ncd mock\ntouch handlers.ts browser.ts\n</code></pre>\n<p>handlers.tsにはモックの挙動、すなわちどんなリクエストに対してどんなレスポンスを返すかということを書いていきます。<br>\n今回は先程作ったelizaアプリの入力をインターセプトしたいので次のように書きます。</p>\n<pre><code>import { rest } from 'msw'\nimport { SayResponse } from '../codegen/eliza_pb'\nimport { ElizaService } from '../codegen/eliza_connectweb'\n\nconst payload = new SayResponse({sentence: &quot;This is mock response&quot;})\n\nexport const handlers = [\n  rest.post(`https://demo.connect.build/${ElizaService.typeName}/${ElizaService.methods.say.name}`, (req, res, ctx) =&gt; {\n    return res(\n      ctx.status(200),\n      ctx.json(payload)\n      )\n    }),\n]\n</code></pre>\n<p>connectで行われていることはほとんどrestと同じなので、rest用のhandlerでインターセプトが行なえます。<br>\nただし、ステータスコードなどに細かな違いがあるのでその点だけ注意する必要があります。<br>\n詳しくはconnectのドキュメントのconnect protocolの項が参考になります。</p>\n<p><a href=\"https://connect.build/docs/protocol\">linkCard</a></p>\n<p>また、browser.tsではワーカーインスタンスをセットアップしておきます。</p>\n<pre><code>import { setupWorker } from 'msw'\n\nimport { handlers } from './handlers'\n\nexport const worker = setupWorker(...handlers)\n</code></pre>\n<p>これで準備が整ったので</p>\n<p>実際にモックを行ってみます。</p>\n<p>試しにApp.tsxの最上段から数行を次のように書き換えてみます。</p>\n<pre><code>import { useState } from 'react'\nimport './App.css'\n\nimport {\n  createConnectTransport,\n  createPromiseClient,\n} from &quot;@bufbuild/connect-web&quot;;\nimport { ElizaService } from './codegen/eliza_connectweb';\nimport { worker } from './mock/browser'\nif (process.env.NODE_ENV === 'development') {\n  await worker.start()\n}\n</code></pre>\n<p>これでアプリを再起動すると次のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/c25239fc-59df-4b94-909c-c857f0233435%2Fconnect-msw-mock.gif\" alt=\"connect-msw-mock.gif\"><br>\nしっかりとモックができていることが確認できます。</p>\n<h1>終わりに</h1>\n<p>本記事ではconnectをMSWでモックする際の手順について説明しました。<br>\nconnectは新しい技術ですが、protocol buffersの有用性なども考えると今後も使われる技術になっていくのではないかと思います。<br>\n今後もgRPC、protocol buffers界隈の話題は注目していきたいですね。</p>\n<p>ホントはMSWのstorybook addonを使うところまで説明したかったのですが、今日はつかれたのでまた別記事を作ろうと思います。</p>\n"
+    },
+    {
+      "_id": "641d7cf4b5b671fd667bc98a",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T10:35:32.369Z",
+          "updatedAt": "2023-03-29T06:08:37.889Z",
+          "firstPublishedAt": "2023-03-24T10:35:32.369Z",
+          "publishedAt": "2023-03-24T10:35:32.369Z"
+        },
+        "customOrder": 10,
+        "createdAt": "2023-03-24T10:35:32.369Z",
+        "updatedAt": "2023-03-29T06:08:37.889Z"
+      },
+      "title": "モダンなWeb言語たちの先祖｜プログラミング言語の歴史を解説",
+      "description": "<p>本記事では現在よく使われているプログラミング言語の祖先となったような重要な言語を取り上げ、その開発の経緯やどんな名残があるのか、誰が作ったのかなどを中心に書き残したいと思います。</p>",
+      "coverImage": {
+        "_id": "641d7bcfb5b671fd667b422d",
+        "altText": "ソースコードの写真",
+        "description": "",
+        "fileName": "programming.webp",
+        "fileSize": 16086,
+        "fileType": "image/webp",
+        "height": 267,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/2274188a-251a-4f74-b807-8f61ef2afd03%2Fprogramming.webp",
+        "title": "",
+        "width": 400
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d608d0293b870f66d353e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:21.557Z",
+              "updatedAt": "2023-10-30T14:04:13.858Z",
+              "firstPublishedAt": "2023-03-24T08:34:21.557Z",
+              "publishedAt": "2023-10-30T14:04:13.858Z"
+            },
+            "customOrder": 15,
+            "createdAt": "2023-03-24T08:34:21.557Z",
+            "updatedAt": "2023-10-30T14:04:13.858Z"
+          },
+          "tag": "プログラミング言語",
+          "ref": ["641d7cf4b5b671fd667bc98a"]
+        },
+        {
+          "_id": "641d60970293b870f66d40e1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:31.086Z",
+              "updatedAt": "2023-10-30T14:04:01.506Z",
+              "firstPublishedAt": "2023-03-24T08:34:31.087Z",
+              "publishedAt": "2023-10-30T14:04:01.506Z"
+            },
+            "customOrder": 16,
+            "createdAt": "2023-03-24T08:34:31.086Z",
+            "updatedAt": "2023-10-30T14:04:01.506Z"
+          },
+          "tag": "教養",
+          "ref": ["641d7cf4b5b671fd667bc98a"]
+        }
+      ],
+      "body": "<p>私は情報系の学部に所属していなかったので、コンピュータサイエンス系の基本的な教養が足りていません。</p>\n<p>そこで本記事は現在よく使われているJavaScript, Python, Go, Rubyなどの言語たちはどういう経緯で生まれてきたのだろうということをざっくりと理解することを目的としています。<br>\n浅学の仲書いているので間違いなどはご容赦のほど。</p>\n<h1>本記事の内容</h1>\n<p>本記事では現在よく使われているプログラミング言語の先祖となったような重要な言語を取り上げ、その開発の経緯やどんな名残があるのか、誰が作ったのかなどを中心に書き残したいと思います。</p>\n<p>とはいえあまり長い解説になっても良くないので、今回は特に重要と思われる5つの言語に絞って書いていきます。</p>\n<h1>モダンな言語の先祖たち</h1>\n<h2>FORTRAN</h2>\n<h3>言語の概要</h3>\n<p>FORTRANは世界初の高水準言語です。<br>\nなので他のほとんどの高水準言語に対して直接・間接的に影響を与えた言語であるといえます。</p>\n<p>FORTRANのすごいところは何と言っても現在でも現役で使われ続けている言語であるということです。<br>\n私の知人にもプラズマ研究のためにFORTRANを使っている方が実際にいます。<br>\n昔から続いている科学研究分野ではコードやライブラリが知見として蓄積されているので言語を変えないほうがいいし、必要がないという考えみたいですね。</p>\n<h3>開発者</h3>\n<p>FORTRANの開発者はIBMのエンジニアであったジョン・バッカスです。<br>\nこの方は現在ではバッカス・ナウア記法などにその名前を残しています。<br>\nバッカスはIBM 704というメインフレームコンピュータ（でかくてパーソナルじゃないコンピュータ）で使用することを目的としてFORTRANを開発しました。</p>\n<p>実はバッカスはFORTRAN開発の前にspeedcodingという言語を同じくIBMのメインフレーム用に開発しています。<br>\nなので、厳密に言うとspeedcodingが世界初の高水準言語ということになるわけですが、speedcodingの事実上の進化系として作られたのがFORTRANであることから、現在ではFORTRANが世界初の高水準言語として紹介されることがほとんどです。</p>\n<h3>名残</h3>\n<p>FORTRANの手続き型プログラミングのパラダイムは現在の多くの言語に受け継がれています。<br>\nそれまでの機械語やアセンブリも手続き的に書かれていたわけなので、手続き型プログラミングの考え方はコンピュータ登場初期から現在まで通底しているもののようです。</p>\n<h2>ALGOL</h2>\n<h3>言語の概要</h3>\n<p>ALGOLは最初期の高水準言語の一つです。<br>\nALGOLはalgorithmic languageの略であることからも分かる通り、アルゴリズムの記述を目的として開発された言語です。<br>\nなので、商用的な目的というよりは学術的な分野で広く用いられていたという経緯を持っています。</p>\n<p>ALGOL自体はFORTRANに影響を受けていますが、この言語が後の言語に与えた影響を考えるとFORTRAN以上に成功した言語として紹介されることもあります。<br>\nというか、FORTRANもALGOLの構造化プログラミングに影響を受けていると思います。</p>\n<h3>開発者</h3>\n<p>ALGOLは、アメリカで開発されたFORTRANに対抗する形でヨーロッパの研究者グループが1950年代中頃に開発した言語です（この時代にもまだ新世界と旧世界の対抗意識ってあったんですね）。</p>\n<p>とはいいつつ、後にFORTRAN開発者のジョン・バッカスなどもALGOLの開発に貢献しており、バッカス・ナウア記法などはALGOLを対象として開発されたメタ言語です。</p>\n<h3>名残</h3>\n<p>何と言っても現在の殆どの言語に共通する構造化プログラミングが導入された初めての言語としてALGOLが紹介されることが多いです。<br>\n構造化プログラミングというのはざっくりいうと「goto文をやめてif文やwhile文にしよう」という考え方です。</p>\n<p>今では当然ですが、昔はgoto文というものがあってコードのどこにでも飛べたみたいです。<br>\nこの仕組を使って条件分岐や繰り返しに相当するものを実装していました。<br>\ngoto文はアセンブリなどではいまでも現役なので、アセンブリを触る経験があると実感できると思います。</p>\n<h2>C</h2>\n<h3>言語の概要</h3>\n<p>C言語は現在でもバリバリ現役の高水準言語です。<br>\nおそらくプログラミング言語の中では最も有名なものの一つかと思います。<br>\nJavaScriptやPythonなどに比べてメモリ管理などの低水準言語的な特徴を持っているので、厳密なメモリ管理が必要だったり速度が求められる現場ではよく利用されています。<br>\n例としては組み込み系やOSなどですね。</p>\n<h3>開発者</h3>\n<p>開発者はベル研究所のデニス・リッチーです。<br>\nリッチーはケン・トンプソンが開発したB言語の改良としてC言語を開発しました。<br>\n当初はOS上で動くユーティリティ（カレンダーとか時計とかスクショとかの機能）を作成する目的で作られましたが、後にUNIXまるごとがC言語で置き換えられました。</p>\n<h3>名残</h3>\n<p>文法的な面はもちろんPythonなんかはそれ自体Cで実装されています。<br>\nまた、RustはCの代替として作られましたし、JavaはCの拡張版であるC++の構文を参考に作られています。</p>\n<h2>Simula・Smalltalk</h2>\n<h3>言語の概要</h3>\n<p>Simulaは世界初のモダンなオブジェクト指向言語です。<br>\n一方のSmalltalkはSimulaで確立されたオブジェクト指向という概念をさらに一般化し、世間に広めた言語です。</p>\n<p>こういう経緯もあってこれらの言語は「オブジェクト指向を作った言語」として、特別にひとまとめで紹介しています。</p>\n<h3>開発者</h3>\n<p>Simulaの開発者はノルウェーの数学者クリステン・二ゴールです。<br>\nSimulaは当初コンピュータ・シミュレーションのための言語として開発されており、一般のシステム開発などへの利用を想定していなかったことも相まって一部の研究者などが利用する程度にとどまりました。</p>\n<p>このSimulaのオブジェクト指向的な発想をハード、OS、GUIなどフルセットで開発・提供したのがアラン・ケイのSmalltalkです。</p>\n<h3>名残</h3>\n<p>現在よく使われているプログラミング言語ではオブジェクト指向が当たり前のように使われています。</p>\n<p>現在主流のオブジェクト指向はSimulaやそれを発展させたC++のオブジェクト指向を受け継いでいます。<br>\nしかし、オブジェクト指向という考え方そのものを確立させたSmalltalkの功績も大きく、多くの言語が直接・間接的にSmalltalkの影響を受けています。</p>\n<h2>Perl</h2>\n<h3>言語の概要</h3>\n<p>Perlは最初に広まった実用的なサーバーサイドスクリプト言語です。<br>\n現在もオープンソースでの開発が進められており、様々なプロダクトで使用されています。</p>\n<h3>開発者</h3>\n<p>Perlを開発したのはプログラマの三大美徳などでよく知られるラリー・ウォールです。<br>\nウォールはサーバーサイドで軽量かつ気軽に動作できる言語としてPerlを開発しました。</p>\n<p>Perlは現在Perl 5まで開発されていますが、開発者がPerl 5と全然互換性のないPerl 6（後にRakuとして分離）を作ってしまったので、Perl今後は緩やかに衰退する可能性の高い悲しき存在です。</p>\n<h3>名残</h3>\n<p>Perlは軽量なサーバーサイドスクリプト言語という文脈でPythonやRubyなどの言語に大きな影響を与えています。<br>\nまた、オープンソースでのプログラミング言語開発におけるプロジェクトのあり方を最初に示したという功績もあります。</p>\n<h1>まとめ</h1>\n<p>今回は現在使われているWeb言語たちの先祖について書き残しました。<br>\nこうしてみると、よく知られている言語よりも知られていない言語のほうが後に影響を与えたりもしていて面白いです。<br>\nもちろん、ここに取り上げた他にもBASICやAda、Java、Pascalなど重要な言語はいくらでもあるわけですが、それらのお勉強は別記事で機会があれば。</p>\n"
+    },
+    {
+      "_id": "641d7babb5b671fd667b3688",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T10:30:03.695Z",
+          "updatedAt": "2023-03-29T06:08:37.942Z",
+          "firstPublishedAt": "2023-03-24T10:30:03.695Z",
+          "publishedAt": "2023-03-24T10:30:03.695Z"
+        },
+        "customOrder": 9,
+        "createdAt": "2023-03-24T10:30:03.695Z",
+        "updatedAt": "2023-03-29T06:08:37.942Z"
+      },
+      "title": "Next.js+MUIでページネーションを実装｜ブログづくり",
+      "description": "<p>MUIは非常に便利なライブラリでかっこいいコンポーネントが一通り揃っていますしドキュメントも充実しています。ただ、使ってみると思うのですがMUIのコンポーネント自体は非常に豊富な機能を有している一方、ドキュメントに関しては案外痒いところに手が届かない説明になっていたりします。今回は自分と同じ痒さを患っている方の手助けをするためにも、Next.jsのLinkコンポーネントとMUIのPaginationコンポーネントを使った簡単なページネーションの実装方法を書き残します。</p>",
+      "coverImage": {
+        "_id": "641d7a00b5b671fd6679edca",
+        "altText": "MUIのロゴ",
+        "description": "",
+        "fileName": "MUI.webp",
+        "fileSize": 3154,
+        "fileType": "image/webp",
+        "height": 315,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/999bdd4c-92b3-4375-afa1-ae7dec7b9d64%2FMUI.webp",
+        "title": "MUIのロゴ",
+        "width": 600
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d5ff60293b870f66c4600",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:31:50.856Z",
+              "updatedAt": "2023-10-30T14:11:19.620Z",
+              "firstPublishedAt": "2023-03-24T08:31:50.856Z",
+              "publishedAt": "2023-10-30T14:11:19.620Z"
+            },
+            "customOrder": 3,
+            "createdAt": "2023-03-24T08:31:50.856Z",
+            "updatedAt": "2023-10-30T14:11:19.620Z"
+          },
+          "tag": "Next.js",
+          "ref": [
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d77aab5b671fd667829c8",
+            "643b9d80729275004e35db8b"
+          ]
+        },
+        {
+          "_id": "641d603f0293b870f66c9a4e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:33:03.927Z",
+              "updatedAt": "2023-10-30T14:06:51.986Z",
+              "firstPublishedAt": "2023-03-24T08:33:03.927Z",
+              "publishedAt": "2023-10-30T14:06:51.986Z"
+            },
+            "customOrder": 8,
+            "createdAt": "2023-03-24T08:33:03.927Z",
+            "updatedAt": "2023-10-30T14:06:51.986Z"
+          },
+          "tag": "TypeScript",
+          "ref": [
+            "64808d4a8cb2e6b05150042c",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22"
+          ]
+        },
+        {
+          "_id": "641d60340293b870f66c881e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:32:52.690Z",
+              "updatedAt": "2023-10-30T14:07:22.305Z",
+              "firstPublishedAt": "2023-03-24T08:32:52.690Z",
+              "publishedAt": "2023-10-30T14:07:22.305Z"
+            },
+            "customOrder": 7,
+            "createdAt": "2023-03-24T08:32:52.690Z",
+            "updatedAt": "2023-10-30T14:07:22.305Z"
+          },
+          "tag": "MUI",
+          "ref": [
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d6dacb5b671fd6673b3c5"
+          ]
+        },
+        {
+          "_id": "641d60780293b870f66d1e8f",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:00.436Z",
+              "updatedAt": "2023-10-30T14:05:08.638Z",
+              "firstPublishedAt": "2023-03-24T08:34:00.436Z",
+              "publishedAt": "2023-10-30T14:05:08.638Z"
+            },
+            "customOrder": 13,
+            "createdAt": "2023-03-24T08:34:00.436Z",
+            "updatedAt": "2023-10-30T14:05:08.638Z"
+          },
+          "tag": "ブログ",
+          "ref": [
+            "643b9d80729275004e35db8b",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d77aab5b671fd667829c8"
+          ]
+        },
+        {
+          "_id": "641d60bb0293b870f66d60c1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:07.951Z",
+              "updatedAt": "2023-10-30T14:03:00.662Z",
+              "firstPublishedAt": "2023-03-24T08:35:07.951Z",
+              "publishedAt": "2023-10-30T14:03:00.662Z"
+            },
+            "customOrder": 20,
+            "createdAt": "2023-03-24T08:35:07.951Z",
+            "updatedAt": "2023-10-30T14:03:00.662Z"
+          },
+          "tag": "フロントエンド",
+          "ref": [
+            "65215f5d505f572f6f199132",
+            "64808d4a8cb2e6b05150042c",
+            "641d7f43b5b671fd667cf43d",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d77aab5b671fd667829c8"
+          ]
+        }
+      ],
+      "body": "<p>MUIは非常に便利なライブラリでかっこいいコンポーネントが一通り揃っていますしドキュメントも充実しています。</p>\n<p>さすが天下のGoogleさんです。</p>\n<p>ただ、使ってみると思うのですがMUIのコンポーネント自体は非常に豊富な機能を有している一方、ドキュメントに関しては案外痒いところに手が届かない説明になっていたりします。</p>\n<p>今回は自分と同じ痒さを患っている方の手助けをするためにも、Next.jsのLinkコンポーネントとMUIのPaginationコンポーネントを使った簡単なページネーションの実装方法を書き残します。</p>\n<p>実際の動きを見たい方はこのブログのホームを見てみてください。</p>\n<p>また、今回の実装の内容は私のgithubにおいてあるので、全貌を知りたい方は参照してみてください。<br>\n<a href=\"https://github.com/Asunaro276/pagination-sample\">linkCard</a></p>\n<h1>環境</h1>\n<ul>\n<li>OS: Ubuntu 20.04.3 LTS</li>\n<li>Node: 16.13.1</li>\n<li>next: 12.1.5</li>\n<li>@mui/material: 5.6.2</li>\n</ul>\n<h1>事前準備</h1>\n<h2>Next.jsアプリの作成</h2>\n<p>まずターミナルから適当な空ディレクトリを作り、そこに入ります。</p>\n<pre><code>mkdir pagination-sample\ncd pagination-sample\n</code></pre>\n<p>次に、Next.jsアプリを作るために次のコマンドをターミナルで実行します。</p>\n<pre><code>yarn create next-app .\n</code></pre>\n<p>create next-appの引数はアプリ名を指すので.をつけることで当該ディレクトリに諸々のファイルを展開できます。</p>\n<p>試しに次のコマンドを実行すれば下の画像のような画面をブラウザに表示することができます。</p>\n<pre><code>yarn dev\n</code></pre>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/c619fe05-bd59-45d6-8efe-25e0cabac40a%2Fcreate-next.webp\" alt=\"create-next.webp\"></p>\n<h2>MUIのインストール</h2>\n<p>MUIのインストールは公式に従って次のコマンドを実行します。</p>\n<pre><code>yarn add @mui/material @emotion/react @emotion/styled\n</code></pre>\n<h1>実装</h1>\n<h2>基本的なページネーションの実装</h2>\n<p>pagesと同じディレクトリにcomponents/Pagination.jsxを作ります。</p>\n<pre><code>mkdir components\ntouch Pagination.jsx\n</code></pre>\n<p>Paginationは次のように実装ができます。</p>\n<pre><code>import { Link as MuiLink, Pagination as MuiPagination, PaginationItem } from '@mui/material'\n\nconst Pagination = ({ pageNumber, totalCount }) =&gt; {\n  return (\n    &lt;MuiPagination\n      page={pageNumber}\n      count={totalCount}\n      renderItem={item =&gt; (\n        &lt;PaginationItem\n          component={MuiLink}\n          href={item.page === 1 ? `/` : `/${item.page}`}\n          {...item}\n        /&gt;\n      )}\n    /&gt;\n  )\n}\n\nexport default Pagination\n</code></pre>\n<p>引数のpageNumberは現在のページ数、totalCountは最後のページのページ番号を表しています。</p>\n<p>注意としては、PaginationItemのpageは1から始まるので1ページめをホームにしたい場合は上のような書き方をします。</p>\n<p>これを実際に動かすと次のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/54aab728-34b4-42a8-96f5-70d39c546cf2%2F%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3.gif\" alt=\"ページネーション.gif\"></p>\n<h2>next/linkと組み合わせる</h2>\n<p>次にNext.jsのルーティング用コンポーネントのnext/linkと組み合わせてみます。<br>\nといっても、そんなに難しい話ではなく、ただPaginationItemをnext/linkでラップすればよいだけです。</p>\n<pre><code>import { Link as MuiLink, Pagination as MuiPagination, PaginationItem } from '@mui/material'\nimport Link from 'next/link'\n\nconst Pagination = ({ pageNumber, totalCount }) =&gt; {\n  return (\n    &lt;MuiPagination\n      page={pageNumber}\n      count={totalCount}\n      renderItem={item =&gt; (\n        &lt;Link href={item.page === 1 ? `/` : `/${item.page}`} passHref&gt;\n          &lt;PaginationItem\n            {...item}\n            component={MuiLink}\n          /&gt;\n        &lt;/Link&gt;\n      )}\n    /&gt;\n  )\n}\n\nexport default Pagination\n</code></pre>\n<p>注意としてはLinkコンポーネントにpassHrefを入れています。<br>\nこれはラップされているaタグ（MuiLinkコンポーネント）にhref属性を渡すためです。<br>\nというのも、aタグがhref属性を持っていないのはSEO的に不利らしいので、多くの場合next/linkでaタグをラップする場合にはpassHrefをTrueにします。</p>\n<p>このときのPaginationの動きは次のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/6be1cccb-3233-4afa-a1ee-eb48b3987e93%2F%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%8D%E3%82%AF%E3%82%B9%E3%83%88.gif\" alt=\"ページネーションネクスト.gif\"></p>\n<h1>まとめ</h1>\n<p>今回はMUIのPaginationコンポーネントとNextのLinkコンポーネントを使って簡単なページネーション機能を実装しました。<br>\nMUIを使うとおしゃれなUIが簡単に作れるので本当に便利ですね。<br>\nこれからもおせわになりそうです。</p>\n<p>なお、今回の実装はMUIの公式ドキュメントを参考にしています。<br>\n気になる方は参照してみてください。<br>\n<a href=\"https://mui.com/material-ui/react-pagination/#router-integration\">linkCard</a></p>\n"
+    },
+    {
+      "_id": "641d79cdb5b671fd6679c2ce",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T10:22:05.571Z",
+          "updatedAt": "2023-04-16T14:44:32.889Z",
+          "firstPublishedAt": "2023-03-24T10:22:05.571Z",
+          "publishedAt": "2023-04-16T14:44:32.889Z"
+        },
+        "customOrder": 8,
+        "createdAt": "2023-03-24T10:22:05.571Z",
+        "updatedAt": "2023-04-16T14:44:32.889Z"
+      },
+      "title": "Next.js+microCMSで作るJamstackな技術ブログ｜自作ブログ",
+      "description": "<p>いままでエンジニアらしくこのブログの機能をいろいろと自作してきたわけですが、ここ最近ようやっとまともに見れる程度のできになってきたのでここらで全体の構成を記事にしようかと思い立ちました。なにぶん初めてのシステムづくりなので汚い部分もあるとは思いますが温かい目で見守って上げてください。</p>",
+      "coverImage": {
+        "_id": "641d77deb5b671fd66783278",
+        "altText": "BLOGと書かれた駒",
+        "description": "",
+        "fileName": "blog.webp",
+        "fileSize": 16740,
+        "fileType": "image/webp",
+        "height": 332,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/c1635f19-101d-46a6-9de4-969599c32c5d%2Fblog.webp",
+        "title": "BLOGと書かれた駒",
+        "width": 500
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d603f0293b870f66c9a4e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:33:03.927Z",
+              "updatedAt": "2023-10-30T14:06:51.986Z",
+              "firstPublishedAt": "2023-03-24T08:33:03.927Z",
+              "publishedAt": "2023-10-30T14:06:51.986Z"
+            },
+            "customOrder": 8,
+            "createdAt": "2023-03-24T08:33:03.927Z",
+            "updatedAt": "2023-10-30T14:06:51.986Z"
+          },
+          "tag": "TypeScript",
+          "ref": [
+            "64808d4a8cb2e6b05150042c",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22"
+          ]
+        },
+        {
+          "_id": "641d60780293b870f66d1e8f",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:00.436Z",
+              "updatedAt": "2023-10-30T14:05:08.638Z",
+              "firstPublishedAt": "2023-03-24T08:34:00.436Z",
+              "publishedAt": "2023-10-30T14:05:08.638Z"
+            },
+            "customOrder": 13,
+            "createdAt": "2023-03-24T08:34:00.436Z",
+            "updatedAt": "2023-10-30T14:05:08.638Z"
+          },
+          "tag": "ブログ",
+          "ref": [
+            "643b9d80729275004e35db8b",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d77aab5b671fd667829c8"
+          ]
+        },
+        {
+          "_id": "641d60340293b870f66c881e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:32:52.690Z",
+              "updatedAt": "2023-10-30T14:07:22.305Z",
+              "firstPublishedAt": "2023-03-24T08:32:52.690Z",
+              "publishedAt": "2023-10-30T14:07:22.305Z"
+            },
+            "customOrder": 7,
+            "createdAt": "2023-03-24T08:32:52.690Z",
+            "updatedAt": "2023-10-30T14:07:22.305Z"
+          },
+          "tag": "MUI",
+          "ref": [
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d6dacb5b671fd6673b3c5"
+          ]
+        },
+        {
+          "_id": "641d602c0293b870f66c82e1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:32:44.680Z",
+              "updatedAt": "2023-10-30T14:07:51.039Z",
+              "firstPublishedAt": "2023-03-24T08:32:44.680Z",
+              "publishedAt": "2023-10-30T14:07:51.039Z"
+            },
+            "customOrder": 6,
+            "createdAt": "2023-03-24T08:32:44.680Z",
+            "updatedAt": "2023-10-30T14:07:51.039Z"
+          },
+          "tag": "Tailwind CSS",
+          "ref": ["641d6dacb5b671fd6673b3c5", "641d79cdb5b671fd6679c2ce"]
+        },
+        {
+          "_id": "641d5ff60293b870f66c4600",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:31:50.856Z",
+              "updatedAt": "2023-10-30T14:11:19.620Z",
+              "firstPublishedAt": "2023-03-24T08:31:50.856Z",
+              "publishedAt": "2023-10-30T14:11:19.620Z"
+            },
+            "customOrder": 3,
+            "createdAt": "2023-03-24T08:31:50.856Z",
+            "updatedAt": "2023-10-30T14:11:19.620Z"
+          },
+          "tag": "Next.js",
+          "ref": [
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d77aab5b671fd667829c8",
+            "643b9d80729275004e35db8b"
+          ]
+        },
+        {
+          "_id": "641d5fd30293b870f66c1065",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:31:15.987Z",
+              "updatedAt": "2023-10-30T14:11:40.518Z",
+              "firstPublishedAt": "2023-03-24T08:31:15.987Z",
+              "publishedAt": "2023-10-30T14:11:40.518Z"
+            },
+            "customOrder": 2,
+            "createdAt": "2023-03-24T08:31:15.987Z",
+            "updatedAt": "2023-10-30T14:11:40.518Z"
+          },
+          "tag": "React",
+          "ref": [
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d72e9b5b671fd66763f59"
+          ]
+        },
+        {
+          "_id": "641d60bb0293b870f66d60c1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:07.951Z",
+              "updatedAt": "2023-10-30T14:03:00.662Z",
+              "firstPublishedAt": "2023-03-24T08:35:07.951Z",
+              "publishedAt": "2023-10-30T14:03:00.662Z"
+            },
+            "customOrder": 20,
+            "createdAt": "2023-03-24T08:35:07.951Z",
+            "updatedAt": "2023-10-30T14:03:00.662Z"
+          },
+          "tag": "フロントエンド",
+          "ref": [
+            "65215f5d505f572f6f199132",
+            "64808d4a8cb2e6b05150042c",
+            "641d7f43b5b671fd667cf43d",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d77aab5b671fd667829c8"
+          ]
+        }
+      ],
+      "body": "<p>いままでエンジニアらしくこのブログの機能をいろいろと自作してきたわけですが、ここ最近ようやっとまともに見れる程度のできになってきたのでここらで全体の構成を記事にしようかと思い立ちました。</p>\n<p>なにぶん初めてのシステムづくりなので汚い部分もあるとは思いますが温かい目で見守って上げてください。</p>\n<p>↓はこのブログのソースコードです。随時更新中です。</p>\n<p><a href=\"https://github.com/Asunaro276/asunaro-blog\">linkCard</a></p>\n<h1>全体構成</h1>\n<h2>技術スタック</h2>\n<h3>TypeScript</h3>\n<p>最近はWEBフロントエンドを作ろうと思うとまずTypeScriptみたいですね。<br>\n私はJavaScriptをほとんど触ったことがないので、みなさんがおっしゃるTypeScriptならではのうざさにあまり共感できないでいるわけですがこれは幸せなのか不幸なのか。</p>\n<h3>Next.js</h3>\n<p>普通にreactでも良いのですが、Nextは痒いところに手が届きます。<br>\n特に頼りになったと思う機能は以下です。</p>\n<ul>\n<li>動的ルーティングを勝手に作ってくれる</li>\n<li>画像を勝手に最適化してくれる</li>\n<li>SSG</li>\n</ul>\n<p>特に最後のSSGはJamstack構成には必須ですし、画像の最適化はパフォーマンスチューニングには欠かせませんでした。<br>\nこういう静的なブログを作る場合にはGatsbyなどのフレームワークの方が向いているという意見も見受けられたので、一度Gatsbyのブログテンプレートを見てみたのですが開発経験の浅さも相まって初見では意味ぷー過ぎたので、よりわかりやすいNext.jsに飛びつきました。</p>\n<h3>MUI</h3>\n<p>コンポーネントが最初から用意されているのでほんとに楽です。<br>\n特に、ちょっとした機能なのにスクラッチからだと案外めんどくさい機能（ボタンの波紋とかページネーションとか）を最初から用意してくれているのが最高です。<br>\nsxでスタイルも気軽にいじれますしね。</p>\n<h3>Tailwind CSS</h3>\n<p>本当はMUIだけでそれなりのウェブサイトは作れるのですが、今回はサーバーサイドで静的レンダリングをする際に生のHTMLを扱う必要があったので、そのスタイリングにはTailwind CSSを使いました。<br>\nただ、MUIとTailwind CSSは両方とも強力な分、いろいろと競合が起きることも多いので併用には注意が必要です。</p>\n<h2>CMS</h2>\n<h3>microCMS</h3>\n<p>みんな大好きmicroCMSです。比較的新しいサービスということもあり、記事が充実していないかと思いきや、公式の発信する情報やドキュメントが神がかっているのでかなりおすすめです。</p>\n<p>機能についても記事公開に合わせた自動デプロイ機能やカスタムフィールドなどシンプルながらも組み合わせ次第でいくらでも強力にできそうなものを備えています。</p>\n<h2>ホスティングサービス</h2>\n<h3>Cloudflare Pages</h3>\n<p>比較的新しいサービスらしいですが、他のサービスに比べて無料枠でできることがかなり幅広いです。</p>\n<p>例として、アクセス制限やアクセス解析、セキュリティ機能、速度分析などを無料で提供してくれています。<br>\nまた、もともとがCDNの企業ということもあり配信パフォーマンスも高いです。</p>\n<h3>Netlify</h3>\n<p>実は最初はNetlifyにデプロイしておりCloudflareにはあとから移管しました。<br>\nNetlifyもビルドキャッシュによるビルドの高速化やプレビュー機能など十分に強力な機能を無料で提供してくれていたのですが、無料枠だと使えるCDNが限定されているらしく、パフォーマンスの点でどうしても満足がいきませんでした。<br>\nまあ、うちみたいな零細弱小ブログがなにイキってパフォーマンスチューニングとか語ってんだと言われれば反論の余地もないわけですが、勉強も兼ねたブログづくりなのでやはり突き詰められる部分は突き詰めていきたいという思いがありまして、移管を決断しました。<br>\nいままでありがとう、グッバイNetlify。</p>\n<h1>今までに作った機能</h1>\n<h2>数式表示</h2>\n<p>KaTeXを使って作りました。</p>\n<p>インラインにも数式を貼れますし（$\\mathrm{e}^{\\mathrm{i}\\theta} = \\cos(\\theta) + \\mathrm{i}\\sin(\\theta)$）、次のようにディスプレイ型の数式も使えます。</p>\n<p>$$\\cos(\\theta) = \\frac{\\mathrm{e}^{\\mathrm{i}\\theta} + \\mathrm{e}^{-\\mathrm{i}\\theta}}{2},\\ \\sin(\\theta) = \\frac{\\mathrm{e}^{\\mathrm{i}\\theta} - \\mathrm{e}^{-\\mathrm{i}\\theta}}{2\\mathrm{i}}$$</p>\n<p>数式表示については以下の記事で詳しい解説をしているので気になる方は参照どうぞ。<br>\n<a href=\"https://asunaroblog.net/blog/641d77aab5b671fd667829c8\">linkCard</a></p>\n<h2>ソースコードのハイライト</h2>\n<p>サーバーサイドでのハイライトに関してはmicroCMSブログに素晴らしい解説記事が載っているのでそちらを参照するのがよろしいかと思います。<br>\n一応以下のような形でファイル名を含めてハイライトができるようにしています。</p>\n<pre><code>def main():\n    print(&quot;Hello World&quot;)\n\nmain()\n</code></pre>\n<p><a href=\"https://blog.microcms.io/syntax-highlighting-on-server-side/\">linkCard</a></p>\n<h1>今後実装するかもな機能</h1>\n<h2>テスト</h2>\n<p>これはさっさとやりたいです。<br>\nstorybookも導入はしているもののあまり有効活用できていないという状況があるので、うまい付き合い方を模索しながら自分なりの使い方をしていきたいですね。</p>\n<h2>ダークモード対応</h2>\n<p>こちらはやり方はわかっているのですがいざやろうとすると色決めたりパレットの設定をしたりちょっと面倒だったりします。<br>\nただ、寝る前に電気消してスマホいじってるときとかにダークモードがないサイトとか開くと目が痛くて辛いときがたまにあるので、このブログの読者にはそういった不便をおかけしないようなるだけはやく取り組みたいとは思っています。</p>\n<h2>こちらの記事もおすすめ</h2>\n<p>これはすぐにでも作れる機能です。<br>\n自分がブログ記事見るときには正直あまり必要だと思わない機能なのですが、記事を一番下まで読んだときにいきなりフッターが来るとちょっと寂しい感じがあるのでできればつけたいです。<br>\nまあ、フッターと記事の間にごちゃごちゃ色々あるのも汚らしくて嫌という意見もありますが。</p>\n<h2>関連記事カード</h2>\n<p>アマゾンなどへの誘導リンクカードはあるのですが、このブログ内の他記事への誘導カードはもう少しリッチなものを簡単に作れそうなので作ろうかと思っています。</p>\n<h2>月ごとアーカイブ</h2>\n<p>これも別にどちらでも良いと思うのですが、記事の投稿頻度を自分に戒めるためにも必要なのかしら。<br>\nまあ、サイドバーがごちゃごちゃしてるのも個人的には嫌いなのですが、汚らしくて。</p>\n<h2>問い合わせ機能</h2>\n<p>これはいつか欲しいですね。<br>\nまあ、こんな零細弱小貧弱ブログにいらっしゃる物好きな方がまず少ない中で、私に問い合わせしてくださる方がいるとは思いませんが、いつかお仕事の依頼とか（妄想）受けるのに役立ってくれたらいいなあ。</p>\n<p>といっても、この機能自体はmicroCMSのポストメソッドを使って実装するのでAPIやフォーム作りの勉強もできるのでモチベーション自体は割りとあったりします。</p>\n<h2>SNSなどとの連携</h2>\n<p>これ、必要でしょうか？<br>\nそもそも私はSNSを何一つやっていないのでこの機能があってもあまり利用しなさそうという気がしています。<br>\nとはいえ、RSSなんかはあってもいいのかなと思いつつ。<br>\nあとは将来Twitterなんかを始めたら実装するかもですね。</p>\n<h2>SEO対策</h2>\n<p>いい加減SEO対策についてはしっかりやったほうがいいということはわかっています。<br>\nですが、めんどくさいですよね正直。</p>\n<p>モチベーションが上がってきたらやります。</p>\n<h1>まとめ</h1>\n<p>今回はこのブログの構成や実装した機能について改めて説明してみました。<br>\n今後ブログを作ろうという方の一助になることを願っています。</p>\n<p>「ブログで会社員の10倍稼ごう！」みたいな話がたびたび持ち上がるわけですが、エンジニアなら金がどうとかではなく単にブログを作ることそのものを楽しんだらいいと思います。<br>\n特にJamstackならAPIの勉強にもなりますし、新米エンジニアが初めて作るシステムとしてはうってつけだと思います。</p>\n<p>だからといって金がいらないというわけではないですよ？<br>\nいつかこのブログが金のなる木になってくれることを密かに期待しつつ、今後も楽しみながらブログづくりに励んでいく所存です。</p>\n"
+    },
+    {
+      "_id": "641d77aab5b671fd667829c8",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T10:12:58.462Z",
+          "updatedAt": "2023-04-16T06:16:55.410Z",
+          "firstPublishedAt": "2023-03-24T10:12:58.462Z",
+          "publishedAt": "2023-04-16T06:16:55.410Z"
+        },
+        "customOrder": 7,
+        "createdAt": "2023-03-24T10:12:58.462Z",
+        "updatedAt": "2023-04-16T06:16:55.410Z"
+      },
+      "title": "Next.js+microCMS+KaTeXで数式をサーバーサイドレンダリングする｜ブログづくり",
+      "description": "<p>前回の記事を作ろうとした際に数式の表示で死ぬほど苦労したのでその悔しさを忘れないための備忘録です。同じように苦しんでいる方の参考になれば幸いです。</p>",
+      "coverImage": {
+        "_id": "641d757cb5b671fd667780b5",
+        "altText": "KATEXのロゴ",
+        "description": "",
+        "fileName": "katex.webp",
+        "fileSize": 2862,
+        "fileType": "image/webp",
+        "height": 263,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/5ee80325-8481-4659-a8da-cfb9e031b98d%2Fkatex.webp",
+        "title": "KATEXのロゴ",
+        "width": 500
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d60780293b870f66d1e8f",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:00.436Z",
+              "updatedAt": "2023-10-30T14:05:08.638Z",
+              "firstPublishedAt": "2023-03-24T08:34:00.436Z",
+              "publishedAt": "2023-10-30T14:05:08.638Z"
+            },
+            "customOrder": 13,
+            "createdAt": "2023-03-24T08:34:00.436Z",
+            "updatedAt": "2023-10-30T14:05:08.638Z"
+          },
+          "tag": "ブログ",
+          "ref": [
+            "643b9d80729275004e35db8b",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d77aab5b671fd667829c8"
+          ]
+        },
+        {
+          "_id": "641d60820293b870f66d29e0",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:34:10.896Z",
+              "updatedAt": "2023-10-30T14:04:33.603Z",
+              "firstPublishedAt": "2023-03-24T08:34:10.896Z",
+              "publishedAt": "2023-10-30T14:04:33.603Z"
+            },
+            "customOrder": 14,
+            "createdAt": "2023-03-24T08:34:10.896Z",
+            "updatedAt": "2023-10-30T14:04:33.603Z"
+          },
+          "tag": "KaTeX",
+          "ref": ["641d77aab5b671fd667829c8", "643b9d80729275004e35db8b"]
+        },
+        {
+          "_id": "641d60bb0293b870f66d60c1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:07.951Z",
+              "updatedAt": "2023-10-30T14:03:00.662Z",
+              "firstPublishedAt": "2023-03-24T08:35:07.951Z",
+              "publishedAt": "2023-10-30T14:03:00.662Z"
+            },
+            "customOrder": 20,
+            "createdAt": "2023-03-24T08:35:07.951Z",
+            "updatedAt": "2023-10-30T14:03:00.662Z"
+          },
+          "tag": "フロントエンド",
+          "ref": [
+            "65215f5d505f572f6f199132",
+            "64808d4a8cb2e6b05150042c",
+            "641d7f43b5b671fd667cf43d",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d77aab5b671fd667829c8"
+          ]
+        },
+        {
+          "_id": "641d5ff60293b870f66c4600",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:31:50.856Z",
+              "updatedAt": "2023-10-30T14:11:19.620Z",
+              "firstPublishedAt": "2023-03-24T08:31:50.856Z",
+              "publishedAt": "2023-10-30T14:11:19.620Z"
+            },
+            "customOrder": 3,
+            "createdAt": "2023-03-24T08:31:50.856Z",
+            "updatedAt": "2023-10-30T14:11:19.620Z"
+          },
+          "tag": "Next.js",
+          "ref": [
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d77aab5b671fd667829c8",
+            "643b9d80729275004e35db8b"
+          ]
+        }
+      ],
+      "body": "<p>前回の記事を作ろうとした際に数式の表示で死ぬほど苦労したのでその悔しさを忘れないための備忘録です。</p>\n<p>同じように苦しんでいる方の参考になれば幸いです。</p>\n<h1>前提</h1>\n<h2>数式表示ライブラリの選択肢</h2>\n<h3>MathJax</h3>\n<p>最もポピュラーな数式表示ライブラリです。<br>\nLaTeXとMathMLの表記が使えます。<br>\nアメリカ数学会によって管理されているらしいのでほぼデファクトスタンダードになっているみたいです。<br>\nその割にはサーバーサイドレンダリングとかNext.jsに関連した情報があまりなく、個人的には使いにくかったので使いませんでした。</p>\n<h3>KaTeX</h3>\n<p>数式の高速描画のためのライブラリです。<br>\nこちらもLaTeX表記が使えますが、MathJaxと比べ表示できる記号類が限られているようです。<br>\n今回、こちらのほうがシンプルにサーバーサイドレンダリングができると判断したためこちらを利用しました。</p>\n<h2>この記事の内容</h2>\n<p>この記事ではKaTeXとNext.jsのSSG機能を使ってサーバーサイドで数式表示されたHTMLを静的に作ろうという内容です。<br>\nCMSにはmicroCMSを使っているので、Markdownファイルをgithubで管理するような構成の場合はちょっと変更が必要になると思われます。</p>\n<p>また、今回の実装は正直かなりゴリ押しです。<br>\nおそらくKaTeXのオプションなどをうまく使えばもっとスマートにできるでしょうが、ひとまず目標の機能は得られたのでこの実装でオーケーとしておきます。</p>\n<h1>実装（下準備）</h1>\n<h2>流れ</h2>\n<p>全体の流れとしては</p>\n<ul>\n<li>コンテンツを取得</li>\n<li>コンテンツを整形（今回はcheerioを使っています）</li>\n<li>数式を変換（←ここがメインディッシュ）</li>\n</ul>\n<p>となります。</p>\n<p>上2つはmicroCMSやcheerioを使っており、構成にかなり依存するので構成が違う方は3つ目のみ参照してみてください。</p>\n<h2>コンテンツを取得</h2>\n<p>まずはコンテンツ（ここではmicroCMSのリッチエディタのコンテンツ）を取得します。<br>\nmicrocms-sdkを使えばこれは簡単にできます。<br>\nこの辺の細かい内容は↓の記事に詳しいです。<br>\n<a href=\"https://blog.microcms.io/microcms-next-jamstack-blog/\">linkCard</a></p>\n<h2>コンテンツを整形</h2>\n<p>コンテンツの整形にはcheerioを使っています。<br>\nmicroCMSのブログで詳しく解説がされているので、そちらを見ることをおすすめします。<br>\n個人的にはパースの処理は分けたいので別ファイルを作っています。<br>\nこの際のスタイリングにはTailwindCSSを使っています。</p>\n<pre><code>import cheerio from 'cheerio'\n\nexport const parseParagraph = (paragraph: string) =&gt; {\n  const $ = cheerio.load(paragraph)\n  $(&quot;h1&quot;).each((_, element) =&gt; {\n    $(element).addClass('ml-8 my-5 text-3xl font-semibold font-body')\n    $(element).wrap('&lt;div class=&quot;bg-slate-100 mb-5 mt-20 flex&quot;&gt;&lt;/div&gt;')\n    $(element).parent().prepend('&lt;div class=&quot;w-2 bg-yellow-400&quot;&gt;&lt;/div&gt;')\n  })\n  $(&quot;h2&quot;).each((_, element) =&gt; {\n    $(element).addClass('ml-4 my-2 text-xl font-semibold font-body')\n    $(element).wrap('&lt;div class=&quot;mb-5 flex&quot;&gt;&lt;/div&gt;')\n    $(element).parent().prepend('&lt;div class=&quot;w-2 bg-yellow-400&quot;&gt;&lt;/div&gt;')\n  })\n  $('p').each((_, element) =&gt; {\n    $(element).addClass('text-lg font-body leading-loose')\n    $(element).wrap('&lt;div class=&quot;mt-5 mb-10&quot;&gt;&lt;/div&gt;')\n  })\n\n  $('ul').each((_, element) =&gt; {\n    $(element).addClass('list-disc list-inside text-lg space-y-2 ml-6 pl-4 indent-[-1em]')\n    $(element).children().addClass('font-thin')\n  })\n\n  $('blockquote').each((_, element) =&gt; {\n    $(element).addClass('ml-4 text-xl opacity-90 font-body')\n    $(element).wrap('&lt;div class=&quot;flex&quot;&gt;&lt;/div&gt;')\n    $(element).parent().prepend('&lt;div class=&quot;w-2 bg-slate-200&quot;&gt;&lt;/div&gt;')\n  })\n\n  return $(&quot;body&quot;).html() as string\n}\n</code></pre>\n<p><a href=\"https://blog.microcms.io/contents-parse-way/\">linkCard</a></p>\n<h1>KaTeXを使った数式の変換</h1>\n<h2>KaTeXの導入</h2>\n<p>KaTeXの導入には</p>\n<ul>\n<li>ローカルにインストール</li>\n<li>CDN経由で利用</li>\n</ul>\n<p>の二種類の方法があります。</p>\n<p>ローカルに入れる場合は次のようにします。</p>\n<pre><code>yarn add katex\n</code></pre>\n<p>CDN経由で利用したい場合については今回はあまり調べていないのですが、公式を見るのがベストかと思われます。</p>\n<p>ただし、Next.jsの場合は_document.jsに色々書き込むと思うのですが、HTMLの<Head>内に書き込むのとは少しだけ勝手が違うので注意が必要です。</p>\n<p><a href=\"https://katex.org/docs/browser.html\">linkCard</a></p>\n<h2>数式の変換</h2>\n<p>KaTeXを使って数式を変換します。<br>\nサーバーサイドで処理したい場合には<code>katex.renderToString</code>を使います。</p>\n<pre><code>const html = katex.renderToString(&quot;c\\\\pm\\\\sqrt{a^2 + b^2}&quot;)\n</code></pre>\n<p>引数としてlatexの数式を渡せば変換した結果を文字列として返してくれます。<br>\nこの結果は次のような形でレンダリングすることができます。</p>\n<pre><code>&lt;div dangerouslySetInnerHTML={{ __html: html }} /&gt;\n</code></pre>\n<p>数式を変換するだけならこれだけなのですが、ブログなどで使っていくとなるとこれだけでは少々問題です。<br>\nというのも、<code>renderToString</code>に文字列すべてを投げるのは現実的ではありませんし、変換してほしくない部分まで変換してしまう危険があります。</p>\n<p>おそらくほとんどの人はlatex等と同様に&quot;$&quot;や&quot;[&quot;などで囲った部分のみ変換したいと思うはずなのですが、私の調べた範囲ではKaTeXの設定ではこれができませんでした。<br>\nなので、今回はjavascriptの文字列操作で強引に数式部分を抜き出してしまおうという作戦に出ました。</p>\n<p>なお、クライアントサイドで数式を処理する場合には&quot;$&quot;で囲った部分を自動で処理するようにできるようです。</p>\n<h2>数式の抜き出し</h2>\n<p>作戦としてはまず、</p>\n<pre><code>htmlText.replace(正規表現, 変換処理)\n</code></pre>\n<p>の形でhtmlTextから数式（今回は&quot;$&quot;で囲った部分）を抜き出して、これに対して<code>renderToString</code>を適用していきます。<br>\n例えば次のようになります。</p>\n<pre><code>const htmlReplaced = htmlText.replaceAll(/\\$\\$[^\\$]*\\$\\$/g, (substring) =&gt;\nkatex.renderToString(substring.replaceAll(&quot;$&quot;, &quot;&quot;).replaceAll(/(&lt;br&gt;|&lt;\\\\br&gt;|&amp;nbsp;|amp;)/g, &quot;&quot;),\n{ output: &quot;mathml&quot;, displayMode: true, strict: &quot;ignore&quot; }))\n</code></pre>\n<p>htmlTextには数式を含むコンテンツが入っています。<br>\nそこから<code>replaceAll</code>を使ってパターンに該当する数式部分をKaTeXで変換します。<br>\nこの際、正規表現を使っていますが、これの意味としては「ドルマーク2つで囲まれた部分を取り出し、その間にはドルマークを含まない文字列が入る」ようなものをマッチングします。</p>\n<p>このように取り出したものはドルマーク2つで囲まれた文字列（&quot;$x=e^{10}$&quot;のような形）になっているので、ドルマークを削除するためにもう一度replaceを行っています。</p>\n<p>これだけでとりあえず機能的には完成なのですが、今回はmicroCMSのリッチエディタを使っているので、その中で書きやすくするためにいくつか無視したい文字列を削除する処理を行っています。<br>\n今回削除したのは<br>（改行タグ）、 （空白文字）、amp;（&amp;）の3つです。<br>\nこの辺は今後増えていくかもしれません。</p>\n<h1>まとめ</h1>\n<p>今回はKaTeXを使ったサーバーサイドでの数式の静的レンダリングについて解説しました。<br>\nやっぱり自作ブログは作りたてだとちょっとした機能がなくて不便しますよね。<br>\nまあ、こういうのを地道に作るのが醍醐味なんですが。<br>\nこれからもちょっとずつ気長に機能を作っていこうかと思います。</p>\n"
+    },
+    {
+      "_id": "641d753db5b671fd66776ecf",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T10:02:37.717Z",
+          "updatedAt": "2023-04-08T07:36:48.696Z",
+          "firstPublishedAt": "2023-03-24T10:02:37.717Z",
+          "publishedAt": "2023-04-08T07:36:48.696Z"
+        },
+        "customOrder": 6,
+        "createdAt": "2023-03-24T10:02:37.717Z",
+        "updatedAt": "2023-04-08T07:36:48.696Z"
+      },
+      "title": "「条件付き独立の仮定」をしっかり理解する｜計量経済学の基礎",
+      "description": "<p>先日、効果検証入門を読んでいたところ条件付き独立の仮定（Conditional Independence Assumption, CIA）という言葉が出てきたのですが、重要な概念にしてはすぐに意味の分からない言葉だったので自分なりに解釈した結果を書き残します。</p>",
+      "coverImage": {
+        "_id": "641d7344b5b671fd667651f6",
+        "altText": "数字の羅列とグラフ",
+        "description": "",
+        "fileName": "business-g120d37503_1280-1.webp",
+        "fileSize": 20452,
+        "fileType": "image/webp",
+        "height": 333,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/56363c56-fb7c-4ab1-8ef4-e76dd70b4e1a%2Fbusiness-g120d37503_1280-1.webp",
+        "title": "数字の羅列とグラフ",
+        "width": 500
+      },
+      "category": {
+        "_id": "641d5f560293b870f66b435b",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:29:10.945Z",
+            "updatedAt": "2023-10-30T14:12:53.451Z",
+            "firstPublishedAt": "2023-03-24T08:29:10.945Z",
+            "publishedAt": "2023-10-30T14:12:53.451Z"
+          },
+          "customOrder": 2,
+          "createdAt": "2023-03-24T08:29:10.945Z",
+          "updatedAt": "2023-10-30T14:12:53.451Z"
+        },
+        "displayedName": "MATH",
+        "name": "math",
+        "ref": ["641d753db5b671fd66776ecf"]
+      },
+      "tags": [
+        {
+          "_id": "641d60480293b870f66ca04e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:33:12.844Z",
+              "updatedAt": "2023-10-30T14:06:10.840Z",
+              "firstPublishedAt": "2023-03-24T08:33:12.844Z",
+              "publishedAt": "2023-10-30T14:06:10.840Z"
+            },
+            "customOrder": 9,
+            "createdAt": "2023-03-24T08:33:12.844Z",
+            "updatedAt": "2023-10-30T14:06:10.840Z"
+          },
+          "tag": "計量経済学",
+          "ref": ["641d753db5b671fd66776ecf"]
+        },
+        {
+          "_id": "641d60520293b870f66cdeb4",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:33:22.419Z",
+              "updatedAt": "2023-10-30T14:05:59.046Z",
+              "firstPublishedAt": "2023-03-24T08:33:22.419Z",
+              "publishedAt": "2023-10-30T14:05:59.046Z"
+            },
+            "customOrder": 10,
+            "createdAt": "2023-03-24T08:33:22.419Z",
+            "updatedAt": "2023-10-30T14:05:59.046Z"
+          },
+          "tag": "統計学",
+          "ref": ["641d753db5b671fd66776ecf"]
+        }
+      ],
+      "body": "<p>先日、効果検証入門を読んでいたところ条件付き独立の仮定（Conditional Independence Assumption, CIA）という言葉が出てきました。</p>\n<p>重要な概念にしてはすぐに意味の分からない言葉だったので自分なりに解釈した結果を書き残します。</p>\n<p>参考にしたのは「ほとんど無害」な計量経済学と計量経済学---ミクロデータ分析へのいざないです。前者の文献は効果検証入門においてもよく引かれていた文献ですね。</p>\n<p>なお、後者の文献では表題の概念は「無視可能性の仮定」という呼ばれ方をしていますのでご注意を。</p>\n<p><a href=\"https://amzn.to/3yJSQHv\">linkCard</a><br>\n<a href=\"https://amzn.to/3D22Uyc\">linkCard</a><br>\n<a href=\"https://amzn.to/3eBvxIZ\">linkCard</a></p>\n<h1>条件付き独立の仮定</h1>\n<h2>定義</h2>\n<p>介入変数$Z_i$、外的条件（介入変数以外の結果に影響を与えるファクター）$X_i$、潜在的結果変数$Y_{0i}, Y_{1i}$について次のような関係が成り立つことを条件付き独立の仮定（無視可能性の仮定）といいます。</p>\n<p>$${Y_{0i}, Y_{1i}} \\perp Z_i \\mid X_i$$</p>\n<p>※用語の説明は一番下にまとめて載せてあります。</p>\n<h2>どういう意味があるの？</h2>\n<p>条件付き独立の仮定が満たされることで、回帰分析による効果測定を行うことができます。<br>\n逆に言うと、回帰分析による効果測定を行ったとしても、条件付き独立の仮定が満たされていなければバイアスを含んだ測定結果になってしまう可能性があるということです。</p>\n<h2>詳細な説明</h2>\n<p>数式を一見しただけではわかりにくいですが、噛み砕くと次のような説明ができます。</p>\n<p>例えば「大学に行くと所得は増えるか？」という問題を考えてみます。</p>\n<p>このとき、まず最初に思いつくのは次のような比較だと思います。</p>\n<p>「大学に行った人と大学に行っていない人で所得を比較してみる」</p>\n<p>これを単純に数式に落とし込むと次のように表せます。</p>\n<p>$$Y_i = \\beta_{1i} + \\beta_{2i} Z_i + u_i$$</p>\n<p>ここで$Y_i$は所得、$Z_i$は大学に行く（$Z_i=1$）かいかない（$Z_i=1$）かを表す介入変数、$u_i$が誤差項です。</p>\n<p>そして、ここでは$\\beta_{2i}$（大学に行くとどれだけ所得が増えるのか）を知りたいとします。</p>\n<p>つまり、この式の$Z_i$について$Z_i=1,0$とした2つの式を用意し、それぞれの$Y_i$に大学に行った人と行っていない人の平均給与を入れて連立方程式を作れば$\\beta_{2i}$が求まるように思えます。</p>\n<p>しかし、この方法では正確な$\\beta_{2i}$を求めることができません。</p>\n<p>というのも、そもそも大学に行った人（$Z_i=1$の人）というのはそうでない人に比べて所得を多くもらうような能力を初めから持っている人たちなのではないかという可能性を否定出来ないからです。</p>\n<p>小難しい言い方をすると、$Z_i=1$の人たちと$Z_i=0$の人たちで潜在結果変数$Y_{0i}, Y_{1i}$に違いがあるのではないかということです。</p>\n<p>つまり、$Z_i=1$の人たちの潜在結果変数を$Y_{0i, z=1}, Y_{1i, z=1}$とし、$Z_i=0$の人たちの潜在結果変数を$Y_{0i, z=0}, Y_{1i, z=0}$とすると、</p>\n<p>$$Y_{0i, Z=0} \\neq Y_{0i, Z=1}, Y_{1i, Z=0} \\neq Y_{1i, Z=1}$$</p>\n<p>となってしまっており、<strong>$Y_{0i}, Y_{1i}$の値が$Z_i$に依存してしまっている</strong>ということです。</p>\n<p>これでは$Z_i=1$としたときの結果の違いが本来の効果とは別の要因（比較対象の能力の差など）にも依存してしまっており、測定にバイアスが含まれてしまいます。</p>\n<h2>条件付き独立の仮定が成立するには？</h2>\n<p>ではどうすれば条件付き独立の仮定が成立するのか？</p>\n<p>すなわち、バイアスがかからないような測定ができるのか？</p>\n<p>これにはいろいろな方法が知られており、有名なものでは</p>\n<ul>\n<li>能力などが似た者同士を比較してやる</li>\n<li>変数$X_i$を追加して$Z_i$から介入の効果以外のバイアス（欠落変数バイアス）を抜いてやる（他の変数に吸収させる）。</li>\n</ul>\n<p>というようなものがあるみたいです。この辺は勉強中なので、また別記事にまとめるかもしれません。</p>\n<h1>まとめ</h1>\n<p>数理科学で「仮定」とか名前の付いてるものって、当たり前の概念だけど案外わかりにくいことが多いと思うのですが私だけでしょうか？</p>\n<p>今回の執筆にあたっては計量経済学---ミクロデータ分析へのいざないが一番わかりやすい説明をしてくれていたと思います。いろいろな文献をあたるのってやっぱり大事ですね。</p>\n<h1>用語の説明</h1>\n<h2>介入変数</h2>\n<p>介入するかしないかなどを表す変数で本記事では$i$さんの介入変数を$Z_i$で表しています。例えば「大学に行くと所得が増えるか？」について議論したいときは、大学に行った人には$Z_i=1$、大学に行っていない人には$Z_i=0$を与えて比較するなどの使い方をします。</p>\n<h2>潜在的結果変数</h2>\n<p>介入変数$Z_i$について、潜在的結果変数は次のように定義されます。</p>\n<p>$$潜在的な結果変数 =\\begin{cases}Y_{1i} &amp; (Z_i = 1)\\\\Y_{0i} &amp; (Z_i =0)\\end{cases}$$</p>\n<p>例えば、「大学に行くと所得は増えるか？」について検証することを考えます。</p>\n<p>このとき、$Y_{1i}$はある個人$i$が大学に行ったときの賃金、$Y_{0i}$は同じ個人が大学にいかなかったときの賃金を表します。</p>\n<p>注意としては、$Y_{1i}, Y_{0i}$はある個人が大学に行ったときと行かなかったときの所得を表しているので、両方を観測するのは不可能であるということです（なので&quot;潜在的&quot;結果変数です）。これを「因果推論の根本問題」といいます。</p>\n"
+    },
+    {
+      "_id": "641d72e9b5b671fd66763f59",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T09:52:41.323Z",
+          "updatedAt": "2023-03-29T06:08:38.495Z",
+          "firstPublishedAt": "2023-03-24T09:52:41.324Z",
+          "publishedAt": "2023-03-24T09:52:41.324Z"
+        },
+        "customOrder": 5,
+        "createdAt": "2023-03-24T09:52:41.323Z",
+        "updatedAt": "2023-03-29T06:08:38.495Z"
+      },
+      "title": "custom hooksのテストでuseStateが更新されないときの対処法",
+      "description": "<p>react-hooks-testing-libraryを使ってcustom hooksをテストした際にhooks内で作ったstateが更新されない問題が起きたのでその対処法を書き残します。</p>",
+      "coverImage": {
+        "_id": "641d71ccb5b671fd6675e1a9",
+        "altText": "Reactのロゴと文字",
+        "description": "",
+        "fileName": "react.webp",
+        "fileSize": 7750,
+        "fileType": "image/webp",
+        "height": 344,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/b8ad8f69-b1b0-406b-aa5f-2dfa79653912%2Freact.webp",
+        "title": "Reactのロゴと文字",
+        "width": 700
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d601c0293b870f66c73e2",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:32:28.354Z",
+              "updatedAt": "2023-10-30T14:08:13.362Z",
+              "firstPublishedAt": "2023-03-24T08:32:28.354Z",
+              "publishedAt": "2023-10-30T14:08:13.362Z"
+            },
+            "customOrder": 5,
+            "createdAt": "2023-03-24T08:32:28.354Z",
+            "updatedAt": "2023-10-30T14:08:13.362Z"
+          },
+          "tag": "React Testing Library",
+          "ref": ["641d72e9b5b671fd66763f59"]
+        },
+        {
+          "_id": "641d5fd30293b870f66c1065",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:31:15.987Z",
+              "updatedAt": "2023-10-30T14:11:40.518Z",
+              "firstPublishedAt": "2023-03-24T08:31:15.987Z",
+              "publishedAt": "2023-10-30T14:11:40.518Z"
+            },
+            "customOrder": 2,
+            "createdAt": "2023-03-24T08:31:15.987Z",
+            "updatedAt": "2023-10-30T14:11:40.518Z"
+          },
+          "tag": "React",
+          "ref": [
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d72e9b5b671fd66763f59"
+          ]
+        },
+        {
+          "_id": "641d5fb10293b870f66bda20",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:30:41.227Z",
+              "updatedAt": "2023-10-30T14:12:00.465Z",
+              "firstPublishedAt": "2023-03-24T08:30:41.228Z",
+              "publishedAt": "2023-10-30T14:12:00.465Z"
+            },
+            "customOrder": 1,
+            "createdAt": "2023-03-24T08:30:41.227Z",
+            "updatedAt": "2023-10-30T14:12:00.465Z"
+          },
+          "tag": "デバッグ備忘録",
+          "ref": [
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d72e9b5b671fd66763f59"
+          ]
+        }
+      ],
+      "body": "<h1>何があった？</h1>\n<p>react-hooks-testing-libraryを使ってcustom hooksをテストした際にhooks内で作ったstateが更新されない問題が起きたのでその対処法を書き残します。</p>\n<p>※↓はサンプルコード</p>\n<pre><code>import { useCallback, useState } from &quot;react&quot;\n\nconst useCount = () =&gt; {\n  const [count, setCount] = useState&lt;number&gt;(0)\n  const increment = useCallback(() =&gt; setCount((x) =&gt; x + 1), [])\n  return {\n    count: count,\n    increment: increment\n  }\n}\n\nexport default useCount\n</code></pre>\n<pre><code>import { renderHook } from &quot;@testing-library/react&quot;\nimport { act } from &quot;react-dom/test-utils&quot;\nimport useCount from &quot;./count&quot;\n\ntest(&quot;should count up&quot;, () =&gt; {\n  const { result } = renderHook(() =&gt; useCount())\n  const { count, increment } = result.current\n  act(() =&gt; {\n    increment()\n    increment()\n    increment()  \n  })\n  expect(count).toBe(3) \\\\ count = 0になる\n})\n</code></pre>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/fc66f7b2-7194-471e-8c21-0607914407c0%2F%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%83%86%E3%82%B9%E3%83%88.gif\" alt=\"カウントテスト.gif\"></p>\n<h1>解決策</h1>\n<p>当たり前のような話ですが、result.currentは現在の値しか保持してくれないらしいです。なので一回取り出すとsetStateで更新しても反映されません。ということで正しいコードは↓のようになるらしいです。</p>\n<pre><code>import { renderHook } from &quot;@testing-library/react&quot;\nimport { act } from &quot;react-dom/test-utils&quot;\nimport useCount from &quot;./count&quot;\n\ntest(&quot;should count up&quot;, () =&gt; {\n  const { result } = renderHook(() =&gt; useCount())\n  const { increment } = result.current\n  act(() =&gt; {\n    increment()\n    increment()\n    increment()  \n  })\n  expect(result.current.count).toBe(3) \\\\ 現在の値を取り出したいなら毎回result.currentから取り出す\n})\n</code></pre>\n<h1>まとめ</h1>\n<p>今回の敗因はreactのライフサイクルをきちんと把握していないせいだと思います。これに関しても一度勉強し直してまとめたほうがよいかしら...</p>\n"
+    },
+    {
+      "_id": "641d7054b5b671fd6674bfbe",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T09:41:40.813Z",
+          "updatedAt": "2023-05-20T14:10:20.462Z",
+          "firstPublishedAt": "2023-03-24T09:46:55.296Z",
+          "publishedAt": "2023-05-20T14:10:20.462Z"
+        },
+        "customOrder": 4,
+        "createdAt": "2023-03-24T09:41:40.813Z",
+        "updatedAt": "2023-05-20T14:10:20.462Z"
+      },
+      "title": "インターネット広告の仕組みと用語｜初心者向けにわかりやすく解説",
+      "description": "<p>先日、来年度から入社予定の会社からインターネット広告に関する書籍が送られてきたのですが、専門用語がわからな過ぎたので、一通り調べた結果を書き残します。</p>",
+      "coverImage": {
+        "_id": "641d6df5b5b671fd6673e674",
+        "altText": "SEOとかかれた駒",
+        "description": "",
+        "fileName": "seo.webp",
+        "fileSize": 26118,
+        "fileType": "image/webp",
+        "height": 531,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/c8f99de7-d593-4ae7-8f41-4a6061a58905%2Fseo.webp",
+        "title": "",
+        "width": 800
+      },
+      "category": {
+        "_id": "641d5f2a0293b870f66ae525",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:28:26.263Z",
+            "updatedAt": "2023-10-30T14:12:43.477Z",
+            "firstPublishedAt": "2023-03-24T08:28:26.263Z",
+            "publishedAt": "2023-10-30T14:12:43.477Z"
+          },
+          "customOrder": 3,
+          "createdAt": "2023-03-24T08:28:26.263Z",
+          "updatedAt": "2023-10-30T14:12:43.477Z"
+        },
+        "displayedName": "BUSINESS",
+        "name": "business",
+        "ref": ["641d6a25b5b671fd6670e71b", "641d7054b5b671fd6674bfbe"]
+      },
+      "tags": [
+        {
+          "_id": "641d60610293b870f66cea7b",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:33:37.951Z",
+              "updatedAt": "2023-10-30T14:05:36.224Z",
+              "firstPublishedAt": "2023-03-24T08:33:37.951Z",
+              "publishedAt": "2023-10-30T14:05:36.224Z"
+            },
+            "customOrder": 11,
+            "createdAt": "2023-03-24T08:33:37.951Z",
+            "updatedAt": "2023-10-30T14:05:36.224Z"
+          },
+          "tag": "ネット広告",
+          "ref": ["641d7054b5b671fd6674bfbe"]
+        }
+      ],
+      "body": "<p>先日、来年度から入社予定の会社からインターネット広告に関する書籍が送られてきたのですが、専門用語がわからな過ぎたので、一通り調べた結果を書き残します。</p>\n<p>ウェブ広告に関する解説が主で、SNS広告に関しては深掘りしていないのでその辺はご留意ください。</p>\n<p><a href=\"https://amzn.to/3Oqj9uK\">linkCard</a><br>\n<a href=\"https://amzn.to/43g4jeq\">linkCard</a></p>\n<p>用語が多く、また多岐にわたるので今回は</p>\n<ul>\n<li>主な広告の種類</li>\n<li>重要な効果指標と課金の種類</li>\n<li>広告運用のための用語</li>\n<li>アドテクノロジー用語</li>\n</ul>\n<p>に分類して掲載します。<br>\nとりあえず出現頻度の高い重要な用語は目次に全て掲載し、枝葉の用語はその他の用語として分類ごとにまとめています。</p>\n<h1>主な広告の種類</h1>\n<h2>リスティング広告（検索連動型広告）</h2>\n<p>Googleなどの検索エンジンにのせる広告。上位に出てきて広告と書いてあるやつはだいたいこれ。クリック単価が主流。</p>\n<h2>ディスプレイ広告</h2>\n<p>ウェブサイトの広告枠に掲載されている広告。クリック単価、インプレッション単価の両方がある。</p>\n<h2>純広告（予約型広告）</h2>\n<p>広告主が広告枠を事前に購入して出向する広告。新聞広告などはこれに当たる。</p>\n<h1>重要な効果指標</h1>\n<p>インプレッション・クリック・コンバージョンという3つの効果指標は広告の表示・クリック・成果という3つの課金ポイントにそれぞれ対応しています。これら3つを理解すれば広告のシステムに対する理解がかなり深まります。</p>\n<h2>効果指標</h2>\n<p>広告効果を定量的に判断・分析するための指標。広告用語の中で略語のほとんどが効果指標ということを理解しておくと頭の整理が付きやすいです。</p>\n<h3>なんで大事？</h3>\n<ul>\n<li>インターネット広告の用語は半分くらいこれ関連</li>\n<li>費用、効果（収益）などについて考える上で定量的な判断が避けて通れない</li>\n</ul>\n<h2>インプレッション（Imp）</h2>\n<p>特定の広告の表示回数のこと。</p>\n<h3>インプレッション課金</h3>\n<p>表示回数に応じて課金される課金形態。</p>\n<h3>なんで大事なの？</h3>\n<ul>\n<li>広告がどれだけユーザーの目にとまっているかの指標になる</li>\n<li>他の指標（CTRなど）の算出に使う</li>\n</ul>\n<h2>クリック（Click）</h2>\n<p>ユーザーが広告にタッチした回数。</p>\n<h3>クリック課金</h3>\n<p>クリック数に応じて課金される課金形態。</p>\n<h3>なんで大事なの？</h3>\n<ul>\n<li>広告がどれだけユーザーに興味を持たれているかの指標になる</li>\n<li>他の指標（CPCなど）の算出に使う</li>\n</ul>\n<h2>コンバージョン（CV）</h2>\n<p>Webサイトにおける最終的な成果のこと。</p>\n<h3>コンバージョン課金（アフィリエイト）</h3>\n<p>コンバージョン数に応じて課金される課金形態。</p>\n<h3>なんで大事なの？</h3>\n<ul>\n<li>広告運用における効果に直結する</li>\n<li>他の指標（CPAなど）の算出に使う</li>\n</ul>\n<h2>その他の効果指標</h2>\n<h3>CTR（Click Through Rate、クリック率）</h3>\n<p>表示された広告がクリックされた割合（Click ÷ Imp）。リスティング広告で3～5%、ディスプレイ広告で0.4～1%くらい。</p>\n<h3>CVR（Conversion Rate、コンバージョン率）</h3>\n<p>クリックされた広告に対して実際に買われるなどの成果がでた割合（Conversion ÷ Click）。カテゴリにかなり依存するが10%前後くらい</p>\n<h3>CPM（Cost Per Mille、インプレッション単価）</h3>\n<p>1000回の広告表示あたりにかかる広告費用。インプレッション課金型の広告で主に使われる。相場は10円～500円程度。</p>\n<h3>CPC（Cost Per Click、クリック単価）</h3>\n<p>1クリック獲得のためにかかる費用（Cost ÷ Click）。クリック課金型の広告で主に使われる。相場はディスプレイ広告だと数円～数百円、リスティング広告だと数十円～数万円。</p>\n<h3>CPA（Cost Per Action、コンバージョン単価）</h3>\n<p>コンバージョン（成果）1件にかかる費用（Cost ÷ Conversion）。 コンバージョン課金型（アフィリエイト型）の広告で主に使われる。相場はカテゴリによるが数千円～数万円。</p>\n<h3>SNS広告に関する指標</h3>\n<p>CPF（Cost Per Follow）、CPF（Cost Per Fan）、CPV（Cost Per View）など</p>\n<h1>広告運用のための用語</h1>\n<h2>クリエイティブ</h2>\n<p>広告として制作されたコンテンツの全て。バナー動画、画像、テキストなど。</p>\n<h2>広告在庫</h2>\n<p>今後のある一定期間に予想されるインプレッション数。ちょっとわかりにくいので以下詳細説明</p>\n<h3>インプレッションの売買</h3>\n<p>広告の売買はメディアが広告主に<strong>インプレッション（広告表示の機会）を売る行為</strong>と言い換えられる。<br>\nコンバージョン（成果）の数はインプレッション数に比例するので、インプレッションが増えれば広告主はそれだけ収益を得られる。</p>\n<h3>在庫が余る</h3>\n<p>上の理論で行くと広告の在庫とはつまりインプレッションの余りということになる。在庫が余った状態とはつまり「インプレッション（広告を表示する機会）がまだあるのに買い手（広告を掲載したい人）がいません」という状況。<br>\n広告媒体側からすると、在庫が余っていると収益を得られる機会を失っていることになるため、是が非でも広告を出してほしい。つまり<strong>広告枠が安くなる</strong>。</p>\n<h3>在庫が足りない</h3>\n<p>逆に在庫が足りない状況とは「広告枠の買い手がたくさんいるのにインプレッション（つまり広告枠）が余っていません」という状況。</p>\n<p>広告枠はオーディションで売買されるのが一般的なので、買い手が多いと<strong>広告枠は高くなる</strong>。</p>\n<h3>たまに逆の意味で使われる</h3>\n<p>広告在庫という言葉はたまに出す広告（クリエイティブ）の余りという意味で使われることがある。例えば、ゲームなどで動画広告を何度もみると「動画広告の在庫切れで広告を流せません」とでることがある。</p>\n<p>これを本来の意味で表現し直すと「動画広告の在庫が余っていて広告を流せません」となるわけだが、ユーザーからすると「？？？」という感じだと思う。なんで在庫が余ってるのに出せないんだ？となる。そこで、広告を見る側へのわかりやすさを優先してこのような表現にしているのだと思われる。</p>\n<h1>アドテクノロジー用語</h1>\n<p>アドテクノロジーとは広告の効率化のためのシステム全般のことです。効果指標ではないですが略語が多くて嫌になります。</p>\n<h2>アドネットワーク</h2>\n<p>複数の広告掲載メディア（Webサイト、ブログ、SNSなど）を束ねたディスプレイ広告の配信ネットワークのこと。たとえばGoogle Display Networkに登録するとGmail、ニュースサイト、ブログ、Youtubeなどのさまざまなメディアに対して一挙に広告を出すことができる。</p>\n<h3>メリット</h3>\n<p>広告掲載者はアドネットワークサービスに対してクリエイティブ（掲載する画像やテキスト）などを言えば複数のメディアに対して一括して広告配信ができるので楽。</p>\n<h3>デメリット</h3>\n<p>媒体のジャンルは選べるが、具体的な媒体は選べないのでブランドイメージを下げるようなサイトにも広告が掲載される可能性がある。<br>\nまた、複数のアドネットワークを使う場合管理が面倒。</p>\n<h2>アドエクスチェンジ</h2>\n<p>複数のアドネットワーク、掲載メディアなどを束ねた広告枠取引市場。ここでの「Exchange」とは交換ではなく取引所という意味です（これを交換だと思っている人のなんと多いことか...）。↓<br>\n<a href=\"https://bitbank.cc/glossary/exchange\">linkCard</a></p>\n<h3>アドネットワークとアドエクスチェンジの違い</h3>\n<p>株式市場からのアナロジーで考えるとわかりやすい。すなわち、アドエクスチェンジが株式市場（東証とか）であるとすると、アドネットワークは株式ブローカー（証券会社）、そして各メディアは各株式会社というふうに理解できる。このような環境だと、たしかにブローカーから直接株を買う人もいるだろうが、大きなシェアを占めるのは株式市場での売買になっていく。</p>\n<h3>メリット</h3>\n<p>特定の広告枠に対して入札できる。アドネットワークではネットワーク単位でしか広告を出せなかったのに対し、アドエクスチェンジは広告枠ごとに入札ができる。</p>\n<h3>アドエクスチェンジの特徴</h3>\n<ul>\n<li>インプレッション単位での入札。\n<ul>\n<li>アドネットワークでは課金形式（クリック課金、インプレッション課金など）が統一されていなかったがアドエクスチェンジはインプレッション課金で統一されている。</li>\n</ul>\n</li>\n<li>アドネットワークの広告在庫を融通しあえる。\n<ul>\n<li>アドエクスチェンジではアドネットワーク同士も広告在庫の売買ができるということ。これにより、在庫（=広告枠）が余っているアドネットワークは他のアドネットワークに対してその在庫を転売することで利益を得られ、市場全体の需要と供給が調整される。</li>\n</ul>\n</li>\n<li>RTB（Real Time Bitting）と呼ばれるオークション方式によって広告枠の落札者が決まる。</li>\n</ul>\n<h2>オーディエンスデータターゲティング</h2>\n<p>ユーザーの属性情報（性別、年齢、国など）や行動履歴（主にCookie）からその人の興味の有りそうな広告を配信する手法。行動履歴はデータエクスチェンジと呼ばれるデータの取引市場で売買される。</p>\n<h2>DSP</h2>\n<p>広告主（広告在庫の需要）側の利益最大化のためのプラットフォーム。広告在庫の買付、配信、クリエイティブの分析、入札単価の調整、オーディエンスターゲティングなどのあらゆる最適化を行う。</p>\n<h2>SSP</h2>\n<p>メディア（広告在庫の供給）側の収益最大化のためのプラットフォーム。インプレッションがあるごとに最も収益率の高い広告をDSPから選んで配信する。</p>\n<h1>まとめ</h1>\n<p>とりあえず今回はここまでです。アクセス解析やSEO用語についてはまた別の記事でまとめるかも。</p>\n"
+    },
+    {
+      "_id": "641d6dacb5b671fd6673b3c5",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T09:30:20.480Z",
+          "updatedAt": "2023-03-29T06:08:38.635Z",
+          "firstPublishedAt": "2023-03-24T09:30:20.480Z",
+          "publishedAt": "2023-03-24T09:30:20.480Z"
+        },
+        "customOrder": 3,
+        "createdAt": "2023-03-24T09:30:20.480Z",
+        "updatedAt": "2023-03-29T06:08:38.635Z"
+      },
+      "title": "MUI+tailwindcssでButton componentが透明になる問題の解決策",
+      "description": "<p>MUI+tailwindcssでButton componentが透明になる問題の原因と対処法です</p>",
+      "coverImage": {
+        "_id": "641d6cc8b5b671fd66733654",
+        "altText": "tailwindcssのロゴと文字",
+        "description": "",
+        "fileName": "tailwindcss.webp",
+        "fileSize": 12364,
+        "fileType": "image/webp",
+        "height": 652,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/1e6a1396-d3b3-48f5-a7ca-193944d716dd%2Ftailwindcss.webp",
+        "title": "",
+        "width": 836
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d60340293b870f66c881e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:32:52.690Z",
+              "updatedAt": "2023-10-30T14:07:22.305Z",
+              "firstPublishedAt": "2023-03-24T08:32:52.690Z",
+              "publishedAt": "2023-10-30T14:07:22.305Z"
+            },
+            "customOrder": 7,
+            "createdAt": "2023-03-24T08:32:52.690Z",
+            "updatedAt": "2023-10-30T14:07:22.305Z"
+          },
+          "tag": "MUI",
+          "ref": [
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d6dacb5b671fd6673b3c5"
+          ]
+        },
+        {
+          "_id": "641d602c0293b870f66c82e1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:32:44.680Z",
+              "updatedAt": "2023-10-30T14:07:51.039Z",
+              "firstPublishedAt": "2023-03-24T08:32:44.680Z",
+              "publishedAt": "2023-10-30T14:07:51.039Z"
+            },
+            "customOrder": 6,
+            "createdAt": "2023-03-24T08:32:44.680Z",
+            "updatedAt": "2023-10-30T14:07:51.039Z"
+          },
+          "tag": "Tailwind CSS",
+          "ref": ["641d6dacb5b671fd6673b3c5", "641d79cdb5b671fd6679c2ce"]
+        },
+        {
+          "_id": "641d5fd30293b870f66c1065",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:31:15.987Z",
+              "updatedAt": "2023-10-30T14:11:40.518Z",
+              "firstPublishedAt": "2023-03-24T08:31:15.987Z",
+              "publishedAt": "2023-10-30T14:11:40.518Z"
+            },
+            "customOrder": 2,
+            "createdAt": "2023-03-24T08:31:15.987Z",
+            "updatedAt": "2023-10-30T14:11:40.518Z"
+          },
+          "tag": "React",
+          "ref": [
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d72e9b5b671fd66763f59"
+          ]
+        },
+        {
+          "_id": "641d60bb0293b870f66d60c1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:07.951Z",
+              "updatedAt": "2023-10-30T14:03:00.662Z",
+              "firstPublishedAt": "2023-03-24T08:35:07.951Z",
+              "publishedAt": "2023-10-30T14:03:00.662Z"
+            },
+            "customOrder": 20,
+            "createdAt": "2023-03-24T08:35:07.951Z",
+            "updatedAt": "2023-10-30T14:03:00.662Z"
+          },
+          "tag": "フロントエンド",
+          "ref": [
+            "65215f5d505f572f6f199132",
+            "64808d4a8cb2e6b05150042c",
+            "641d7f43b5b671fd667cf43d",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d77aab5b671fd667829c8"
+          ]
+        },
+        {
+          "_id": "641d5fb10293b870f66bda20",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:30:41.227Z",
+              "updatedAt": "2023-10-30T14:12:00.465Z",
+              "firstPublishedAt": "2023-03-24T08:30:41.228Z",
+              "publishedAt": "2023-10-30T14:12:00.465Z"
+            },
+            "customOrder": 1,
+            "createdAt": "2023-03-24T08:30:41.227Z",
+            "updatedAt": "2023-10-30T14:12:00.465Z"
+          },
+          "tag": "デバッグ備忘録",
+          "ref": [
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d72e9b5b671fd66763f59"
+          ]
+        }
+      ],
+      "body": "<p>tailwindcssとMUIを併用しているときにButtonコンポーネントのvariantにcontainedを指定するとホバーしていない際にボタンが表示されなくなったので、その原因と解決策を書き残します。</p>\n<h1>解決策</h1>\n<p>一番簡単な解決策はtailwindcssのpreflightを停止することです。</p>\n<pre><code>module.exports = {\n  // 省略\n  corePlugins: {\n    preflight: false,\n  },\n}\n</code></pre>\n<p>他にはpreflightを書き換えるなどでも対応可能なようです。詳しくは公式ドキュメントを参照のこと。↓<br>\n<a href=\"https://tailwindcss.com/docs/preflight\">linkCard</a></p>\n<h1>原因</h1>\n<p>このバグの原因はtailwind CSSのpreflightにあるようです。preflightとはスタイルの統一性を整えるためにtailwind CSSを使った際にデフォルトで付けられるスタイルのことです。以下のファイルで適用されています。</p>\n<pre><code>@tailwind base; /* Preflight will be injected here */\n\n@tailwind components;\n\n@tailwind utilities;\n</code></pre>\n<p>ここでbuttonタグすべてにbackground-color: transparentが適用されてしまっていました。</p>\n<p>今回のようにMUIを使う際にはスタイルの統一性はそちらでとればよく、むしろ干渉してバグが起こりやすいのでpreflightは切ってしまってもよいと個人的には思います。ただ、それだとtailwindを使うメリットは減ってしまうのでmuiのsxのみ利用でもいいのかなと思ったりもします。</p>\n"
+    },
+    {
+      "_id": "641d6a25b5b671fd6670e71b",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T09:15:17.270Z",
+          "updatedAt": "2023-03-29T06:10:22.201Z",
+          "firstPublishedAt": "2023-03-24T09:46:40.300Z",
+          "publishedAt": "2023-03-29T06:10:22.201Z"
+        },
+        "customOrder": 2,
+        "createdAt": "2023-03-24T09:15:17.270Z",
+        "updatedAt": "2023-03-29T06:10:22.201Z"
+      },
+      "title": "アブダクションとは｜意味から具体的な例題まで解説",
+      "description": "<p>論理的推論の方法の一つであるアブダクションとはどのようなものでしょうか？この記事ではアブダクションを含めた論理的推論の手法について具体例をもとに解説しています。</p>",
+      "coverImage": {
+        "_id": "641d65d5b5b671fd666c5556",
+        "altText": "拳を突き合わせているビジネスマン",
+        "description": "",
+        "fileName": "teamwork-3213924_1920.webp",
+        "fileSize": 59184,
+        "fileType": "image/webp",
+        "height": 504,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/40bcc0e0-1cab-4288-89f7-036af54eaaf8%2Fteamwork-3213924_1920.webp",
+        "title": "",
+        "width": 800
+      },
+      "category": {
+        "_id": "641d5f2a0293b870f66ae525",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:28:26.263Z",
+            "updatedAt": "2023-10-30T14:12:43.477Z",
+            "firstPublishedAt": "2023-03-24T08:28:26.263Z",
+            "publishedAt": "2023-10-30T14:12:43.477Z"
+          },
+          "customOrder": 3,
+          "createdAt": "2023-03-24T08:28:26.263Z",
+          "updatedAt": "2023-10-30T14:12:43.477Z"
+        },
+        "displayedName": "BUSINESS",
+        "name": "business",
+        "ref": ["641d6a25b5b671fd6670e71b", "641d7054b5b671fd6674bfbe"]
+      },
+      "tags": [
+        {
+          "_id": "641d606a0293b870f66cf22e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:33:46.817Z",
+              "updatedAt": "2023-10-30T14:05:21.484Z",
+              "firstPublishedAt": "2023-03-24T08:33:46.818Z",
+              "publishedAt": "2023-10-30T14:05:21.484Z"
+            },
+            "customOrder": 12,
+            "createdAt": "2023-03-24T08:33:46.817Z",
+            "updatedAt": "2023-10-30T14:05:21.484Z"
+          },
+          "tag": "ロジカルシンキング",
+          "ref": ["641d6a25b5b671fd6670e71b"]
+        }
+      ],
+      "body": "<p>先日、来年度から入社予定の会社から論理的推論に関する以下の課題図書が送られてきました。</p>\n<p><a href=\"https://amzn.to/3Sg5hlT\">linkCard</a></p>\n<p>この本の内容で、演繹法と帰納法については以前からなんとなく知っていたのですが、アブダクションについては知らなかったので、調べた結果を書き残します。</p>\n<h1>論理的推論</h1>\n<h2>論理的推論とは</h2>\n<p>ウィキペディアによると</p>\n<blockquote>\n<p>推論（すいろん、英語: inference）とは、既知の事柄を元にして未知の事柄について予想し、論じる事である。</p>\n</blockquote>\n<p>だそうです。さらに、論理的推論といった場合には論理学における推論のことを指しており、これは</p>\n<ul>\n<li>演繹法</li>\n<li>帰納法</li>\n<li>アブダクション</li>\n</ul>\n<p>の三つに大別されるそうです。</p>\n<h2>問題設定</h2>\n<p>この記事では簡単に以下のような問題設定を使って各推論方法についての説明を試みます。</p>\n<pre><code>前提条件：夏が暑い\n規則：夏が暑いとアイスクリームがよく売れる\n結果：アイスクリームがよく売れる\n</code></pre>\n<p>論理的推論が使えるのはこの3つのうちの<strong>2つが既知で1つが未知</strong>の場合です。そのような状況で残り1つの未知の事柄を予想するのが論理的推論です。</p>\n<h1>演繹法</h1>\n<h2>演繹法とは</h2>\n<p>まず最初に説明するのが演繹法です。演繹法は結果が未知の場合の推論方法で、上の例題では次のようになります。</p>\n<ul>\n<li>前提条件：今年の夏は暑い</li>\n<li>規則：夏が暑いとアイスクリームがよく売れる</li>\n<li>結果（予想）：今年の夏はアイスクリームがよく売れるだろう</li>\n</ul>\n<p>ここで注意すべきなのは、推論は<strong>あくまで予想</strong>なのでこれが本当に当たっているのかどうかには、検証作業が別途必要であるということです。</p>\n<h2>使い道</h2>\n<p>演繹法は一般に数学者の頭の使い方であるといわれることがあります。例えば方程式を解く場合、与式（前提条件）を変形規則（規則）に従って変形し、結論（結果）を導きます。</p>\n<p>一方、ビジネスにおいては検証と未来予想に使われることが多いようです。例えば、次に説明する帰納法から得た規則を検証したり、企画立案のための方針にいかしたりということですね。</p>\n<h1>帰納法</h1>\n<h2>帰納法とは</h2>\n<p>2つ目に説明するのが帰納法です。帰納法は規則が未知の場合の推論方法で、上の例題では次のようになります。</p>\n<pre><code>前提条件1：2年前の夏は暑かった\n結果1：2年前の夏はアイスクリームがよく売れた\n前提条件1：去年の夏は暑かった\n結果1：去年の夏はアイスクリームがよく売れた\n規則（予想）：夏が暑いとアイスクリームがよく売れるだろう\n</code></pre>\n<p>ここで注意すべきは、前提条件と結果の組み合わせが複数なければ帰納法の信ぴょう性は下がってしまうということです。また、演繹法と同じくあくまで予想なので、推論の正しさについては別途検証が必要です。</p>\n<h2>使い道</h2>\n<p>帰納法は一般に科学者（物理学者など）の頭の使い方であるといわれることがあります。例えばニュートンは木にぶら下がったりんご（前提条件）が落ちた（結果）ことから物質は引き合う（規則）という結論を出しました。</p>\n<p>ビジネスにおいてもこのような事象と事象をつなぐ規則を知っておくことで戦略立案などに役立つそうです。（よくわからぬ）</p>\n<h1>アブダクション</h1>\n<h2>アブダクションとは</h2>\n<p>最後にに説明するのが本記事のメインディッシュであるアブダクションです。アブダクションは前提条件が未知の場合の推論方法で、上の例題では次のようになります。</p>\n<ul>\n<li>結果：20年前の夏はアイスクリームがよく売れた</li>\n<li>規則：夏が暑いとアイスクリームがよく売れる</li>\n<li>前提条件（予想）：20年前の夏は暑かった</li>\n</ul>\n<h2>よくある間違い</h2>\n<p>アブダクションは帰納法と混同することが多いようです（実際私の読んだ書籍でもこの二つをごっちゃにしている節が見受けられました）。以下によくある間違いを紹介します。</p>\n<ul>\n<li>結果：20年前の夏はアイスクリームがよく売れた</li>\n<li>前提条件（仮説）：20年前の夏は暑かったのではないか</li>\n<li>規則（結論）：夏が暑いとアイスクリームがよく売れる</li>\n</ul>\n<p>この例と一つ上の例の違いは、前提条件のみが未知なのか前提条件と規則の二つが未知となっているのかということです。前提条件と規則の二つが未知の場合には基本的にアブダクションは使用できません。この場合、まずは帰納法を使うのが定石です。すなわち、まず前提条件と結果の組（今回の場合「夏が暑く、かつアイスクリームが売れた」年の組）を複数用意し、ここから帰納法により「夏が暑いとアイスクリームが売れる」という規則を導きます。そこから、あぶだくしょんにより前提条件を導くという流れを取るのが正しい推論になります。</p>\n<h2>使い道</h2>\n<p>アブダクションは歴史学者の頭の使い方であるといわれることがあります。例えば歴史学者は、ある遺物がここにあり（結果）、この遺物は特定の宗教を信仰している人々の遺跡からよく出土する（規則）ため、この地ではその宗教が信仰されていた、というような考え方をします。</p>\n<p>また、ビジネスでも売り上げが伸びた原因、売上が落ちた原因などを調べるためにアブダクションを用います。</p>\n<p>まとめ</p>\n<ul>\n<li>演繹法、帰納法、アブダクションは混同しやすいので前提条件、規則、結果という三つの要素と紐づけて覚えよう</li>\n<li>三つの推論はわざわさ考えるまでもなく直感的にもわかるようなことを言っています。しかし、この三つを意識的にうまく組み合わせていくことで、直感ではわからないような深い洞察を得ることができるようになります（論理的思考ってそういうものですよね）。</li>\n</ul>\n"
+    },
+    {
+      "_id": "641d5d9a0293b870f6668d22",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T08:21:46.452Z",
+          "updatedAt": "2023-03-29T06:10:42.719Z",
+          "firstPublishedAt": "2023-03-24T08:55:18.593Z",
+          "publishedAt": "2023-03-29T06:10:42.719Z"
+        },
+        "customOrder": 1,
+        "createdAt": "2023-03-24T08:21:46.452Z",
+        "updatedAt": "2023-03-29T06:10:42.719Z"
+      },
+      "title": "TypescriptでuseSelectorを使ったらエラーが出た",
+      "description": "<p>TypescriptでuseSelectorを使った時に出てくるエラーProperty '〇〇' does not exist on type 'DefaultRootState'の対処法を解説しています。</p>",
+      "coverImage": {
+        "_id": "641d5e3c0293b870f66801e3",
+        "altText": "",
+        "description": "",
+        "fileName": "redux.webp",
+        "fileSize": 17452,
+        "fileType": "image/webp",
+        "height": 504,
+        "metadata": {},
+        "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/5cf627c5-db52-4a9b-b3f4-5b01ba34d1f7%2Fredux.webp",
+        "title": "",
+        "width": 960
+      },
+      "category": {
+        "_id": "641d5f0d0293b870f66ac18c",
+        "_sys": {
+          "raw": {
+            "createdAt": "2023-03-24T08:27:57.405Z",
+            "updatedAt": "2023-10-30T14:12:30.879Z",
+            "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+            "publishedAt": "2023-10-30T14:12:30.879Z"
+          },
+          "customOrder": 4,
+          "createdAt": "2023-03-24T08:27:57.405Z",
+          "updatedAt": "2023-10-30T14:12:30.879Z"
+        },
+        "displayedName": "CODE",
+        "name": "programming",
+        "ref": [
+          "64808d4a8cb2e6b05150042c",
+          "64684d93bb8301c65ff6547c",
+          "643b9d80729275004e35db8b",
+          "641d81e7b5b671fd667e41b5",
+          "641d7f43b5b671fd667cf43d",
+          "641d7cf4b5b671fd667bc98a",
+          "641d7babb5b671fd667b3688",
+          "641d79cdb5b671fd6679c2ce",
+          "641d5d9a0293b870f6668d22",
+          "641d6dacb5b671fd6673b3c5",
+          "641d72e9b5b671fd66763f59",
+          "641d77aab5b671fd667829c8"
+        ]
+      },
+      "tags": [
+        {
+          "_id": "641d5fb10293b870f66bda20",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:30:41.227Z",
+              "updatedAt": "2023-10-30T14:12:00.465Z",
+              "firstPublishedAt": "2023-03-24T08:30:41.228Z",
+              "publishedAt": "2023-10-30T14:12:00.465Z"
+            },
+            "customOrder": 1,
+            "createdAt": "2023-03-24T08:30:41.227Z",
+            "updatedAt": "2023-10-30T14:12:00.465Z"
+          },
+          "tag": "デバッグ備忘録",
+          "ref": [
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d72e9b5b671fd66763f59"
+          ]
+        },
+        {
+          "_id": "641d5fd30293b870f66c1065",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:31:15.987Z",
+              "updatedAt": "2023-10-30T14:11:40.518Z",
+              "firstPublishedAt": "2023-03-24T08:31:15.987Z",
+              "publishedAt": "2023-10-30T14:11:40.518Z"
+            },
+            "customOrder": 2,
+            "createdAt": "2023-03-24T08:31:15.987Z",
+            "updatedAt": "2023-10-30T14:11:40.518Z"
+          },
+          "tag": "React",
+          "ref": [
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d72e9b5b671fd66763f59"
+          ]
+        },
+        {
+          "_id": "641d60000293b870f66c5590",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:32:00.452Z",
+              "updatedAt": "2023-10-30T14:08:32.521Z",
+              "firstPublishedAt": "2023-03-24T08:32:07.472Z",
+              "publishedAt": "2023-10-30T14:08:32.521Z"
+            },
+            "customOrder": 4,
+            "createdAt": "2023-03-24T08:32:00.452Z",
+            "updatedAt": "2023-10-30T14:08:32.521Z"
+          },
+          "tag": "Redux",
+          "ref": ["641d5d9a0293b870f6668d22"]
+        },
+        {
+          "_id": "641d603f0293b870f66c9a4e",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:33:03.927Z",
+              "updatedAt": "2023-10-30T14:06:51.986Z",
+              "firstPublishedAt": "2023-03-24T08:33:03.927Z",
+              "publishedAt": "2023-10-30T14:06:51.986Z"
+            },
+            "customOrder": 8,
+            "createdAt": "2023-03-24T08:33:03.927Z",
+            "updatedAt": "2023-10-30T14:06:51.986Z"
+          },
+          "tag": "TypeScript",
+          "ref": [
+            "64808d4a8cb2e6b05150042c",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22"
+          ]
+        },
+        {
+          "_id": "641d60bb0293b870f66d60c1",
+          "_sys": {
+            "raw": {
+              "createdAt": "2023-03-24T08:35:07.951Z",
+              "updatedAt": "2023-10-30T14:03:00.662Z",
+              "firstPublishedAt": "2023-03-24T08:35:07.951Z",
+              "publishedAt": "2023-10-30T14:03:00.662Z"
+            },
+            "customOrder": 20,
+            "createdAt": "2023-03-24T08:35:07.951Z",
+            "updatedAt": "2023-10-30T14:03:00.662Z"
+          },
+          "tag": "フロントエンド",
+          "ref": [
+            "65215f5d505f572f6f199132",
+            "64808d4a8cb2e6b05150042c",
+            "641d7f43b5b671fd667cf43d",
+            "641d7babb5b671fd667b3688",
+            "641d79cdb5b671fd6679c2ce",
+            "641d5d9a0293b870f6668d22",
+            "641d6dacb5b671fd6673b3c5",
+            "641d77aab5b671fd667829c8"
+          ]
+        }
+      ],
+      "body": "<p>状況</p>\n<p>TypeScript + Next.js + Reduxで以下のようにuseSelectorを使おうとした際，useSelectorの引数でts(2339)が出た。</p>\n<pre><code>const Component = () =&gt; {\n  const current_page = useSelector(state =&gt; state.page.current_page)　// ← この部分\n  switch (current_page) {\n    case 'project':\n      return &lt;HomeProject /&gt;\n    default:\n      return &lt;Dashboard /&gt;\n }\n\n</code></pre>\n<p>解決策</p>\n<p>useSelectorの引数の無名関数における引数（上のコードのstate）の型を指定する</p>\n<ol>\n<li>useSelectorで取り出す状態の型（ここではRootState）を定義</li>\n</ol>\n<pre><code>import { combineReducers } from &quot;redux&quot;;\nimport inputReducer from &quot;./reducers/input&quot;;\nimport pageReducer from &quot;./reducers/page&quot;;\nimport { configureStore } from &quot;@reduxjs/toolkit&quot;;\n\nconst rootReducer = combineReducers({input: inputReducer, page: pageReducer})\n\nexport const store = configureStore({\n  reducer: rootReducer\n})\n\nstore.subscribe(()=&gt; {console.log(store.getState())})\n\nexport type RootState = ReturnType&lt;typeof store.getState&gt;\nexport type RootDispatch = typeof store.dispatch\n</code></pre>\n<p>2.stateの型を指定</p>\n<pre><code>const Component = () =&gt; {\n  const current_page = useSelector((state: RootState) =&gt; state.page.current_page)\n  switch (current_page) {\n    case 'project':\n      return &lt;HomeProject /&gt;\n    default:\n      return &lt;Dashboard /&gt;\n }\n</code></pre>\n<p>↓参考リンク<br>\n<a href=\"https://stackoverflow.com/questions/60777859/ts2339-property-tsreducer-does-not-exist-on-type-defaultrootstate\">linkCard</a></p>\n"
+    }
+  ]
+}

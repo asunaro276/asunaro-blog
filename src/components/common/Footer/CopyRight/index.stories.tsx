@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { CopyRight } from './index.astro'
+import CopyRight from './index.astro'
 
 const meta: Meta<typeof CopyRight> = {
   component: CopyRight,

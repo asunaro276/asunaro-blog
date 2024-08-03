@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { SideTags } from './index.astro'
+import SideTags from './index.astro'
 import { handlers } from '/mocks/handlers'
 import tagsData from '/mocks/test-data/tag.json'
 

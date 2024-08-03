@@ -1,12 +1,9 @@
 ---
 import type { GetStaticPaths } from "astro";
 import HomePage from "/components/HomePage/index.astro";
-import { ARTICLE_NUM_PER_PAGE } from "/constants";
 import { newtClient } from "/libs/client";
-import type { ArticleItem } from "/types";
 import Layout from "/layouts/Layout.astro";
 import { fetchBlogData } from "/libs/fetch/fetchBlogData";
-import { ConstructionOutlined } from "@mui/icons-material";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const totalNum = (

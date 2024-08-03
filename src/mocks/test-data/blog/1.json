@@ -1,0 +1,146 @@
+{
+  "_id": "64808d4a8cb2e6b05150042c",
+  "_sys": {
+    "raw": {
+      "createdAt": "2023-06-07T13:59:38.558Z",
+      "updatedAt": "2023-10-16T15:45:31.710Z",
+      "firstPublishedAt": "2023-10-16T12:55:39.615Z",
+      "publishedAt": "2023-10-16T15:45:31.710Z"
+    },
+    "customOrder": 16,
+    "createdAt": "2023-06-07T13:59:38.558Z",
+    "updatedAt": "2023-10-16T15:45:31.710Z"
+  },
+  "title": "SPA、SSR、SSGってなんだ？｜フロントエンド",
+  "description": "<p>本エントリーではnuxt.jsやnext.jsでのレンダリングモード周りの話と挙動の違いについてまとめてみます。</p>",
+  "coverImage": {
+    "_id": "64808ded8cb2e6b051500c33",
+    "altText": "",
+    "description": "",
+    "fileName": "image.webp",
+    "fileSize": 4630,
+    "fileType": "image/webp",
+    "height": 463,
+    "metadata": {},
+    "src": "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/2686b58e-86e0-4c61-a088-91f8998bff3f/image.webp",
+    "title": "",
+    "width": 700
+  },
+  "category": {
+    "_id": "641d5f0d0293b870f66ac18c",
+    "_sys": {
+      "raw": {
+        "createdAt": "2023-03-24T08:27:57.405Z",
+        "updatedAt": "2023-10-30T14:12:30.879Z",
+        "firstPublishedAt": "2023-03-24T08:27:57.405Z",
+        "publishedAt": "2023-10-30T14:12:30.879Z"
+      },
+      "customOrder": 4,
+      "createdAt": "2023-03-24T08:27:57.405Z",
+      "updatedAt": "2023-10-30T14:12:30.879Z"
+    },
+    "displayedName": "CODE",
+    "name": "programming",
+    "ref": [
+      "64808d4a8cb2e6b05150042c",
+      "64684d93bb8301c65ff6547c",
+      "643b9d80729275004e35db8b",
+      "641d81e7b5b671fd667e41b5",
+      "641d7f43b5b671fd667cf43d",
+      "641d7cf4b5b671fd667bc98a",
+      "641d7babb5b671fd667b3688",
+      "641d79cdb5b671fd6679c2ce",
+      "641d5d9a0293b870f6668d22",
+      "641d6dacb5b671fd6673b3c5",
+      "641d72e9b5b671fd66763f59",
+      "641d77aab5b671fd667829c8"
+    ]
+  },
+  "tags": [
+    {
+      "_id": "641d603f0293b870f66c9a4e",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T08:33:03.927Z",
+          "updatedAt": "2023-10-30T14:06:51.986Z",
+          "firstPublishedAt": "2023-03-24T08:33:03.927Z",
+          "publishedAt": "2023-10-30T14:06:51.986Z"
+        },
+        "customOrder": 8,
+        "createdAt": "2023-03-24T08:33:03.927Z",
+        "updatedAt": "2023-10-30T14:06:51.986Z"
+      },
+      "tag": "TypeScript",
+      "ref": [
+        "64808d4a8cb2e6b05150042c",
+        "641d7babb5b671fd667b3688",
+        "641d79cdb5b671fd6679c2ce",
+        "641d5d9a0293b870f6668d22"
+      ]
+    },
+    {
+      "_id": "65191ada58a874e842ceaac2",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-10-01T07:08:10.107Z",
+          "updatedAt": "2023-11-01T16:00:48.942Z",
+          "firstPublishedAt": "2023-10-01T07:08:10.107Z",
+          "publishedAt": "2023-10-30T13:57:58.607Z"
+        },
+        "customOrder": 32,
+        "createdAt": "2023-10-01T07:08:10.107Z",
+        "updatedAt": "2023-11-01T16:00:48.942Z"
+      },
+      "tag": "Vue",
+      "ref": [
+        "65215f5d505f572f6f199132",
+        "64808d4a8cb2e6b05150042c"
+      ]
+    },
+    {
+      "_id": "65191ad158a874e842cea880",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-10-01T07:08:01.318Z",
+          "updatedAt": "2023-11-01T16:00:49.021Z",
+          "firstPublishedAt": "2023-10-01T07:08:01.318Z",
+          "publishedAt": "2023-10-30T13:58:27.222Z"
+        },
+        "customOrder": 31,
+        "createdAt": "2023-10-01T07:08:01.318Z",
+        "updatedAt": "2023-11-01T16:00:49.021Z"
+      },
+      "tag": "Nuxt.js",
+      "ref": [
+        "65215f5d505f572f6f199132",
+        "64808d4a8cb2e6b05150042c"
+      ]
+    },
+    {
+      "_id": "641d60bb0293b870f66d60c1",
+      "_sys": {
+        "raw": {
+          "createdAt": "2023-03-24T08:35:07.951Z",
+          "updatedAt": "2023-10-30T14:03:00.662Z",
+          "firstPublishedAt": "2023-03-24T08:35:07.951Z",
+          "publishedAt": "2023-10-30T14:03:00.662Z"
+        },
+        "customOrder": 20,
+        "createdAt": "2023-03-24T08:35:07.951Z",
+        "updatedAt": "2023-10-30T14:03:00.662Z"
+      },
+      "tag": "フロントエンド",
+      "ref": [
+        "65215f5d505f572f6f199132",
+        "64808d4a8cb2e6b05150042c",
+        "641d7f43b5b671fd667cf43d",
+        "641d7babb5b671fd667b3688",
+        "641d79cdb5b671fd6679c2ce",
+        "641d5d9a0293b870f6668d22",
+        "641d6dacb5b671fd6673b3c5",
+        "641d77aab5b671fd667829c8"
+      ]
+    }
+  ],
+  "body": "<h1>各レンダリングモードの生成物を比較</h1>\n<p>今回以下の2つのページ（index画面とabout画面）を持つウェブサイトをnuxtで作成しました。</p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/6aeab0c5-9df1-4a2c-839f-1a743062507c/index.webp\" alt=\"index.webp\"></p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/dab38d0a-061e-4241-a000-61cc0c584f73/about.webp\" alt=\"about.webp\"></p>\n<p>このサイトについて各レンダリングモードでの生成物とパフォーマンスの比較を行っていきます。<br>\nなお、各ページに遷移時に以下のようなAPIアクセスを行い、これをもとにページ内のコンテンツを表示します。</p>\n<pre><code>const url = 'https://api.github.com/users/Asunaro276'\nconst userData = ref&lt;any&gt;(null)\nconst { data } = await useFetch&lt;any&gt;(url)\nuserData.value = data.value\n</code></pre>\n<h2>SPA</h2>\n<p>SPAでの生成物は以下のようなものになります。（mockServiceWorkerがありますがこれは無視してください。）</p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/5703c713-76c8-4fb6-ae7f-b0fda29b554b/spa-generate.webp\" alt=\"spa-generate.webp\"></p>\n<p>これは<code>nuxt.config.ts</code>で以下の設定をし、</p>\n<pre><code>export default defineNuxtConfig({\n  ssr: false,\n})\n</code></pre>\n<p>次のコマンドで生成します。</p>\n<pre><code>yarn run nuxi generate\n</code></pre>\n<p>まず、<code>public/index.html</code>を見てみましょう</p>\n<pre><code>&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;head&gt;\n  &lt;meta charset=&quot;utf-8&quot;&gt;\n  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/entry.15c5f3da.js&quot;&gt;\n  &lt;link rel=&quot;prefetch&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/error-component.2e03f275.js&quot;&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n  &lt;div id=&quot;__nuxt&quot;&gt;&lt;/div&gt;  &lt;!-- bodyの中に空のdivが一つあるだけ --&gt;\n  &lt;script type=&quot;application/json&quot; id=&quot;__NUXT_DATA__&quot;\n    data-ssr=&quot;false&quot;&gt;[{&quot;_errors&quot;:1,&quot;serverRendered&quot;:2,&quot;data&quot;:3,&quot;state&quot;:4},{},false,{},{}]&lt;/script&gt;\n  &lt;script&gt;window.__NUXT__ = {}; window.__NUXT__.config = { public: {}, app: { baseURL: &quot;/&quot;, buildAssetsDir: &quot;/_nuxt/&quot;, cdnURL: &quot;&quot; } }&lt;/script&gt;\n  &lt;script type=&quot;module&quot; src=&quot;/_nuxt/entry.15c5f3da.js&quot; crossorigin&gt;&lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;\n</code></pre>\n<p>これがindex画面のHTMLファイルです。<br>\n注目すべきはbodyタグの中身です。<br>\nこの中にはdivタグがありますが、この中身は空です。<br>\n他にあるのはscriptのみなので、このHTMLをただ表示しただけだと真っ白なページが表示されます。<br>\nではどうするかというとレスポンスで一緒に返ってきたJavaScriptを動かして要素を作ったり文字を埋め込んだりします。<br>\n実はaboutページもこの<code>public/index.html</code>にJavaScriptを当てることで生成されています。（ただしこれはvue-routerを使った場合の話）<br>\nですので<code>public/about/index.html</code>は普通にアクセスした場合には使われません。</p>\n<p>これがいつ使われるかといえば、いきなりaboutページにアクセスした場合、例えばaboutページでリロードした場合などです。<br>\nこの場合には<code>public/about/index.html</code>が配信され、これをもとにSPAを作るので逆に<code>public/index.html</code>は使われません。</p>\n<p>SPAでこのページを表示したときのパフォーマンスは下の図のようになります。</p>\n<p><img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/9ba83aed-0269-43b9-bc5f-c0da0f1327b3/spa-performance.webp\" alt=\"spa-performance.webp\"></p>\n<p>ここ注視すべきなのはFP、FCP、LCPです。<br>\nこれらはそれぞれ次のような意味を持ちます。</p>\n<ul>\n<li>FP (First Paint): 最初に目に見えるものがレンダリングされるまでの表示時間\n<ul>\n<li>ボーダーラインや背景色などのコンテントでないものも含む</li>\n</ul>\n</li>\n<li>FCP (First Contentful Paint): 最初にコンテンツと呼べるものが表示されるまでの時間\n<ul>\n<li>ヘッダーやフッターなど</li>\n</ul>\n</li>\n<li>LCP (Largest Contentful Paing): ページで最も大きいコンテンツが表示されるまでの時間\n<ul>\n<li>ボディなど</li>\n</ul>\n</li>\n</ul>\n<p>今回の場合これらがほぼ同じところにあり、要は最初に何かが表示されるまでの時間がこのタイミングということです。</p>\n<p>SPAではページを表示するために必要な全てのコンテンツをロードした後に表示をしているのでFPがLやDCLのあとにあります。<br>\nまた、必要なものをロードしたあとにDOMを作ったりfetchをしたりとJSによる処理が入っていることがわかります。</p>\n<h2>SSR</h2>\n<p>次にSSRでの成果物は以下のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/4093fef1-5529-4107-b66c-388136a9b341/ssr-explorer.webp\" alt=\"ssr-explorer.webp\"></p>\n<p>これは</p>\n<pre><code>export default defineNuxtConfig({\n  ssr: true,\n})\n</code></pre>\n<p>という設定の上で、下記のコマンドを実行することで生成することができます。</p>\n<pre><code>yarn run nuxi build\n</code></pre>\n<p>SPAとの違いは大きいところで</p>\n<ul>\n<li>public下にHTMLファイルがない</li>\n<li>server下に諸々のjsファイルがある</li>\n</ul>\n<p>という2点です。</p>\n<p>上記の画像のファイルの中で、SSRのエントリーポイントとなっているのはserver/index.mjsなのでこれを見てみましょう。</p>\n<pre><code>globalThis._importMeta_ = { url: import.meta.url, env: process.env };\nimport &quot;node-fetch-native/polyfill&quot;;\nimport &quot;node:http&quot;;\nimport &quot;node:https&quot;;\nimport &quot;destr&quot;;\nimport &quot;h3&quot;;\nexport { n as default } from &quot;./chunks/nitro/node-server.mjs&quot;;\nimport &quot;ofetch&quot;;\nimport &quot;unenv/runtime/fetch/index&quot;;\nimport &quot;hookable&quot;;\nimport &quot;scule&quot;;\nimport &quot;klona&quot;;\nimport &quot;defu&quot;;\nimport &quot;ohash&quot;;\nimport &quot;ufo&quot;;\nimport &quot;unstorage&quot;;\nimport &quot;radix3&quot;;\nimport &quot;node:fs&quot;;\nimport &quot;node:url&quot;;\nimport &quot;pathe&quot;;\n//# sourceMappingURL=index.mjs.map\n</code></pre>\n<p>これを見るとnitro-server.mjsがserverとして機能していることが推測されます。<br>\nnitroはNuxt3から採用されている新サーバーエンジンで、このnitroが使われるのがSSRということです。<br>\nなのでより深くNuxt3のSSRを理解するにはnitroを理解する必要があることがわかります。</p>\n<p>とはいえそれを書き出すと膨大な記事になってしまうので、今回はSSRの生成物からわかることを読み取っていきましょう。</p>\n<p>ここでserver配下の生成物を改めて詳しく見てみます。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/0f191679-4b43-418c-bacf-be88c28ea2a8/ssr-server-explorer.webp\" alt=\"ssr-server-explorer.webp\"></p>\n<p>これをみるとSSRでの処理は次のような感じになりそうなことがわかります。</p>\n<ul>\n<li>nitro/nitro-server.mjsページでserverとしての機能（HTMLファイルを送るなど）をしていそう</li>\n<li>handlers/renderer.mjsで各ページのレンダリングを行っていそう</li>\n<li>app配下のファイルは名前の通りアプリケーションを作るために使いそう</li>\n<li>rollup配下のファイルはモジュールのバンドルに使いそう</li>\n</ul>\n<p>ということがわかります。</p>\n<p>ちなみに、Nuxt3のバンドラーはViteですが、Viteは内部でrollupを使っているのでビルド後の生成物の中にはrollupのファイルがあります。</p>\n<p>また、SSRでのパフォーマンスは次のようになります。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/f92acdcf-af2c-425b-aa0c-5d568aac3149/ssr-performance.webp\" alt=\"ssr-performance.webp\"></p>\n<p>この画像から分かる通りLやDCLなどのコンテンツのダウンロードが終わる前にFPやFCPが来ています。<br>\nこれはサーバーサイドで作られるHTMLさえロードし終わればその他のJavaScriptをロードしなくてもコンテンツをレンダリングすることができるためです。<br>\nこれらから分かる通りSSRの初期表示速度はSPAより速く、SSRが130ms程度での表示なのに対しSPAは300ms程度です。</p>\n<p>ただし、サーバーのスペックや状況によってはSPAと同程度のパフォーマンスとなることもあります。</p>\n<h2>SSG</h2>\n<p>最後にSSGでの生成物を見てみます。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/1a59c9b4-57e5-4f67-b0a7-974c594d9376/ssg-explorer.webp\" alt=\"ssg-explorer.webp\"></p>\n<p>これは</p>\n<pre><code>export default defineNuxtConfig({\n  ssr: true,\n})\n</code></pre>\n<p>という設定の上で、下記のコマンドを実行することで生成することができます。</p>\n<pre><code>yarn run nuxi generate\n</code></pre>\n<p>これをみるとSPAの場合と生成されるファイルが近いことがわかります。<br>\nSPAとの違いとしては_payload.jsonが追加されている点です。<br>\nこの_payload.jsonの中身は次のようになっています。</p>\n<pre><code>[\n  { &quot;data&quot;: 1, &quot;prerenderedAt&quot;: 29 },\n  [&quot;Reactive&quot;, 2],\n  { &quot;7U8zAuYCjJ&quot;: 3 },\n  {\n    &quot;login&quot;: 4,\n    &quot;id&quot;: 5,\n    &quot;node_id&quot;: 6,\n    &quot;avatar_url&quot;: 7,\n    &quot;gravatar_id&quot;: 8,\n    &quot;url&quot;: 9,\n    &quot;html_url&quot;: 10,\n    &quot;followers_url&quot;: 11,\n    &quot;following_url&quot;: 12,\n    &quot;gists_url&quot;: 13,\n    &quot;starred_url&quot;: 14,\n    &quot;subscriptions_url&quot;: 15,\n    &quot;organizations_url&quot;: 16,\n    &quot;repos_url&quot;: 17,\n    &quot;events_url&quot;: 18,\n    &quot;received_events_url&quot;: 19,\n    &quot;type&quot;: 20,\n    &quot;site_admin&quot;: 21,\n    &quot;name&quot;: 22,\n    &quot;company&quot;: 23,\n    &quot;blog&quot;: 8,\n    &quot;location&quot;: 23,\n    &quot;email&quot;: 23,\n    &quot;hireable&quot;: 23,\n    &quot;bio&quot;: 23,\n    &quot;twitter_username&quot;: 23,\n    &quot;public_repos&quot;: 24,\n    &quot;public_gists&quot;: 25,\n    &quot;followers&quot;: 26,\n    &quot;following&quot;: 25,\n    &quot;created_at&quot;: 27,\n    &quot;updated_at&quot;: 28\n  },\n  &quot;Asunaro276&quot;,\n  57317148,\n  &quot;MDQ6VXNlcjU3MzE3MTQ4&quot;,\n  &quot;https://avatars.githubusercontent.com/u/57317148?v=4&quot;,\n  &quot;&quot;,\n  &quot;https://api.github.com/users/Asunaro276&quot;,\n  &quot;https://github.com/Asunaro276&quot;,\n  &quot;https://api.github.com/users/Asunaro276/followers&quot;,\n  &quot;https://api.github.com/users/Asunaro276/following{/other_user}&quot;,\n  &quot;https://api.github.com/users/Asunaro276/gists{/gist_id}&quot;,\n  &quot;https://api.github.com/users/Asunaro276/starred{/owner}{/repo}&quot;,\n  &quot;https://api.github.com/users/Asunaro276/subscriptions&quot;,\n  &quot;https://api.github.com/users/Asunaro276/orgs&quot;,\n  &quot;https://api.github.com/users/Asunaro276/repos&quot;,\n  &quot;https://api.github.com/users/Asunaro276/events{/privacy}&quot;,\n  &quot;https://api.github.com/users/Asunaro276/received_events&quot;,\n  &quot;User&quot;,\n  false,\n  &quot;Ryuhei Nakano&quot;,\n  null,\n  15,\n  0,\n  1,\n  &quot;2019-11-03T11:24:44Z&quot;,\n  &quot;2023-05-01T15:39:21Z&quot;,\n  1697256654745\n]\n</code></pre>\n<p>これはindexとaboutで使われている<code>https://api.github.com/users/Asunaro276</code>へのAPIレスポンスです。<br>\nつまり、SSGではビルドを行う時点でAPIアクセスを行い、その結果を_payload.jsonとして格納しているということです。</p>\n<p>続いてpublic/index.htmlの中身を見てみると、その内容はは次のようになっています。</p>\n<pre><code>&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;head&gt;\n  &lt;meta charset=&quot;utf-8&quot;&gt;\n  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;\n  &lt;link rel=&quot;preload&quot; as=&quot;fetch&quot; crossorigin=&quot;anonymous&quot; href=&quot;/_payload.json&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/entry.15c5f3da.js&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/index.364f2f15.js&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/nuxt-link.2885a033.js&quot;&gt;\n  &lt;link rel=&quot;modulepreload&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/fetch.756e09a6.js&quot;&gt;\n  &lt;link rel=&quot;prefetch&quot; as=&quot;script&quot; crossorigin href=&quot;/_nuxt/error-component.2e03f275.js&quot;&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n  &lt;div id=&quot;__nuxt&quot;&gt;\n    &lt;div&gt;\n      &lt;div&gt;\n        &lt;h1&gt;Index&lt;/h1&gt;\n        &lt;p&gt;Hello, Nuxt!&lt;/p&gt;&lt;a href=&quot;/about&quot; class=&quot;&quot;&gt;About&lt;/a&gt;\n        &lt;div&gt;Asunaro276&lt;/div&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n  &lt;script type=&quot;application/json&quot; id=&quot;__NUXT_DATA__&quot; data-ssr=&quot;true&quot;\n    data-src=&quot;/_payload.json&quot;&gt;[{&quot;state&quot;:1,&quot;_errors&quot;:3,&quot;serverRendered&quot;:6,&quot;prerenderedAt&quot;:7},[&quot;Reactive&quot;,2],{},[&quot;Reactive&quot;,4],{&quot;7U8zAuYCjJ&quot;:5},null,true,1697204597157]&lt;/script&gt;\n  &lt;script&gt;window.__NUXT__ = {}; window.__NUXT__.config = { public: {}, app: { baseURL: &quot;/&quot;, buildAssetsDir: &quot;/_nuxt/&quot;, cdnURL: &quot;&quot; } }&lt;/script&gt;\n  &lt;script type=&quot;module&quot; src=&quot;/_nuxt/entry.15c5f3da.js&quot; crossorigin&gt;&lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;\n</code></pre>\n<p>これを見るとSSGでは必要なコンテンツがすでにHTMLとしてレンダリングされていることがわかります。</p>\n<p>実際、パフォーマンスを見ると次のようになっています。<br>\n<img src=\"https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/0d991f3f-cd37-4498-8439-af9e1db218dc/ssg-performance.webp\" alt=\"ssg-performance.webp\"></p>\n<p>SSGでのパフォーマンスはSSRと同程度かさらに速いです。<br>\nまた、ブラウザ上での動きに関してはSSRとほとんど同様となっています。</p>\n<h1>まとめ</h1>\n<p>本記事ではSPA、SSR、SSGそれぞれの挙動やパフォーマンスの差を比較しました。<br>\n結論としては作りたいアプリケーションとコストとの兼ね合いで適切なレンダリング方式を選ぶべきということになります。</p>\n<p>それにしても完全に記事の粒度を失敗しました。<br>\n今後は記事の粒度を小さくできるようにネタ探ししていきたいですね。</p>\n"
+}

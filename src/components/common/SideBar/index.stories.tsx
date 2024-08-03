@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { SideBar } from './index.astro'
+import SideBar from './index.astro'
 import { handlers } from '/mocks/handlers'
 import testData from '/mocks/test-data/blog/index'
 import tagData from '/mocks/test-data/tag.json'

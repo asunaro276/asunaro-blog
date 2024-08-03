@@ -1,1 +1,1 @@
-export const range = (n: number) => Array.from(Array(n), (v, k) => k + 1)
+export const range = (n: number) => Array.from(Array(n), (_, k) => k + 1)

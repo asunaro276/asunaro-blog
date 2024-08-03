@@ -1,5 +1,5 @@
 import * as cheerio from 'cheerio'
-import { Heading } from 'types'
+import type { Heading } from '/types'
 
 export const parseHeading = (html: string) => {
   const $ = cheerio.load(html)
