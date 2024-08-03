@@ -1,11 +1,11 @@
 export const ARTICLE_NUM_PER_PAGE = 10
 
 export const pageIcons = [
-  <span className='material-icons-outlined'>home</span>,
-  <span className='material-icons'>code</span>,
-  <span className='material-icons'>business</span>,
-  <span className='material-icons'>functions</span>,
-  <span className='material-icons'>more_horiz</span>,
+  'home',
+  'code',
+  'business',
+  'functions',
+  'more_horiz',
 ]
 
 
