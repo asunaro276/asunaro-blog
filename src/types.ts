@@ -15,7 +15,8 @@ export type ArticleResponse = NewtResponse<ArticleItem>
 export type TagId = string
 export type Tag = {
   tag: string
-  ref: ArticleId[] | ArticleItem[]
+  // ref: ArticleId[] | ArticleItem[]
+  ref: ArticleItem[]
 }
 export type TagItem = NewtItems<Tag>
 export type TagResponse = NewtResponse<TagItem>
@@ -24,7 +25,8 @@ export type TagResponse = NewtResponse<TagItem>
 export type YearMonthId = string
 export type YearMonth = {
   yearmonth: string
-  ref: ArticleId[] | ArticleItem[]
+  // ref: ArticleId[] | ArticleItem[]
+  ref: ArticleItem[]
 }
 export type YearMonthItem = NewtItems<YearMonth>
 export type YearMonthResponse = NewtResponse<YearMonthItem>
@@ -35,7 +37,7 @@ export type CategoryId = string
 export type Category = {
   displayedName: string
   name: string
-  ref: ArticleId[] | ArticleItem[]
+  ref: ArticleItem[]
 }
 export type CategoryItem = NewtItems<Category>
 export type CategoryResponse = NewtResponse<CategoryItem>

@@ -14,8 +14,8 @@ type Props = {
   tags: TagItem[];
   yearmonths: YearMonthItem[];
   totalCount: number;
-  category?: CategoryItem;
-  tag?: TagItem;
+  categoryItem?: CategoryItem;
+  tagItem?: TagItem;
   yearmonth?: string;
   statusCode?: number;
 };
@@ -23,10 +23,10 @@ type Props = {
 const props = Astro.props;
 
 const dir = (() => {
-  if (props.tag) {
-    return `tag/${props.tag._id}`;
-  } else if (props.category) {
-    return `category/${props.category._id}`;
+  if (props.tagItem) {
+    return `tag/${props.tagItem._id}`;
+  } else if (props.categoryItem) {
+    return `category/${props.categoryItem._id}`;
   } else if (props.yearmonth) {
     return `year/${props.yearmonth}`;
   } else {
@@ -42,16 +42,16 @@ const dir = (() => {
   <div class="flex px-[32px] justify-center p-[32px] relative z-0">
     <div class="md:container grid grid-cols-1 lg:grid-cols-4 gap-6">
       <div class:list={["lg:col-span-3"]}>
-          {props.tag && (
-            <div class='my-12 text-center'>
+          {props.tagItem && (
+            <div class='mt-[16px] mb-[32px] text-center'>
               {props.blogs.length === 0 ? (
                 <p class=''>該当するタグの記事はありません</p>
               ) : (
-                <p>{props.tag.tag}に関する記事一覧</p>
+                <p>{props.tagItem.tag}に関する記事一覧</p>
               )}
             </div>
           )}
-          {props.category && (
+          {props.categoryItem && (
             <div class='my-12 text-center'>
               {props.blogs.length === 0 ? (
                 <p>該当するカテゴリーの記事はありません</p>

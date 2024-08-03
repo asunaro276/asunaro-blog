@@ -16,7 +16,7 @@ const { tags } = Astro.props;
       tags.map((tag) => {
         return (
           <div>
-            <a href={`/tag/${tag._id}`}>
+            <a href={`/tag/${tag._id}/1`}>
               <button class="mr-4 whitespace-nowrap py-1 px-2 border rounded-md align-middle text-white" style={{ fontSize: '12px', backgroundColor: COLOR.secondary }}>
                 <span class="material-icons align-middle" style={{ fontSize: '14px' }}>local_offer</span>
                 {tag.tag}

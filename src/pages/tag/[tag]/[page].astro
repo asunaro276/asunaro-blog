@@ -1,0 +1,43 @@
+---
+import type { GetStaticPaths } from "astro";
+import HomePage from "/components/HomePage/index.astro";
+import { newtClient } from "/libs/client";
+import Layout from "/layouts/Layout.astro";
+import { fetchBlogData } from "/libs/fetch/fetchBlogData";
+import type { TagItem } from "/types";
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const tags = (
+		await newtClient.getContents<TagItem>({
+			appUid: "asunaroblog",
+			modelUid: "tag",
+			query: { limit: 100 },
+		})
+	).items;
+	const paths = tags.flatMap(({ _id, ref }) => {
+		return paginate(ref.map(r => r._id), { params: { tag: _id }, pageSize: 10 });
+	});
+	return paths;
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const { tag: tagId } = Astro.params;
+const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
+	{ pageNumber: page.currentPage, tagId },
+);
+const tagItem = tags.filter((tag) => tag._id === tagId).pop() as TagItem
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<HomePage
+			pageNumber={page.currentPage}
+			blogs={blogs}
+			categories={categories}
+			tags={tags}
+			yearmonths={yearmonths}
+			totalCount={totalCount}
+			tagItem={tagItem}
+		/>
+	</main>
+</Layout>

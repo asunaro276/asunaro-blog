@@ -13,7 +13,7 @@ export const BottomNavigationBar = (props: Props) => {
             <div key={index}>
               <div className='mx-4 my-6 text-white md:mx-6'>
                 <a
-                  href={`/category/${category._id}`} 
+                  href={`/category/${category._id}/1`} 
                   className='hover:text-slate-200'
                   rel='noopener noreferrer'
                 >
