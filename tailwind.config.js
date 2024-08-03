@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   mode: 'jit',
   content: [
     'src/pages/**/*.{js,ts,jsx,tsx,astro}',

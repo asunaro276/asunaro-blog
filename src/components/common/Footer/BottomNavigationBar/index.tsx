@@ -10,7 +10,7 @@ export const BottomNavigationBar = (props: Props) => {
       <div className='flex justify-center pt-5'>
         {props.categories.map((category, index) => {
           return (
-            <div key={index}>
+            <div>
               <div className='mx-4 my-6 text-white md:mx-6'>
                 <a
                   href={`/category/${category._id}`} 
