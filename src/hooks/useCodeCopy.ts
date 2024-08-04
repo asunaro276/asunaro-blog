@@ -4,7 +4,7 @@ import tailwindConfig from "tailwind.config";
 
 export const useCodeCopy = () => {
   const [ copied, setCopied ] = useState(false);
-  const matches = useMediaQuery(`(min-width: ${tailwindConfig.theme.screens.sm})`)
+  const matches = useMediaQuery(`(min-width: ${tailwindConfig.theme.screens.sm})`, true)
 
   useEffect(() => {
     const elements = Array.from(document.getElementsByClassName('clipboard'))

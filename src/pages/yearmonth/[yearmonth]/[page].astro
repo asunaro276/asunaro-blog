@@ -17,7 +17,6 @@ export const getStaticPaths = (async ({ paginate }) => {
 	const paths = yearmonths.flatMap(({ yearmonth, ref }) => {
 		return paginate(ref.map(r => (r as ArticleItem)._id), { params: { yearmonth: yearmonth }, pageSize: 10 });
 	});
-	console.dir(paths, { depth: null })
 	return paths;
 }) satisfies GetStaticPaths;
 
