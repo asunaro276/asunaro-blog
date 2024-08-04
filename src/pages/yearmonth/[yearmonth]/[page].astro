@@ -1,0 +1,43 @@
+---
+import type { GetStaticPaths } from "astro";
+import HomePage from "/components/HomePage/index.astro";
+import { newtClient } from "/libs/client";
+import Layout from "/layouts/Layout.astro";
+import { fetchBlogData } from "/libs/fetch/fetchBlogData";
+import type { YearMonthItem } from "/types";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const yearmonths = (
+    await newtClient.getContents<YearMonthItem>({
+      appUid: 'asunaroblog',
+      modelUid: 'yearmonth',
+      query: { limit: 100 },
+    })
+  ).items
+	const paths = yearmonths.flatMap(({ yearmonth, ref }) => {
+		return paginate(ref.map(r => r._id), { params: { yearmonth: yearmonth }, pageSize: 10 });
+	});
+	console.dir(paths, { depth: null })
+	return paths;
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const { yearmonth: yearmonth } = Astro.params;
+const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
+	{ pageNumber: page.currentPage, yearmonth },
+);
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<HomePage
+			pageNumber={page.currentPage}
+			blogs={blogs}
+			categories={categories}
+			tags={tags}
+			yearmonths={yearmonths}
+			totalCount={totalCount}
+			yearmonth={yearmonth}
+		/>
+	</main>
+</Layout>

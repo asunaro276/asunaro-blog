@@ -1,0 +1,35 @@
+---
+import type { ArticleItem, CategoryItem, Heading, TagItem, YearMonthItem } from '/types'
+import PostBody from './PostBody'
+import Header from '/components/common/Header/index.astro'
+import SideBar from '/components/common/SideBar/index.astro'
+import Footer from '/components/common/Footer/index.astro'
+
+type Props = {
+  blog: ArticleItem
+  headings: Heading[]
+  categories: CategoryItem[]
+  tags: TagItem[]
+  yearmonths: YearMonthItem[]
+}
+const props = Astro.props
+---
+<div class='bg-slate-100'>
+  <div>
+    <Header categories={props.categories} />
+  </div>
+  <div>
+    <div
+    >
+      <div>
+        <PostBody client:load blog={props.blog} headings={props.headings} />
+      </div>
+      <div>
+        <SideBar tags={props.tags} yearmonths={props.yearmonths} headings={props.headings} />
+      </div>
+    </div>
+  </div>
+  <div>
+    <Footer categories={props.categories} />
+  </div>
+</div>

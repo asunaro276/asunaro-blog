@@ -33,9 +33,9 @@ const Pagination = ({ dir, pageNumber, totalCount }: Props) => {
           pages.map((page, index) => {
             const to = (() => {
               if (dir === "") {
-                return page === 1 ? `/` : `/${page}`;
+                return page === 1 ? `/` : `/${page}`
               } else {
-                return page === 1 ? `/${dir}` : `/${dir}/${page}`;
+                return `${dir}/${page}`
               }
             })();
             if (page === "...") {

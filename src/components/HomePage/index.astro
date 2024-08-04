@@ -24,11 +24,11 @@ const props = Astro.props;
 
 const dir = (() => {
   if (props.tagItem) {
-    return `tag/${props.tagItem._id}`;
+    return `/tag/${props.tagItem._id}`;
   } else if (props.categoryItem) {
-    return `category/${props.categoryItem._id}`;
+    return `/category/${props.categoryItem._id}`;
   } else if (props.yearmonth) {
-    return `year/${props.yearmonth}`;
+    return `/yearmonth/${props.yearmonth}`;
   } else {
     return "";
   }
