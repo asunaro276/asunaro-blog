@@ -13,7 +13,7 @@ type Props = {
 const props = Astro.props;
 ---
 
-<div class="SideBar-Wrapper">
+<div>
   <div>
     <div class="mb-8">
       <SideProfile />
@@ -27,8 +27,8 @@ const props = Astro.props;
   </div>
   {
     props.headings !== undefined && (
-      <div class="sticky top-4 box-border">
-        <SideToc headings={props.headings} />
+      <div class="sticky top-4 box-border hidden lg:block">
+        <SideToc client:load headings={props.headings} />
       </div>
     )
   }

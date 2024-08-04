@@ -8,18 +8,18 @@ type Props = {
 export const SideToc = (props: Props) => {
   var tocCount = [1, 1, 1]
   return (
-    <div>
+    <div className="shodow border bg-white rounded pb-12 p-6">
       <p className='mt-10 text-center'>目次</p>
       <div className='flex items-center justify-center'>
         <ul className='mb-10 w-8/12'>
           {props.headings.map((data, index) => {
             if (data.text === undefined) {
-              return <div></div>
+              return <div key={index}></div>
             }
             if (data.htmlTag === 'h1') {
               tocCount[0] += 1
               return (
-                <li className='mt-4 list-none'>
+                <li className='mt-4 list-none' key={index}>
                   <Scroll
                     to={`${data._id}`}
                     smooth={true}
@@ -40,7 +40,7 @@ export const SideToc = (props: Props) => {
             if (data.htmlTag === 'h2' && tocCount[0] === 1) {
               tocCount[1] += 1
               return (
-                <li className='my-2 list-none'>
+                <li className='my-2 list-none' key={index}>
                   <Scroll
                     to={`${data._id}`}
                     smooth={true}

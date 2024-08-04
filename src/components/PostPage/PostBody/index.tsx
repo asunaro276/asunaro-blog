@@ -27,7 +27,7 @@ const PostBody = (props: Props) => {
     })
   }, [])
   return (
-    <div className='my-10'>
+    <div className='my-10 shadow border bg-white px-8 md:px-14'>
       <div className='my-10'>
         <Caption
           title={props.blog.title}

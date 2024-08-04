@@ -4,6 +4,7 @@ import PostBody from './PostBody'
 import Header from '/components/common/Header/index.astro'
 import SideBar from '/components/common/SideBar/index.astro'
 import Footer from '/components/common/Footer/index.astro'
+import { COLOR } from '/constants'
 
 type Props = {
   blog: ArticleItem
@@ -14,17 +15,16 @@ type Props = {
 }
 const props = Astro.props
 ---
-<div class='bg-slate-100'>
-  <div>
+<div style={{ backgroundColor: COLOR.bgColor }}>
+  <div class="relative z-10">
     <Header categories={props.categories} />
   </div>
-  <div>
-    <div
-    >
-      <div>
+  <div class="flex px-[32px] justify-center p-[32px] relative z-0">
+    <div class="md:container grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div class:list={["lg:col-span-3"]}>
         <PostBody client:load blog={props.blog} headings={props.headings} />
       </div>
-      <div>
+      <div class="lg:col-span-1 mt-20 lg:mt-0">
         <SideBar tags={props.tags} yearmonths={props.yearmonths} headings={props.headings} />
       </div>
     </div>

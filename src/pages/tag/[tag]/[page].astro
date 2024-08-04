@@ -4,7 +4,7 @@ import HomePage from "/components/HomePage/index.astro";
 import { newtClient } from "/libs/client";
 import Layout from "/layouts/Layout.astro";
 import { fetchBlogData } from "/libs/fetch/fetchBlogData";
-import type { TagItem } from "/types";
+import type { ArticleItem, TagItem } from "/types";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const tags = (
@@ -15,7 +15,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 		})
 	).items;
 	const paths = tags.flatMap(({ _id, ref }) => {
-		return paginate(ref.map(r => r._id), { params: { tag: _id }, pageSize: 10 });
+		return paginate(ref.map(r => (r as ArticleItem)._id), { params: { tag: _id }, pageSize: 10 });
 	});
 	return paths;
 }) satisfies GetStaticPaths;
