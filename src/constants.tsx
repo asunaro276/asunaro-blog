@@ -16,6 +16,6 @@ export const COLOR = {
   bgColor: "#f1f5f9",
   textColor: {
     primary: "rgba(0, 0, 0, 0.8)",
-    secondary: 'rgba(0, 0, 0, 0.6)'
+    secondary: '#78909c'
   }
 }

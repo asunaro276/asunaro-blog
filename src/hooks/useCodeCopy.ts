@@ -1,41 +1,27 @@
-import { useMediaQuery } from "@reactuses/core";
 import { useEffect, useState } from "react";
-import tailwindConfig from "tailwind.config";
 
 export const useCodeCopy = () => {
-  const [ copied, setCopied ] = useState(false);
-  const matches = useMediaQuery(`(min-width: ${tailwindConfig.theme.screens.sm})`, true)
+  const [ copied, setCopied ] = useState<{[key: string]: boolean}>({});
 
   useEffect(() => {
     const elements = Array.from(document.getElementsByClassName('clipboard'))
-    elements.forEach((element) => {
+    elements.forEach((element, index) => {
+      (element as HTMLElement).style.display = 'flex'
       element.addEventListener('click', async () => {
         await navigator.clipboard.writeText(String(element.nextElementSibling?.textContent))
-        setCopied(true)
+        setCopied((prev) => ({...prev, [index]: true}))
         await new Promise(resolve => setTimeout(resolve, 2000))
-        setCopied(false)
+        setCopied((prev) => ({...prev, [index]: false}))
       })
-      if (matches) {
-        element.parentElement?.addEventListener('mouseover', () => {
-          (element as HTMLElement).style.display = 'flex'
-        })
-        element.parentElement?.addEventListener('mouseout', () => {
-          (element as HTMLElement).style.display = 'none'
-        })
-      } else {
-        (element as HTMLElement).style.display = 'flex'
-      }
     })
   }, [])
   useEffect(() => {
-    if (copied) {
-      document.querySelectorAll('.copied').forEach((element) => {
+    document.querySelectorAll('.copied').forEach((element, index) => {
+      if (copied[index]) {
         (element as HTMLElement).style.display = ''
-      })
-    } else {
-      document.querySelectorAll('.copied').forEach((element) => {
+      } else {
         (element as HTMLElement).style.display = 'none'
-      })
-    }
+      }
+    })
   }, [copied])
 }

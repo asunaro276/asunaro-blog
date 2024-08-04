@@ -4,6 +4,7 @@ import HomePage from "/components/HomePage/index.astro";
 import { newtClient } from "/libs/client";
 import Layout from "/layouts/Layout.astro";
 import { fetchBlogData } from "/libs/fetch/fetchBlogData";
+import { AstroSeo } from '@astrolib/seo'
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const totalNum = (
@@ -21,8 +22,11 @@ const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
 );
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
 	<main>
+		<AstroSeo
+			title="Asunaro Blog"
+		/>
 		<HomePage
 			pageNumber={page.currentPage}
 			blogs={blogs}

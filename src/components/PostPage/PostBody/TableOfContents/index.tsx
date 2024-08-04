@@ -8,7 +8,7 @@ type Props = {
 export const TableOfContents = (props: Props) => {
   let tocCount = [1, 1, 1]
   return (
-    <div className='rounded border-solid border-slate-200 font-body'>
+    <div className='rounded border-solid border-slate-200 font-body border-2'>
       <div className='flex h-8 items-center justify-center bg-slate-200'>
         <span className='material-icons'>toc</span>
         <p>目次</p>

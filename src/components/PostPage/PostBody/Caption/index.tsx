@@ -1,3 +1,4 @@
+import { COLOR } from "/constants";
 import { convertDateFormat } from "/libs/convertDateFormat";
 import type { CategoryItem, TagItem } from "/types";
 
@@ -19,7 +20,7 @@ const Caption = (props: Props) => {
         </p>
       </div>
       <div className="mt-10 mb-4 flex justify-center">
-        <p className="font-title font-bold text-slate-600">
+        <p className="font-title font-bold text-slate-600 text-xl md:text-2xl">
           {props.title}
         </p>
       </div>
@@ -31,8 +32,8 @@ const Caption = (props: Props) => {
           >
             <a href={`/category/${props.categoryOfPost._id}`}>
               <button
-                className="mr-2"
-                style={{ textTransform: "none", display: "flex" }}
+                className="mr-2 border py-[4px] px-[10px] rounded text-xs"
+                style={{ textTransform: "none", display: "flex", color: COLOR.textColor.secondary }}
               >
                 {props.categoryOfPost.displayedName}
               </button>
@@ -41,11 +42,11 @@ const Caption = (props: Props) => {
               props.tagsOfPost.map((tag, index) => (
                 <a
                   href={`/tag/${tag._id}`}
-                  className="mr-2 text-sm"
-                  style={{ textTransform: "none", display: "flex" }}
+                  className="text-sm"
+                  style={{ textTransform: "none", display: "flex", marginTop: '0px', color: COLOR.textColor.secondary }}
                   key={index}
                 >
-                  <span className="material-icons">local_offer</span>
+                  <span className="material-icons" style={{ fontSize: '18px' }}>local_offer</span>
                   {tag.tag}
                 </a>
               ))

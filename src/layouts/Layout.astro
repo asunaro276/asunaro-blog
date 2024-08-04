@@ -2,11 +2,6 @@
 import "../styles/globals.scss";
 import "material-icons/iconfont/material-icons.css";
 
-type Props = {
-	title: string;
-}
-
-const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,7 +11,6 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
@@ -35,6 +29,7 @@ const { title } = Astro.props;
 			href="/favicons/favicon-16x16.png"
 		/>
 		<link rel="manifest" href="/favicons/site.webmanifest" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link
 			rel="mask-icon"
 			href="/favicons/safari-pinned-tab.svg"

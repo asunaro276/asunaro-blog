@@ -5,6 +5,7 @@ import { newtClient } from "/libs/client";
 import Layout from "/layouts/Layout.astro";
 import { fetchBlogData } from "/libs/fetch/fetchBlogData";
 import type { ArticleItem, TagItem } from "/types";
+import { AstroSeo } from '@astrolib/seo'
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const tags = (
@@ -28,8 +29,11 @@ const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
 const tagItem = tags.filter((tag) => tag._id === tagId).pop() as TagItem
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
 	<main>
+		<AstroSeo
+			title="Asunaro Blog"
+		/>
 		<HomePage
 			pageNumber={page.currentPage}
 			blogs={blogs}

@@ -6,6 +6,8 @@ import { fetchBlogData } from "/libs/fetch/fetchBlogData";
 import type { ArticleItem } from "/types";
 import PostPage from "/components/PostPage/index.astro";
 import { parseHeading } from "/libs/parse/parseHeading";
+import 'highlight.js/styles/monokai-sublime.min.css'
+import { AstroSeo } from '@astrolib/seo'
 
 export const getStaticPaths = (async ({}) => {
   const blogs = await newtClient.getContents<ArticleItem>({
@@ -33,8 +35,21 @@ const { blogs, categories, tags, yearmonths } = await fetchBlogData(
 const headings = parseHeading(blogs[0].body)
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
 	<main>
+    <AstroSeo
+      title={blogs[0].title}
+      description={blogs[0].description}
+      openGraph={{
+        title: blogs[0].title,
+        description: blogs[0].description,
+        images: [
+          {
+            url: blogs[0].coverImage.src,
+          },
+        ],
+      }}
+    />
     <PostPage
       blog={blogs[0]}
       headings={headings}

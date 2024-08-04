@@ -2,14 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 import { fetchBlogData } from "../libs/fetch/fetchBlogData";
 import HomePage from "/components/HomePage/index.astro";
+import { AstroSeo } from '@astrolib/seo'
 
 const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
 	{ pageNumber: 1 },
 );
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
 	<main>
+		<AstroSeo
+			title="Asunaro Blog"
+		/>
 		<HomePage
 			pageNumber={1}
 			blogs={blogs}
