@@ -16,7 +16,7 @@ export const COLOR = {
   bgColor: "#f1f5f9",
   text: {
     primary: "#44546B",
-    secondary: '#546488',
+    secondary: '#506084',
     base: "rgba(0, 0, 0, 0.8)"
   }
 }
