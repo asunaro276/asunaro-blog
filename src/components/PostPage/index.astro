@@ -1,31 +1,42 @@
 ---
-import type { ArticleItem, CategoryItem, Heading, TagItem, YearMonthItem } from '/types'
-import PostBody from './PostBody'
-import Header from '/components/common/Header/index.astro'
-import SideBar from '/components/common/SideBar/index.astro'
-import Footer from '/components/common/Footer/index.astro'
-import { COLOR } from '/constants'
+import type {
+  ArticleItem,
+  CategoryItem,
+  Heading,
+  TagItem,
+  YearMonthItem,
+} from "/types";
+import PostBody from "./PostBody";
+import Header from "/components/common/Header/index.astro";
+import SideBar from "/components/common/SideBar/index.astro";
+import Footer from "/components/common/Footer/index.astro";
+import { COLOR } from "/constants";
 
 type Props = {
-  blog: ArticleItem
-  headings: Heading[]
-  categories: CategoryItem[]
-  tags: TagItem[]
-  yearmonths: YearMonthItem[]
-}
-const props = Astro.props
+  blog: ArticleItem;
+  headings: Heading[];
+  categories: CategoryItem[];
+  tags: TagItem[];
+  yearmonths: YearMonthItem[];
+};
+const props = Astro.props;
 ---
+
 <div style={{ backgroundColor: COLOR.bgColor }}>
   <div class="relative z-10">
     <Header categories={props.categories} />
   </div>
   <div class="flex md:p-[32px] justify-center relative z-0">
-    <div class="md:container grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <div class="xl:max-w-screen-xl grid grid-cols-1 lg:grid-cols-4 gap-6">
       <div class:list={["lg:col-span-3"]}>
         <PostBody client:load blog={props.blog} headings={props.headings} />
       </div>
       <div class="lg:col-span-1 mt-20 lg:mt-0">
-        <SideBar tags={props.tags} yearmonths={props.yearmonths} headings={props.headings} />
+        <SideBar
+          tags={props.tags}
+          yearmonths={props.yearmonths}
+          headings={props.headings}
+        />
       </div>
     </div>
   </div>
