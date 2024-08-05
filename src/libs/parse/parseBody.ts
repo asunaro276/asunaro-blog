@@ -11,10 +11,14 @@ export const parseBody = async (body: string) => {
     $(element).parent().prepend('<div class="w-2 bg-yellow-400"></div>')
   })
   $('h2').each((_, element) => {
-    $(element).attr('id', $(element).text() + 'H2')
+    $(element).attr('id', $(element).text() + 'h2')
     $(element).addClass('ml-3 md:ml-4 my-1 md:my-2 text-base md:text-lg font-semibold font-body')
     $(element).wrap('<div class="mb-5 flex"></div>')
     $(element).parent().prepend('<div class="w-2 bg-yellow-400"></div>')
+  })
+  $('h3').each((_, element) => {
+    $(element).attr('id', $(element).text() + 'h3')
+    $(element).addClass('my-1 md:my-2 text-base md:text-lg font-semibold font-body')
   })
   $('p').each((_, element) => {
     $(element).addClass('text-sm md:text-lg font-body leading-loose')
