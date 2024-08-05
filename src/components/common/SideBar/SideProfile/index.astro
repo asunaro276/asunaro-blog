@@ -4,7 +4,9 @@ import XIcon from "./XIcon/index.svg";
 import GitHubIcon from "./GitHubIcon/index.svg";
 ---
 
-<div class="border shadow bg-white rounded flex flex-col items-center gap-6 pb-12 p-6">
+<div
+  class="border shadow bg-white rounded flex flex-col items-center gap-6 pb-12 p-6"
+>
   <p>profile</p>
   <div>
     <Image
@@ -16,11 +18,19 @@ import GitHubIcon from "./GitHubIcon/index.svg";
   </div>
   <p class="border-b-2 px-2">あすなろ</p>
   <div class="w-full">
-    <div class="flex gap-2">
-      <a href="https://github.com/Asunaro276/asunaro-blog" target="_blank">
+    <div class="flex">
+      <a
+        href="https://github.com/Asunaro276/asunaro-blog"
+        target="_blank"
+        class="hover:backdrop-brightness-[0.95] transition aspect-square w-12 rounded-full flex justify-center"
+      >
         <Image src={GitHubIcon} alt="GitHubのアイコン" width={24} />
       </a>
-      <a href="https://twitter.com/asunaro276" target="_blank">
+      <a
+        href="https://twitter.com/asunaro276"
+        target="_blank"
+        class="hover:backdrop-brightness-[0.95] transition aspect-square w-12 rounded-full flex justify-center"
+      >
         <Image src={XIcon} alt="Xのアイコン" width={24} />
       </a>
     </div>

@@ -1,18 +1,34 @@
 ---
-import { COLOR } from "/constants";
+import { COLOR, pageIcons } from "/constants";
+import type { CategoryItem } from "/types";
+
+type Props = {
+  categories: CategoryItem[];
+}
 
 const navBarBgColor = COLOR.primary;
 const textColor = "#fff";
+const { categories } = Astro.props
 ---
 
 <div>
   <input type="checkbox" class="menu-btn" id="menu-btn" />
   <label for="menu-btn" class="menu-icon"><span class="navicon"></span></label>
   <ul class="menu">
-    <li class="top"><a href="#home">home</a></li>
-    <li><a href="#skills">skills</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#contact">contact</a></li>
+    {
+      categories.map((category, index) => (
+        <li class="top">
+          <a
+            class="flex hover:backdrop-brightness-[1.2] p-2 transition"
+            href={category._id ? `/category/${category._id}/1` : "/"}
+            rel="noopener noreferrer"
+          >
+            <div class="mr-1"><span class='material-icons'>{pageIcons[index]}</span></div>
+            <div>{category.displayedName}</div>
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </div>
 
@@ -50,7 +66,7 @@ const textColor = "#fff";
     text-transform: capitalize;
     color: var(--textColor);
     opacity: 0;
-    transition: 0.5s;
+    transition: text-transform 0.5s;
   }
 
   .menu li {
@@ -58,13 +74,13 @@ const textColor = "#fff";
     padding: 15px 0;
     margin: 0 54px;
     opacity: 0;
-    transition: 0.5s;
+    transition: text-transform 0.5s;
   }
 
   .menu-btn:checked ~ .menu a,
   .menu-btn:checked ~ .menu li {
     opacity: 1;
-    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+    transition: opacity 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
   }
 
   .menu-btn {

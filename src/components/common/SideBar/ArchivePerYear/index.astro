@@ -19,12 +19,11 @@ const { yearmonths } = Astro.props;
           <div>
             <hr />
             <a href={`/yearmonth/${yearmonth.yearmonth}/1`}>
-              <button
-                class="py-4 px-2"
-                style={{ color: COLOR.textColor.secondary }}
-              >
+              <button class="py-4 px-2 hover:brightness-[0.4] transition" style={{ color: COLOR.text.primary }}>
                 {year}/{month}
-                <span style={{ color: COLOR.textColor.primary }}>{`(${yearmonth.ref.length})`}</span>
+                <span
+                  style={{ color: COLOR.text.base }}
+                >{`(${yearmonth.ref.length})`}</span>
               </button>
             </a>
           </div>

@@ -22,7 +22,7 @@ const Pagination = ({ dir, pageNumber, totalCount }: Props) => {
             className="material-icons"
             style={{
               fontSize: "16px",
-              color: COLOR.textColor.primary,
+              color: COLOR.text.base,
               opacity: pageNumber === 1 ? '0.4' : '1'
             }}
           >
@@ -44,7 +44,7 @@ const Pagination = ({ dir, pageNumber, totalCount }: Props) => {
                   key={index}
                   style={{
                     padding: "10px 10px 0px 10px",
-                    color: COLOR.textColor.primary,
+                    color: COLOR.text.base,
                   }}
                 >
                   {page}
@@ -74,7 +74,7 @@ const Pagination = ({ dir, pageNumber, totalCount }: Props) => {
             className="material-icons"
             style={{
               fontSize: "16px",
-              color: COLOR.textColor.primary,
+              color: COLOR.text.base,
               opacity: pageNumber === totalPages ? '0.4' : '1'
             }}
           >

@@ -23,31 +23,31 @@ const PaginationItem = ({ to, disabled = false, hover = false, number = false, c
               "rounded-full",
               number ? `backdrop-brightness-90` : ``,
             ].join(' ')}
-            style={{ color: COLOR.textColor.primary, textDecoration: "none", fontSize: '14px' }}
+            style={{ color: COLOR.text.base, textDecoration: "none", fontSize: '14px' }}
           >
-            { children }        
+            {children}
           </span>
         ) : (
           <a
-          className={[
-            "flex",
-            "aspect-square",
-            "w-8",
-            "items-center",
-            "justify-center",
-            "rounded-full",
-            "cursor-pointer",
-            hover ? `hover:backdrop-brightness-95` : ``,
-          ].join(' ')}
-            style={{ color: COLOR.textColor.primary, textDecoration: "none", fontSize: '14px' }}
+            className={[
+              "flex",
+              "aspect-square",
+              "w-8",
+              "items-center",
+              "justify-center",
+              "rounded-full",
+              "cursor-pointer",
+              hover ? `hover:backdrop-brightness-95` : ``,
+            ].join(' ')}
+            style={{ color: COLOR.text.base, textDecoration: "none", fontSize: '14px' }}
             href={disabled ? "" : to}
           >
-            { children }
+            {children}
           </a>
         )
       }
     </li>
   )
-}  
+}
 
 export default PaginationItem

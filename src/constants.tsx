@@ -12,10 +12,11 @@ export const pageIcons = [
 // style constants
 export const COLOR = {
   primary: "#64748B",
-  secondary: "#78909c",
+  secondary: "#E2E8F0",
   bgColor: "#f1f5f9",
-  textColor: {
-    primary: "rgba(0, 0, 0, 0.8)",
-    secondary: '#78909c'
+  text: {
+    primary: "#44546B",
+    secondary: '#546488',
+    base: "rgba(0, 0, 0, 0.8)"
   }
 }

@@ -23,7 +23,7 @@ export const SideToc = (props: Props) => {
                   <Scroll
                     to={`${data._id}`}
                     smooth={true}
-                    className='relative flex cursor-pointer hover:opacity-50'
+                    className='relative flex cursor-pointer hover:opacity-50 transition-opacity'
                     id={`l${index}`}
                     duration={400}
                   >
