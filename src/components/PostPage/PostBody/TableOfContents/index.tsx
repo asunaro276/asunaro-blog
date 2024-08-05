@@ -8,13 +8,13 @@ type Props = {
 export const TableOfContents = (props: Props) => {
   let tocCount = [1, 1, 1]
   return (
-    <div className='rounded border-solid border-slate-200 font-body border-2'>
+    <div className='rounded border-solid border-slate-200 font-body border-2 w-full lg:w-9/12'>
       <div className='flex h-8 items-center justify-center bg-slate-200'>
         <span className='material-icons'>toc</span>
         <p>目次</p>
       </div>
       <div className='flex flex-col items-center justify-center py-10'>
-        <ul className='pl-2'>
+        <ul className='pl-2 w-8/12'>
           {props.heading.map((data, index) => {
             if (data.text === undefined) {
               return <div key={index}></div>

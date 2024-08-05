@@ -27,7 +27,7 @@ const PostBody = (props: Props) => {
     })
   }, [])
   return (
-    <div className='shadow border bg-white px-8 md:px-14'>
+    <div className='shadow border bg-white px-8 md:px-14 flex flex-col items-center'>
       <div className='my-10'>
         <Caption
           title={props.blog.title}
@@ -40,9 +40,7 @@ const PostBody = (props: Props) => {
           }
         />
       </div>
-      <div>
-        <TableOfContents heading={props.headings} />
-      </div>
+      <TableOfContents heading={props.headings} />
       <div>
         <div className='mb-20'>
           <div dangerouslySetInnerHTML={{ __html: props.blog.body }} />
