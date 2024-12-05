@@ -1,5 +1,6 @@
 import { newtClient } from '../client';
 import { parseBody } from '../parse/parseBody';
+import { getNextYearmonth } from '../utils';
 import { ARTICLE_NUM_PER_PAGE } from '/constants';
 import type { Page, TagId, CategoryId, ArticleId, ArticleItem, YearMonthId } from '/types'
 
@@ -27,7 +28,7 @@ export const fetchArticles = async (
       appUid: 'asunaroblog',
       modelUid: 'article',
       query: {
-        '_sys.raw.firstPublishedAt': { lt: `${year}-${month + 1}`, gte: `${year}-${month}` },
+        '_sys.raw.firstPublishedAt': { lt: getNextYearmonth(year, month), gte: `${year}-${month}` },
         skip: (pageNumber - 1) * ARTICLE_NUM_PER_PAGE,
         limit: ARTICLE_NUM_PER_PAGE,
       },
