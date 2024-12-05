@@ -13,7 +13,7 @@ export const TableOfContents = (props: Props) => {
         <span className='material-icons'>toc</span>
         <p>目次</p>
       </div>
-      <div className='flex flex-col items-center justify-center py-10'>
+      <div className='flex flex-col items-center justify-center py-9'>
         <ul className='pl-2 w-8/12'>
           {props.heading.map((data, index) => {
             if (data.text === undefined) {
