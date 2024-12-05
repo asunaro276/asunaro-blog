@@ -35,21 +35,21 @@ const { blogs, categories, tags, yearmonths } = await fetchBlogData(
 const headings = parseHeading(blogs[0].body)
 ---
 
+<AstroSeo
+  title={blogs[0].title}
+  description={blogs[0].description.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')}
+  openGraph={{
+    title: blogs[0].title,
+    description: blogs[0].description.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,''),
+    images: [
+      {
+        url: blogs[0].coverImage.src,
+      },
+    ],
+  }}
+/>
 <Layout>
 	<main>
-    <AstroSeo
-      title={blogs[0].title}
-      description={blogs[0].description}
-      openGraph={{
-        title: blogs[0].title,
-        description: blogs[0].description,
-        images: [
-          {
-            url: blogs[0].coverImage.src,
-          },
-        ],
-      }}
-    />
     <PostPage
       blog={blogs[0]}
       headings={headings}

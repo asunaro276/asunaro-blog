@@ -9,11 +9,11 @@ const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
 );
 ---
 
+<AstroSeo
+	title="Asunaro Blog"
+/>
 <Layout>
 	<main>
-		<AstroSeo
-			title="Asunaro Blog"
-		/>
 		<HomePage
 			pageNumber={1}
 			blogs={blogs}

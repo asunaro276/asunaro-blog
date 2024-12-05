@@ -29,11 +29,11 @@ const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
 const categoryItem = categories.filter((cat) => cat._id === categoryId)[0]
 ---
 
+<AstroSeo
+	title="Asunaro Blog"
+/>
 <Layout>
 	<main>
-		<AstroSeo
-			title="Asunaro Blog"
-		/>
 		<HomePage
 			pageNumber={page.currentPage}
 			blogs={blogs}
