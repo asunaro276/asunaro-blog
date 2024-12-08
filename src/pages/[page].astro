@@ -24,6 +24,16 @@ const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
 
 <AstroSeo
 	title="Asunaro Blog"
+	description="広告代理店で働いている新米エンジニアの技術ブログです。主にWeb技術で遊んでいます。日々楽しみながら学んでいくことを目標としています。"
+	openGraph={{
+		title: "Asunaro Blog",
+		description: "広告代理店で働いている新米エンジニアの技術ブログです。主にWeb技術で遊んでいます。日々楽しみながら学んでいくことを目標としています。",
+		images: [
+			{
+				url: "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3ab0e1e0-e610-4dc9-acb4-f7917add37b1/asunaro.png"
+			},
+		],
+	}}
 />
 <Layout>
 	<main>
