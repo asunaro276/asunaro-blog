@@ -1,0 +1,59 @@
+---
+import type { GetStaticPaths } from "astro";
+import HomePage from "../../../presentation/components/HomePage/index.astro";
+import { newtClient } from "../../../libs/client";
+import Layout from "/layouts/Layout.astro";
+import { fetchBlogData } from "../../../libs/fetch/fetchBlogData";
+import type { ArticleItem, YearMonthItem } from "/types";
+import { AstroSeo } from "@astrolib/seo";
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const yearmonths = (
+		await newtClient.getContents<YearMonthItem>({
+			appUid: "asunaroblog",
+			modelUid: "yearmonth",
+			query: { limit: 100 },
+		})
+	).items;
+	const paths = yearmonths.flatMap(({ yearmonth, ref }) => {
+		return paginate(
+			ref.map((r) => (r as ArticleItem)._id),
+			{ params: { yearmonth: yearmonth }, pageSize: 10 },
+		);
+	});
+	return paths;
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const { yearmonth: yearmonth } = Astro.params;
+const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
+	{ pageNumber: page.currentPage, yearmonth },
+);
+---
+
+<AstroSeo
+	title="Asunaro Blog"
+	description=`${yearmonth}の記事一覧`
+	openGraph={{
+		title: "Asunaro Blog",
+		description: `${yearmonth}の記事一覧`,
+		images: [
+			{
+				url: "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3ab0e1e0-e610-4dc9-acb4-f7917add37b1/asunaro.png",
+			},
+		],
+	}}
+/>
+<Layout>
+	<main>
+		<HomePage
+			pageNumber={page.currentPage}
+			blogs={blogs}
+			categories={categories}
+			tags={tags}
+			yearmonths={yearmonths}
+			totalCount={totalCount}
+			yearmonth={yearmonth}
+		/>
+	</main>
+</Layout>

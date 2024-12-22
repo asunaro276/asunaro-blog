@@ -1,0 +1,62 @@
+---
+import type { GetStaticPaths } from "astro";
+import { newtClient } from "../../libs/client";
+import Layout from "/layouts/Layout.astro";
+import { fetchBlogData } from "../../libs/fetch/fetchBlogData";
+import type { ArticleItem } from "/types";
+import PostPage from "../../presentation/components/PostPage/index.astro";
+import { parseHeading } from "../../libs/parse/parseHeading";
+import "highlight.js/styles/monokai-sublime.min.css";
+import { AstroSeo } from "@astrolib/seo";
+
+export const getStaticPaths = (async ({}) => {
+  const blogs = await newtClient.getContents<ArticleItem>({
+    appUid: "asunaroblog",
+    modelUid: "article",
+    query: {
+      limit: 100,
+      select: ["_id"],
+    },
+  });
+  const paths = blogs.items.flatMap(({ _id }) => ({
+    params: {
+      id: _id,
+    },
+  }));
+  return paths;
+}) satisfies GetStaticPaths;
+
+const { id } = Astro.params;
+const { blogs, categories, tags, yearmonths } = await fetchBlogData({
+  ArticleId: id,
+});
+const headings = parseHeading(blogs[0].body);
+---
+
+<AstroSeo
+  title={blogs[0].title}
+  description={blogs[0].description.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "")}
+  openGraph={{
+    title: blogs[0].title,
+    description: blogs[0].description.replace(
+      /<("[^"]*"|'[^']*'|[^'">])*>/g,
+      "",
+    ),
+    images: [
+      {
+        url: blogs[0].coverImage.src,
+      },
+    ],
+  }}
+/>
+<Layout>
+  <main>
+    <PostPage
+      blog={blogs[0]}
+      headings={headings}
+      categories={categories}
+      tags={tags}
+      yearmonths={yearmonths}
+    />
+  </main>
+</Layout>

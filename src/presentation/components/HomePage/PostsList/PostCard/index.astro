@@ -1,0 +1,89 @@
+---
+import { convertDateFormat } from "../../../../libs/convertDateFormat";
+import type { ArticleItem } from "/types";
+import { Image } from "astro:assets";
+import { COLOR } from "/constants";
+
+type Props = {
+  blog: ArticleItem;
+};
+
+const props = Astro.props;
+---
+
+<div
+  class="duration-[600ms] hover:brightness-[0.7] border shadow bg-white rounded h-[500px] xl:h-[460px] relative"
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <a class="h-full text-decoration-none" href={`/blog/${props.blog._id}`}>
+    <div class="h-full">
+      <figure class="image">
+        <Image
+          class="rounded-t h-[230px]"
+          height="300"
+          width="600"
+          src={props.blog.coverImage.src}
+          alt={props.blog.coverImage.altText}
+          style={{ maxWidth: "100%", objectFit: "cover" }}
+        />
+      </figure>
+      <div class="mt-2 p-1">
+        <div class="mx-5" style={{ fontSize: 20 }}>
+          <p
+            class="text-lg h-[80px] xl:h-[60px]"
+            style={{ color: COLOR.text.base, marginBottom: "0px" }}
+          >
+            {props.blog.title}
+          </p>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "start",
+            }}
+          >
+            <button
+              class=`my-2 text-xs rounded border border-opacity-70`
+              style={{
+                display: "flex",
+                color: COLOR.text.secondary,
+                padding: "4px 10px",
+                borderColor: COLOR.text.secondary + "60",
+              }}
+            >
+              {props.blog.category.displayedName}
+            </button>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                color: COLOR.text.base,
+              }}
+            >
+              {
+                props.blog.tags.map((tag) => (
+                  <div style={{ display: "flex", marginRight: "0.5em" }}>
+                    <span class="material-icons">local_offer</span>
+                    <p style={{ display: "inline-block" }}>{tag.tag}</p>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute bottom-2 flex p-1 pl-5 opacity-80"
+        style={{ color: COLOR.text.secondary }}
+      >
+        <span class="material-icons opacity-80">access_time</span>
+        <p style={{ display: "inline-block", marginLeft: "2px" }}>
+          {convertDateFormat(props.blog._sys.raw.firstPublishedAt)}
+        </p>
+      </div>
+    </div>
+  </a>
+</div>
