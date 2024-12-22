@@ -1,9 +1,9 @@
 ---
 import { COLOR, pageIcons } from "/constants";
-import type { CategoryItem } from "/types";
+import type { Category } from "/domain/models/article/category/Category";
 
 type Props = {
-  categories: CategoryItem[];
+  categories: Category[];
 }
 
 const navBarBgColor = COLOR.primary;
@@ -20,11 +20,11 @@ const { categories } = Astro.props
         <li class="top">
           <a
             class="flex hover:backdrop-brightness-[1.2] p-2 transition"
-            href={category._id ? `/category/${category._id}/1` : "/"}
+            href={category.id ? `/category/${category.id}/1` : "/"}
             rel="noopener noreferrer"
           >
             <div class="mr-1"><span class='material-icons'>{pageIcons[index]}</span></div>
-            <div>{category.displayedName}</div>
+            <div>{category.name}</div>
           </a>
         </li>
       ))

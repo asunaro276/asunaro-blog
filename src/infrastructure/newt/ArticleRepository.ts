@@ -152,7 +152,7 @@ export class NewtArticleRepository implements IArticleRepository {
       const articles = await newtClient.getContents<ArticleItem>({
         ...params,
         query: {
-          skip: page.prev.value * Page.ARTICLE_NUM_PER_PAGE,
+          skip: page.hasPrev() ? page.prev.value * Page.ARTICLE_NUM_PER_PAGE : 0,
           limit: Page.ARTICLE_NUM_PER_PAGE
         }
       })

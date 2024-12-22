@@ -1,18 +1,18 @@
 ---
-import type { ArticleItem } from "/types";
 import PostCard from "./PostCard/index.astro";
+import type { Article } from "/domain/models/article/Article";
 
 type Props = {
-  blogs: ArticleItem[];
+  articles: Article[];
 };
 const props = Astro.props;
 ---
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
   {
-    props.blogs.map((post) => {
+    props.articles.map((article) => {
       return (
-        <PostCard blog={post} />
+        <PostCard article={article} />
       );
     })
   }

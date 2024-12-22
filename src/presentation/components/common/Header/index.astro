@@ -1,9 +1,9 @@
 ---
-import type { CategoryItem } from "/types";
 import NavigationBar from "./NavigationBar/index.astro";
+import type { Category } from "/domain/models/article/category/Category";
 
 type Props = {
-  categories: CategoryItem[];
+  categories: Category[];
 };
 
 const { categories } = Astro.props;

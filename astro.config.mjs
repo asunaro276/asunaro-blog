@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://asunaroblog.net',
+  srcDir: './src/presentation',
   integrations: [react(), tailwind({
     applyBaseStyles: false
   }), sitemap()],

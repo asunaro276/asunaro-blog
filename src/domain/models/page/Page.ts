@@ -1,4 +1,3 @@
-import { ARTICLE_NUM_PER_PAGE } from './../../../constants';
 import { isEqual } from "lodash"
 
 export class Page {

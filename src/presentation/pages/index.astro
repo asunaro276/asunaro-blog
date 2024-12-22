@@ -1,12 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HomePage from "../components/HomePage/index.astro"
+import HomePage from "../components/HomePage/index.astro";
 import { AstroSeo } from "@astrolib/seo";
-import { GetPagePaths } from "/usecase/getPagePaths/GetPagePaths";
 import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
+import { GetPostData } from "/usecase/getPostData/GetPostData";
+import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
+import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
+import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
+import { Page } from "/domain/models/page/Page";
 
-const getPagePaths = new GetArticle(new NewtArticleRepository())
-const { blogs, categories, tags, yearmonths, totalCount } = await getPagePaths.execute({ page: 1 })
+const page = new Page(1)
+const getPostData = new GetPostData(
+	new NewtArticleRepository(),
+	new NewtCategoryRepository(),
+	new NewtTagRepository(),
+	new NewtYearMonthRepository(),
+);
+const { articles, categories, tags, yearmonths, currentPage, currentPath, totalCount } =
+	await getPostData.execute({ page });
 ---
 
 <AstroSeo
@@ -26,11 +37,12 @@ const { blogs, categories, tags, yearmonths, totalCount } = await getPagePaths.e
 <Layout>
 	<main>
 		<HomePage
-			pageNumber={1}
-			blogs={blogs}
+			articles={articles}
 			categories={categories}
 			tags={tags}
 			yearmonths={yearmonths}
+			currentPage={currentPage}
+			currentPath={currentPath}
 			totalCount={totalCount}
 		/>
 	</main>

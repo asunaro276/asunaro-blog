@@ -1,9 +1,9 @@
 export default {
   mode: 'jit',
   content: [
-    'src/pages/**/*.{js,ts,jsx,tsx,astro}',
-    'src/components/**/*.{js,ts,jsx,tsx,astro}',
-    'src/libs/parse/*.{js,ts,jsx,tsx,astro}',
+    'src/presentqation/pages/**/*.{js,ts,jsx,tsx,astro}',
+    'src/presentation/components/**/*.{js,ts,jsx,tsx,astro}',
+    'src/presentation/libs/parse/*.{js,ts,jsx,tsx,astro}',
   ],
   theme: {
     screens: {

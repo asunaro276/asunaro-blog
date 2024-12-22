@@ -1,14 +1,16 @@
 ---
-import type { Heading, TagItem, YearMonthItem } from "/types";
+import type { Heading } from "/types";
 import { SideToc } from "./SideToc";
 import ArchivePerYear from "./ArchivePerYear/index.astro";
 import SideProfile from "./SideProfile/index.astro";
 import SideTags from "./SideTags/index.astro";
+import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
+import type { Tag } from "/domain/models/article/tag/Tag";
 
 type Props = {
   headings?: Heading[];
-  tags: TagItem[];
-  yearmonths: YearMonthItem[];
+  tags: Tag[];
+  yearmonths: YearMonth[];
 };
 const props = Astro.props;
 ---

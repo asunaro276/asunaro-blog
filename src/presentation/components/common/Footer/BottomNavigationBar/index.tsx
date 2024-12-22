@@ -1,7 +1,7 @@
-import type { CategoryItem } from '/types'
+import type { Category } from '/domain/models/article/category/Category'
 
 type Props = {
-  categories: CategoryItem[]
+  categories: Category[]
 }
 
 export const BottomNavigationBar = (props: Props) => {
@@ -13,11 +13,11 @@ export const BottomNavigationBar = (props: Props) => {
             <div key={index}>
               <div className='mx-4 my-6 text-white md:mx-6'>
                 <a
-                  href={`/category/${category._id}/1`} 
+                  href={`/category/${category.id}/1`} 
                   className='hover:text-slate-200'
                   rel='noopener noreferrer'
                 >
-                  {category.displayedName}
+                  {category.name}
                 </a>
               </div>
               {index < props.categories.length - 1 && (

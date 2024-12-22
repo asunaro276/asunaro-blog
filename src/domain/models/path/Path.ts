@@ -31,6 +31,10 @@ export class Path {
     return new Path(this.directory, this.id, this.page.next)
   }
 
+  get prevPage(): Path {
+    return new Path(this.directory, this.id, this.page.prev)
+  }
+
   get value(): string {
     const pathElements = [this.directory, this.id, this.page.str].filter(v => Boolean(v))
     return '/' + pathElements.join("/")

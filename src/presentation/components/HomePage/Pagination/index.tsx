@@ -1,29 +1,31 @@
 import { usePagination } from "../../../hooks/usePagination";
 import PaginationItem from "./PaginationItem";
 import { COLOR } from "/constants";
+import type { Page } from "/domain/models/page/Page";
+import type { Path } from "/domain/models/path/Path";
 
 type Props = {
-  dir: string;
-  pageNumber: number;
+  currentPath: Path;
+  currentPage: Page
   totalCount: number;
 };
 
-const Pagination = ({ dir, pageNumber, totalCount }: Props) => {
-  const { pages, totalPages } = usePagination(pageNumber, totalCount);
+const Pagination = ({ currentPage, currentPath, totalCount }: Props) => {
+  const { pages, totalPages } = usePagination(currentPage.value, totalCount);
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination justify-center gap-x-1.5 flex">
         <PaginationItem
-          to={`${dir}/${pageNumber - 1}`}
-          disabled={pageNumber === 1 ? true : false}
-          hover={pageNumber === 1 ? false : true}
+          to={''}
+          disabled={!currentPage.hasPrev()}
+          hover={currentPage.hasPrev()}
         >
           <span
             className="material-icons"
             style={{
               fontSize: "16px",
               color: COLOR.text.base,
-              opacity: pageNumber === 1 ? '0.4' : '1'
+              opacity: !currentPage.hasPrev() ? '0.4' : '1'
             }}
           >
             chevron_left
@@ -31,13 +33,7 @@ const Pagination = ({ dir, pageNumber, totalCount }: Props) => {
         </PaginationItem>
         {
           pages.map((page, index) => {
-            const to = (() => {
-              if (dir === "") {
-                return page === 1 ? `/` : `/${page}`
-              } else {
-                return `${dir}/${page}`
-              }
-            })();
+            const to = (() => '')();
             if (page === "...") {
               return (
                 <li
@@ -51,12 +47,12 @@ const Pagination = ({ dir, pageNumber, totalCount }: Props) => {
                 </li>
               );
             }
-            if (page === pageNumber) {
+            if (page === currentPage.value) {
               return (
                 <PaginationItem key={index + 1} to={to} disabled number>
                   {page}
                 </PaginationItem>
-              );
+              )
             }
             return (
               <PaginationItem key={index + 1} to={to} hover>
@@ -66,16 +62,16 @@ const Pagination = ({ dir, pageNumber, totalCount }: Props) => {
           })
         }
         <PaginationItem
-          to={`${dir}/${pageNumber + 1}`}
-          disabled={pageNumber === totalPages ? true : false}
-          hover={pageNumber === totalPages ? false : true}
+          to={currentPath.nextPage.value}
+          disabled={currentPage.value === totalPages ? true : false}
+          hover={currentPage.value === totalPages ? false : true}
         >
           <span
             className="material-icons"
             style={{
               fontSize: "16px",
               color: COLOR.text.base,
-              opacity: pageNumber === totalPages ? '0.4' : '1'
+              opacity: currentPage.value === totalPages ? '0.4' : '1'
             }}
           >
             chevron_right

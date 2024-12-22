@@ -1,9 +1,9 @@
 ---
 import { COLOR } from "/constants";
-import type { YearMonthItem } from "/types";
+import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
 
 type Props = {
-  yearmonths: YearMonthItem[];
+  yearmonths: YearMonth[];
 };
 
 const { yearmonths } = Astro.props;
@@ -14,16 +14,15 @@ const { yearmonths } = Astro.props;
   <div>
     {
       yearmonths.map((yearmonth) => {
-        const [year, month] = yearmonth.yearmonth.split("-");
         return (
           <div>
             <hr />
-            <a href={`/yearmonth/${yearmonth.yearmonth}/1`}>
+            <a href={`/yearmonth/${yearmonth.value}/1`}>
               <button class="py-4 px-2 hover:brightness-[0.4] transition" style={{ color: COLOR.text.primary }}>
-                {year}/{month}
+                {yearmonth.value}
                 <span
                   style={{ color: COLOR.text.base }}
-                >{`(${yearmonth.ref.length})`}</span>
+                >{1}</span>
               </button>
             </a>
           </div>

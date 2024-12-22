@@ -1,10 +1,10 @@
 ---
-import type { CategoryItem } from "/types";
 import { BottomNavigationBar } from "./BottomNavigationBar";
 import CopyRight from "./CopyRight/index.astro";
+import type { Category } from "/domain/models/article/category/Category";
 
 type Props = {
-  categories: CategoryItem[];
+  categories: Category[];
 };
 const { categories } = Astro.props;
 ---
