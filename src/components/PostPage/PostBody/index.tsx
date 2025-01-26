@@ -41,10 +41,8 @@ const PostBody = (props: Props) => {
         />
       </div>
       <TableOfContents heading={props.headings} />
-      <div>
-        <div className='mb-20'>
-          <div dangerouslySetInnerHTML={{ __html: props.blog.body }} />
-        </div>
+      <div className='mb-20 w-full'>
+        <div dangerouslySetInnerHTML={{ __html: props.blog.body }} />
       </div>
     </div>
   )
