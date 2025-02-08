@@ -7,22 +7,22 @@ export const parseBody = async (body: string) => {
   $('h1').each((_, element) => {
     $(element).attr('id', $(element).text() + 'h1')
     $(element).addClass('ml-4 md:ml-8 my-3 md:my-5 text-lg md:text-xl font-semibold font-body')
-    $(element).wrap('<div class="bg-slate-100 mb-5 mt-20 flex"></div>')
+    $(element).wrap('<div class="bg-slate-100 mt-10 flex"></div>')
     $(element).parent().prepend('<div class="w-2 bg-yellow-400"></div>')
   })
   $('h2').each((_, element) => {
     $(element).attr('id', $(element).text() + 'h2')
     $(element).addClass('ml-3 md:ml-4 my-1 md:my-2 text-base md:text-lg font-semibold font-body')
-    $(element).wrap('<div class="mb-5 flex"></div>')
+    $(element).wrap('<div class="flex"></div>')
     $(element).parent().prepend('<div class="w-2 bg-yellow-400"></div>')
   })
   $('h3').each((_, element) => {
     $(element).attr('id', $(element).text() + 'h3')
-    $(element).addClass('my-1 md:my-2 text-base md:text-lg font-semibold font-body')
+    $(element).addClass('text-base md:text-lg font-semibold font-body')
   })
   $('p').each((_, element) => {
     $(element).addClass('text-sm md:text-lg font-body leading-loose')
-    $(element).wrap('<div class="mt-5 mb-10"></div>')
+    $(element).wrap('<div class=""></div>')
   })
 
   $('li').each((_, element) => {
@@ -35,7 +35,7 @@ export const parseBody = async (body: string) => {
 
   $('ul:not(ul ul)').each((_, element) => {
     $(element).addClass(
-      'text-sm md:text-lg list-disc list-inside space-y-2 ml-2 pl-8 pr-4 py-6 indent-[-1em] border-dotted border-gray-500',
+      'text-sm md:text-lg list-disc list-inside space-y-2 ml-2 pl-8 pr-4 indent-[-1em] border-dotted border-gray-500',
     )
   })
 

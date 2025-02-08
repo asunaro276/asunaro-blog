@@ -42,7 +42,7 @@ const PostBody = (props: Props) => {
       </div>
       <TableOfContents heading={props.headings} />
       <div className='mb-20 w-full'>
-        <div dangerouslySetInnerHTML={{ __html: props.blog.body }} />
+        <div dangerouslySetInnerHTML={{ __html: props.blog.body }} className='gap-10 flex flex-col ' />
       </div>
     </div>
   )
