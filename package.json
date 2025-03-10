@@ -16,7 +16,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@astrolib/seo": "^1.0.0-beta.5",
     "@reactuses/core": "^5.0.19",
-    "@types/react": "^18.3.3",
+    "@types/react": "^19.0.10",
     "@types/react-dom": "^18.3.0",
     "astro": "^4.12.2",
     "highlight.js": "^11.10.0",
