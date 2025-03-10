@@ -13,7 +13,7 @@
     "@astrojs/check": "^0.8.3",
     "@astrojs/react": "^3.6.0",
     "@astrojs/sitemap": "^3.1.6",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/tailwind": "^6.0.0",
     "@astrolib/seo": "^1.0.0-beta.5",
     "@reactuses/core": "^5.0.19",
     "@types/react": "^18.3.3",
