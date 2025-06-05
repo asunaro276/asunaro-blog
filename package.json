@@ -30,7 +30,7 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.0.0",
+    "@chromatic-com/storybook": "^4.0.0",
     "@types/bun": "^1.1.6",
     "@types/katex": "^0.16.7",
     "@types/node": "^22.0.2",
