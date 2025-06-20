@@ -1,4 +1,4 @@
-import { isEqual } from "lodash"
+import isEqual from "lodash/isEqual"
 
 export class Page {
   static ARTICLE_NUM_PER_PAGE = 10
