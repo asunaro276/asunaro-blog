@@ -1,26 +1,29 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { newtClient } from "../../libs/client";
 import Layout from "/presentation/layouts/Layout.astro";
-import { fetchBlogData } from "/libs/fetch/fetchBlogData";
-import type { ArticleItem } from "/types";
+import { fetchBlogData } from "/presentation/libs/fetch/fetchBlogData";
 import PostPage from "/presentation/components/PostPage/index.astro";
 import { parseHeading } from "../../libs/parse/parseHeading";
 import "highlight.js/styles/monokai-sublime.min.css";
 import { AstroSeo } from "@astrolib/seo";
+import { Page as PageDomain } from "/domain/models/page/Page";
+import { GetPostData } from "/usecase/getPostData/GetPostData";
+import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
+import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
+import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
+import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
 
-export const getStaticPaths = (async ({}) => {
-  const blogs = await newtClient.getContents<ArticleItem>({
-    appUid: "asunaroblog",
-    modelUid: "article",
-    query: {
-      limit: 100,
-      select: ["_id"],
-    },
-  });
-  const paths = blogs.items.flatMap(({ _id }) => ({
+export const getStaticPaths = (async () => {
+  const getPostData = new GetPostData(
+    new NewtArticleRepository(),
+    new NewtCategoryRepository(),
+    new NewtTagRepository(),
+    new NewtYearMonthRepository(),
+  );
+  const { articles } = await getPostData.execute({ page: new PageDomain(1) });
+  const paths = articles.flatMap(({ articleId }) => ({
     params: {
-      id: _id,
+      id: articleId,
     },
   }));
   return paths;

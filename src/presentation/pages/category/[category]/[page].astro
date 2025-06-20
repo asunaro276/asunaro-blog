@@ -1,24 +1,31 @@
 ---
 import type { GetStaticPaths } from "astro";
-import HomePage from "../../../components/HomePage/index.astro";
-import { newtClient } from "../../../libs/client";
-import Layout from "../../../layouts/Layout.astro";
-import { fetchBlogData } from "../../../libs/fetch/fetchBlogData";
-import type { ArticleItem, CategoryItem } from "/types";
+import HomePage from "/presentation/components/HomePage/index.astro";
+import Layout from "/presentation/layouts/Layout.astro";
 import { AstroSeo } from "@astrolib/seo";
+import { Page as PageDomain } from "/domain/models/page/Page";
+import { GetPostData } from "/usecase/getPostData/GetPostData";
+import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
+import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
+import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
+import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const categories = (
-		await newtClient.getContents<CategoryItem>({
-			appUid: "asunaroblog",
-			modelUid: "category",
-			query: { limit: 100 },
-		})
-	).items;
-	const paths = categories.flatMap(({ _id, ref }) => {
+	const getPostData = new GetPostData(
+		new NewtArticleRepository(),
+		new NewtCategoryRepository(),
+		new NewtTagRepository(),
+		new NewtYearMonthRepository(),
+	);
+	const { categories, articles } = await getPostData.execute({
+		page: new PageDomain(1),
+	});
+	const paths = categories.flatMap(({ id }) => {
 		return paginate(
-			ref.map((r) => (r as ArticleItem)._id),
-			{ params: { category: _id }, pageSize: 10 },
+			articles
+				.filter((article) => article.category.id === id)
+				.map((article) => article.articleId),
+			{ params: { category: id }, pageSize: 10 },
 		);
 	});
 	return paths;
@@ -26,18 +33,30 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 const { page } = Astro.props;
 const { category: categoryId } = Astro.params;
-const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
-	{ pageNumber: page.currentPage, categoryId },
+const getPostData = new GetPostData(
+	new NewtArticleRepository(),
+	new NewtCategoryRepository(),
+	new NewtTagRepository(),
+	new NewtYearMonthRepository(),
 );
-const categoryItem = categories.filter((cat) => cat._id === categoryId)[0];
+const {
+	articles,
+	categories,
+	tags,
+	yearmonths,
+	currentPage,
+	currentPath,
+	totalCount,
+} = await getPostData.execute({ page: new PageDomain(page.currentPage) });
+const category = categories.filter((cat) => cat.id === categoryId)[0];
 ---
 
 <AstroSeo
 	title="Asunaro Blog"
-	description=`${blogs[0].category.displayedName}カテゴリの記事一覧`
+	description=`${category.name}カテゴリの記事一覧`
 	openGraph={{
 		title: "Asunaro Blog",
-		description: `${blogs[0].category.displayedName}カテゴリの記事一覧`,
+		description: `${category.name}カテゴリの記事一覧`,
 		images: [
 			{
 				url: "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3ab0e1e0-e610-4dc9-acb4-f7917add37b1/asunaro.png",
@@ -48,13 +67,13 @@ const categoryItem = categories.filter((cat) => cat._id === categoryId)[0];
 <Layout>
 	<main>
 		<HomePage
-			pageNumber={page.currentPage}
-			blogs={blogs}
+			currentPage={currentPage}
+			articles={articles}
 			categories={categories}
 			tags={tags}
 			yearmonths={yearmonths}
 			totalCount={totalCount}
-			categoryItem={categoryItem}
+			category={category}
 		/>
 	</main>
 </Layout>

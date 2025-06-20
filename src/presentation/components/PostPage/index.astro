@@ -1,23 +1,20 @@
 ---
-import type {
-  ArticleItem,
-  CategoryItem,
-  Heading,
-  TagItem,
-  YearMonthItem,
-} from "/types";
+import type { ArticleItem, Heading } from "/types";
 import PostBody from "./PostBody";
-import Header from "/components/common/Header/index.astro";
-import SideBar from "/components/common/SideBar/index.astro";
-import Footer from "/components/common/Footer/index.astro";
+import Header from "/presentation/components/common/Header/index.astro";
+import SideBar from "/presentation/components/common/SideBar/index.astro";
+import Footer from "/presentation/components/common/Footer/index.astro";
 import { COLOR } from "/constants";
+import type { Category } from "/domain/models/article/category/Category";
+import type { Tag } from "/domain/models/article/tag/Tag";
+import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
 
 type Props = {
   blog: ArticleItem;
   headings: Heading[];
-  categories: CategoryItem[];
-  tags: TagItem[];
-  yearmonths: YearMonthItem[];
+  categories: Category[];
+  tags: Tag[];
+  yearmonths: YearMonth[];
 };
 const props = Astro.props;
 ---

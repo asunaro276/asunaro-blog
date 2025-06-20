@@ -1,5 +1,5 @@
 import type { IArticleRepository } from "/domain/models/article/IArticleRepository";
-import type { Page } from "/domain/models/page/Page";
+import { Page } from "/domain/models/page/Page";
 import { Path } from "/domain/models/path/Path";
 
 type GetPagePathsCommand = { page: Page }
@@ -9,8 +9,8 @@ export class GetPagePaths {
     private articleRepository: IArticleRepository,
   ) {}
   async execute(command: GetPagePathsCommand): Promise<Path[]> {
-    const { articles } = await this.articleRepository.fetchArticle(command)
-    const paths = articles.map(v => new Path('', '', command.page));
+    const { totalCount } = await this.articleRepository.fetchArticle(command)
+    const paths = [...Array(totalCount - command.page.value + 1)].map((_, i) => new Path('', '', new Page(command.page.value + i)))
     return paths
   }
 }
