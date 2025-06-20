@@ -1,16 +1,16 @@
 import { createClient } from 'newt-client-js'
 
 function createEnvClient() {
-  if (process.env.NODE_ENV === "production") {
+  if (import.meta.env.NODE_ENV === "production") {
     return createClient({
-      spaceUid: Bun.env.SPACE_UID + '',
-      token: Bun.env.CDN_API_TOKEN + '',
+      spaceUid: import.meta.env.SPACE_UID + '',
+      token: import.meta.env.CDN_API_TOKEN + '',
       apiType: 'cdn',
     })
-  } else if (process.env.NODE_ENV === "development") {
+  } else if (import.meta.env.NODE_ENV === "development") {
     return createClient({
-      spaceUid: Bun.env.SPACE_UID + '',
-      token: Bun.env.API_TOKEN + '',
+      spaceUid: import.meta.env.SPACE_UID + '',
+      token: import.meta.env.API_TOKEN + '',
       apiType: 'api',
     })
   } else {

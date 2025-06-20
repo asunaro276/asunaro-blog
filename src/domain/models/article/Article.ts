@@ -18,7 +18,7 @@ export class Article {
     readonly publishedAt: string
   ) {
     const publishedAtDate = new Date(publishedAt)
-    this.yearmonth = new YearMonth(publishedAtDate.getFullYear(), publishedAtDate.getMonth())
+    this.yearmonth = new YearMonth(publishedAtDate.getFullYear(), publishedAtDate.getMonth() + 1)
   }
 
   static create(

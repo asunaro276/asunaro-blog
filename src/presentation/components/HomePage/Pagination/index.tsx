@@ -1,8 +1,8 @@
 import { usePagination } from "../../../hooks/usePagination";
 import PaginationItem from "./PaginationItem";
 import { COLOR } from "/constants";
-import type { Page } from "/domain/models/page/Page";
-import type { Path } from "/domain/models/path/Path";
+import { Page } from "/domain/models/page/Page";
+import { Path } from "/domain/models/path/Path";
 
 type Props = {
   currentPath: Path;
@@ -33,7 +33,7 @@ const Pagination = ({ currentPage, currentPath, totalCount }: Props) => {
         </PaginationItem>
         {
           pages.map((page, index) => {
-            const to = (() => '')();
+            const to = new Path(currentPath.directory, currentPath.id, new Page(Number(page))).value;
             if (page === "...") {
               return (
                 <li

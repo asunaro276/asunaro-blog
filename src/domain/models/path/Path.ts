@@ -1,4 +1,4 @@
-import { isEqual } from "lodash"
+import isEqual from "lodash/isEqual"
 import type { Page } from "../page/Page"
 
 const Directory = ['', 'blog', 'tag', 'category', 'yearmonth'] as const

@@ -1,19 +1,21 @@
-import { isEqual } from "lodash"
+import isEqual from "lodash/isEqual"
 
 export class YearMonth {
   static startYear = 2023
-  static thisYear= new Date().getFullYear()
+  static thisYear= (new Date()).getFullYear()
   static monthList = Array.from({length: 12}, (_, k) => k + 1)
 
   constructor(
     private readonly _year: number,
     private readonly _month: number
   ) {
-    this.validate(_year, _month)
+    this._year = _year
+    this._month = _month
+    this.validate(this._year, this._month)
   }
 
   private validate(year: number, month: number): void {
-    if (!YearMonth.monthList.find(v => v == month)) {
+    if (!YearMonth.monthList.find(v => v === month)) {
       throw new Error('monthが有効ではありません')
     }
 
