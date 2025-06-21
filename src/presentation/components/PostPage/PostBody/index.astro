@@ -25,6 +25,6 @@ const { article } = Astro.props as Props;
       client:load
     />
   </div>
-  <TableOfContents tableOfContents={article.tableOfContents} client:load />
+  <TableOfContents tableOfContents={article.tableOfContents ?? []} client:load />
   <Body htmlBody={article.htmlBody} client:load />
 </div>

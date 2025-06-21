@@ -1,4 +1,5 @@
 export default {
+  mode: 'jit',
   content: [
     './src/presentation/pages/**/*.{js,ts,jsx,tsx,astro}',
     './src/presentation/components/**/*.{js,ts,jsx,tsx,astro}',

@@ -23,16 +23,12 @@ import { cheerioParser } from "../htmlParser/cheerioParser";
  * 全てのRepositoryとUseCaseのインスタンス作成を一元管理
  */
 export class DIContainer {
-  private static _htmlParser: HtmlParser;
+  static htmlParser: HtmlParser = cheerioParser;
   // Repositories (シングルトン)
   private static _articleRepository: IArticleRepository;
   private static _categoryRepository: ICategoryRepository;
   private static _tagRepository: ITagRepository;
   private static _yearMonthRepository: IYearMonthRepository;
-
-  static get htmlParser(): HtmlParser {
-    return cheerioParser;
-  }
 
   static get articleRepository(): IArticleRepository {
     if (!this._articleRepository) {
