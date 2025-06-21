@@ -1,17 +1,19 @@
-import type { Category } from "/domain/models/article/category/Category";
 import type { IArticleRepository } from "/domain/models/article/IArticleRepository";
-import type { Page } from "/domain/models/page/Page";
-import { Path } from "/domain/models/path/Path";
-
-type GetCategoryPathsCommand = { category: Category, page: Page }
+import type { PathDTO } from "./DTO";
+import type { ICategoryRepository } from "/domain/models/article/category/ICategoryRepository";
 
 export class GetCategoryPaths {
   constructor(
     private articleRepository: IArticleRepository,
+    private categoryRepository: ICategoryRepository,
   ) {}
-  async execute(command: GetCategoryPathsCommand): Promise<Path[]> {
-    const { articles } = await this.articleRepository.fetchArticle(command)
-    const paths = articles.map(v => new Path('category', command.category.name, command.page));
-    return paths
+  async execute(): Promise<PathDTO[]> {
+    const { articles } = await this.articleRepository.fetchAllArticles()
+    const categories = await this.categoryRepository.fetchCategories()
+    const articlesByCategory = categories.map(category => ({
+      category: category,
+      articles: articles.filter((article) => article.category.equals(category))
+    }))
+    return articlesByCategory
   }
 }

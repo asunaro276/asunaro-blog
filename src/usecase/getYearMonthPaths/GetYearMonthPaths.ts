@@ -11,7 +11,7 @@ export class GetYearMonthPaths {
   ) {}
   async execute(command: GetYearMonthPathsCommand): Promise<Path[]> {
     const { articles } = await this.articleRepository.fetchArticle(command)
-    const paths = articles.map(v => new Path('yearmonth', command.yearmonth.value, command.page));
+    const paths = articles.map(_ => new Path('yearmonth', command.yearmonth.value, command.page));
     return paths
   }
 }

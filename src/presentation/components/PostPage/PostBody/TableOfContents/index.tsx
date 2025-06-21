@@ -61,21 +61,6 @@ export const TableOfContents = (props: Props) => {
                 </li>
               )
             }
-            // if (data.tag === "h3") {
-            //   tocCount[2] += 1
-            //   return (
-            //     <li key={index} className="my-2 list-none">
-            //       <Scroll to={`${data.id}`} smooth={true} className="hover:opacity-50 cursor-pointer flex" id={`${index}`} duration={400}>
-            //         <Box className="ml-10 mr-5 text-md">
-            //           {`${(tocCount[0] - 1)}.${tocCount[1] - 1}.${tocCount[2] - 1}`}
-            //         </Box>
-            //         <Box className="ml-2">
-            //           {data.text}
-            //         </Box>
-            //       </Scroll>
-            //     </li>
-            //   )
-            // }
           })}
         </ul>
       </div>

@@ -1,12 +1,13 @@
 import { COLOR } from "/constants";
 import { convertDateFormat } from "../../../../libs/convertDateFormat";
-import type { CategoryItem, TagItem } from "/types";
+import type { Tag } from "/domain/models/article/tag/Tag";
+import type { Category } from "/domain/models/article/category/Category";
 
 type Props = {
   title: string;
   publishedAt: string;
-  tagsOfPost: TagItem[];
-  categoryOfPost: CategoryItem;
+  tagsOfPost: Tag[]
+  categoryOfPost: Category;
   imageUrl: string;
   imageAlt: string;
 };
@@ -28,24 +29,24 @@ const Caption = (props: Props) => {
         className="mb-10 space-y-2 gap-2"
         style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}
       >
-        <a href={`/category/${props.categoryOfPost._id}`}>
+        <a href={`/category/${props.categoryOfPost.id}`}>
           <button
             className="mr-2 border py-[4px] px-[10px] rounded text-xs hover:brightness-[0.3] transition"
             style={{ textTransform: "none", display: "flex", color: COLOR.text.secondary, borderColor: COLOR.text.secondary + '60' }}
           >
-            {props.categoryOfPost.displayedName}
+            {props.categoryOfPost.name}
           </button>
         </a>
         {
           props.tagsOfPost.map((tag, index) => (
             <a
-              href={`/tag/${tag._id}`}
+              href={`/tag/${tag.id}`}
               className="text-sm hover:brightness-[0.4] transition"
               style={{ textTransform: "none", display: "flex", marginTop: '0px', color: COLOR.text.secondary }}
               key={index}
             >
               <span className="material-icons" style={{ fontSize: '18px' }}>local_offer</span>
-              {tag.tag}
+              {tag.name}
             </a>
           ))
         }

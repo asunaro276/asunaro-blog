@@ -2,6 +2,7 @@ import { YearMonth } from "./yearmonth/YearMonth";
 import type { CoverImage } from "./cover-image/CoverImage";
 import type { Tag } from "./tag/Tag";
 import type { Category } from "./category/Category";
+import { parseBody } from "/presentation/libs/parse/parseBody";
 
 export class Article {
   readonly yearmonth: YearMonth
@@ -13,7 +14,7 @@ export class Article {
     readonly coverImage: CoverImage,
     readonly category: Category,
     readonly tags: Tag[],
-    readonly htmlBody: string,
+    private _htmlBody: string,
     readonly updateAt: string,
     readonly publishedAt: string
   ) {
@@ -21,21 +22,15 @@ export class Article {
     this.yearmonth = new YearMonth(publishedAtDate.getFullYear(), publishedAtDate.getMonth() + 1)
   }
 
-  static create(
-    articleId: string,
-    title: string,
-    description: string,
-    coverImage: CoverImage,
-    category: Category,
-    tags: Tag[],
-    htmlBody: string,
-    updateAt: string,
-    publishedAt: string
-  ) {
-    return new Article(articleId, title, description, coverImage, category, tags, htmlBody, updateAt, publishedAt)
+  get htmlBody(): string {
+    return this._htmlBody
   }
 
-  static reconstruct(
+  async parseBody() {
+    this._htmlBody = await parseBody(this._htmlBody)
+  }
+
+  static create(
     articleId: string,
     title: string,
     description: string,

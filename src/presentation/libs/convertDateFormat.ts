@@ -1,5 +1,4 @@
 export const convertDateFormat = (date: string | null) => {
-  console.log(date)
   if (date === null) {
     return ''
   }

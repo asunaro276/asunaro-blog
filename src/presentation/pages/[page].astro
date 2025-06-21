@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import HomePage from "../components/HomePage/index.astro";
 import { AstroSeo } from "@astrolib/seo";
 import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
-import { GetPostData } from "/usecase/getPostData/GetPostData";
+import { GetArticleList } from "/usecase/getArticleList/GetArticleList";
 import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
 import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
 import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
@@ -12,24 +12,35 @@ import type { GetStaticPaths } from "astro";
 import { GetPagePaths } from "/usecase/getPagePaths/GetPagePaths";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const getPagePaths = new GetPagePaths(new NewtArticleRepository())
-	const paths = (await getPagePaths.execute({ page: new PageDomain(1) })).map(p => {
-		return {
-			page: p.value
-		}
-	})
+	const getPagePaths = new GetPagePaths(new NewtArticleRepository());
+	const paths = (await getPagePaths.execute({ page: new PageDomain(1) })).map(
+		(_) => ({
+			params: {
+				page: "/",
+			},
+		}),
+	);
 	return paginate(paths, { pageSize: PageDomain.ARTICLE_NUM_PER_PAGE });
 }) satisfies GetStaticPaths;
 
-const { page } = Astro.props
-const getPostData = new GetPostData(
+const { page } = Astro.props;
+const getArticleList = new GetArticleList(
 	new NewtArticleRepository(),
 	new NewtCategoryRepository(),
 	new NewtTagRepository(),
 	new NewtYearMonthRepository(),
-)
-const { articles, categories, tags, yearmonths, currentPage, currentPath, totalCount } =
-	await getPostData.execute({ page: new PageDomain(page.currentPage) });
+);
+const {
+	articles,
+	categories,
+	tags,
+	yearmonths,
+	currentPage,
+	currentPath,
+	totalCount,
+} = await getArticleList.execute({
+	page: new PageDomain(page.currentPage),
+});
 ---
 
 <AstroSeo

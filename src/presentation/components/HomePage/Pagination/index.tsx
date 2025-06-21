@@ -16,7 +16,7 @@ const Pagination = ({ currentPage, currentPath, totalCount }: Props) => {
     <nav aria-label="Page navigation example">
       <ul className="pagination justify-center gap-x-1.5 flex">
         <PaginationItem
-          to={''}
+          to={currentPath.prevPage.value}
           disabled={!currentPage.hasPrev()}
           hover={currentPage.hasPrev()}
         >

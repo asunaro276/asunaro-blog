@@ -1,5 +1,5 @@
 ---
-import type { ArticleItem, Heading } from "/types";
+import type { Heading } from "/types";
 import PostBody from "./PostBody";
 import Header from "/presentation/components/common/Header/index.astro";
 import SideBar from "/presentation/components/common/SideBar/index.astro";
@@ -8,9 +8,10 @@ import { COLOR } from "/constants";
 import type { Category } from "/domain/models/article/category/Category";
 import type { Tag } from "/domain/models/article/tag/Tag";
 import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
+import type { Article } from "/domain/models/article/Article";
 
 type Props = {
-  blog: ArticleItem;
+  article: Article;
   headings: Heading[];
   categories: Category[];
   tags: Tag[];
@@ -26,7 +27,7 @@ const props = Astro.props;
   <div class="flex md:p-[32px] justify-center relative z-0">
     <div class="xl:max-w-screen-xl grid grid-cols-1 lg:grid-cols-4 gap-6">
       <div class:list={["lg:col-span-3"]}>
-        <PostBody client:load blog={props.blog} headings={props.headings} />
+        <PostBody article={props.article} headings={props.headings} />
       </div>
       <div class="lg:col-span-1 mt-20 lg:mt-0">
         <SideBar

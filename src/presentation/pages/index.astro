@@ -3,21 +3,28 @@ import Layout from "../layouts/Layout.astro";
 import HomePage from "../components/HomePage/index.astro";
 import { AstroSeo } from "@astrolib/seo";
 import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
-import { GetPostData } from "/usecase/getPostData/GetPostData";
+import { GetArticleList } from "/usecase/getArticleList/GetArticleList";
 import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
 import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
 import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
 import { Page } from "/domain/models/page/Page";
 
-const page = new Page(1)
-const getPostData = new GetPostData(
+const page = new Page(1);
+const getArticleList = new GetArticleList(
 	new NewtArticleRepository(),
 	new NewtCategoryRepository(),
 	new NewtTagRepository(),
 	new NewtYearMonthRepository(),
 );
-const { articles, categories, tags, yearmonths, currentPage, currentPath, totalCount } =
-	await getPostData.execute({ page });
+const {
+	articles,
+	categories,
+	tags,
+	yearmonths,
+	currentPage,
+	currentPath,
+	totalCount,
+} = await getArticleList.execute({ page });
 ---
 
 <AstroSeo

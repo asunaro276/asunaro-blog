@@ -1,5 +1,5 @@
 import isEqual from "lodash/isEqual"
-import type { Page } from "../page/Page"
+import { Page } from "../page/Page"
 
 const Directory = ['', 'blog', 'tag', 'category', 'yearmonth'] as const
 type Directory = typeof Directory[number]
@@ -10,10 +10,10 @@ export class Path {
     readonly id: string,
     readonly page: Page
   ) {
-    this.validate(directory, id, page)
+    this.validate(directory, id)
   }
 
-  private validate(directory: Directory, id: string, page: Page): void {
+  private validate(directory: Directory, id: string): void {
     if(directory === '' && id !== '') {
       throw new Error('全記事一覧にIDは指定できません')
     }
@@ -36,7 +36,11 @@ export class Path {
   }
 
   get value(): string {
-    const pathElements = [this.directory, this.id, this.page.str].filter(v => Boolean(v))
-    return '/' + pathElements.join("/")
+    const pathElements = [this.directory, this.id, this.page.value].filter(v => Boolean(v))
+    if (this.directory === '' && this.id === '' && this.page.value === 1) {
+      return '/'
+    } else {
+      return '/' + pathElements.join("/")
+    }
   }
 }

@@ -35,7 +35,11 @@ export class Page {
   }
 
   get prev(): Page {
-    return new Page(this._value - 1)
+    if (this.hasPrev()) {
+      return new Page(this._value - 1)
+    } else {
+      return new Page(this._value)
+    }
   }
 
   hasPrev(): boolean {

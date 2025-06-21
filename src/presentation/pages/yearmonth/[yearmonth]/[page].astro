@@ -1,9 +1,9 @@
 ---
 import type { GetStaticPaths } from "astro";
-import HomePage from "../../../presentation/components/HomePage/index.astro";
-import { newtClient } from "../../../libs/client";
-import Layout from "/layouts/Layout.astro";
-import { fetchBlogData } from "../../../libs/fetch/fetchBlogData";
+import HomePage from "/presentation/components/HomePage/index.astro";
+import { newtClient } from "/presentation/libs/client";
+import Layout from "/presentation/layouts/Layout.astro";
+import { fetchBlogData } from "/presentation/libs/fetch/fetchBlogData";
 import type { ArticleItem, YearMonthItem } from "/types";
 import { AstroSeo } from "@astrolib/seo";
 

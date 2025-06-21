@@ -1,17 +1,19 @@
-import type { Tag } from "/domain/models/article/tag/Tag";
 import type { IArticleRepository } from "/domain/models/article/IArticleRepository";
-import type { Page } from "/domain/models/page/Page";
-import { Path } from "/domain/models/path/Path";
-
-type GetTagPathsCommand = { tag: Tag, page: Page }
+import type { ITagRepository } from "/domain/models/article/tag/ITagRepository";
+import type { PathDTO } from "./DTO";
 
 export class GetTagPaths {
   constructor(
     private articleRepository: IArticleRepository,
+    private tagRepository: ITagRepository,
   ) {}
-  async execute(command: GetTagPathsCommand): Promise<Path[]> {
-    const { articles } = await this.articleRepository.fetchArticle(command)
-    const paths = articles.map(v => new Path('tag', command.tag.name, command.page));
-    return paths
+  async execute(): Promise<PathDTO[]> {
+    const { articles } = await this.articleRepository.fetchAllArticles()
+    const tags = await this.tagRepository.fetchTags()
+    const articlesByTag = tags.map(tag => ({
+      tag: tag,
+      articles: articles.filter((article) => article.tags.some(t => t.equals(tag)))
+    }))
+    return articlesByTag
   }
 }

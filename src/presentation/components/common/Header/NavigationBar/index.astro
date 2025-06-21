@@ -1,7 +1,9 @@
 ---
 import { pageIcons } from "/constants";
-import NavigationMenu from './NavigationMenu/index.astro'
-import type { Category } from "/domain/models/article/category/Category";
+import NavigationMenu from "./NavigationMenu/index.astro";
+import { Category } from "/domain/models/article/category/Category";
+import { Path } from "/domain/models/path/Path";
+import { Page } from "/domain/models/page/Page";
 
 type Props = {
   logo: string;
@@ -9,11 +11,17 @@ type Props = {
 };
 
 const props = Astro.props;
+props.categories.unshift(new Category("/", "HOME"))
+const pathes = props.categories.map(category => {
+  if (category.name === "HOME") {
+    return new Path("", "", new Page(1))
+  } else {
+    return new Path("category", category.name.toLowerCase(), new Page(1))
+  }
+})
 ---
 
-<header
-  class="bg-slate-500 flex justify-center h-[92px] md:h-[64px] px-[32px]"
->
+<header class="bg-slate-500 flex justify-center h-[92px] md:h-[64px] px-[32px]">
   <div class="xl:max-w-screen-xl w-full h-full">
     <div class="flex md:hidden justify-between h-full items-center">
       <NavigationMenu categories={props.categories} />
@@ -30,11 +38,13 @@ const props = Astro.props;
           props.categories.map((category, index) => (
             <div>
               <a
-                href={category.id ? `/category/${category.id}/1` : "/"}
+                href={pathes[index].value}
                 class="flex text-lg text-white hover:backdrop-brightness-[1.2] p-2 transition"
                 rel="noopener noreferrer"
               >
-                <div class="mt-[1.5px] mr-1"><span class='material-icons'>{pageIcons[index]}</span></div>
+                <div class="mt-[1.5px] mr-1">
+                  <span class="material-icons">{pageIcons[index]}</span>
+                </div>
                 <div class="">{category.name}</div>
               </a>
             </div>

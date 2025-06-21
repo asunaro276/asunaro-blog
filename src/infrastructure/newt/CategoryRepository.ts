@@ -16,7 +16,8 @@ export class NewtCategoryRepository implements ICategoryRepository {
         ...params,
         query: {
           limit: 100,
-          depth: 0
+          depth: 0,
+          order: ["-_sys.customOrder"]
         },
       })
     )

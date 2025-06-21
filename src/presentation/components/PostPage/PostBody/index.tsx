@@ -1,13 +1,14 @@
-import type { ArticleItem, Heading } from '/types'
+import type { Heading } from '/types'
 import Caption from './Caption'
 import { TableOfContents } from './TableOfContents'
 import { useEffect } from 'react'
 import renderMathInElement from 'katex/contrib/auto-render'
 import 'katex/dist/katex.min.css'
 import { useCodeCopy } from '../../../hooks/useCodeCopy'
+import type { Article } from '/domain/models/article/Article'
 
 type Props = {
-  blog: ArticleItem
+  article: Article
   headings: Heading[]
 }
 
@@ -30,19 +31,19 @@ const PostBody = (props: Props) => {
     <div className='shadow border bg-white px-12 md:px-20 flex flex-col items-center'>
       <div className='my-10'>
         <Caption
-          title={props.blog.title}
-          publishedAt={props.blog._sys.raw.firstPublishedAt}
-          tagsOfPost={props.blog.tags}
-          categoryOfPost={props.blog.category}
-          imageUrl={props.blog.coverImage.src}
+          title={props.article.title}
+          publishedAt={props.article.publishedAt}
+          tagsOfPost={props.article.tags}
+          categoryOfPost={props.article.category}
+          imageUrl={props.article.coverImage.src.toString()}
           imageAlt={
-            props.blog.coverImage.altText === undefined ? '' : props.blog.coverImage.altText
+            props.article.coverImage.altText === undefined ? '' : props.article.coverImage.altText
           }
         />
       </div>
       <TableOfContents heading={props.headings} />
       <div className='mb-20 w-full'>
-        <div dangerouslySetInnerHTML={{ __html: props.blog.body }} />
+        <div dangerouslySetInnerHTML={{ __html: props.article.htmlBody }} />
       </div>
     </div>
   )
