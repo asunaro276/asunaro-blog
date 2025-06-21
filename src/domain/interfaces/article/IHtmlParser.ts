@@ -1,6 +1,6 @@
 import type { Heading } from "/domain/models/article/heading/Heading";
 
-export interface IHtmlParser {
-  parseHtml(html: string): string
+export type HtmlParser = {
+  parseBody(html: string): Promise<string>
   parseHeadings(html: string): Heading[]
 }

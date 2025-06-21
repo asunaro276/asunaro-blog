@@ -8,9 +8,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: 'https://asunaroblog.net',
   srcDir: './src/presentation',
-  integrations: [react(), tailwind({
-    applyBaseStyles: false
-  }), sitemap()],
+  integrations: [react(), tailwind(), sitemap()],
   image: {
     domains: ['storage.googleapis.com']
   }

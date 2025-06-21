@@ -15,17 +15,24 @@ import type { ICategoryRepository } from "/domain/interfaces/article/ICategoryRe
 import type { ITagRepository } from "/domain/interfaces/article/ITagRepository";
 import type { IYearMonthRepository } from "/domain/interfaces/article/IYearMonthRepository";
 import { GetArticleList } from "/usecase/getArticleList/GetArticleList";
+import type { HtmlParser } from "/domain/interfaces/article/IHtmlParser";
+import { cheerioParser } from "../htmlParser/cheerioParser";
 
 /**
  * 依存関係注入コンテナ
  * 全てのRepositoryとUseCaseのインスタンス作成を一元管理
  */
 export class DIContainer {
+  private static _htmlParser: HtmlParser;
   // Repositories (シングルトン)
   private static _articleRepository: IArticleRepository;
   private static _categoryRepository: ICategoryRepository;
   private static _tagRepository: ITagRepository;
   private static _yearMonthRepository: IYearMonthRepository;
+
+  static get htmlParser(): HtmlParser {
+    return cheerioParser;
+  }
 
   static get articleRepository(): IArticleRepository {
     if (!this._articleRepository) {
@@ -61,7 +68,8 @@ export class DIContainer {
       this.articleRepository,
       this.categoryRepository,
       this.tagRepository,
-      this.yearMonthRepository
+      this.yearMonthRepository,
+      this.htmlParser
     );
   }
 
