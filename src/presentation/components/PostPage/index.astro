@@ -25,10 +25,7 @@ const props = Astro.props;
   <div class="flex md:p-[32px] justify-center relative z-0">
     <div class="xl:max-w-screen-xl grid grid-cols-1 lg:grid-cols-4 gap-6">
       <div class:list={["lg:col-span-3"]}>
-        <PostBody
-          article={props.article.serialize()}
-          tableOfContents={props.article.tableOfContents}
-        />
+        <PostBody article={props.article.serialize()} />
       </div>
       <div class="lg:col-span-1 mt-20 lg:mt-0">
         <SideBar

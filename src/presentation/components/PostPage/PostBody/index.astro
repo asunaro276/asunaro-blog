@@ -2,15 +2,13 @@
 import Caption from "./Caption";
 import { TableOfContents } from "./TableOfContents";
 import { Article } from "/domain/models/article/Article";
-import type { Heading } from "/domain/models/article/heading/Heading";
 import Body from "./Body";
 
 type Props = {
   article: Article;
-  tableOfContents: Heading[];
 };
 
-const { article, tableOfContents } = Astro.props as Props;
+const { article } = Astro.props as Props;
 ---
 
 <div class="shadow border bg-white px-12 md:px-20 flex flex-col items-center">
@@ -27,6 +25,6 @@ const { article, tableOfContents } = Astro.props as Props;
       client:load
     />
   </div>
-  <TableOfContents tableOfContents={tableOfContents} client:load />
+  <TableOfContents tableOfContents={article.tableOfContents} client:load />
   <Body htmlBody={article.htmlBody} client:load />
 </div>
