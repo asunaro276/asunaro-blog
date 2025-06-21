@@ -2,17 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import HomePage from "../components/HomePage/index.astro";
 import { AstroSeo } from "@astrolib/seo";
-import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
-import { GetArticleList } from "/usecase/getArticleList/GetArticleList";
-import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
-import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
-import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
+import { DIContainer } from "/infrastructure/di/DIContainer";
 import { Page as PageDomain } from "/domain/models/page/Page";
 import type { GetStaticPaths } from "astro";
-import { GetPagePaths } from "/usecase/getPagePaths/GetPagePaths";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const getPagePaths = new GetPagePaths(new NewtArticleRepository());
+	const getPagePaths = DIContainer.createGetPagePaths();
 	const paths = (await getPagePaths.execute({ page: new PageDomain(1) })).map(
 		(_) => ({
 			params: {
@@ -24,12 +19,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
-const getArticleList = new GetArticleList(
-	new NewtArticleRepository(),
-	new NewtCategoryRepository(),
-	new NewtTagRepository(),
-	new NewtYearMonthRepository(),
-);
+const getArticleList = DIContainer.createGetArticleList();
 const {
 	articles,
 	categories,

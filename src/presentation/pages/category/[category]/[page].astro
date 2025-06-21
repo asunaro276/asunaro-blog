@@ -4,18 +4,10 @@ import HomePage from "/presentation/components/HomePage/index.astro";
 import Layout from "/presentation/layouts/Layout.astro";
 import { AstroSeo } from "@astrolib/seo";
 import { Page as PageDomain } from "/domain/models/page/Page";
-import { GetCategoryArticleList } from "/usecase/getCategoryArticleList/GetCategoryArticleList";
-import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
-import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
-import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
-import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
-import { GetCategoryPaths } from "/usecase/getCategoryPaths/GetCategoryPaths";
+import { DIContainer } from "/infrastructure/di/DIContainer";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const getCategoryPaths = new GetCategoryPaths(
-		new NewtArticleRepository(),
-		new NewtCategoryRepository(),
-	);
+	const getCategoryPaths = DIContainer.createGetCategoryPaths();
 	const paths = (await getCategoryPaths.execute()).flatMap(
 		({ category, articles }) =>
 			paginate(
@@ -31,12 +23,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 const { page } = Astro.props;
 const { category: categoryName } = Astro.params;
-const getCategoryArticleList = new GetCategoryArticleList(
-	new NewtArticleRepository(),
-	new NewtCategoryRepository(),
-	new NewtTagRepository(),
-	new NewtYearMonthRepository(),
-);
+const getCategoryArticleList = DIContainer.createGetCategoryArticleList();
 const {
 	articles,
 	categories,

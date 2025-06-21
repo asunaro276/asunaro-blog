@@ -1,14 +1,14 @@
 ---
-import type { Heading } from "/types";
 import { SideToc } from "./SideToc";
 import ArchivePerYear from "./ArchivePerYear/index.astro";
 import SideProfile from "./SideProfile/index.astro";
 import SideTags from "./SideTags/index.astro";
 import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
 import type { Tag } from "/domain/models/article/tag/Tag";
+import type { Heading } from "/domain/models/article/heading/Heading";
 
 type Props = {
-  headings?: Heading[];
+  tableOfContents?: Heading[];
   tags: Tag[];
   yearmonths: YearMonth[];
 };
@@ -28,9 +28,9 @@ const props = Astro.props;
     </div>
   </div>
   {
-    props.headings !== undefined && (
+    props.tableOfContents !== undefined && (
       <div class="sticky top-4 box-border hidden lg:block">
-        <SideToc client:load headings={props.headings} />
+        <SideToc client:load tableOfContents={props.tableOfContents} />
       </div>
     )
   }

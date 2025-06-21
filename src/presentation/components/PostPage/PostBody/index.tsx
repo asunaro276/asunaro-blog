@@ -1,4 +1,3 @@
-import type { Heading } from '/types'
 import Caption from './Caption'
 import { TableOfContents } from './TableOfContents'
 import { useEffect } from 'react'
@@ -6,10 +5,11 @@ import renderMathInElement from 'katex/contrib/auto-render'
 import 'katex/dist/katex.min.css'
 import { useCodeCopy } from '/presentation/hooks/useCodeCopy'
 import type { Article } from '/domain/models/article/Article'
+import type { Heading } from '/domain/models/article/heading/Heading'
 
 type Props = {
   article: Article
-  headings: Heading[]
+  tableOfContents: Heading[]
 }
 
 const PostBody = (props: Props) => {
@@ -41,7 +41,7 @@ const PostBody = (props: Props) => {
           }
         />
       </div>
-      <TableOfContents heading={props.headings} />
+      <TableOfContents tableOfContents={props.tableOfContents} />
       <div className='mb-20 w-full'>
         <div dangerouslySetInnerHTML={{ __html: props.article.htmlBody }} />
       </div>

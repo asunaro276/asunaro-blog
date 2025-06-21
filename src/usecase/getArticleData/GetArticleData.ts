@@ -18,7 +18,7 @@ export class GetArticleData {
     const tags = await this.tagRepository.fetchTags()
     const yearmonth = await this.yearmonthRepository.fetchYearMonths()
 
-    await article.parseBody()
+    await article.parseArticle()
     return new ArticleDataDTO(
       article,
       tags,

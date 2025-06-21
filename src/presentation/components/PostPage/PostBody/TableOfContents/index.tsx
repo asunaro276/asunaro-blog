@@ -1,8 +1,8 @@
 import { Link as Scroll } from 'react-scroll'
-import type { Heading } from '/types'
+import type { Heading } from '/domain/models/article/heading/Heading'
 
 type Props = {
-  heading: Heading[]
+  tableOfContents: Heading[]
 }
 
 export const TableOfContents = (props: Props) => {
@@ -15,7 +15,7 @@ export const TableOfContents = (props: Props) => {
       </div>
       <div className='flex flex-col items-center justify-center py-9'>
         <ul className='pl-2 w-8/12'>
-          {props.heading.map((data, index) => {
+          {props.tableOfContents.map((data, index) => {
             if (data.text === undefined) {
               return <div key={index}></div>
             }
@@ -25,7 +25,7 @@ export const TableOfContents = (props: Props) => {
               return (
                 <li key={index} className='my-4 ml-6 list-none'>
                   <Scroll
-                    to={`${data._id}`}
+                    to={`${data.attribsId}`}
                     smooth={true}
                     className='relative flex cursor-pointer hover:opacity-50 transition-opacity'
                     id={`l${index}`}
@@ -45,7 +45,7 @@ export const TableOfContents = (props: Props) => {
               return (
                 <li key={index} className='my-2 list-none'>
                   <Scroll
-                    to={`${data._id}`}
+                    to={`${data.attribsId}`}
                     smooth={true}
                     className='flex cursor-pointer hover:opacity-50'
                     id={`${index}`}

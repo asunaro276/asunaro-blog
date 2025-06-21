@@ -70,12 +70,6 @@ export type Sys = {
   updatedAt: string
 }
 
-export type Heading = {
-  _id: string
-  text: string
-  htmlTag: string
-}
-
 export type OGP = {
   title: string
   description: string

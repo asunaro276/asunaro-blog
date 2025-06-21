@@ -8,9 +8,6 @@ export type FetchArticleCommand = { tag: Tag, page: Page } | { category: Categor
 export type ArticleInfo = { articles: Article[], totalCount: number }
 
 export interface IArticleRepository {
-  fetchArticle(
-    fetchArticleCommand: FetchArticleCommand
-  ): Promise<ArticleInfo>
   fetchArticleById(articleId: string): Promise<Article>
   fetchArticlesByCategory(category: Category, page: Page): Promise<ArticleInfo>
   fetchArticlesByTag(tag: Tag, page: Page): Promise<ArticleInfo>

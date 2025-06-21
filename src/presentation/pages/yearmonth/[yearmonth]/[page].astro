@@ -4,39 +4,27 @@ import HomePage from "/presentation/components/HomePage/index.astro";
 import Layout from "/presentation/layouts/Layout.astro";
 import { AstroSeo } from "@astrolib/seo";
 
-import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
-import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
 import { Page as PageDomain } from "/domain/models/page/Page";
-import { GetYearmonthPaths } from "/usecase/getYearmonthPaths/GetYearmonthPaths";
-import { GetYearmonthArticleList } from "/usecase/getYearmonthArticleList/GetYearmonthArticleList";
-import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
-import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
+import { DIContainer } from "/infrastructure/di/DIContainer";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const getYearmonthPaths = new GetYearmonthPaths(
-		new NewtArticleRepository(),
-		new NewtYearMonthRepository(),
-	);
-	const paths = (await getYearmonthPaths.execute()).flatMap(({ yearmonth, articles }) =>
-		paginate(
-			articles.map((article) => ({ id: article.articleId })),
-			{
-				params: { yearmonth: yearmonth.value },
-				pageSize: PageDomain.ARTICLE_NUM_PER_PAGE,
-			},
-		),
+	const getYearmonthPaths = DIContainer.createGetYearmonthPaths();
+	const paths = (await getYearmonthPaths.execute()).flatMap(
+		({ yearmonth, articles }) =>
+			paginate(
+				articles.map((article) => ({ id: article.articleId })),
+				{
+					params: { yearmonth: yearmonth.value },
+					pageSize: PageDomain.ARTICLE_NUM_PER_PAGE,
+				},
+			),
 	);
 	return paths;
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
 const { yearmonth: yearmonthValue } = Astro.params;
-const getYearmonthArticleList = new GetYearmonthArticleList(
-	new NewtArticleRepository(),
-	new NewtCategoryRepository(),
-	new NewtTagRepository(),
-	new NewtYearMonthRepository(),
-);
+const getYearmonthArticleList = DIContainer.createGetYearmonthArticleList();
 const {
 	articles,
 	categories,

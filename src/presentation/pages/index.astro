@@ -2,20 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import HomePage from "../components/HomePage/index.astro";
 import { AstroSeo } from "@astrolib/seo";
-import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
-import { GetArticleList } from "/usecase/getArticleList/GetArticleList";
-import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
-import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
-import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
+import { DIContainer } from "/infrastructure/di/DIContainer";
 import { Page } from "/domain/models/page/Page";
 
 const page = new Page(1);
-const getArticleList = new GetArticleList(
-	new NewtArticleRepository(),
-	new NewtCategoryRepository(),
-	new NewtTagRepository(),
-	new NewtYearMonthRepository(),
-);
+const getArticleList = DIContainer.createGetArticleList();
 const {
 	articles,
 	categories,
