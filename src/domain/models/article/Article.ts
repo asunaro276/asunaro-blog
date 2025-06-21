@@ -43,4 +43,8 @@ export class Article {
   ) {
     return new Article(articleId, title, description, coverImage, category, tags, htmlBody, updateAt, publishedAt)
   }
+  
+  serialize(): Article {
+    return Object.assign(this)
+  }
 }

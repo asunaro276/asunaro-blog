@@ -7,10 +7,13 @@ export class YearMonth {
 
   constructor(
     private readonly _year: number,
-    private readonly _month: number
+    private readonly _month: number,
+    private readonly _id?: string,
+    private _count?: number
   ) {
     this._year = _year
     this._month = _month
+    this._id = _id
     this.validate(this._year, this._month)
   }
 
@@ -45,11 +48,27 @@ export class YearMonth {
     return `${this._year}-${this._month}`
   }
 
+  get displayValue(): string {
+    return `${this._year}年${this._month}月`
+  }
+
   get year(): number {
     return this._year
   }
 
   get month(): number {
     return this._month
+  }
+
+  get id(): string {
+    return this._id ?? ''
+  }
+
+  get count(): number {
+    return this._count ?? 0
+  }
+
+  set count(count: number) {
+    this._count = count
   }
 }

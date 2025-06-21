@@ -1,11 +1,10 @@
 import isEqual from "lodash/isEqual"
 
 export class Tag {
-  private _count: number = 0
-
   constructor(
     readonly id: string,
-    readonly name: string
+    readonly name: string,
+    private _count?: number
   ) {}
 
   equals(other: Tag): boolean {
@@ -13,7 +12,7 @@ export class Tag {
   }
 
   get count(): number {
-    return this._count
+    return this._count ?? 0
   }
 
   set count(count: number) {

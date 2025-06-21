@@ -1,34 +1,55 @@
 ---
 import type { GetStaticPaths } from "astro";
 import HomePage from "/presentation/components/HomePage/index.astro";
-import { newtClient } from "/presentation/libs/client";
 import Layout from "/presentation/layouts/Layout.astro";
-import { fetchBlogData } from "/presentation/libs/fetch/fetchBlogData";
-import type { ArticleItem, YearMonthItem } from "/types";
 import { AstroSeo } from "@astrolib/seo";
 
+import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
+import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
+import { Page as PageDomain } from "/domain/models/page/Page";
+import { GetYearmonthPaths } from "/usecase/getYearmonthPaths/GetYearmonthPaths";
+import { GetYearmonthArticleList } from "/usecase/getYearmonthArticleList/GetYearmonthArticleList";
+import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
+import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
+
 export const getStaticPaths = (async ({ paginate }) => {
-	const yearmonths = (
-		await newtClient.getContents<YearMonthItem>({
-			appUid: "asunaroblog",
-			modelUid: "yearmonth",
-			query: { limit: 100 },
-		})
-	).items;
-	const paths = yearmonths.flatMap(({ yearmonth, ref }) => {
-		return paginate(
-			ref.map((r) => (r as ArticleItem)._id),
-			{ params: { yearmonth: yearmonth }, pageSize: 10 },
-		);
-	});
+	const getYearmonthPaths = new GetYearmonthPaths(
+		new NewtArticleRepository(),
+		new NewtYearMonthRepository(),
+	);
+	const paths = (await getYearmonthPaths.execute()).flatMap(({ yearmonth, articles }) =>
+		paginate(
+			articles.map((article) => ({ id: article.articleId })),
+			{
+				params: { yearmonth: yearmonth.value },
+				pageSize: PageDomain.ARTICLE_NUM_PER_PAGE,
+			},
+		),
+	);
 	return paths;
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
-const { yearmonth: yearmonth } = Astro.params;
-const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
-	{ pageNumber: page.currentPage, yearmonth },
+const { yearmonth: yearmonthValue } = Astro.params;
+const getYearmonthArticleList = new GetYearmonthArticleList(
+	new NewtArticleRepository(),
+	new NewtCategoryRepository(),
+	new NewtTagRepository(),
+	new NewtYearMonthRepository(),
 );
+const {
+	articles,
+	categories,
+	tags,
+	yearmonths,
+	currentPage,
+	currentPath,
+	totalCount,
+	yearmonth,
+} = await getYearmonthArticleList.execute({
+	page: new PageDomain(page.currentPage),
+	yearmonth: yearmonthValue,
+});
 ---
 
 <AstroSeo
@@ -47,13 +68,14 @@ const { blogs, categories, tags, yearmonths, totalCount } = await fetchBlogData(
 <Layout>
 	<main>
 		<HomePage
-			pageNumber={page.currentPage}
-			blogs={blogs}
+			articles={articles}
 			categories={categories}
 			tags={tags}
 			yearmonths={yearmonths}
 			totalCount={totalCount}
 			yearmonth={yearmonth}
+			currentPage={currentPage}
+			currentPath={currentPath}
 		/>
 	</main>
 </Layout>

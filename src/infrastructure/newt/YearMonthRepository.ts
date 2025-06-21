@@ -23,7 +23,7 @@ export class NewtYearMonthRepository implements IYearMonthRepository {
 
     return yearmonths.items.map(v => {
       const [year, month] = v.yearmonth.split('-')
-      return new YearMonth(Number(year), Number(month))
+      return new YearMonth(Number(year), Number(month), v._id, v.ref.length)
     })
   }
 }

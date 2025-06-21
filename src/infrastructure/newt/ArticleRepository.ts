@@ -264,7 +264,7 @@ export class NewtArticleRepository implements IArticleRepository {
   async fetchArticlesByYearMonth(yearmonth: YearMonth, page: Page): Promise<ArticleInfo> {
     const articles = await newtClient.getContents<ArticleItem>({
       ...params,
-      query: { yearmonth: yearmonth.value, skip: page.prev.value * Page.ARTICLE_NUM_PER_PAGE, limit: Page.ARTICLE_NUM_PER_PAGE }
+      query: { "_sys.raw.publishedAt": { gte: yearmonth.value, lt: yearmonth.next }, skip: (page.value - 1) * Page.ARTICLE_NUM_PER_PAGE, limit: Page.ARTICLE_NUM_PER_PAGE }
     })
     return {
       articles: articles.items.map(

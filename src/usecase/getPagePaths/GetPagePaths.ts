@@ -1,6 +1,5 @@
 import type { IArticleRepository } from "/domain/models/article/IArticleRepository";
 import { Page } from "/domain/models/page/Page";
-import { Path } from "/domain/models/path/Path";
 import type { Tag } from "/domain/models/article/tag/Tag";
 import type { Category } from "/domain/models/article/category/Category";
 import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";

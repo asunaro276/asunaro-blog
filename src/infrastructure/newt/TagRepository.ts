@@ -22,7 +22,8 @@ export class NewtTagRepository implements ITagRepository {
     )
     return tags.items.map(v => new Tag(
       v._id,
-      v.tag
-    ))
+      v.tag,
+      v.ref.length
+    )).sort((a, b) => b.count - a.count)
   }
 }

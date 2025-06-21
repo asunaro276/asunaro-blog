@@ -4,7 +4,7 @@ import { TableOfContents } from './TableOfContents'
 import { useEffect } from 'react'
 import renderMathInElement from 'katex/contrib/auto-render'
 import 'katex/dist/katex.min.css'
-import { useCodeCopy } from '../../../hooks/useCodeCopy'
+import { useCodeCopy } from '/presentation/hooks/useCodeCopy'
 import type { Article } from '/domain/models/article/Article'
 
 type Props = {

@@ -2,13 +2,13 @@ import type { IYearMonthRepository } from '/domain/models/article/yearmonth/IYea
 import type { ITagRepository } from '/domain/models/article/tag/ITagRepository';
 import type { ICategoryRepository } from '/domain/models/article/category/ICategoryRepository';
 import type { IArticleRepository } from '/domain/models/article/IArticleRepository';
-import { ArticleListDTO } from './DTO';
 import { Path } from '/domain/models/path/Path';
 import type { Page } from '/domain/models/page/Page';
+import { ArticleListDTO } from './DTO';
 
-type FetchArticleCommand = { tagId: string, page: Page }
+type FetchArticleCommand = { yearmonth: string, page: Page }
 
-export class GetTagArticleList {
+export class GetYearmonthArticleList {
   constructor(
     private articleRepository: IArticleRepository,
     private categoryRepository: ICategoryRepository,
@@ -16,28 +16,29 @@ export class GetTagArticleList {
     private yearmonthRepository: IYearMonthRepository
   ) {}
 
-  async execute({ tagId, page }: FetchArticleCommand): Promise<ArticleListDTO> {
-    const tags = await this.tagRepository.fetchTags()
-    const tag = tags.find(t => t.id === tagId)
-    if (!tag) {
-      throw new Error('Tag not found')
-    }
-    const { articles, totalCount } = await this.articleRepository.fetchArticlesByTag(tag, page)
-    const categories = await this.categoryRepository.fetchCategories()
+  async execute({ yearmonth, page }: FetchArticleCommand): Promise<ArticleListDTO> {
     const yearmonths = await this.yearmonthRepository.fetchYearMonths()
+    const yearmonthModel = yearmonths.find(ym => ym.value === yearmonth)
+    if (!yearmonthModel) {
+      throw new Error('Yearmonth not found')
+    }
+    const { articles, totalCount } = await this.articleRepository.fetchArticlesByYearMonth(yearmonthModel, page)
+    const categories = await this.categoryRepository.fetchCategories()
+    const tags = await this.tagRepository.fetchTags()
     
     const currentPage = page;
-    const currentPath = new Path("tag", tag.name.toLowerCase(), page)      
+    const currentPath = new Path("yearmonth", yearmonthModel.value, page)      
+    const filteredArticles = articles.filter(article => article.yearmonth.equals(yearmonthModel))
 
     return new ArticleListDTO(
-      articles,
+      filteredArticles,
       tags,
       categories,
       yearmonths,
       totalCount,
       currentPage,
       currentPath,
-      tag
+      yearmonthModel
     )
   }
 }

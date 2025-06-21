@@ -1,9 +1,8 @@
 import type { IYearMonthRepository } from '/domain/models/article/yearmonth/IYearMonthRepository';
 import type { ITagRepository } from '/domain/models/article/tag/ITagRepository';
 import type { ICategoryRepository } from '/domain/models/article/category/ICategoryRepository';
-import type { FetchArticleCommand, IArticleRepository } from '/domain/models/article/IArticleRepository';
+import type { IArticleRepository } from '/domain/models/article/IArticleRepository';
 import { ArticleDataDTO } from './DTO';
-import type { Page } from '/domain/models/page/Page';
 
 export class GetArticleData {
   constructor(
@@ -26,9 +25,5 @@ export class GetArticleData {
       categories,
       yearmonth,
     )
-  }
-
-  private hasPage(command: FetchArticleCommand): command is Extract<FetchArticleCommand, { page: Page }> {
-    return 'page' in command;
   }
 }
