@@ -1,10 +1,9 @@
-import type { Page } from "../page/Page";
-import type { Article } from "./Article";
-import type { Category } from "./category/Category";
-import type { Tag } from "./tag/Tag";
-import type { YearMonth } from "./yearmonth/YearMonth";
+import type { Page } from "/domain/models/page/Page";
+import type { Article } from "/domain/models/article/Article";
+import type { Category } from "/domain/models/article/category/Category";
+import type { Tag } from "/domain/models/article/tag/Tag";
+import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
 
-export type FetchArticleCommand = { tag: Tag, page: Page } | { category: Category, page: Page } | { yearmonth: YearMonth, page: Page } | { page: Page }
 export type ArticleInfo = { articles: Article[], totalCount: number }
 
 export interface IArticleRepository {

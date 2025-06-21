@@ -1,7 +1,7 @@
-import type { IYearMonthRepository } from '/domain/models/article/yearmonth/IYearMonthRepository';
-import type { ITagRepository } from '/domain/models/article/tag/ITagRepository';
-import type { ICategoryRepository } from '/domain/models/article/category/ICategoryRepository';
-import type { IArticleRepository } from '/domain/models/article/IArticleRepository';
+import type { IYearMonthRepository } from '/domain/interfaces/article/IYearMonthRepository';
+import type { ITagRepository } from '/domain/interfaces/article/ITagRepository';
+import type { ICategoryRepository } from '/domain/interfaces/article/ICategoryRepository';
+import type { IArticleRepository } from '/domain/interfaces/article/IArticleRepository';
 import { ArticleListDTO } from './DTO';
 import { Path } from '/domain/models/path/Path';
 import type { Page } from '/domain/models/page/Page';

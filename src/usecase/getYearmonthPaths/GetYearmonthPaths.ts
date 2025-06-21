@@ -1,6 +1,6 @@
-import type { IArticleRepository } from "/domain/models/article/IArticleRepository";
+import type { IArticleRepository } from "/domain/interfaces/article/IArticleRepository";
 import type { PathDTO } from "./DTO";
-import type { IYearMonthRepository } from "/domain/models/article/yearmonth/IYearMonthRepository";
+import type { IYearMonthRepository } from "/domain/interfaces/article/IYearMonthRepository";
 
 
 export class GetYearmonthPaths {

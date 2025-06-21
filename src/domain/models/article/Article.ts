@@ -6,6 +6,7 @@ import { load } from 'cheerio'
 import openGraphScraper from 'open-graph-scraper'
 import hljs from 'highlight.js/lib/common'
 import type { Heading } from "./heading/Heading";
+import type { IHtmlParser } from "../../interfaces/article/IHtmlParser";
 
 export class Article {
   readonly yearmonth: YearMonth

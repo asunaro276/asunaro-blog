@@ -1,5 +1,5 @@
-import type { IArticleRepository } from "/domain/models/article/IArticleRepository";
-import type { ITagRepository } from "/domain/models/article/tag/ITagRepository";
+import type { IArticleRepository } from "/domain/interfaces/article/IArticleRepository";
+import type { ITagRepository } from "/domain/interfaces/article/ITagRepository";
 import type { PathDTO } from "./DTO";
 
 export class GetTagPaths {

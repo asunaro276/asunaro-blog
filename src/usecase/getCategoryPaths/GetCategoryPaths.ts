@@ -1,6 +1,6 @@
-import type { IArticleRepository } from "/domain/models/article/IArticleRepository";
+import type { IArticleRepository } from "/domain/interfaces/article/IArticleRepository";
 import type { PathDTO } from "./DTO";
-import type { ICategoryRepository } from "/domain/models/article/category/ICategoryRepository";
+import type { ICategoryRepository } from "/domain/interfaces/article/ICategoryRepository";
 
 export class GetCategoryPaths {
   constructor(

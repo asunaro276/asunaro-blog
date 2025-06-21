@@ -2,7 +2,6 @@ import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
 import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
 import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
 import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
-import { GetArticleList } from "/usecase/getArticleList/GetArticleList";
 import { GetArticleData } from "/usecase/getArticleData/GetArticleData";
 import { GetCategoryArticleList } from "/usecase/getCategoryArticleList/GetCategoryArticleList";
 import { GetTagArticleList } from "/usecase/getTagArticleList/GetTagArticleList";
@@ -11,10 +10,10 @@ import { GetPagePaths } from "/usecase/getPagePaths/GetPagePaths";
 import { GetCategoryPaths } from "/usecase/getCategoryPaths/GetCategoryPaths";
 import { GetTagPaths } from "/usecase/getTagPaths/GetTagPaths";
 import { GetYearmonthPaths } from "/usecase/getYearmonthPaths/GetYearmonthPaths";
-import type { IArticleRepository } from "/domain/models/article/IArticleRepository";
-import type { ICategoryRepository } from "/domain/models/article/category/ICategoryRepository"; 
-import type { ITagRepository } from "/domain/models/article/tag/ITagRepository";
-import type { IYearMonthRepository } from "/domain/models/article/yearmonth/IYearMonthRepository";
+import type { IArticleRepository } from "/domain/interfaces/article/IArticleRepository";
+import type { ICategoryRepository } from "/domain/interfaces/article/ICategoryRepository"; 
+import type { ITagRepository } from "/domain/interfaces/article/ITagRepository";
+import type { IYearMonthRepository } from "/domain/interfaces/article/IYearMonthRepository";
 
 /**
  * 依存関係注入コンテナ
@@ -56,15 +55,6 @@ export class DIContainer {
   }
 
   // UseCases
-  static createGetArticleList(): GetArticleList {
-    return new GetArticleList(
-      this.articleRepository,
-      this.categoryRepository,
-      this.tagRepository,
-      this.yearMonthRepository
-    );
-  }
-
   static createGetArticleData(): GetArticleData {
     return new GetArticleData(
       this.articleRepository,

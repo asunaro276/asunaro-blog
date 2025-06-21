@@ -1,4 +1,4 @@
-import type { IArticleRepository } from "/domain/models/article/IArticleRepository";
+import type { IArticleRepository } from "/domain/interfaces/article/IArticleRepository";
 import { Page } from "/domain/models/page/Page";
 import type { Tag } from "/domain/models/article/tag/Tag";
 import type { Category } from "/domain/models/article/category/Category";

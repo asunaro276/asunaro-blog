@@ -1,6 +1,6 @@
 import { appUid, newtClient } from "./Client";
 import type { TagItem } from "./types";
-import type { ITagRepository } from "/domain/models/article/tag/ITagRepository";
+import type { ITagRepository } from "/domain/interfaces/article/ITagRepository";
 import { Tag } from "/domain/models/article/tag/Tag";
 
 const modelUid = 'tag'
