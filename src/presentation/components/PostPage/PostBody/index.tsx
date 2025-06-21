@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import renderMathInElement from 'katex/contrib/auto-render'
 import 'katex/dist/katex.min.css'
 import { useCodeCopy } from '/presentation/hooks/useCodeCopy'
-import type { Article } from '/domain/models/article/Article'
+import { Article } from '/domain/models/article/Article'
 import type { Heading } from '/domain/models/article/heading/Heading'
 
 type Props = {
@@ -32,7 +32,7 @@ const PostBody = (props: Props) => {
       <div className='my-10'>
         <Caption
           title={props.article.title}
-          publishedAt={props.article.publishedAt}
+          publishedAt={Article.formatDate(props.article.publishedAt)}
           tagsOfPost={props.article.tags}
           categoryOfPost={props.article.category}
           imageUrl={props.article.coverImage.src.toString()}

@@ -1,5 +1,4 @@
 import { COLOR } from "/constants";
-import { convertDateFormat } from "../../../../libs/convertDateFormat";
 import type { Tag } from "/domain/models/article/tag/Tag";
 import type { Category } from "/domain/models/article/category/Category";
 
@@ -17,7 +16,7 @@ const Caption = (props: Props) => {
     <div>
       <div className="mb-10 flex justify-center">
         <p style={{ color: COLOR.text.secondary }}>
-          {convertDateFormat(props.publishedAt)}
+          {props.publishedAt}
         </p>
       </div>
       <div className="mt-10 mb-4 flex">
