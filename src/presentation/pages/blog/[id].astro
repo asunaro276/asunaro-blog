@@ -17,9 +17,9 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { id } = Astro.params;
-const getArticleData = DIContainer.createGetArticleData();
+const getArticle = DIContainer.createGetArticle();
 const { article, categories, tags, yearmonths } =
-  await getArticleData.execute(id);
+  await getArticle.execute(id);
 ---
 
 <AstroSeo

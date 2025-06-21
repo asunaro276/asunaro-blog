@@ -2,9 +2,13 @@ import type { IYearMonthRepository } from '/domain/interfaces/article/IYearMonth
 import type { ITagRepository } from '/domain/interfaces/article/ITagRepository';
 import type { ICategoryRepository } from '/domain/interfaces/article/ICategoryRepository';
 import type { IArticleRepository } from '/domain/interfaces/article/IArticleRepository';
-import { ArticleDataDTO } from './DTO';
+import { ArticleListDTO } from './DTO';
+import { Path } from '/domain/models/path/Path';
+import type { Page } from '/domain/models/page/Page';
 
-export class GetArticleData {
+type FetchArticleCommand = { page: Page }
+
+export class GetArticleList {
   constructor(
     private articleRepository: IArticleRepository,
     private categoryRepository: ICategoryRepository,
@@ -12,18 +16,23 @@ export class GetArticleData {
     private yearmonthRepository: IYearMonthRepository
   ) {}
 
-  async execute(articleId: string): Promise<ArticleDataDTO> {
-    const article = await this.articleRepository.fetchArticleById(articleId)
+  async execute({ page }: FetchArticleCommand): Promise<ArticleListDTO> {
+    const { articles, totalCount } = await this.articleRepository.fetchAllArticles()
     const categories = await this.categoryRepository.fetchCategories()
     const tags = await this.tagRepository.fetchTags()
-    const yearmonth = await this.yearmonthRepository.fetchYearMonths()
+    const yearmonths = await this.yearmonthRepository.fetchYearMonths()
+    
+    const currentPage = page
+    const currentPath = new Path("", "", page)
 
-    await article.parseArticle()
-    return new ArticleDataDTO(
-      article,
+    return new ArticleListDTO(
+      articles,
       tags,
       categories,
-      yearmonth,
+      yearmonths,
+      totalCount,
+      currentPage,
+      currentPath,
     )
   }
 }

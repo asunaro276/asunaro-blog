@@ -1,0 +1,32 @@
+---
+import Caption from "./Caption";
+import { TableOfContents } from "./TableOfContents";
+import { Article } from "/domain/models/article/Article";
+import type { Heading } from "/domain/models/article/heading/Heading";
+import Body from "./Body";
+
+type Props = {
+  article: Article;
+  tableOfContents: Heading[];
+};
+
+const { article, tableOfContents } = Astro.props as Props;
+---
+
+<div class="shadow border bg-white px-12 md:px-20 flex flex-col items-center">
+  <div class="my-10">
+    <Caption
+      title={article.title}
+      publishedAt={Article.formatDate(article.publishedAt)}
+      tagsOfPost={article.tags}
+      categoryOfPost={article.category}
+      imageUrl={article.coverImage.src.toString()}
+      imageAlt={article.coverImage.altText === undefined
+        ? ""
+        : article.coverImage.altText}
+      client:load
+    />
+  </div>
+  <TableOfContents tableOfContents={tableOfContents} client:load />
+  <Body htmlBody={article.htmlBody} client:load />
+</div>

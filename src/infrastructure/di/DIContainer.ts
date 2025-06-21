@@ -2,7 +2,7 @@ import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
 import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
 import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
 import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
-import { GetArticleData } from "/usecase/getArticleData/GetArticleData";
+import { GetArticle } from "/usecase/getArticle/GetArticle";
 import { GetCategoryArticleList } from "/usecase/getCategoryArticleList/GetCategoryArticleList";
 import { GetTagArticleList } from "/usecase/getTagArticleList/GetTagArticleList";
 import { GetYearmonthArticleList } from "/usecase/getYearmonthArticleList/GetYearmonthArticleList";
@@ -14,6 +14,7 @@ import type { IArticleRepository } from "/domain/interfaces/article/IArticleRepo
 import type { ICategoryRepository } from "/domain/interfaces/article/ICategoryRepository"; 
 import type { ITagRepository } from "/domain/interfaces/article/ITagRepository";
 import type { IYearMonthRepository } from "/domain/interfaces/article/IYearMonthRepository";
+import { GetArticleList } from "/usecase/getArticleList/GetArticleList";
 
 /**
  * 依存関係注入コンテナ
@@ -55,8 +56,17 @@ export class DIContainer {
   }
 
   // UseCases
-  static createGetArticleData(): GetArticleData {
-    return new GetArticleData(
+  static createGetArticle(): GetArticle {
+    return new GetArticle(
+      this.articleRepository,
+      this.categoryRepository,
+      this.tagRepository,
+      this.yearMonthRepository
+    );
+  }
+
+  static createGetArticleList(): GetArticleList {
+    return new GetArticleList(
       this.articleRepository,
       this.categoryRepository,
       this.tagRepository,
