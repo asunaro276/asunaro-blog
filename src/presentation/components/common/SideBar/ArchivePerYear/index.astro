@@ -1,0 +1,33 @@
+---
+import { COLOR } from "/constants";
+import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
+
+type Props = {
+  yearmonths: YearMonth[];
+};
+
+const { yearmonths } = Astro.props;
+---
+
+<div class="shodow border bg-white rounded pb-12 p-6">
+  <div class="font-bold mb-6">Archive</div>
+  <div>
+    {
+      yearmonths.map((yearmonth) => {
+        return (
+          <div>
+            <hr />
+            <a href={`/yearmonth/${yearmonth.value}/1`}>
+              <button class="py-4 px-2 hover:brightness-[0.4] transition" style={{ color: COLOR.text.primary }}>
+                {yearmonth.value}
+                <span
+                  style={{ color: COLOR.text.base }}
+                >({yearmonth.count})</span>
+              </button>
+            </a>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

@@ -9,5 +9,9 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "esModuleInterop": true
-  }
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

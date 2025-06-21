@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HomePage from "../components/HomePage/index.astro";
+import { AstroSeo } from "@astrolib/seo";
+import { DIContainer } from "/infrastructure/di/DIContainer";
+import { Page as PageDomain } from "/domain/models/page/Page";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const getPagePaths = DIContainer.createGetPagePaths();
+	const paths = (await getPagePaths.execute({ page: new PageDomain(1) })).map(
+		(_) => ({
+			params: {
+				page: "/",
+			},
+		}),
+	);
+	return paginate(paths, { pageSize: PageDomain.ARTICLE_NUM_PER_PAGE });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const getArticleList = DIContainer.createGetArticleList();
+const {
+	articles,
+	categories,
+	tags,
+	yearmonths,
+	currentPage,
+	currentPath,
+	totalCount,
+} = await getArticleList.execute({
+	page: new PageDomain(page.currentPage),
+});
+---
+
+<AstroSeo
+	title="Asunaro Blog"
+	description="広告代理店で働いている新米エンジニアの技術ブログです。主にWeb技術で遊んでいます。日々楽しみながら学んでいくことを目標としています。"
+	openGraph={{
+		title: "Asunaro Blog",
+		description:
+			"広告代理店で働いている新米エンジニアの技術ブログです。主にWeb技術で遊んでいます。日々楽しみながら学んでいくことを目標としています。",
+		images: [
+			{
+				url: "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3ab0e1e0-e610-4dc9-acb4-f7917add37b1/asunaro.png",
+			},
+		],
+	}}
+/>
+<Layout>
+	<main>
+		<HomePage
+			articles={articles}
+			categories={categories}
+			tags={tags}
+			yearmonths={yearmonths}
+			currentPage={currentPage}
+			currentPath={currentPath}
+			totalCount={totalCount}
+		/>
+	</main>
+</Layout>

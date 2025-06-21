@@ -1,0 +1,19 @@
+---
+import PostCard from "./PostCard/index.astro";
+import type { Article } from "/domain/models/article/Article";
+
+type Props = {
+  articles: Article[];
+};
+const props = Astro.props;
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+  {
+    props.articles.map((article) => {
+      return (
+        <PostCard article={article} />
+      );
+    })
+  }
+</div>

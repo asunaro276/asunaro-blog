@@ -1,0 +1,67 @@
+---
+import type { GetStaticPaths } from "astro";
+import HomePage from "/presentation/components/HomePage/index.astro";
+import Layout from "/presentation/layouts/Layout.astro";
+import { AstroSeo } from "@astrolib/seo";
+import { Page as PageDomain } from "/domain/models/page/Page";
+import { DIContainer } from "/infrastructure/di/DIContainer";
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const getTagPaths = DIContainer.createGetTagPaths();
+	const paths = (await getTagPaths.execute()).flatMap(({ tag, articles }) =>
+		paginate(
+			articles.map((article) => ({ id: article.articleId })),
+			{
+				params: { tag: tag.id },
+				pageSize: PageDomain.ARTICLE_NUM_PER_PAGE,
+			},
+		),
+	);
+	return paths;
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const { tag: tagId } = Astro.params;
+const getTagArticleList = DIContainer.createGetTagArticleList();
+const {
+	articles,
+	categories,
+	tags,
+	yearmonths,
+	currentPage,
+	currentPath,
+	totalCount,
+	tag,
+} = await getTagArticleList.execute({
+	page: new PageDomain(page.currentPage),
+	tagId: tagId,
+});
+---
+
+<AstroSeo
+	title="Asunaro Blog"
+	description=`${tag.name}に関する記事一覧`
+	openGraph={{
+		title: "Asunaro Blog",
+		description: `${tag.name}に関する記事一覧`,
+		images: [
+			{
+				url: "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3ab0e1e0-e610-4dc9-acb4-f7917add37b1/asunaro.png",
+			},
+		],
+	}}
+/>
+<Layout>
+	<main>
+		<HomePage
+			articles={articles}
+			categories={categories}
+			tags={tags}
+			yearmonths={yearmonths}
+			totalCount={totalCount}
+			currentPage={currentPage}
+			currentPath={currentPath}
+			tag={tag}
+		/>
+	</main>
+</Layout>

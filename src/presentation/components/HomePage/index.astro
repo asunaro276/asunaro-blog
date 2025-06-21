@@ -1,0 +1,97 @@
+---
+import Header from "../common/Header/index.astro";
+import Pagination from "./Pagination"
+import PostsList from "./PostsList/index.astro";
+import Footer from "../common/Footer/index.astro";
+import SideBar from "../../components/common/SideBar/index.astro";
+import { COLOR } from "/constants";
+import type { Article } from "/domain/models/article/Article";
+import type { Category } from "/domain/models/article/category/Category";
+import type { Tag } from "/domain/models/article/tag/Tag";
+import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
+import type { Page } from "/domain/models/page/Page";
+import type { Path } from "/domain/models/path/Path";
+
+type Props = {
+  articles: Article[];
+  categories: Category[];
+  tags: Tag[];
+  yearmonths: YearMonth[];
+  totalCount: number;
+  currentPage: Page
+  currentPath: Path
+  category?: Category;
+  tag?: Tag;
+  yearmonth?: YearMonth;
+  statusCode?: number;
+};
+
+const props = Astro.props;
+---
+
+<div style={{ backgroundColor: COLOR.bgColor }}>
+  <div class="relative z-10">
+    <Header categories={props.categories} />
+  </div>
+  <div class="flex justify-center p-[32px] relative z-0">
+    <div class="xl:max-w-screen-xl grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div class:list={["lg:col-span-3"]}>
+          {props.tag && (
+            <div class='mt-[16px] mb-[32px] text-center'>
+              {props.articles.length === 0 ? (
+                <p class=''>該当するタグの記事はありません</p>
+              ) : (
+                <p>{props.tag}に関する記事一覧</p>
+              )}
+            </div>
+          )}
+          {props.category && (
+            <div class='my-12 text-center'>
+              {props.articles.length === 0 ? (
+                <p>該当するカテゴリーの記事はありません</p>
+              ) : (
+                <p>
+                  {props.articles[0].category.name}カテゴリの記事一覧
+                </p>
+              )}
+            </div>
+          )}
+          {props.yearmonth && (
+            <div class='my-12 text-center'>
+              {props.articles.length === 0 ? (
+                <p>該当する期間の記事はありません</p>
+              ) : (
+                <p>{props.yearmonth.displayValue}の記事一覧</p>
+              )}
+            </div>
+          )}
+          {props.statusCode && (
+            <div>Error{props.statusCode}</div>
+          )}
+          {
+            !props.statusCode && (
+              <PostsList articles={props.articles} />
+            )
+          }
+          { !props.statusCode && (
+              <div
+                style={{ marginTop: "50px", justifyContent: "center" }}
+              >
+                <Pagination
+                  currentPage={props.currentPage!}
+                  currentPath={props.currentPath!}
+                  totalCount={props.totalCount}
+                />
+              </div>
+            )
+          }
+      </div>
+      <div class="lg:col-span-1 mt-20 lg:mt-0">
+        <SideBar yearmonths={props.yearmonths} tags={props.tags} />
+      </div>
+    </div>
+  </div>
+  <div>
+    <Footer categories={props.categories} />
+  </div>
+</div>

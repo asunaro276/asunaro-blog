@@ -1,0 +1,73 @@
+---
+import type { GetStaticPaths } from "astro";
+import HomePage from "/presentation/components/HomePage/index.astro";
+import Layout from "/presentation/layouts/Layout.astro";
+import { AstroSeo } from "@astrolib/seo";
+import { Page as PageDomain } from "/domain/models/page/Page";
+import { DIContainer } from "/infrastructure/di/DIContainer";
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const getCategoryPaths = DIContainer.createGetCategoryPaths();
+	const paths = (await getCategoryPaths.execute()).flatMap(
+		({ category, articles }) =>
+			paginate(
+				articles.map((article) => ({ id: article.articleId })),
+				{
+					params: { category: category.name.toLowerCase() },
+					pageSize: PageDomain.ARTICLE_NUM_PER_PAGE,
+				},
+			),
+	);
+	return paths;
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const { category: categoryName } = Astro.params;
+const getCategoryArticleList = DIContainer.createGetCategoryArticleList();
+const {
+	articles,
+	categories,
+	tags,
+	yearmonths,
+	currentPage,
+	currentPath,
+	totalCount,
+} = await getCategoryArticleList.execute({
+	categoryName: categoryName,
+	page: new PageDomain(page.currentPage),
+});
+const category = categories.filter(
+	(cat) => cat.name.toLowerCase() === categoryName,
+)[0];
+if (!page) {
+	Astro.redirect(`/category/${categoryName}/1`);
+}
+---
+
+<AstroSeo
+	title="Asunaro Blog"
+	description=`${category.name}カテゴリの記事一覧`
+	openGraph={{
+		title: "Asunaro Blog",
+		description: `${category.name}カテゴリの記事一覧`,
+		images: [
+			{
+				url: "https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3ab0e1e0-e610-4dc9-acb4-f7917add37b1/asunaro.png",
+			},
+		],
+	}}
+/>
+<Layout>
+	<main>
+		<HomePage
+			currentPage={currentPage}
+			currentPath={currentPath}
+			articles={articles}
+			categories={categories}
+			tags={tags}
+			yearmonths={yearmonths}
+			totalCount={totalCount}
+			category={category}
+		/>
+	</main>
+</Layout>

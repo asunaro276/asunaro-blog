@@ -13,7 +13,7 @@
     "@astrojs/check": "^0.9.0",
     "@astrojs/react": "^3.6.0",
     "@astrojs/sitemap": "^3.1.6",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/tailwind": "^6.0.2",
     "@astrolib/seo": "^1.0.0-beta.5",
     "@reactuses/core": "^6.0.0",
     "@types/react": "^19.0.0",
@@ -21,23 +21,26 @@
     "astro": "^4.12.2",
     "highlight.js": "^11.10.0",
     "katex": "^0.16.11",
+    "lodash": "^4.17.21",
     "material-icons": "^1.13.12",
     "newt-client-js": "^3.3.3",
     "open-graph-scraper": "^6.7.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scroll": "^1.9.0",
+    "tsyringe": "^4.8.0",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.0.0",
     "@types/bun": "^1.1.6",
     "@types/katex": "^0.16.7",
+    "@types/lodash": "^4.17.18",
     "@types/node": "^22.0.2",
     "@types/react-scroll": "^1.8.10",
     "chromatic": "^12.0.0",
     "msw": "^2.3.5",
     "sass": "^1.77.8",
-    "tailwindcss": "^3.4.7"
+    "tailwindcss": "^3.4.17"
   }
 }

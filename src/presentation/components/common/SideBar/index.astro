@@ -1,0 +1,37 @@
+---
+import { SideToc } from "./SideToc";
+import ArchivePerYear from "./ArchivePerYear/index.astro";
+import SideProfile from "./SideProfile/index.astro";
+import SideTags from "./SideTags/index.astro";
+import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
+import type { Tag } from "/domain/models/article/tag/Tag";
+import type { Heading } from "/domain/models/article/heading/Heading";
+
+type Props = {
+  tableOfContents?: Heading[];
+  tags: Tag[];
+  yearmonths: YearMonth[];
+};
+const props = Astro.props;
+---
+
+<div class="h-full">
+  <div>
+    <div class="mb-8">
+      <SideProfile />
+    </div>
+    <div class="mb-8">
+      <SideTags tags={props.tags} />
+    </div>
+    <div class="mb-8">
+      <ArchivePerYear yearmonths={props.yearmonths} />
+    </div>
+  </div>
+  {
+    props.tableOfContents !== undefined && (
+      <div class="sticky top-4 box-border hidden lg:block">
+        <SideToc client:load tableOfContents={props.tableOfContents} />
+      </div>
+    )
+  }
+</div>

@@ -1,0 +1,53 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "/presentation/layouts/Layout.astro";
+import PostPage from "/presentation/components/PostPage/index.astro";
+import "highlight.js/styles/monokai-sublime.min.css";
+import { AstroSeo } from "@astrolib/seo";
+import { DIContainer } from "/infrastructure/di/DIContainer";
+
+export const getStaticPaths = (async () => {
+  const getPagePaths = DIContainer.createGetPagePaths();
+  const paths = (await getPagePaths.execute()).map((p) => ({
+    params: {
+      id: p.articles[0].articleId,
+    },
+  }));
+  return paths;
+}) satisfies GetStaticPaths;
+
+const { id } = Astro.params;
+const getArticle = DIContainer.createGetArticle();
+const { article, categories, tags, yearmonths } =
+  await getArticle.execute(id);
+---
+
+<AstroSeo
+  title={article.title}
+  description={article.description.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "")}
+  openGraph={{
+    title: article.title,
+    description: article.description.replace(
+      /<("[^"]*"|'[^']*'|[^'">])*>/g,
+      "",
+    ),
+    images: [
+      {
+        url: article.coverImage.src.toString(),
+      },
+    ],
+  }}
+  twitter={{
+    cardType: "summary_large_image",
+  }}
+/>
+<Layout>
+  <main>
+    <PostPage
+      article={article}
+      categories={categories}
+      tags={tags}
+      yearmonths={yearmonths}
+    />
+  </main>
+</Layout>

@@ -1,0 +1,28 @@
+---
+import NavigationBar from "./NavigationBar/index.astro";
+import type { Category } from "/domain/models/article/category/Category";
+
+type Props = {
+  categories: Category[];
+};
+
+const { categories } = Astro.props;
+const logo = "ASUNAROBLOG";
+---
+
+<div>
+  <div class="flex px-[32px] justify-center">
+    <p
+      class="py-4 font-logo hidden md:block xl:max-w-screen-xl w-full hover:brightness-[1.6]"
+    >
+      <a
+        href="/"
+        class="text-slate-700 no-underline"
+        style={{ fontSize: "40px" }}
+      >
+        {logo}
+      </a>
+    </p>
+  </div>
+  <NavigationBar logo={logo} categories={categories} />
+</div>

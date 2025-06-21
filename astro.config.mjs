@@ -7,9 +7,8 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://asunaroblog.net',
-  integrations: [react(), tailwind({
-    applyBaseStyles: false
-  }), sitemap()],
+  srcDir: './src/presentation',
+  integrations: [react(), tailwind(), sitemap()],
   image: {
     domains: ['storage.googleapis.com']
   }

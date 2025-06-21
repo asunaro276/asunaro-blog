@@ -1,0 +1,56 @@
+---
+import { pageIcons } from "/constants";
+import NavigationMenu from "./NavigationMenu/index.astro";
+import { Category } from "/domain/models/article/category/Category";
+import { Path } from "/domain/models/path/Path";
+import { Page } from "/domain/models/page/Page";
+
+type Props = {
+  logo: string;
+  categories: Category[];
+};
+
+const props = Astro.props;
+props.categories.unshift(new Category("/", "HOME"))
+const pathes = props.categories.map(category => {
+  if (category.name === "HOME") {
+    return new Path("", "", new Page(1))
+  } else {
+    return new Path("category", category.name.toLowerCase(), new Page(1))
+  }
+})
+---
+
+<header class="bg-slate-500 flex justify-center h-[92px] md:h-[64px] px-[32px]">
+  <div class="xl:max-w-screen-xl w-full h-full">
+    <div class="flex md:hidden justify-between h-full items-center">
+      <NavigationMenu categories={props.categories} />
+      <p class="font-logo text-white" style={{ fontSize: "24px" }}>
+        <a href="/" rel="noopener noreferrer">
+          {props.logo}
+        </a>
+      </p>
+      <div></div>
+    </div>
+    <div class="hidden md:block h-full">
+      <div class="flex gap-10 items-center h-full">
+        {
+          props.categories.map((category, index) => (
+            <div>
+              <a
+                href={pathes[index].value}
+                class="flex text-lg text-white hover:backdrop-brightness-[1.2] p-2 transition"
+                rel="noopener noreferrer"
+              >
+                <div class="mt-[1.5px] mr-1">
+                  <span class="material-icons">{pageIcons[index]}</span>
+                </div>
+                <div class="">{category.name}</div>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</header>
