@@ -17,7 +17,7 @@ export class GetArticleList {
   ) {}
 
   async execute({ page }: FetchArticleCommand): Promise<ArticleListDTO> {
-    const { articles, totalCount } = await this.articleRepository.fetchAllArticles()
+    const { articles, totalCount } = await this.articleRepository.fetchArticles(page)
     const categories = await this.categoryRepository.fetchCategories()
     const tags = await this.tagRepository.fetchTags()
     const yearmonths = await this.yearmonthRepository.fetchYearMonths()

@@ -8,7 +8,7 @@ import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const getPagePaths = DIContainer.createGetPagePaths();
-	const paths = (await getPagePaths.execute({ page: new PageDomain(1) })).map(
+	const paths = (await getPagePaths.execute()).map(
 		(_) => ({
 			params: {
 				page: "/",
