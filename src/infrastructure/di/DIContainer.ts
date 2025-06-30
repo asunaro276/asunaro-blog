@@ -10,13 +10,15 @@ import { GetPagePaths } from "/usecase/getPagePaths/GetPagePaths";
 import { GetCategoryPaths } from "/usecase/getCategoryPaths/GetCategoryPaths";
 import { GetTagPaths } from "/usecase/getTagPaths/GetTagPaths";
 import { GetYearmonthPaths } from "/usecase/getYearmonthPaths/GetYearmonthPaths";
-import type { IArticleRepository } from "/domain/interfaces/article/IArticleRepository";
-import type { ICategoryRepository } from "/domain/interfaces/article/ICategoryRepository"; 
-import type { ITagRepository } from "/domain/interfaces/article/ITagRepository";
-import type { IYearMonthRepository } from "/domain/interfaces/article/IYearMonthRepository";
+import type { IArticleRepository } from "/domain/interfaces/repository/IArticleRepository";
+import type { ICategoryRepository } from "/domain/interfaces/repository/ICategoryRepository"; 
+import type { ITagRepository } from "/domain/interfaces/repository/ITagRepository";
+import type { IYearMonthRepository } from "/domain/interfaces/repository/IYearMonthRepository";
 import { GetArticleList } from "/usecase/getArticleList/GetArticleList";
-import type { HtmlParser } from "/domain/interfaces/article/IHtmlParser";
+import type { HtmlParser } from "/domain/interfaces/htmlParser/IHtmlParser";
 import { cheerioParser } from "../htmlParser/cheerioParser";
+import type { PathGenerator as IPathGenerator } from "/domain/interfaces/routing/PathGenerator";
+import { PathGenerator } from "../routing/PathGenerator";
 
 /**
  * 依存関係注入コンテナ
@@ -29,6 +31,7 @@ export class DIContainer {
   private static _categoryRepository: ICategoryRepository;
   private static _tagRepository: ITagRepository;
   private static _yearMonthRepository: IYearMonthRepository;
+  private static _pathGenerator: IPathGenerator;
 
   static get articleRepository(): IArticleRepository {
     if (!this._articleRepository) {
@@ -56,6 +59,13 @@ export class DIContainer {
       this._yearMonthRepository = new NewtYearMonthRepository();
     }
     return this._yearMonthRepository;
+  }
+
+  static get pathGenerator(): IPathGenerator {
+    if (!this._pathGenerator) {
+      this._pathGenerator = new PathGenerator();
+    }
+    return this._pathGenerator;
   }
 
   // UseCases
