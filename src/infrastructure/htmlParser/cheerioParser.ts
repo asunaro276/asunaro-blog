@@ -2,7 +2,7 @@ import { load } from 'cheerio'
 import openGraphScraper from 'open-graph-scraper'
 import hljs from 'highlight.js/lib/common'
 import type { Heading } from '/domain/models/article/heading/Heading'
-import type { HtmlParser } from '/domain/interfaces/article/IHtmlParser'
+import type { HtmlParser } from '/domain/interfaces/htmlParser/IHtmlParser'
 
 export const cheerioParser: HtmlParser = {
   async parseBody(htmlBody: string): Promise<string> {

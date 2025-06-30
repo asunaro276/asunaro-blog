@@ -4,7 +4,7 @@ import type { ArticleItem } from "./types";
 import { Article } from "/domain/models/article/Article";
 import { Category } from "/domain/models/article/category/Category";
 import { CoverImage } from "/domain/models/article/cover-image/CoverImage";
-import type { ArticleInfo, IArticleRepository } from "/domain/interfaces/article/IArticleRepository";
+import type { ArticleInfo, IArticleRepository } from "/domain/interfaces/repository/IArticleRepository";
 import { Page } from '/domain/models/page/Page';
 import { Tag } from "/domain/models/article/tag/Tag";
 import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";

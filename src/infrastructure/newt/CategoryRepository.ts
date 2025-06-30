@@ -1,6 +1,6 @@
 import { appUid, newtClient } from "./Client";
 import type { CategoryItem } from "./types";
-import type { ICategoryRepository } from "/domain/interfaces/article/ICategoryRepository";
+import type { ICategoryRepository } from "/domain/interfaces/repository/ICategoryRepository";
 import { Category } from "/domain/models/article/category/Category";
 
 const modelUid = 'category'

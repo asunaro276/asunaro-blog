@@ -1,6 +1,6 @@
 import { appUid, newtClient } from "./Client";
 import type { YearMonthItem } from "./types";
-import type { IYearMonthRepository } from "/domain/interfaces/article/IYearMonthRepository";
+import type { IYearMonthRepository } from "/domain/interfaces/repository/IYearMonthRepository";
 import { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
 
 const modelUid = 'yearmonth'
