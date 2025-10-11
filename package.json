@@ -18,7 +18,7 @@
     "@reactuses/core": "^6.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "astro": "^4.12.2",
+    "astro": "^5.14.3",
     "highlight.js": "^11.10.0",
     "katex": "^0.16.11",
     "lodash": "^4.17.21",
