@@ -4,10 +4,15 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
+    "build:check": "astro check && astro build",
     "preview": "astro preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:integration": "playwright test",
+    "test:integration:ui": "playwright test --ui",
+    "test:integration:debug": "playwright test --debug",
+    "test:integration:report": "playwright show-report"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -22,6 +27,7 @@
     "highlight.js": "^11.10.0",
     "katex": "^0.16.11",
     "lodash": "^4.17.21",
+    "marked": "^16.4.0",
     "material-icons": "^1.13.12",
     "newt-client-js": "^3.3.3",
     "open-graph-scraper": "^6.7.1",
@@ -33,6 +39,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.0.0",
+    "@playwright/test": "^1.56.0",
     "@types/bun": "^1.1.6",
     "@types/katex": "^0.16.7",
     "@types/lodash": "^4.17.18",

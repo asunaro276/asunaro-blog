@@ -18,7 +18,7 @@ const { article } = Astro.props as Props;
       publishedAt={Article.formatDate(article.publishedAt)}
       tagsOfPost={article.tags}
       categoryOfPost={article.category}
-      imageUrl={article.coverImage.src.toString()}
+      imageUrl={typeof article.coverImage.src === 'string' ? article.coverImage.src : article.coverImage.src.toString()}
       imageAlt={article.coverImage.altText === undefined
         ? ""
         : article.coverImage.altText}

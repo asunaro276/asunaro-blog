@@ -33,7 +33,7 @@ const { article, categories, tags, yearmonths } =
     ),
     images: [
       {
-        url: article.coverImage.src.toString(),
+        url: typeof article.coverImage.src === 'string' ? article.coverImage.src : article.coverImage.src.toString(),
       },
     ],
   }}

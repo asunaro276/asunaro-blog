@@ -24,3 +24,8 @@ pnpm-debug.log*
 .idea/
 
 *storybook.log
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/

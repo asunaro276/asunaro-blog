@@ -141,11 +141,5 @@ describe('ClassName', () => {
 - Markdown形式の記事は`src/posts/`に配置
 - Newt CMSから取得される記事と、ローカルMarkdownの両方に対応
 
-## Newt CMS連携
-
-- `newt-client-js`ライブラリを使用
-- Repository実装は`src/infrastructure/newt/`
-- 記事、カテゴリ、タグ、年月アーカイブ等のデータを管理
-
 ## 技術・ライブラリ
 Context7など信頼性の高いドキュメントを参照し、最新の情報をもとに意思決定を行うようにしてください

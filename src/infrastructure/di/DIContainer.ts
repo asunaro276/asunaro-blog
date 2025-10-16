@@ -2,6 +2,14 @@ import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
 import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
 import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
 import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
+import { LocalMarkdownArticleRepository } from "/infrastructure/markdown/LocalMarkdownArticleRepository";
+import { LocalMarkdownCategoryRepository } from "/infrastructure/markdown/LocalMarkdownCategoryRepository";
+import { LocalMarkdownTagRepository } from "/infrastructure/markdown/LocalMarkdownTagRepository";
+import { LocalMarkdownYearMonthRepository } from "/infrastructure/markdown/LocalMarkdownYearMonthRepository";
+import { CompositeArticleRepository } from "/infrastructure/composite/CompositeArticleRepository";
+import { CompositeCategoryRepository } from "/infrastructure/composite/CompositeCategoryRepository";
+import { CompositeTagRepository } from "/infrastructure/composite/CompositeTagRepository";
+import { CompositeYearMonthRepository } from "/infrastructure/composite/CompositeYearMonthRepository";
 import { GetArticle } from "/usecase/getArticle/GetArticle";
 import { GetCategoryArticleList } from "/usecase/getCategoryArticleList/GetCategoryArticleList";
 import { GetTagArticleList } from "/usecase/getTagArticleList/GetTagArticleList";
@@ -11,7 +19,7 @@ import { GetCategoryPaths } from "/usecase/getCategoryPaths/GetCategoryPaths";
 import { GetTagPaths } from "/usecase/getTagPaths/GetTagPaths";
 import { GetYearmonthPaths } from "/usecase/getYearmonthPaths/GetYearmonthPaths";
 import type { IArticleRepository } from "/domain/interfaces/article/IArticleRepository";
-import type { ICategoryRepository } from "/domain/interfaces/article/ICategoryRepository"; 
+import type { ICategoryRepository } from "/domain/interfaces/article/ICategoryRepository";
 import type { ITagRepository } from "/domain/interfaces/article/ITagRepository";
 import type { IYearMonthRepository } from "/domain/interfaces/article/IYearMonthRepository";
 import { GetArticleList } from "/usecase/getArticleList/GetArticleList";
@@ -32,28 +40,36 @@ export class DIContainer {
 
   static get articleRepository(): IArticleRepository {
     if (!this._articleRepository) {
-      this._articleRepository = new NewtArticleRepository();
+      const localRepo = new LocalMarkdownArticleRepository();
+      const newtRepo = new NewtArticleRepository();
+      this._articleRepository = new CompositeArticleRepository(localRepo, newtRepo);
     }
     return this._articleRepository;
   }
 
   static get categoryRepository(): ICategoryRepository {
     if (!this._categoryRepository) {
-      this._categoryRepository = new NewtCategoryRepository();
+      const localRepo = new LocalMarkdownCategoryRepository();
+      const newtRepo = new NewtCategoryRepository();
+      this._categoryRepository = new CompositeCategoryRepository(localRepo, newtRepo);
     }
     return this._categoryRepository;
   }
 
   static get tagRepository(): ITagRepository {
     if (!this._tagRepository) {
-      this._tagRepository = new NewtTagRepository();
+      const localRepo = new LocalMarkdownTagRepository();
+      const newtRepo = new NewtTagRepository();
+      this._tagRepository = new CompositeTagRepository(localRepo, newtRepo);
     }
     return this._tagRepository;
   }
 
   static get yearMonthRepository(): IYearMonthRepository {
     if (!this._yearMonthRepository) {
-      this._yearMonthRepository = new NewtYearMonthRepository();
+      const localRepo = new LocalMarkdownYearMonthRepository();
+      const newtRepo = new NewtYearMonthRepository();
+      this._yearMonthRepository = new CompositeYearMonthRepository(localRepo, newtRepo);
     }
     return this._yearMonthRepository;
   }

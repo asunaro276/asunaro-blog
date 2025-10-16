@@ -24,7 +24,7 @@ const props = Astro.props;
           class="rounded-t h-[230px]"
           height="300"
           width="600"
-          src={props.article.coverImage.src.href}
+          src={props.article.coverImage.image ? props.article.coverImage.image : (typeof props.article.coverImage.src === 'string' ? props.article.coverImage.src : props.article.coverImage.src.href)}
           alt={props.article.coverImage.altText}
           style={{ maxWidth: "100%", objectFit: "cover" }}
         />

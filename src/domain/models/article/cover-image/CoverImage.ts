@@ -1,5 +1,3 @@
-import type { URL } from "url"
-
 export class CoverImage {
   constructor(
     readonly title: string,
@@ -8,6 +6,7 @@ export class CoverImage {
     readonly fileName: string,
     readonly height: number,
     readonly width: number,
-    readonly src: URL,
+    readonly src: string | URL,
+    readonly image?: any, // Astroの画像オブジェクト
   ) {}
 }
