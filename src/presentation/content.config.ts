@@ -2,7 +2,7 @@ import { z, defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
 
 const posts = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: 'src/presentation/content/posts' }),
+  loader: glob({ pattern: '**/*.md', base: './src/posts' }),
   schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
@@ -10,7 +10,7 @@ const posts = defineCollection({
     updatedAt: z.coerce.date().optional(),
     category: z.string(),
     tags: z.array(z.string()),
-    coverImage: image(),
+    coverImage: z.union([image(), z.string()]).optional(),
     coverImageAlt: z.string().optional(),
   }),
 })

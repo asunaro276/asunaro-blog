@@ -4,7 +4,7 @@ import { Category } from '/domain/models/article/category/Category'
 
 export class LocalMarkdownCategoryRepository implements ICategoryRepository {
   async fetchCategories(): Promise<Category[]> {
-    const entries = (await getCollection('posts')) as any[]
+    const entries = await getCollection('posts')
 
     // ユニークなカテゴリを抽出
     const categoryMap = new Map<string, Category>()

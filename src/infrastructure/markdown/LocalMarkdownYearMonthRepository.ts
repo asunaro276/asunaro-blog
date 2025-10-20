@@ -4,7 +4,7 @@ import { YearMonth } from '/domain/models/article/yearmonth/YearMonth'
 
 export class LocalMarkdownYearMonthRepository implements IYearMonthRepository {
   async fetchYearMonths(): Promise<YearMonth[]> {
-    const entries = (await getCollection('posts')) as any[]
+    const entries = await getCollection('posts')
 
     // 各年月の記事数を集計
     const yearMonthMap = new Map<string, { year: number; month: number; count: number }>()

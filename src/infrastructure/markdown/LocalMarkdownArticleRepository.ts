@@ -10,28 +10,44 @@ import type { YearMonth } from '/domain/models/article/yearmonth/YearMonth'
 
 export class LocalMarkdownArticleRepository implements IArticleRepository {
   async fetchArticleById(articleId: string): Promise<Article> {
-    const entry = (await getEntry('posts', articleId)) as any
+    const entry = await getEntry('posts', articleId)
 
     if (!entry) {
       throw new Error(`Article not found: ${articleId}`)
     }
 
-    const htmlBody = await marked.parse(entry.body)
+    const htmlBody = await marked.parse(entry.body ?? "本文はまだ書かれていません")
+
+    // coverImageがない場合のデフォルト処理
+    const coverImage = entry.data.coverImage
+      ? new CoverImage(
+          entry.data.title,
+          entry.data.coverImageAlt || entry.data.title,
+          entry.data.description,
+          typeof entry.data.coverImage === 'string'
+            ? entry.data.coverImage.split('/').pop() || 'cover.jpg'
+            : entry.data.coverImage.src.split('/').pop() || 'cover.jpg',
+          typeof entry.data.coverImage === 'string' ? 630 : entry.data.coverImage.height,
+          typeof entry.data.coverImage === 'string' ? 1200 : entry.data.coverImage.width,
+          typeof entry.data.coverImage === 'string' ? entry.data.coverImage : entry.data.coverImage.src,
+          typeof entry.data.coverImage === 'string' ? undefined : entry.data.coverImage
+        )
+      : new CoverImage(
+          entry.data.title,
+          entry.data.coverImageAlt || entry.data.title,
+          entry.data.description,
+          'default-cover.jpg',
+          630,
+          1200,
+          '/images/default-cover.jpg',
+          undefined
+        )
 
     return Article.create(
       entry.id,
       entry.data.title,
       entry.data.description,
-      new CoverImage(
-        entry.data.title, // title
-        entry.data.coverImageAlt || entry.data.title, // altText
-        entry.data.description, // description
-        entry.data.coverImage.src.split('/').pop() || 'cover.jpg', // fileName
-        entry.data.coverImage.height, // height
-        entry.data.coverImage.width, // width
-        entry.data.coverImage.src, // src - 後方互換性のため
-        entry.data.coverImage // image - Astroの画像オブジェクト
-      ),
+      coverImage,
       new Category(entry.data.category, entry.data.category),
       entry.data.tags.map((t: string) => new Tag(t, t)),
       htmlBody,
@@ -73,26 +89,42 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
   }
 
   async fetchAllArticles(): Promise<ArticleInfo> {
-    const entries = (await getCollection('posts')) as any[]
+    const entries = await getCollection('posts')
 
     const articles = await Promise.all(
       entries.map(async (entry: any) => {
         const htmlBody = await marked.parse(entry.body)
 
+        // coverImageがない場合のデフォルト処理
+        const coverImage = entry.data.coverImage
+          ? new CoverImage(
+              entry.data.title,
+              entry.data.coverImageAlt || entry.data.title,
+              entry.data.description,
+              typeof entry.data.coverImage === 'string'
+                ? entry.data.coverImage.split('/').pop() || 'cover.jpg'
+                : entry.data.coverImage.src.split('/').pop() || 'cover.jpg',
+              typeof entry.data.coverImage === 'string' ? 630 : entry.data.coverImage.height,
+              typeof entry.data.coverImage === 'string' ? 1200 : entry.data.coverImage.width,
+              typeof entry.data.coverImage === 'string' ? entry.data.coverImage : entry.data.coverImage.src,
+              typeof entry.data.coverImage === 'string' ? undefined : entry.data.coverImage
+            )
+          : new CoverImage(
+              entry.data.title,
+              entry.data.coverImageAlt || entry.data.title,
+              entry.data.description,
+              'default-cover.jpg',
+              630,
+              1200,
+              '/images/default-cover.jpg',
+              undefined
+            )
+
         return Article.create(
           entry.id,
           entry.data.title,
           entry.data.description,
-          new CoverImage(
-            entry.data.title,
-            entry.data.coverImageAlt || entry.data.title,
-            entry.data.description,
-            entry.data.coverImage.src.split('/').pop() || 'cover.jpg',
-            entry.data.coverImage.height,
-            entry.data.coverImage.width,
-            entry.data.coverImage.src, // src - 後方互換性のため
-            entry.data.coverImage // image - Astroの画像オブジェクト
-          ),
+          coverImage,
           new Category(entry.data.category, entry.data.category),
           entry.data.tags.map((t: string) => new Tag(t, t)),
           htmlBody,
