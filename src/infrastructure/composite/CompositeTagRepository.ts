@@ -13,24 +13,18 @@ export class CompositeTagRepository implements ITagRepository {
       this.newtRepository.fetchTags()
     ])
 
-    // タグIDでマージし、カウントを合算
-    const tagMap = new Map<string, { name: string; count: number }>()
+    // タグはNewtのもののみを使用し、カウントはローカルと合算
+    const localTagMap = new Map<string, number>()
 
+    // ローカルのタグをMapに格納（タグ名でマッチング）
     for (const tag of localTags) {
-      tagMap.set(tag.id, { name: tag.name, count: tag.count })
+      localTagMap.set(tag.name, tag.count)
     }
 
-    for (const tag of newtTags) {
-      if (tagMap.has(tag.id)) {
-        // 既存のタグの場合、カウントを加算
-        tagMap.get(tag.id)!.count += tag.count
-      } else {
-        tagMap.set(tag.id, { name: tag.name, count: tag.count })
-      }
-    }
-
-    return Array.from(tagMap.entries()).map(([id, { name, count }]) =>
-      new Tag(id, name, count)
-    )
+    // Newtのタグにローカルのカウントを加算
+    return newtTags.map(newtTag => {
+      const localCount = localTagMap.get(newtTag.name) || 0
+      return new Tag(newtTag.id, newtTag.name, newtTag.count + localCount)
+    }).sort((a, b) => b.count - a.count)
   }
 }

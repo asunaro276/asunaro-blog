@@ -3,11 +3,9 @@ import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository"
 import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
 import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
 import { LocalMarkdownArticleRepository } from "/infrastructure/markdown/LocalMarkdownArticleRepository";
-import { LocalMarkdownCategoryRepository } from "/infrastructure/markdown/LocalMarkdownCategoryRepository";
 import { LocalMarkdownTagRepository } from "/infrastructure/markdown/LocalMarkdownTagRepository";
 import { LocalMarkdownYearMonthRepository } from "/infrastructure/markdown/LocalMarkdownYearMonthRepository";
 import { CompositeArticleRepository } from "/infrastructure/composite/CompositeArticleRepository";
-import { CompositeCategoryRepository } from "/infrastructure/composite/CompositeCategoryRepository";
 import { CompositeTagRepository } from "/infrastructure/composite/CompositeTagRepository";
 import { CompositeYearMonthRepository } from "/infrastructure/composite/CompositeYearMonthRepository";
 import { GetArticle } from "/usecase/getArticle/GetArticle";
@@ -49,9 +47,7 @@ export class DIContainer {
 
   static get categoryRepository(): ICategoryRepository {
     if (!this._categoryRepository) {
-      const localRepo = new LocalMarkdownCategoryRepository();
-      const newtRepo = new NewtCategoryRepository();
-      this._categoryRepository = new CompositeCategoryRepository(localRepo, newtRepo);
+      this._categoryRepository = new NewtCategoryRepository();
     }
     return this._categoryRepository;
   }
