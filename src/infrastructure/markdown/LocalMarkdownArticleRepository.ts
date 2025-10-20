@@ -89,7 +89,13 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
   }
 
   async fetchAllArticles(): Promise<ArticleInfo> {
-    const entries = await getCollection('posts')
+    const entries = await getCollection('posts', (entry) => {
+      // 本番環境では公開記事のみ、開発環境では全記事を取得
+      if (import.meta.env.PROD) {
+        return entry.data.status === 'published'
+      }
+      return true
+    })
 
     const articles = await Promise.all(
       entries.map(async (entry: any) => {

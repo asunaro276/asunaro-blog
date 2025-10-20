@@ -12,6 +12,7 @@ const posts = defineCollection({
     tags: z.array(z.string()),
     coverImage: z.union([image(), z.string()]).optional(),
     coverImageAlt: z.string().optional(),
+    status: z.enum(["published", "draft"]),
   }),
 })
 
