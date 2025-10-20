@@ -25,7 +25,7 @@ function transformImageUrls(markdown: string, publicUrl: string): string {
   // R2公開URLの末尾スラッシュを除去
   const baseUrl = publicUrl.replace(/\/$/, '');
 
-  // パターン1: Obsidian Wikiリンク形式 ![[image.png]] → ![](https://asunaroblog.net/image.png)
+  // パターン1: Obsidian Wikiリンク形式 ![[image.png]] → ![](https://assets.asunaroblog.net/image.png)
   let transformed = markdown.replace(
     /!\[\[([^\]]+\.(png|jpg|jpeg|gif|webp|svg))\]\]/gi,
     (match, filename) => {
@@ -35,7 +35,7 @@ function transformImageUrls(markdown: string, publicUrl: string): string {
     }
   );
 
-  // パターン2: Markdown形式の相対パス ![alt](./path/to/image.png) → ![alt](https://asunaroblog.net/path/to/image.png)
+  // パターン2: Markdown形式の相対パス ![alt](./path/to/image.png) → ![alt](https://assets.asunaroblog.net/path/to/image.png)
   transformed = transformed.replace(
     /!\[([^\]]*)\]\(\.\/([^)]+\.(png|jpg|jpeg|gif|webp|svg))\)/gi,
     (match, alt, path) => {
@@ -53,6 +53,32 @@ function transformImageUrls(markdown: string, publicUrl: string): string {
   );
 
   return transformed;
+}
+
+/**
+ * coverImageのパスをR2公開URLに変換
+ * - cover.webp → https://assets.asunaroblog.net/assets/cover.webp
+ * - ../assets/cover.png → https://assets.asunaroblog.net/assets/cover.png
+ */
+function transformCoverImageUrl(coverImage: string, publicUrl: string): string {
+  if (!publicUrl) {
+    return coverImage;
+  }
+
+  const baseUrl = publicUrl.replace(/\/$/, '');
+
+  // 相対パス記号を除去してファイル名を抽出
+  // ../assets/cover.png → assets/cover.png
+  // ./assets/cover.png → assets/cover.png
+  // cover.png → cover.png
+  const cleanPath = coverImage.replace(/^\.\.\//, '').replace(/^\.\//, '');
+
+  // assets/ で始まる場合はそのまま、そうでない場合は assets/ を追加
+  const finalPath = cleanPath.startsWith('assets/')
+    ? cleanPath
+    : `assets/${cleanPath}`;
+
+  return `${baseUrl}/${finalPath}`;
 }
 
 /**
@@ -106,10 +132,9 @@ export function r2Loader(options: R2LoaderOptions): Loader {
             // ObsidianのローカルMarkdown画像記法をR2公開URLに変換
             const transformedBody = publicUrl ? transformImageUrls(body, publicUrl) : body;
 
-            // coverImageが相対パスの場合は削除（Astroのimage()と互換性がないため）
-            if (data.coverImage && typeof data.coverImage === 'string' && data.coverImage.startsWith('.')) {
-              delete data.coverImage;
-              delete data.coverImageAlt;
+            // coverImageをR2公開URLに変換
+            if (data.coverImage && typeof data.coverImage === 'string' && publicUrl) {
+              data.coverImage = transformCoverImageUrl(data.coverImage, publicUrl);
             }
 
             // IDを生成

@@ -18,30 +18,45 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
 
     const htmlBody = await marked.parse(entry.body ?? "本文はまだ書かれていません")
 
-    // coverImageがない場合のデフォルト処理
-    const coverImage = entry.data.coverImage
-      ? new CoverImage(
-          entry.data.title,
-          entry.data.coverImageAlt || entry.data.title,
-          entry.data.description,
-          typeof entry.data.coverImage === 'string'
-            ? entry.data.coverImage.split('/').pop() || 'cover.jpg'
-            : entry.data.coverImage.src.split('/').pop() || 'cover.jpg',
-          typeof entry.data.coverImage === 'string' ? 630 : entry.data.coverImage.height,
-          typeof entry.data.coverImage === 'string' ? 1200 : entry.data.coverImage.width,
-          typeof entry.data.coverImage === 'string' ? entry.data.coverImage : entry.data.coverImage.src,
-          typeof entry.data.coverImage === 'string' ? undefined : entry.data.coverImage
-        )
-      : new CoverImage(
-          entry.data.title,
-          entry.data.coverImageAlt || entry.data.title,
-          entry.data.description,
-          'default-cover.jpg',
-          630,
-          1200,
-          '/images/default-cover.jpg',
-          undefined
-        )
+    // coverImageの処理（Astroのimage()型またはURL文字列）
+    let coverImage: CoverImage
+    if (!entry.data.coverImage) {
+      // coverImageがない場合のデフォルト
+      coverImage = new CoverImage(
+        entry.data.title,
+        entry.data.coverImageAlt || entry.data.title,
+        entry.data.description,
+        'default-cover.jpg',
+        630,
+        1200,
+        '/images/default-cover.jpg',
+        undefined
+      )
+    } else if (typeof entry.data.coverImage === 'string') {
+      // R2やNewtからのURL文字列
+      coverImage = new CoverImage(
+        entry.data.title,
+        entry.data.coverImageAlt || entry.data.title,
+        entry.data.description,
+        entry.data.coverImage.split('/').pop() || 'cover.jpg',
+        630,
+        1200,
+        entry.data.coverImage,
+        undefined
+      )
+    } else {
+      // Astroの画像オブジェクト（globローダー使用時）
+      coverImage = new CoverImage(
+        entry.data.title,
+        entry.data.coverImageAlt || entry.data.title,
+        entry.data.description,
+        'cover.jpg',
+        entry.data.coverImage.height || 630,
+        entry.data.coverImage.width || 1200,
+        entry.data.coverImage.src || '',
+        entry.data.coverImage // Astroの画像オブジェクト全体を渡す
+      )
+    }
 
     return Article.create(
       entry.id,
@@ -101,30 +116,45 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
       entries.map(async (entry: any) => {
         const htmlBody = await marked.parse(entry.body)
 
-        // coverImageがない場合のデフォルト処理
-        const coverImage = entry.data.coverImage
-          ? new CoverImage(
-              entry.data.title,
-              entry.data.coverImageAlt || entry.data.title,
-              entry.data.description,
-              typeof entry.data.coverImage === 'string'
-                ? entry.data.coverImage.split('/').pop() || 'cover.jpg'
-                : entry.data.coverImage.src.split('/').pop() || 'cover.jpg',
-              typeof entry.data.coverImage === 'string' ? 630 : entry.data.coverImage.height,
-              typeof entry.data.coverImage === 'string' ? 1200 : entry.data.coverImage.width,
-              typeof entry.data.coverImage === 'string' ? entry.data.coverImage : entry.data.coverImage.src,
-              typeof entry.data.coverImage === 'string' ? undefined : entry.data.coverImage
-            )
-          : new CoverImage(
-              entry.data.title,
-              entry.data.coverImageAlt || entry.data.title,
-              entry.data.description,
-              'default-cover.jpg',
-              630,
-              1200,
-              '/images/default-cover.jpg',
-              undefined
-            )
+        // coverImageの処理（Astroのimage()型またはURL文字列）
+        let coverImage: CoverImage
+        if (!entry.data.coverImage) {
+          // coverImageがない場合のデフォルト
+          coverImage = new CoverImage(
+            entry.data.title,
+            entry.data.coverImageAlt || entry.data.title,
+            entry.data.description,
+            'default-cover.jpg',
+            630,
+            1200,
+            '/images/default-cover.jpg',
+            undefined
+          )
+        } else if (typeof entry.data.coverImage === 'string') {
+          // R2やNewtからのURL文字列
+          coverImage = new CoverImage(
+            entry.data.title,
+            entry.data.coverImageAlt || entry.data.title,
+            entry.data.description,
+            entry.data.coverImage.split('/').pop() || 'cover.jpg',
+            630,
+            1200,
+            entry.data.coverImage,
+            undefined
+          )
+        } else {
+          // Astroの画像オブジェクト（globローダー使用時）
+          coverImage = new CoverImage(
+            entry.data.title,
+            entry.data.coverImageAlt || entry.data.title,
+            entry.data.description,
+            'cover.jpg',
+            entry.data.coverImage.height || 630,
+            entry.data.coverImage.width || 1200,
+            entry.data.coverImage.src || '',
+            entry.data.coverImage // Astroの画像オブジェクト全体を渡す
+          )
+        }
 
         return Article.create(
           entry.id,

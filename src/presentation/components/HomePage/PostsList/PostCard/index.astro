@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { COLOR } from "/constants";
 import { Article } from "/domain/models/article/Article";
 
@@ -8,6 +7,23 @@ type Props = {
 };
 
 const props = Astro.props;
+
+// coverImage.srcを文字列として取得
+let imageSrc: string;
+
+if (props.article.coverImage.src instanceof URL) {
+  // URLオブジェクトの場合（Newt CMSの画像）
+  imageSrc = props.article.coverImage.src.href;
+} else if (typeof props.article.coverImage.src === 'object' && props.article.coverImage.src?.src) {
+  // Astroの画像オブジェクトの場合（ローカルMarkdown）
+  imageSrc = props.article.coverImage.src.src;
+} else if (typeof props.article.coverImage.src === 'string') {
+  // 文字列URLの場合
+  imageSrc = props.article.coverImage.src;
+} else {
+  // フォールバック
+  imageSrc = '/images/default-cover.jpg';
+}
 ---
 
 <div
@@ -20,13 +36,14 @@ const props = Astro.props;
   <a class="h-full text-decoration-none" href={`/blog/${props.article.articleId}`}>
     <div class="h-full">
       <figure class="image">
-        <Image
+        <img
           class="rounded-t h-[230px]"
           height="300"
           width="600"
-          src={props.article.coverImage.image ? props.article.coverImage.image : (typeof props.article.coverImage.src === 'string' ? props.article.coverImage.src : props.article.coverImage.src.href)}
+          src={imageSrc}
           alt={props.article.coverImage.altText}
-          style={{ maxWidth: "100%", objectFit: "cover" }}
+          style="max-width: 100%; object-fit: cover;"
+          loading="lazy"
         />
       </figure>
       <div class="mt-2 p-1">
