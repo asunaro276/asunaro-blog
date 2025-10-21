@@ -3,12 +3,12 @@ import { glob } from 'astro/loaders'
 import { r2Loader } from '/infrastructure/r2/astroLoader'
 
 // データソースの切り替え
-// - ローカルMarkdown: glob({ pattern: '**/*.md', base: './src/posts' })
-// - Cloudflare R2: r2Loader({ bucket: 'asunaro-blog-posts' })
-const USE_R2 = import.meta.env.USE_R2 === 'true' || process.env.USE_R2 === 'true'
+// - ローカルMarkdown: glob({ pattern: '**/*.md', base: './src/posts' }) (開発環境)
+// - Cloudflare R2: r2Loader({ bucket: 'asunaro-blog-posts' }) (本番環境)
+const isProduction = import.meta.env.MODE === 'production' || process.env.NODE_ENV === 'production'
 
 const posts = defineCollection({
-  loader: USE_R2
+  loader: isProduction
     ? r2Loader({ bucket: import.meta.env.R2_BUCKET_NAME || process.env.R2_BUCKET_NAME || 'asunaro-blog-posts' })
     : glob({ pattern: '**/*.md', base: './src/posts' }),
   schema: ({ image }) => z.object({
