@@ -1,13 +1,7 @@
-import { NewtArticleRepository } from "/infrastructure/newt/ArticleRepository";
-import { NewtCategoryRepository } from "/infrastructure/newt/CategoryRepository";
-import { NewtTagRepository } from "/infrastructure/newt/TagRepository";
-import { NewtYearMonthRepository } from "/infrastructure/newt/YearMonthRepository";
 import { LocalMarkdownArticleRepository } from "/infrastructure/markdown/LocalMarkdownArticleRepository";
+import { LocalMarkdownCategoryRepository } from "/infrastructure/markdown/LocalMarkdownCategoryRepository";
 import { LocalMarkdownTagRepository } from "/infrastructure/markdown/LocalMarkdownTagRepository";
 import { LocalMarkdownYearMonthRepository } from "/infrastructure/markdown/LocalMarkdownYearMonthRepository";
-import { CompositeArticleRepository } from "/infrastructure/composite/CompositeArticleRepository";
-import { CompositeTagRepository } from "/infrastructure/composite/CompositeTagRepository";
-import { CompositeYearMonthRepository } from "/infrastructure/composite/CompositeYearMonthRepository";
 import { GetArticle } from "/usecase/getArticle/GetArticle";
 import { GetCategoryArticleList } from "/usecase/getCategoryArticleList/GetCategoryArticleList";
 import { GetTagArticleList } from "/usecase/getTagArticleList/GetTagArticleList";
@@ -38,34 +32,28 @@ export class DIContainer {
 
   static get articleRepository(): IArticleRepository {
     if (!this._articleRepository) {
-      const localRepo = new LocalMarkdownArticleRepository();
-      const newtRepo = new NewtArticleRepository();
-      this._articleRepository = new CompositeArticleRepository(localRepo, newtRepo);
+      this._articleRepository = new LocalMarkdownArticleRepository();
     }
     return this._articleRepository;
   }
 
   static get categoryRepository(): ICategoryRepository {
     if (!this._categoryRepository) {
-      this._categoryRepository = new NewtCategoryRepository();
+      this._categoryRepository = new LocalMarkdownCategoryRepository();
     }
     return this._categoryRepository;
   }
 
   static get tagRepository(): ITagRepository {
     if (!this._tagRepository) {
-      const localRepo = new LocalMarkdownTagRepository();
-      const newtRepo = new NewtTagRepository();
-      this._tagRepository = new CompositeTagRepository(localRepo, newtRepo);
+      this._tagRepository = new LocalMarkdownTagRepository();
     }
     return this._tagRepository;
   }
 
   static get yearMonthRepository(): IYearMonthRepository {
     if (!this._yearMonthRepository) {
-      const localRepo = new LocalMarkdownYearMonthRepository();
-      const newtRepo = new NewtYearMonthRepository();
-      this._yearMonthRepository = new CompositeYearMonthRepository(localRepo, newtRepo);
+      this._yearMonthRepository = new LocalMarkdownYearMonthRepository();
     }
     return this._yearMonthRepository;
   }
