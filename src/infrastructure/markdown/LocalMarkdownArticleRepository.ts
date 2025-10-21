@@ -8,6 +8,22 @@ import { CoverImage } from '/domain/models/article/cover-image/CoverImage'
 import { Page } from '/domain/models/page/Page'
 import type { YearMonth } from '/domain/models/article/yearmonth/YearMonth'
 
+/**
+ * Markdown内の相対パス画像を絶対パスに変換
+ * - ../assets/image.png → /assets/image.png
+ */
+function transformMarkdownImagePaths(markdown: string): string {
+  return markdown.replace(/!\[([^\]]*)\]\(\.\.\/assets\/([^)]+)\)/g, '![$1](/assets/$2)')
+}
+
+/**
+ * coverImageの相対パスを絶対パスに変換
+ * - ../assets/cover.png → /assets/cover.png
+ */
+function transformCoverImagePath(coverImagePath: string): string {
+  return coverImagePath.replace(/^\.\.\/assets\//, '/assets/')
+}
+
 export class LocalMarkdownArticleRepository implements IArticleRepository {
   async fetchArticleById(articleId: string): Promise<Article> {
     const entry = await getEntry('posts', articleId)
@@ -16,7 +32,9 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
       throw new Error(`Article not found: ${articleId}`)
     }
 
-    const htmlBody = await marked.parse(entry.body ?? "本文はまだ書かれていません")
+    // Markdown内の画像パスを変換してからHTMLに変換
+    const transformedMarkdown = transformMarkdownImagePaths(entry.body ?? "本文はまだ書かれていません")
+    const htmlBody = await marked.parse(transformedMarkdown)
 
     // coverImageの処理（Astroのimage()型またはURL文字列）
     let coverImage: CoverImage
@@ -33,15 +51,16 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
         undefined
       )
     } else if (typeof entry.data.coverImage === 'string') {
-      // R2やNewtからのURL文字列
+      // R2やNewtからのURL文字列、または相対パス
+      const coverImageUrl = transformCoverImagePath(entry.data.coverImage)
       coverImage = new CoverImage(
         entry.data.title,
         entry.data.coverImageAlt || entry.data.title,
         entry.data.description,
-        entry.data.coverImage.split('/').pop() || 'cover.jpg',
+        coverImageUrl.split('/').pop() || 'cover.jpg',
         630,
         1200,
-        entry.data.coverImage,
+        coverImageUrl,
         undefined
       )
     } else {
@@ -114,7 +133,9 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
 
     const articles = await Promise.all(
       entries.map(async (entry: any) => {
-        const htmlBody = await marked.parse(entry.body)
+        // Markdown内の画像パスを変換してからHTMLに変換
+        const transformedMarkdown = transformMarkdownImagePaths(entry.body ?? "")
+        const htmlBody = await marked.parse(transformedMarkdown)
 
         // coverImageの処理（Astroのimage()型またはURL文字列）
         let coverImage: CoverImage
@@ -131,15 +152,16 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
             undefined
           )
         } else if (typeof entry.data.coverImage === 'string') {
-          // R2やNewtからのURL文字列
+          // R2やNewtからのURL文字列、または相対パス
+          const coverImageUrl = transformCoverImagePath(entry.data.coverImage)
           coverImage = new CoverImage(
             entry.data.title,
             entry.data.coverImageAlt || entry.data.title,
             entry.data.description,
-            entry.data.coverImage.split('/').pop() || 'cover.jpg',
+            coverImageUrl.split('/').pop() || 'cover.jpg',
             630,
             1200,
-            entry.data.coverImage,
+            coverImageUrl,
             undefined
           )
         } else {

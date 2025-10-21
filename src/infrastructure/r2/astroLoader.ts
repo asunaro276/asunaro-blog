@@ -17,7 +17,7 @@ export interface R2LoaderOptions {
  * - ![](./path/to/image.png) → ![](https://asunaroblog.net/path/to/image.png)
  * - ![](image.png) → ![](https://asunaroblog.net/image.png)
  */
-function transformImageUrls(markdown: string, publicUrl: string): string {
+export function transformImageUrls(markdown: string, publicUrl: string): string {
   if (!publicUrl) {
     return markdown;
   }
@@ -60,7 +60,7 @@ function transformImageUrls(markdown: string, publicUrl: string): string {
  * - cover.webp → https://assets.asunaroblog.net/assets/cover.webp
  * - ../assets/cover.png → https://assets.asunaroblog.net/assets/cover.png
  */
-function transformCoverImageUrl(coverImage: string, publicUrl: string): string {
+export function transformCoverImageUrl(coverImage: string, publicUrl: string): string {
   if (!publicUrl) {
     return coverImage;
   }
