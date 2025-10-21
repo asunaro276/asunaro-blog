@@ -96,8 +96,8 @@ export function localMarkdownLoader(options: LocalMarkdownLoaderOptions): Loader
               data.coverImage = transformLocalCoverImagePath(data.coverImage);
             }
 
-            // IDを生成（slugがあればそれを使用、なければファイル名から拡張子を除いたもの）
-            const id = data.slug || path.basename(filePath, '.md');
+            // IDを生成（ファイル名から拡張子を除いたもの）
+            const id = path.basename(filePath, '.md');
 
             // Content Collectionにエントリーを追加
             store.set({
