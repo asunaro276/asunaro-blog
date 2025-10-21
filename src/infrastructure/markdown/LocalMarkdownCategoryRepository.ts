@@ -6,7 +6,13 @@ const CATEGORY_ORDER = ['HOME', 'CODE', 'BUSINESS', 'MATH', 'OTHER'];
 
 export class LocalMarkdownCategoryRepository implements ICategoryRepository {
   async fetchCategories(): Promise<Category[]> {
-    const entries = await getCollection('posts')
+    const entries = await getCollection('posts', (entry) => {
+      // 本番環境では公開記事のみ、開発環境では全記事を取得
+      if (import.meta.env.PROD) {
+        return entry.data.status === 'published'
+      }
+      return true
+    })
 
     // ユニークなカテゴリを抽出
     const categoryMap = new Map<string, Category>()

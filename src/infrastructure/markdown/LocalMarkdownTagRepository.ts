@@ -4,7 +4,13 @@ import { Tag } from '/domain/models/article/tag/Tag'
 
 export class LocalMarkdownTagRepository implements ITagRepository {
   async fetchTags(): Promise<Tag[]> {
-    const entries = await getCollection('posts')
+    const entries = await getCollection('posts', (entry) => {
+      // 本番環境では公開記事のみ、開発環境では全記事を取得
+      if (import.meta.env.PROD) {
+        return entry.data.status === 'published'
+      }
+      return true
+    })
 
     // 全記事からタグを集計
     const tagMap = new Map<string, { count: number }>()
