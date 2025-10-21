@@ -4,9 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "test -d public/assets || mkdir -p public/assets",
     "build": "astro build",
     "build:check": "astro check && astro build",
     "preview": "astro preview",
+    "setup": "test -L public/assets || ln -sf ../src/assets public/assets",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test:integration": "playwright test",
