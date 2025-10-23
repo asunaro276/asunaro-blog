@@ -34,7 +34,7 @@ const props = Astro.props;
     <Header categories={props.categories} />
   </div>
   <div class="flex justify-center px-[16px] md:px-[32px] py-[32px] relative z-0">
-    <div class="xl:max-w-screen-xl grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <div class="xl:max-w-screen-xl w-full grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-6">
       <div class:list={["lg:col-span-3"]}>
           {props.tag && (
             <div class='mt-[16px] mb-[32px] text-center'>
