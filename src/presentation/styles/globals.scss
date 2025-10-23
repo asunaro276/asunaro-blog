@@ -8,3 +8,45 @@
     width: 100%;
   }
 }
+
+@layer components {
+  /* テーブルのスタイリング */
+  table {
+    @apply w-full my-6 border-collapse;
+    border: 1px solid #e0e0e0;
+  }
+
+  thead {
+    @apply bg-gray-100;
+  }
+
+  th {
+    @apply px-4 py-3 text-left font-semibold border border-gray-300;
+    background-color: #f5f5f5;
+  }
+
+  td {
+    @apply px-4 py-3 border border-gray-300;
+  }
+
+  tbody tr:nth-child(odd) {
+    @apply bg-white;
+  }
+
+  tbody tr:nth-child(even) {
+    @apply bg-gray-50;
+  }
+
+  tbody tr:hover {
+    @apply bg-gray-100;
+    transition: background-color 0.2s ease;
+  }
+
+  /* レスポンシブ対応：小さい画面ではスクロール可能に */
+  @media (max-width: 768px) {
+    table {
+      @apply block overflow-x-auto;
+      white-space: nowrap;
+    }
+  }
+}
