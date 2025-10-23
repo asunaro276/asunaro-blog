@@ -5,6 +5,11 @@ import { Tag } from '/domain/models/article/tag/Tag'
 export class LocalMarkdownTagRepository implements ITagRepository {
   async fetchTags(): Promise<Tag[]> {
     const entries = await getCollection('posts', (entry) => {
+      // SHOW_DRAFTSが設定されている場合は全記事を取得
+      const showDrafts = import.meta.env.SHOW_DRAFTS === 'true' || process.env.SHOW_DRAFTS === 'true'
+      if (showDrafts) {
+        return true
+      }
       // 本番環境では公開記事のみ、開発環境では全記事を取得
       if (import.meta.env.PROD) {
         return entry.data.status === 'published'
