@@ -31,7 +31,7 @@
     "highlight.js": "^11.10.0",
     "katex": "^0.16.11",
     "lodash": "^4.17.21",
-    "marked": "^16.4.0",
+    "marked": "^17.0.0",
     "material-icons": "^1.13.12",
     "newt-client-js": "^3.3.3",
     "open-graph-scraper": "^6.7.1",
