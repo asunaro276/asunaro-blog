@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## コミュニケーション
+ユーザーとのやり取りについては基本的に全て日本語で行ってください。
+また、ユーザーとのやり取りに際しては迎合的な言葉は使わず、冷静に対応してください。
+
 ## プロジェクト概要
 
 **asunaro-blog**は、Astro + React + Newt CMSで構築された個人ブログサイト（https://asunaroblog.net/）です。ドメイン駆動設計（DDD）のレイヤードアーキテクチャを採用し、Cloudflare Pagesでホスティングされています。
