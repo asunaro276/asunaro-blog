@@ -1,20 +1,60 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  ## プロジェクト概要
+  個人ブログサイト（https://asunaroblog.net/）。Astro + React + Bun + TypeScript で構築し、Cloudflare Pages でホスティング。記事データは本番環境では Cloudflare R2 上の Markdown ファイル、開発環境ではローカル Markdown ファイル（src/posts/）から取得。
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+  ## アーキテクチャ
+  ドメイン駆動設計（DDD）による4層アーキテクチャ：
+  - プレゼンテーション層: src/presentation/（Astroの srcDir）
+    - pages/: ファイルベースルーティング
+    - components/: Reactコンポーネント（HomePage, PostPage, common）
+    - layouts/: レイアウトコンポーネント
+  - ユースケース層: src/usecase/（DTO.ts + 実装クラスの構成）
+  - ドメイン層: src/domain/（models/, interfaces/）
+    - privateコンストラクタ + staticファクトリメソッドパターン
+    - 不変性重視（readonly）
+  - インフラストラクチャ層: src/infrastructure/（di/, newt/, r2/, htmlParser/）
+    - DIContainerで全Repository・UseCaseを管理
+
+  ## 技術スタック
+  - Astro（srcDir: ./src/presentation, site: https://asunaroblog.net）
+  - React（インタラクティブコンポーネント）
+  - TypeScript（strict mode、パスエイリアス "/*": ["src/*"]）
+  - Bun（パッケージマネージャ + テストランナー）
+  - SCSS（CSS カスタムプロパティによるテーマシステム: --accent, --fg, --fg-2, --fg-3, --bg, --rule 等）
+  - tsyringe（依存性注入）
+  - Cloudflare Pages（本番ホスティング）
+
+  ## コーディング規約
+  - クラス・インターフェース: PascalCase
+  - インターフェース: I プレフィックス（例: IArticleRepository）
+  - privateプロパティ: _ プレフィックス（例: _articleRepository）
+  - 定数: UPPER_SNAKE_CASE
+  - インポート: 絶対パス（例: import { Article } from "/domain/models/article/Article"）
+  - コンポーネントファイル: src/presentation/components/{Layer}/{ComponentName}/index.astro（または .tsx）
+
+  ## テスト
+  - フレームワーク: bun:test
+  - ファイルパターン: **/*.test.ts
+  - 実行: bun test
+  - テストはドメインモデルおよびコンポーネントの単体テストが中心
+  - describe('ClassName') > describe('正常系'/'異常系') > test('日本語説明') の構成
+
+rules:
+  proposal:
+    - proposalを作成する前に、openspec-explore skillを使ってユーザーに不明点を徹底的にヒアリングし、機能の全体像が明確になった時点でproposalを書き始めること
+    - ドキュメントに推測事項を記載しないこと。不明点は必ずユーザーに確認し、確認が取れた事実のみを記載する
+  design:
+    - 設計を作る前に、関連するソースコード（コンポーネント・ドメインモデル・ユースケース・インフラ）を実際に読んで現状の実装を把握すること
+    - 既存コンポーネントのパターン（CategoryHeader 等）を参照し、設計の一貫性を保つこと
+    - Goals / Non-Goals を明示し、スコープ外の変更が混入しないようにすること
+    - 決定事項は「決定・理由・代替案」の3点セットで記述すること
+  tasks:
+    - タスク0（ユーザー対応事項）を必ず最初のセクションとして設ける。AIが作業を開始する前にユーザー自身が行う必要のある事前準備（APIトークン発行、Secrets登録、外部サービスの設定変更など）をすべてここに列挙する
+    - 各機能セクションは「検証環境の整備 → 実装 → 検証」の3フェーズで構成する:
+        1. 検証環境の整備: そのセクションの spec.md に記載された Requirement / Scenario を満たしているかを確認できるテストまたは確認手順を先に用意する。ユニットテストで検証できる対象（ドメインモデル・ロジック）はテストコードを書く。UIや結合レベルの確認が必要な場合はPlaywrightのe2eテストまたはブラウザ手動確認手順を定義する
+        2. 実装: テスト・確認手順が揃った状態で初めて実装タスクを行う
+        3. 検証: 用意した手段で spec.md の全 Scenario が満たされていることを確認する
+    - タスクは番号付きセクション（## 1. ...）とチェックリスト項目（- [ ] 1.1 ...）で構成する
+    - 各項目は具体的なファイルパスと変更内容を明示し、「何をすれば完了か」が一目でわかるよう記述する
