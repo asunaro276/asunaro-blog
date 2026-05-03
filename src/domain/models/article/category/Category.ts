@@ -6,6 +6,10 @@ export class Category {
     readonly name: string
   ) {}
 
+  get urlSlug(): string {
+    return this.id.toLowerCase()
+  }
+
   equals(other: Category): boolean {
     return isEqual(this.id, other.id)
   }

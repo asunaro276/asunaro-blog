@@ -28,7 +28,7 @@ const Caption = (props: Props) => {
         className="mb-10 space-y-2 gap-2"
         style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}
       >
-        <a href={`/category/${props.categoryOfPost.id}`}>
+        <a href={`/category/${props.categoryOfPost.urlSlug}/1`}>
           <button
             className="mr-2 border py-[4px] px-[10px] rounded text-xs hover:brightness-[0.3] transition"
             style={{ textTransform: "none", display: "flex", color: COLOR.text.secondary, borderColor: COLOR.text.secondary + '60' }}
