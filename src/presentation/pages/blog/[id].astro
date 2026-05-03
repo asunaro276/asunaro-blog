@@ -18,7 +18,7 @@ export const getStaticPaths = (async () => {
 
 const { id } = Astro.params;
 const getArticle = DIContainer.createGetArticle();
-const { article, categories, tags, yearmonths } =
+const { article, categories, tags, yearmonths, suggestedArticles } =
   await getArticle.execute(id);
 ---
 
@@ -48,6 +48,7 @@ const { article, categories, tags, yearmonths } =
       categories={categories}
       tags={tags}
       yearmonths={yearmonths}
+      suggestedArticles={suggestedArticles}
     />
   </main>
 </Layout>

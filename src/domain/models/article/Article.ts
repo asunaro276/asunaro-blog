@@ -49,6 +49,34 @@ export class Article {
     return Object.assign(this)
   }
   
+  static selectSuggested(current: Article, all: Article[]): Article[] {
+    const others = all.filter(a => a.articleId !== current.articleId)
+    const byDate = (a: Article, b: Article) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+
+    const result: Article[] = []
+    const added = new Set<string>()
+
+    const fill = (candidates: Article[]) => {
+      for (const a of [...candidates].sort(byDate)) {
+        if (result.length >= 10) break
+        if (!added.has(a.articleId)) {
+          result.push(a)
+          added.add(a.articleId)
+        }
+      }
+    }
+
+    // 1. 同一タグ
+    fill(others.filter(a => a.tags.some(t => current.tags.some(ct => ct.id === t.id))))
+    // 2. 同一カテゴリ
+    if (result.length < 10) fill(others.filter(a => a.category.equals(current.category)))
+    // 3. 全記事
+    if (result.length < 10) fill(others)
+
+    return result
+  }
+
   static formatDate(date: string): string {
     if (date === null) {
       return ''

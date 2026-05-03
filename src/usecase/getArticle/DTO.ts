@@ -9,5 +9,6 @@ export class ArticleDataDTO {
     readonly tags: Tag[],
     readonly categories: Category[],
     readonly yearmonths: YearMonth[],
+    readonly suggestedArticles: Article[],
   ) {}
 }
