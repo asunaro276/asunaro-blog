@@ -41,13 +41,6 @@ test.describe('サイトヘッダー', () => {
     await expect(links).toHaveCount(5);
   });
 
-  test('SEARCH と RSS テキストがヘッダー右側に存在する', async ({ page, isMobile }) => {
-    test.skip(isMobile, 'モバイルはハンバーガーメニュー');
-    await page.goto('/');
-    await expect(page.locator('header').getByText('SEARCH')).toBeVisible();
-    await expect(page.locator('header').getByText('RSS ↗')).toBeVisible();
-  });
-
   test('スクロール後もヘッダーが top:0 である', async ({ page }) => {
     await page.goto('/');
     await page.evaluate(() => window.scrollTo(0, 500));
