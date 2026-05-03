@@ -2,9 +2,10 @@
 import Header from "../common/Header/index.astro";
 import Pagination from "./Pagination"
 import PostsList from "./PostsList/index.astro";
+import HeroSection from "./HeroSection/index.astro";
+import CategoryHeader from "../common/CategoryHeader/index.astro";
 import Footer from "../common/Footer/index.astro";
 import SideBar from "../../components/common/SideBar/index.astro";
-import { COLOR } from "/constants";
 import type { Article } from "/domain/models/article/Article";
 import type { Category } from "/domain/models/article/category/Category";
 import type { Tag } from "/domain/models/article/tag/Tag";
@@ -27,56 +28,65 @@ type Props = {
 };
 
 const props = Astro.props;
+
+const isTopPage = !props.category && !props.tag && !props.yearmonth && !props.statusCode;
+const heroArticle = isTopPage && props.articles.length > 0 ? props.articles[0] : null;
+const gridArticles = isTopPage && props.articles.length > 0 ? props.articles.slice(1) : props.articles;
 ---
 
-<div style={{ backgroundColor: COLOR.bgColor }}>
-  <div class="relative z-10">
-    <Header categories={props.categories} />
-  </div>
-  <div class="flex justify-center px-[16px] md:px-[32px] py-[32px] relative z-0">
+<div style="background-color: var(--bg); min-height: 100vh;">
+  <Header categories={props.categories} />
+
+  {heroArticle && <HeroSection article={heroArticle} />}
+
+  {props.category && (
+    <CategoryHeader
+      category={props.category}
+      categories={props.categories}
+      totalCount={props.totalCount}
+    />
+  )}
+
+  <div class="flex justify-center px-[16px] md:px-[32px] py-[32px]">
     <div class="xl:max-w-screen-xl w-full grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-6">
       <div class:list={["lg:col-span-3"]}>
+          {isTopPage && (
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 32px; padding-bottom: 14px; border-bottom: 1px solid var(--rule);">
+              <h2 class="font-serif-jp" style="margin: 0; font-weight: 600; font-size: 22px; color: var(--fg);">最近書いたもの</h2>
+              <a href="/1" class="font-mono" style="font-size: 11px; letter-spacing: 0.14em; color: var(--fg-3); text-decoration: none; text-transform: uppercase; transition: color 0.15s;">VIEW ALL →</a>
+            </div>
+          )}
           {props.tag && (
             <div class='mt-[16px] mb-[32px] text-center'>
               {props.articles.length === 0 ? (
-                <p class=''>該当するタグの記事はありません</p>
+                <p>該当するタグの記事はありません</p>
               ) : (
-                <p>{props.tag}に関する記事一覧</p>
+                <p style="color: var(--fg);">{props.tag.name}に関する記事一覧</p>
               )}
             </div>
           )}
-          {props.category && (
-            <div class='my-12 text-center'>
-              {props.articles.length === 0 ? (
-                <p>該当するカテゴリーの記事はありません</p>
-              ) : (
-                <p>
-                  {props.articles[0].category.name}カテゴリの記事一覧
-                </p>
-              )}
-            </div>
+          {props.category && props.articles.length === 0 && (
+            <p style="color: var(--fg); text-align: center; margin: 32px 0;">該当するカテゴリーの記事はありません</p>
           )}
           {props.yearmonth && (
             <div class='my-12 text-center'>
               {props.articles.length === 0 ? (
                 <p>該当する期間の記事はありません</p>
               ) : (
-                <p>{props.yearmonth.displayValue}の記事一覧</p>
+                <p style="color: var(--fg);">{props.yearmonth.displayValue}の記事一覧</p>
               )}
             </div>
           )}
           {props.statusCode && (
-            <div>Error{props.statusCode}</div>
+            <div style="color: var(--fg);">Error{props.statusCode}</div>
           )}
           {
             !props.statusCode && (
-              <PostsList articles={props.articles} />
+              <PostsList articles={gridArticles} />
             )
           }
           { !props.statusCode && (
-              <div
-                style={{ marginTop: "50px", justifyContent: "center" }}
-              >
+              <div style={{ marginTop: "50px", justifyContent: "center" }}>
                 <Pagination
                   currentPage={props.currentPage!}
                   currentPath={props.currentPath!}
@@ -91,7 +101,5 @@ const props = Astro.props;
       </div>
     </div>
   </div>
-  <div>
-    <Footer categories={props.categories} />
-  </div>
+  <Footer categories={props.categories} />
 </div>
