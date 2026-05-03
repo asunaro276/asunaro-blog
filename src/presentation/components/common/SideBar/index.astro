@@ -22,10 +22,7 @@ const heatmapData = props.yearmonths.map(ym => ({
 }));
 ---
 
-<div
-  data-sidebar
-  style="border-left: 1px solid var(--rule); padding-left: 36px; height: 100%;"
->
+<div data-sidebar>
   <div style="padding: 8px 0 28px;">
     <SideProfile />
   </div>
@@ -36,3 +33,20 @@ const heatmapData = props.yearmonths.map(ym => ({
     <ArchiveHeatmap yearmonths={heatmapData} client:load />
   </div>
 </div>
+
+<style>
+  [data-sidebar] {
+    border-left: 1px solid var(--rule);
+    padding-left: 36px;
+    height: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    [data-sidebar] {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--rule);
+      padding-top: 32px;
+    }
+  }
+</style>
