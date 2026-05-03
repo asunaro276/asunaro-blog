@@ -1,5 +1,4 @@
 ---
-import NavigationBar from "./NavigationBar/index.astro";
 import type { Category } from "/domain/models/article/category/Category";
 
 type Props = {
@@ -7,22 +6,156 @@ type Props = {
 };
 
 const { categories } = Astro.props;
-const logo = "ASUNAROBLOG";
+
+const navItems = [
+  { label: 'HOME', href: '/' },
+  ...categories.map(c => ({
+    label: c.name.toUpperCase(),
+    href: `/category/${c.urlSlug}/1`,
+  })),
+];
 ---
 
-<div>
-  <div class="flex px-[16px] md:px-[32px] justify-center">
-    <p
-      class="py-4 font-logo hidden md:block xl:max-w-screen-xl w-full hover:brightness-[1.6]"
-    >
-      <a
-        href="/"
-        class="text-slate-700 no-underline"
-        style={{ fontSize: "40px" }}
-      >
-        {logo}
+<header
+  transition:persist
+  style="position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--rule); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); background-color: oklch(from var(--bg) l c h / 0.85);"
+>
+  <div
+    style="max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 64px;"
+  >
+    <!-- ロゴ -->
+    <div>
+      <a href="/" style="text-decoration: none; display: flex; flex-direction: column; gap: 1px;">
+        <span
+          style="font-weight: 600; font-size: 20px; letter-spacing: -0.02em; color: var(--fg);"
+        >asunaro<span style="color: var(--accent);">blog</span></span>
+        <span class="font-mono" style="font-size: 10px; color: var(--fg-3);">since 2022</span>
       </a>
-    </p>
+    </div>
+
+    <!-- ナビゲーション -->
+    <nav style="display: flex; gap: 8px;">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          data-nav-link
+          data-nav-href={item.href}
+          style="padding: 4px 12px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; color: var(--fg-2); border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s;"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- 右側: テーマトグル -->
+    <div class="header-right" style="display: flex; align-items: center; gap: 16px; justify-content: flex-end;">
+      <button
+        data-theme-toggle
+        aria-label="テーマを切り替える"
+        style="background: none; border: 1px solid var(--rule-2); border-radius: 6px; width: 32px; height: 32px; cursor: pointer; color: var(--fg-2); display: flex; align-items: center; justify-content: center; font-size: 14px;"
+      >
+        ☀
+      </button>
+      <!-- ハンバーガーボタン（モバイル専用） -->
+      <button
+        id="mobile-menu-btn"
+        aria-label="メニューを開く"
+        style="display: none; background: none; border: 1px solid var(--rule-2); border-radius: 6px; width: 32px; height: 32px; cursor: pointer; color: var(--fg-2); align-items: center; justify-content: center; font-size: 16px;"
+      >
+        ☰
+      </button>
+    </div>
   </div>
-  <NavigationBar logo={logo} categories={categories} />
-</div>
+
+  <!-- モバイルナビ（縦積み） -->
+  <div
+    id="mobile-nav"
+    style="display: none; flex-direction: column; border-top: 1px solid var(--rule); background: var(--bg); padding: 8px 0;"
+  >
+    {navItems.map(item => (
+      <a
+        href={item.href}
+        data-mobile-nav-link
+        data-nav-href={item.href}
+        style="padding: 12px 32px; font-size: 14px; font-weight: 500; text-decoration: none; color: var(--fg-2); border-left: 3px solid transparent;"
+      >
+        {item.label}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script>
+  function isNavActive(href: string): boolean {
+    const pathname = window.location.pathname;
+    if (href === '/') return pathname === '/' || pathname === '/1';
+    const slug = href.split('/')[2];
+    return pathname.startsWith(`/category/${slug}`);
+  }
+
+  function updateActiveNav() {
+    document.querySelectorAll<HTMLElement>('[data-nav-link]').forEach(link => {
+      const href = link.dataset.navHref ?? '';
+      const active = isNavActive(href);
+      link.style.color = active ? 'var(--fg)' : 'var(--fg-2)';
+      link.style.borderBottomColor = active ? 'var(--accent)' : 'transparent';
+    });
+
+    document.querySelectorAll<HTMLElement>('[data-mobile-nav-link]').forEach(link => {
+      const href = link.dataset.navHref ?? '';
+      const active = isNavActive(href);
+      link.style.color = active ? 'var(--accent)' : 'var(--fg-2)';
+      link.style.borderLeftColor = active ? 'var(--accent)' : 'transparent';
+    });
+  }
+
+  // テーマトグル（ヘッダーと共に一度だけ初期化）
+  const themeBtn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const html = document.documentElement;
+      const isDark = html.classList.contains('theme-dark');
+      html.classList.toggle('theme-dark', !isDark);
+      html.classList.toggle('theme-light', isDark);
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      themeBtn.textContent = isDark ? '☀' : '🌙';
+    });
+    const isDark = document.documentElement.classList.contains('theme-dark');
+    themeBtn.textContent = isDark ? '🌙' : '☀';
+  }
+
+  // モバイルメニュー
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (mobileBtn && mobileNav) {
+    mobileBtn.addEventListener('click', () => {
+      const open = mobileNav.style.display === 'flex';
+      mobileNav.style.display = open ? 'none' : 'flex';
+      mobileBtn.textContent = open ? '☰' : '✕';
+    });
+  }
+
+  // ページ遷移ごとにアクティブ状態を更新 & モバイルメニューを閉じる
+  document.addEventListener('astro:page-load', () => {
+    updateActiveNav();
+    if (mobileNav) mobileNav.style.display = 'none';
+    if (mobileBtn) mobileBtn.textContent = '☰';
+  });
+
+  // 初回
+  updateActiveNav();
+</script>
+
+<style>
+  @media (max-width: 768px) {
+    header > div:first-child {
+      grid-template-columns: 1fr auto !important;
+    }
+    nav {
+      display: none !important;
+    }
+    #mobile-menu-btn {
+      display: flex !important;
+    }
+  }
+</style>

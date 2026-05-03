@@ -1,41 +1,50 @@
 ---
-import { Image } from "astro:assets";
-import XIcon from "./XIcon/index.svg";
-import GitHubIcon from "./GitHubIcon/index.svg";
 ---
 
-<div
-  class="border shadow bg-white rounded flex flex-col items-center gap-6 pb-12 p-6"
->
-  <p>profile</p>
-  <div>
-    <Image
+<div>
+  <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--fg-3); text-transform: uppercase; margin-bottom: 16px;">
+    About
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;">
+    <img
+      data-sidebar-avatar
       src="https://storage.googleapis.com/p_641d41d3a492e5ac4c9226fe/3ab0e1e0-e610-4dc9-acb4-f7917add37b1/asunaro.png"
       alt="プロフィール画像"
-      height="150"
-      width="150"
+      style="width: 88px; height: 88px; border-radius: 9999px; object-fit: cover;"
     />
-  </div>
-  <p class="border-b-2 px-2">あすなろ</p>
-  <div class="w-full">
-    <div class="flex">
+
+    <p
+      data-sidebar-name
+      class="font-serif-jp"
+      style="font-size: 20px; font-weight: 600; color: var(--fg); margin: 0;"
+    >
+      あすなろ
+    </p>
+
+    <p style="font-size: 13px; line-height: 1.7; color: var(--fg-2); margin: 0;">
+      広告代理店で働いている新米エンジニアの技術ブログです。主にWeb技術で遊んでいます。
+    </p>
+
+    <div style="display: flex; gap: 12px;">
       <a
-        href="https://github.com/Asunaro276/asunaro-blog"
+        href="https://github.com/asunaro276"
         target="_blank"
-        class="hover:backdrop-brightness-[0.95] transition aspect-square w-12 rounded-full flex justify-center"
+        rel="noopener noreferrer"
+        class="font-mono"
+        style="font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--fg-3); text-decoration: none; transition: color 0.15s;"
       >
-        <Image src={GitHubIcon} alt="GitHubのアイコン" width={24} />
+        GITHUB ↗
       </a>
       <a
         href="https://twitter.com/asunaro276"
         target="_blank"
-        class="hover:backdrop-brightness-[0.95] transition aspect-square w-12 rounded-full flex justify-center"
+        rel="noopener noreferrer"
+        class="font-mono"
+        style="font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--fg-3); text-decoration: none; transition: color 0.15s;"
       >
-        <Image src={XIcon} alt="Xのアイコン" width={24} />
+        X ↗
       </a>
     </div>
   </div>
-  <p class="w-full">
-    広告代理店で働いている新米エンジニアの技術ブログです。主にWeb技術で遊んでいます。日々楽しみながら学んでいくことを目標としています。
-  </p>
 </div>

@@ -1,6 +1,4 @@
 ---
-import { BottomNavigationBar } from "./BottomNavigationBar";
-import CopyRight from "./CopyRight/index.astro";
 import type { Category } from "/domain/models/article/category/Category";
 
 type Props = {
@@ -9,7 +7,83 @@ type Props = {
 const { categories } = Astro.props;
 ---
 
-<>
-  <BottomNavigationBar categories={categories} />
-  <CopyRight />
-</>
+<footer style="background-color: var(--bg-2); border-top: 1px solid var(--rule); padding-top: 48px;">
+  <!-- 3カラムグリッド -->
+  <div
+    data-footer-grid
+    style="max-width: 1200px; margin: 0 auto; padding: 0 32px 48px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;"
+  >
+    <!-- ブランドセクション -->
+    <div>
+      <div style="font-size: 20px; font-weight: 600; color: var(--fg); letter-spacing: -0.02em; margin-bottom: 12px;">
+        asunaro<span style="color: var(--accent);">blog</span>
+      </div>
+      <p style="font-size: 13px; line-height: 1.7; color: var(--fg-2); margin: 0;">
+        技術と日常をつなぐ、あすなろのブログ。Web技術を中心に、日々の学びを発信しています。
+      </p>
+    </div>
+
+    <!-- Category -->
+    <div>
+      <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 16px;">
+        Category
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        {categories.map(cat => (
+          <a
+            href={`/category/${cat.urlSlug}/1`}
+            style="font-size: 13px; color: var(--fg-2); text-decoration: none; transition: color 0.15s;"
+          >
+            {cat.name}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Elsewhere -->
+    <div>
+      <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 16px;">
+        Elsewhere
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a
+          href="https://github.com/asunaro276"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="font-size: 13px; color: var(--fg-2); text-decoration: none; transition: color 0.15s;"
+        >
+          GitHub ↗
+        </a>
+        <a
+          href="https://twitter.com/asunaro276"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="font-size: 13px; color: var(--fg-2); text-decoration: none; transition: color 0.15s;"
+        >
+          X ↗
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- コピーライトバー -->
+  <div style="border-top: 1px solid var(--rule); padding: 16px 32px; display: flex; justify-content: space-between; align-items: center;">
+    <span
+      data-footer-copyright
+      class="font-mono"
+      style="font-size: 11px; color: var(--fg-3);"
+    >
+      © Asunaro
+    </span>
+  </div>
+</footer>
+
+<style>
+  @media (max-width: 768px) {
+    [data-footer-grid] {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+  }
+</style>
