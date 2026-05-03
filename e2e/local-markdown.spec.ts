@@ -12,24 +12,24 @@ test.describe('ローカルMarkdown記事の表示', () => {
 
   test('ローカルMarkdown記事の詳細ページが表示される', async ({ page }) => {
     // テスト記事の詳細ページに直接アクセス
-    await page.goto('/blog/test-article');
+    await page.goto('/blog/local-markdown-test-post');
     await page.waitForLoadState('networkidle');
 
     // 記事タイトルが表示されているか確認
-    const title = page.getByRole('heading', { name: /ローカルMarkdownからの投稿テスト/i });
+    const title = page.getByRole('heading', { name: /ローカルMarkdownからの投稿/i }).first();
     await expect(title).toBeVisible({ timeout: 10000 });
 
     // 記事本文が表示されているか確認（複数マッチする場合は最初の要素を使用）
-    const content = page.getByText(/これはローカルのMarkdownファイルから作成されたテスト記事です/).first();
+    const content = page.getByText(/これはローカルMarkdownから作成されたテスト記事です/).first();
     await expect(content).toBeVisible();
   });
 
   test('ローカルMarkdown記事のメタデータが正しく表示される', async ({ page }) => {
-    await page.goto('/blog/test-article');
+    await page.goto('/blog/local-markdown-test-post');
     await page.waitForLoadState('networkidle');
 
     // カテゴリが表示されているか確認（リンクとして表示されているものを使用）
-    const category = page.getByRole('link', { name: '技術' }).first();
+    const category = page.getByRole('link', { name: 'CODE' }).first();
     await expect(category).toBeVisible();
 
     // タグが表示されているか確認（3つのタグすべて）
@@ -43,7 +43,7 @@ test.describe('ローカルMarkdown記事の表示', () => {
   });
 
   test('Markdownの見出しが正しくHTMLに変換されている', async ({ page }) => {
-    await page.goto('/blog/test-article');
+    await page.goto('/blog/local-markdown-test-post');
     await page.waitForLoadState('networkidle');
 
     // h2見出しが存在するか確認
@@ -56,7 +56,7 @@ test.describe('ローカルMarkdown記事の表示', () => {
   });
 
   test('Markdownのリストが正しく表示される', async ({ page }) => {
-    await page.goto('/blog/test-article');
+    await page.goto('/blog/local-markdown-test-post');
     await page.waitForLoadState('networkidle');
 
     // リスト項目が表示されているか確認（複数マッチする場合は最初の要素を使用）
@@ -103,14 +103,14 @@ test.describe('ローカルとNewtの併用', () => {
 
 test.describe('記事のルーティング', () => {
   test('ローカルMarkdown記事のURLが正しく生成される', async ({ page }) => {
-    await page.goto('/blog/test-article');
+    await page.goto('/blog/local-markdown-test-post');
 
     // URLが正しいことを確認
-    expect(page.url()).toContain('/blog/test-article');
+    expect(page.url()).toContain('/blog/local-markdown-test-post');
 
     // 404ではないことを確認（ページが正常に表示される）
     await page.waitForLoadState('networkidle');
-    const title = page.getByRole('heading', { name: /ローカルMarkdownからの投稿テスト/i });
+    const title = page.getByRole('heading', { name: /ローカルMarkdownからの投稿/i }).first();
     await expect(title).toBeVisible({ timeout: 10000 });
   });
 

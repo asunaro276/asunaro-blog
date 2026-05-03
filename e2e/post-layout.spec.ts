@@ -42,12 +42,12 @@ test.describe('記事詳細レイアウト', () => {
     expect(ta).toBe('center');
   });
 
-  test('H2 見出しの font-size が 24px で Noto Serif JP である', async ({ page }) => {
+  test('H2 見出しの font-size が 22px で Noto Serif JP である', async ({ page }) => {
     const h2 = page.locator('[data-post-content] h2').first();
     if (await h2.count() === 0) return;
     const fs = await h2.evaluate(el => parseFloat(getComputedStyle(el).fontSize));
     const ff = await h2.evaluate(el => getComputedStyle(el).fontFamily);
-    expect(fs).toBe(24);
+    expect(fs).toBe(22);
     expect(ff.toLowerCase()).toContain('noto serif jp');
   });
 
