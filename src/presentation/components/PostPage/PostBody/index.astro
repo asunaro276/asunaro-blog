@@ -1,30 +1,266 @@
 ---
-import Caption from "./Caption";
 import { TableOfContents } from "./TableOfContents";
 import { Article } from "/domain/models/article/Article";
 import Body from "./Body";
 
 type Props = {
   article: Article;
+  suggestedArticles: Article[];
 };
 
-const { article } = Astro.props as Props;
+const { article, suggestedArticles } = Astro.props as Props;
+
+let imageSrc: string;
+if (article.coverImage.src instanceof URL) {
+  imageSrc = article.coverImage.src.href;
+} else if (typeof article.coverImage.src === 'object' && (article.coverImage.src as any)?.src) {
+  imageSrc = (article.coverImage.src as any).src;
+} else if (typeof article.coverImage.src === 'string') {
+  imageSrc = article.coverImage.src;
+} else {
+  imageSrc = '';
+}
 ---
 
-<div class="shadow border bg-white px-4 md:px-12 lg:px-20 flex flex-col items-center">
-  <div class="my-10">
-    <Caption
-      title={article.title}
-      publishedAt={Article.formatDate(article.publishedAt)}
-      tagsOfPost={article.tags}
-      categoryOfPost={article.category}
-      imageUrl={typeof article.coverImage.src === 'string' ? article.coverImage.src : article.coverImage.src.toString()}
-      imageAlt={article.coverImage.altText === undefined
-        ? ""
-        : article.coverImage.altText}
-      client:load
-    />
+<!-- 記事ヘッダー（中央揃え） -->
+<div style="max-width: 880px; margin: 0 auto; padding: 48px 24px 32px; text-align: center;">
+  <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 16px;">
+    <a
+      href={`/category/${article.category.urlSlug}/1`}
+      style="font-size: 12px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--accent); text-decoration: none;"
+    >
+      {article.category.name}
+    </a>
+    <span style="font-size: 12px; color: var(--accent);">·</span>
+    <span style="font-size: 12px; color: var(--accent);">
+      {Article.formatDate(article.publishedAt)}
+    </span>
   </div>
-  <TableOfContents tableOfContents={article.tableOfContents ?? []} client:load />
-  <Body htmlBody={article.htmlBody} client:load />
+
+  <h1
+    data-post-title
+    class="font-serif-jp"
+    style="font-size: 48px; font-weight: 700; line-height: 1.35; color: var(--fg); margin: 0 0 20px; text-align: center;"
+  >
+    {article.title}
+  </h1>
+
+  {article.description && (
+    <p style="font-size: 16px; line-height: 1.8; color: var(--fg-2); margin: 0 0 24px; text-align: center;">
+      {article.description}
+    </p>
+  )}
+
+  {imageSrc && (
+    <div style="margin-top: 24px; border-radius: 8px; overflow: hidden;">
+      <img
+        src={imageSrc}
+        alt={article.coverImage.altText ?? article.title}
+        style="width: 100%; object-fit: cover;"
+      />
+    </div>
+  )}
 </div>
+
+<!-- 3カラムレイアウト -->
+<div
+  data-post-body
+  style="display: grid; grid-template-columns: 180px 1fr 220px; gap: 32px; max-width: 1200px; margin: 0 auto; padding: 0 24px 64px;"
+>
+  <!-- 左カラム: タグ + シェア -->
+  <div
+    data-post-left-col
+    style="position: sticky; top: 80px; align-self: start; display: flex; flex-direction: column; gap: 8px;"
+  >
+    <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 8px;">
+      Tags
+    </div>
+    {article.tags.map(tag => (
+      <a
+        href={`/tag/${tag.id}/1`}
+        style="font-size: 12px; color: var(--fg-2); text-decoration: none; transition: color 0.15s;"
+      >
+        #{tag.name}
+      </a>
+    ))}
+  </div>
+
+  <!-- 中央カラム: 本文 -->
+  <div data-post-content class="post-content">
+    <Body htmlBody={article.htmlBody} client:load />
+  </div>
+
+  <!-- 右カラム: TOC -->
+  <div style="position: sticky; top: 80px; align-self: start;">
+    <TableOfContents tableOfContents={article.tableOfContents ?? []} client:load />
+  </div>
+</div>
+
+<!-- Suggested for you -->
+{suggestedArticles.length > 0 && (
+  <div style="border-top: 1px solid var(--rule); padding: 48px 0 64px; max-width: 1200px; margin: 0 auto;">
+    <h2 style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); margin: 0 0 24px; padding: 0 24px;">
+      Suggested for you
+    </h2>
+    <div
+      data-suggested-scroll
+      style="display: flex; gap: 20px; overflow-x: auto; padding: 0 24px 16px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;"
+    >
+      {suggestedArticles.map(a => {
+        let src: string;
+        if (a.coverImage.src instanceof URL) {
+          src = a.coverImage.src.href;
+        } else if (typeof a.coverImage.src === 'object' && (a.coverImage.src as any)?.src) {
+          src = (a.coverImage.src as any).src;
+        } else if (typeof a.coverImage.src === 'string') {
+          src = a.coverImage.src;
+        } else {
+          src = '';
+        }
+        return (
+          <a
+            href={`/blog/${a.articleId}`}
+            class="suggested-card"
+            style="flex: 0 0 240px; scroll-snap-align: start; text-decoration: none; border-radius: 8px; overflow: hidden; background: var(--bg); border: 1px solid var(--rule); transition: transform 0.2s, box-shadow 0.2s;"
+          >
+            <div style="aspect-ratio: 4/3; overflow: hidden; background: var(--bg-3);">
+              <img
+                src={src}
+                alt={a.coverImage.altText ?? a.title}
+                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s;"
+                loading="lazy"
+              />
+            </div>
+            <div style="padding: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">
+                  {a.category.name}
+                </span>
+                <span class="font-mono" style="font-size: 11px; color: var(--fg-3);">
+                  {Article.formatDate(a.publishedAt)}
+                </span>
+              </div>
+              <h3 class="font-serif-jp" style="font-size: 15px; font-weight: 600; line-height: 1.5; color: var(--fg); margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                {a.title}
+              </h3>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+)}
+
+<style>
+  /* 本文タイポグラフィ */
+  /* CMSはサブ見出しをh1として出力する */
+  .post-content :global(h1) {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--fg);
+    margin: 2em 0 0.8em;
+    letter-spacing: -0.005em;
+    scroll-margin-top: 80px;
+  }
+
+  .post-content :global(h2) {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--fg);
+    margin: 2em 0 0.8em;
+    scroll-margin-top: 80px;
+  }
+
+  .post-content :global(h3) {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 1.6em 0 0.6em;
+    scroll-margin-top: 80px;
+  }
+
+  .post-content :global(p) {
+    font-size: 16px;
+    line-height: 2.05;
+    color: var(--fg);
+    margin-bottom: 1.2em;
+  }
+
+  .post-content :global(ul) {
+    list-style: disc;
+    padding-left: 1.8em;
+    margin: 1em 0 1.4em;
+    line-height: 2;
+  }
+
+  .post-content :global(ol) {
+    list-style: decimal;
+    padding-left: 1.8em;
+    margin: 1em 0 1.4em;
+    line-height: 2;
+  }
+
+  .post-content :global(li) {
+    font-size: 16px;
+    color: var(--fg);
+  }
+
+  .post-content :global(blockquote) {
+    border-left: 2px solid var(--accent);
+    padding-left: 16px;
+    margin: 1.5em 0;
+    color: var(--fg-2);
+  }
+
+  .post-content :global(a) {
+    color: var(--accent);
+  }
+
+  .post-content :global(code) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875em;
+    background: var(--bg-2);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    color: var(--fg);
+  }
+
+  .post-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 1em 0;
+  }
+
+  [data-suggested-scroll]::-webkit-scrollbar {
+    display: none;
+  }
+  [data-suggested-scroll] {
+    scrollbar-width: none;
+  }
+
+  .suggested-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px oklch(0 0 0 / 0.08);
+  }
+  .suggested-card:hover img {
+    transform: scale(1.04);
+  }
+
+  /* モバイル: 1カラムに折りたたむ */
+  @media (max-width: 768px) {
+    [data-post-body] {
+      grid-template-columns: 1fr !important;
+    }
+    [data-post-left-col] {
+      position: static !important;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    [data-post-body] > div:last-child {
+      display: none;
+    }
+  }
+</style>
