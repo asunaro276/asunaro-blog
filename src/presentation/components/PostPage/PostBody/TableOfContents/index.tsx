@@ -1,69 +1,79 @@
-import { Link as Scroll } from 'react-scroll'
+import { useState, useEffect } from 'react'
 import type { Heading } from '/domain/models/article/heading/Heading'
 
 type Props = {
   tableOfContents: Heading[]
 }
 
-export const TableOfContents = (props: Props) => {
-  let tocCount = [1, 1, 1]
+export const TableOfContents = ({ tableOfContents }: Props) => {
+  const [activeId, setActiveId] = useState<string>('')
+
+  useEffect(() => {
+    if (!tableOfContents || tableOfContents.length === 0) return
+
+    const HEADER_OFFSET = 80
+
+    const handleScroll = () => {
+      const headings = tableOfContents
+        .map(h => ({ id: h.attribsId, el: document.getElementById(h.attribsId) }))
+        .filter((h): h is { id: string; el: HTMLElement } => h.el !== null)
+
+      if (headings.length === 0) return
+
+      const scrollTop = window.scrollY + HEADER_OFFSET + 1
+
+      // スクロール位置を超えた最後の見出しをアクティブにする
+      let currentId = headings[0].id
+      for (const { id, el } of headings) {
+        if (el.getBoundingClientRect().top + window.scrollY <= scrollTop) {
+          currentId = id
+        }
+      }
+      setActiveId(currentId)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [tableOfContents])
+
+  if (!tableOfContents || tableOfContents.length === 0) return null
+
   return (
-    <div className='rounded border-solid border-slate-200 font-body border-2 w-full'>
-      <div className='flex h-8 items-center justify-center bg-slate-200'>
-        <span className='material-icons'>toc</span>
-        <p>目次</p>
+    <div>
+      <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: 'var(--fg-3)', marginBottom: 14 }}>
+        Contents
       </div>
-      <div className='flex flex-col items-center justify-center py-9'>
-        <ul className='pl-2 w-8/12'>
-          {props.tableOfContents.map((data, index) => {
-            if (data.text === undefined) {
-              return <div key={index}></div>
-            }
-            if (data.htmlTag === 'h1') {
-              tocCount[0] += 1
-              tocCount[1] = 1
-              return (
-                <li key={index} className='my-4 ml-6 list-none'>
-                  <Scroll
-                    to={`${data.attribsId}`}
-                    smooth={true}
-                    className='relative flex cursor-pointer hover:opacity-50 transition-opacity'
-                    id={`l${index}`}
-                    duration={400}
-                  >
-                    <div className='absolute -left-10 flex aspect-square w-8 items-center justify-center rounded-full border border-solid border-slate-400 bg-slate-200 sm:w-10 '>
-                      {(tocCount[0] - 1).toString()}
-                    </div>
-                    <div className='ml-2 mt-2'>{data.text}</div>
-                  </Scroll>
-                </li>
-              )
-            }
-            if (data.htmlTag === 'h2') {
-              tocCount[1] += 1
-              tocCount[2] = 1
-              return (
-                <li key={index} className='my-2 list-none'>
-                  <Scroll
-                    to={`${data.attribsId}`}
-                    smooth={true}
-                    className='flex cursor-pointer hover:opacity-50'
-                    id={`${index}`}
-                    duration={400}
-                  >
-                    <div className='text-md sm:ml-5 sm:mr-5'>
-                      {tocCount[0] > 1
-                        ? `${tocCount[0] - 1}.${tocCount[1] - 1}`
-                        : `${tocCount[1] - 1}`}
-                    </div>
-                    <div className='ml-2'>{data.text}</div>
-                  </Scroll>
-                </li>
-              )
-            }
-          })}
-        </ul>
-      </div>
+      <ol style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+        {tableOfContents.map((item, i) => {
+          const isActive = item.attribsId === activeId
+          return (
+            <li
+              key={i}
+              style={{
+                padding: '7px 0 7px 12px',
+                borderLeft: `2px solid ${isActive ? 'var(--accent)' : 'transparent'}`,
+                fontSize: 12.5,
+                color: isActive ? 'var(--fg)' : 'var(--fg-2)',
+                fontWeight: isActive ? 500 : 400,
+                transition: 'color 0.15s, border-color 0.15s',
+              }}
+            >
+              <a
+                href={`#${item.attribsId}`}
+                style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                }}
+              >
+                {item.text}
+              </a>
+            </li>
+          )
+        })}
+      </ol>
     </div>
   )
 }
+
+export default TableOfContents
