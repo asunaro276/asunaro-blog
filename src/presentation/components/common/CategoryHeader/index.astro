@@ -1,0 +1,77 @@
+---
+import type { Category } from "/domain/models/article/category/Category";
+
+type Props = {
+  category: Category;
+  categories: Category[];
+  totalCount: number;
+};
+
+const { category, categories, totalCount } = Astro.props;
+---
+
+<div
+  data-category-header
+  style="background-color: var(--bg-2); border-bottom: 1px solid var(--rule); padding: 48px 0 32px;"
+>
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px;">
+    <!-- Category ラベル + 記事数 -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3);">
+        Category
+      </span>
+      <span
+        data-category-count
+        class="font-mono"
+        style="font-size: 12px; color: var(--fg-3);"
+      >
+        {totalCount} articles
+      </span>
+    </div>
+
+    <!-- カテゴリ名 + accent ピリオド -->
+    <div style="display: flex; align-items: baseline; margin-bottom: 24px;">
+      <h1
+        data-category-name
+        class="font-serif-jp"
+        style="font-size: 56px; font-weight: 700; color: var(--fg); margin: 0; line-height: 1.2;"
+      >
+        {category.name}
+      </h1>
+      <span
+        data-category-period
+        style="font-size: 56px; font-weight: 700; color: var(--accent); margin-left: 2px; line-height: 1.2;"
+      >
+        .
+      </span>
+    </div>
+
+    <!-- カテゴリ切替タブ -->
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      {categories.map(cat => {
+        const isActive = cat.id === category.id;
+        return (
+          <a
+            href={`/category/${cat.urlSlug}/1`}
+            data-category-tab
+            data-active={isActive ? 'true' : 'false'}
+            style={`
+              padding: 6px 16px;
+              border-radius: 4px;
+              font-size: 13px;
+              font-weight: 500;
+              text-decoration: none;
+              transition: background-color 0.15s, color 0.15s;
+              ${isActive
+                ? 'background-color: var(--fg); color: var(--bg);'
+                : 'background-color: var(--bg-3); color: var(--fg-2);'
+              }
+            `}
+          >
+            {cat.name}
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</div>

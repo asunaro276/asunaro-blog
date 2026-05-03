@@ -1,105 +1,96 @@
 ---
-import { COLOR } from "/constants";
 import { Article } from "/domain/models/article/Article";
 
 type Props = {
   article: Article;
 };
 
-const props = Astro.props;
+const { article } = Astro.props;
 
-// coverImage.srcを文字列として取得
 let imageSrc: string;
-
-if (props.article.coverImage.src instanceof URL) {
-  // URLオブジェクトの場合（Newt CMSの画像）
-  imageSrc = props.article.coverImage.src.href;
-} else if (typeof props.article.coverImage.src === 'object' && props.article.coverImage.src?.src) {
-  // Astroの画像オブジェクトの場合（ローカルMarkdown）
-  imageSrc = props.article.coverImage.src.src;
-} else if (typeof props.article.coverImage.src === 'string') {
-  // 文字列URLの場合
-  imageSrc = props.article.coverImage.src;
+if (article.coverImage.src instanceof URL) {
+  imageSrc = article.coverImage.src.href;
+} else if (typeof article.coverImage.src === 'object' && (article.coverImage.src as any)?.src) {
+  imageSrc = (article.coverImage.src as any).src;
+} else if (typeof article.coverImage.src === 'string') {
+  imageSrc = article.coverImage.src;
 } else {
-  // フォールバック
   imageSrc = '/images/default-cover.jpg';
 }
 ---
 
-<div
-  class="duration-[600ms] hover:brightness-[0.7] border shadow bg-white rounded h-[500px] xl:h-[460px] relative"
-  style={{
-    display: "flex",
-    flexDirection: "column",
-  }}
+<a
+  href={`/blog/${article.articleId}`}
+  class="post-card"
+  style="display: block; text-decoration: none; border-radius: 8px; overflow: hidden; background: var(--bg); border: 1px solid var(--rule); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer;"
 >
-  <a class="h-full text-decoration-none" href={`/blog/${props.article.articleId}`}>
-    <div class="h-full">
-      <figure class="image">
-        <img
-          class="rounded-t h-[230px]"
-          height="300"
-          width="600"
-          src={imageSrc}
-          alt={props.article.coverImage.altText}
-          style="max-width: 100%; object-fit: cover;"
-          loading="lazy"
-        />
-      </figure>
-      <div class="mt-2 p-1">
-        <div class="mx-5" style={{ fontSize: 20 }}>
-          <p
-            class="text-lg h-[80px] xl:h-[60px]"
-            style={{ color: COLOR.text.base, marginBottom: "0px" }}
-          >
-            {props.article.title}
-          </p>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "start",
-            }}
-          >
-            <button
-              class=`my-2 text-xs rounded border border-opacity-70`
-              style={{
-                display: "flex",
-                color: COLOR.text.secondary,
-                padding: "4px 10px",
-                borderColor: COLOR.text.secondary + "60",
-              }}
-            >
-              {props.article.category.name}
-            </button>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                color: COLOR.text.base,
-              }}
-            >
-              {
-                props.article.tags.map((tag) => (
-                  <div style={{ display: "flex", marginRight: "0.5em" }}>
-                    <span class="material-icons">local_offer</span>
-                    <p style={{ display: "inline-block" }}>{tag.name}</p>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="absolute bottom-2 flex p-1 pl-5 opacity-80"
-        style={{ color: COLOR.text.secondary }}
+  <!-- カバー画像 4:3 -->
+  <div
+    data-card-image
+    style="aspect-ratio: 4/3; overflow: hidden; background: var(--bg-3);"
+  >
+    <img
+      src={imageSrc}
+      alt={article.coverImage.altText ?? article.title}
+      style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- テキスト情報 -->
+  <div style="padding: 16px;">
+    <!-- カテゴリ + 日付 -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <span
+        data-card-category
+        style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);"
       >
-        <span class="material-icons opacity-80">access_time</span>
-        <p style={{ display: "inline-block", marginLeft: "2px" }}>
-          {Article.formatDate(props.article.publishedAt)}
-        </p>
-      </div>
+        {article.category.name}
+      </span>
+      <span
+        data-card-date
+        class="font-mono"
+        style="font-size: 11px; color: var(--fg-3);"
+      >
+        {Article.formatDate(article.publishedAt)}
+      </span>
     </div>
-  </a>
-</div>
+
+    <!-- 見出し -->
+    <h3
+      data-card-title
+      class="font-serif-jp"
+      style="font-size: 17px; font-weight: 600; line-height: 1.5; color: var(--fg); margin: 0 0 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"
+    >
+      {article.title}
+    </h3>
+
+    <!-- 説明文 -->
+    {article.description && (
+      <p style="font-size: 13px; line-height: 1.6; color: var(--fg-2); margin: 0 0 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+        {article.description}
+      </p>
+    )}
+
+    <!-- タグ -->
+    {article.tags.length > 0 && (
+      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+        {article.tags.slice(0, 3).map(tag => (
+          <span
+            data-card-tag
+            style="font-size: 11px; color: var(--fg-3);"
+          >
+            #{tag.name}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+</a>
+
+<style>
+  .post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px oklch(0 0 0 / 0.08);
+  }
+</style>

@@ -11,5 +11,13 @@ export default defineConfig({
   integrations: [react(), tailwind(), sitemap()],
   image: {
     domains: ['storage.googleapis.com']
+  },
+  vite: {
+    server: {
+      watch: {
+        usePolling: true,
+        interval: 1000,
+      }
+    }
   }
 });

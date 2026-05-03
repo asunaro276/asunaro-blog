@@ -5,15 +5,26 @@ import type { Article } from "/domain/models/article/Article";
 type Props = {
   articles: Article[];
 };
-const props = Astro.props;
+const { articles } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-  {
-    props.articles.map((article) => {
-      return (
-        <PostCard article={article} />
-      );
-    })
-  }
+<div
+  data-articles-grid
+  style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;"
+  class="articles-grid"
+>
+  {articles.map(article => <PostCard article={article} />)}
 </div>
+
+<style>
+  @media (max-width: 992px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+  @media (max-width: 576px) {
+    .articles-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

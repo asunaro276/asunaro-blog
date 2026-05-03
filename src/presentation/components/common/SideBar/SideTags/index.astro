@@ -1,5 +1,4 @@
 ---
-import { COLOR } from "/constants";
 import type { Tag } from "/domain/models/article/tag/Tag";
 
 type Props = {
@@ -9,37 +8,31 @@ type Props = {
 const { tags } = Astro.props;
 ---
 
-<div class="shodow border bg-white rounded pb-12 p-6">
-  <div class="font-bold mb-6">Tag</div>
-  <div
-    class="flex flex-wrap gap-x-1 gap-y-3 overflow-y-scroll"
-    style={{ height: "280px" }}
-  >
-    {
-      tags.map((tag) => {
-        return (
-          <div>
-            <a href={`/tag/${tag.id}/1`}>
-              <button
-                class="mr-4 whitespace-nowrap py-1 px-2 border rounded-md align-middle text-white hover:brightness-[0.85] transition"
-                style={{
-                  fontSize: "14px",
-                  backgroundColor: COLOR.primary,
-                }}
-              >
-                <span
-                  class="material-icons align-middle"
-                  style={{ fontSize: "18px" }}
-                >
-                  local_offer
-                </span>
-                {tag.name}
-                <span>（{tag.count}）</span>
-              </button>
-            </a>
-          </div>
-        );
-      })
-    }
+<div>
+  <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--fg-3); text-transform: uppercase; margin-bottom: 16px;">
+    Tags
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    {tags.map(tag => (
+      <a
+        href={`/tag/${tag.id}/1`}
+        style="text-decoration: none;"
+      >
+        <span
+          data-tag-chip-sidebar
+          style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; border: 1px solid var(--rule-2); font-size: 12px; color: var(--fg-2); transition: border-color 0.15s, color 0.15s; white-space: nowrap;"
+        >
+          {tag.name}
+          <span
+            data-tag-count
+            class="font-mono"
+            style="font-size: 10px; color: var(--fg-3);"
+          >
+            {tag.count}
+          </span>
+        </span>
+      </a>
+    ))}
   </div>
 </div>

@@ -1,6 +1,5 @@
 ---
-import { SideToc } from "./SideToc";
-import ArchivePerYear from "./ArchivePerYear/index.astro";
+import { ArchiveHeatmap } from "./ArchiveHeatmap";
 import SideProfile from "./SideProfile/index.astro";
 import SideTags from "./SideTags/index.astro";
 import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
@@ -13,25 +12,27 @@ type Props = {
   yearmonths: YearMonth[];
 };
 const props = Astro.props;
+
+// client:load コンポーネントへはシリアライズ可能なプレーンオブジェクトで渡す
+const heatmapData = props.yearmonths.map(ym => ({
+  year: ym.year,
+  month: ym.month,
+  count: ym.count,
+  value: ym.value,
+}));
 ---
 
-<div class="h-full">
-  <div>
-    <div class="mb-8">
-      <SideProfile />
-    </div>
-    <div class="mb-8">
-      <SideTags tags={props.tags} />
-    </div>
-    <div class="mb-8">
-      <ArchivePerYear yearmonths={props.yearmonths} />
-    </div>
+<div
+  data-sidebar
+  style="border-left: 1px solid var(--rule); padding-left: 36px; height: 100%;"
+>
+  <div style="padding: 8px 0 28px;">
+    <SideProfile />
   </div>
-  {
-    props.tableOfContents !== undefined && (
-      <div class="sticky top-4 box-border hidden lg:block">
-        <SideToc client:load tableOfContents={props.tableOfContents} />
-      </div>
-    )
-  }
+  <div style="padding: 24px 0; border-top: 1px solid var(--rule);">
+    <SideTags tags={props.tags} />
+  </div>
+  <div style="padding: 24px 0; border-top: 1px solid var(--rule);">
+    <ArchiveHeatmap yearmonths={heatmapData} client:load />
+  </div>
 </div>

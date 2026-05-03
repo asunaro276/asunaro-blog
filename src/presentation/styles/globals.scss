@@ -2,10 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---- Theme variables (oklch) ---- */
+:root,
+.theme-light {
+  --bg:     oklch(0.985 0.008 110);
+  --bg-2:   oklch(0.965 0.010 110);
+  --bg-3:   oklch(0.940 0.012 110);
+  --fg:     oklch(0.28  0.020 145);
+  --fg-2:   oklch(0.45  0.015 145);
+  --fg-3:   oklch(0.60  0.010 145);
+  --rule:   oklch(0.86  0.008 110);
+  --rule-2: oklch(0.80  0.010 120);
+  --accent: oklch(0.46  0.09  155);
+  --tint:   oklch(0.92  0.030 155);
+}
+
+.theme-dark {
+  --bg:     oklch(0.17  0.012 150);
+  --bg-2:   oklch(0.22  0.014 150);
+  --bg-3:   oklch(0.27  0.016 150);
+  --fg:     oklch(0.94  0.010 130);
+  --fg-2:   oklch(0.76  0.010 140);
+  --fg-3:   oklch(0.60  0.008 145);
+  --rule:   oklch(0.32  0.014 150);
+  --rule-2: oklch(0.40  0.016 150);
+  --accent: oklch(0.78  0.10  145);
+  --tint:   oklch(0.30  0.040 155);
+}
+
+/* ---- Font utility classes ---- */
+.font-sans-jp {
+  font-family: 'Noto Sans JP', 'Inter', sans-serif;
+}
+
+.font-serif-jp {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
 @layer base {
   html, body {
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
+    background-color: var(--bg);
+    color: var(--fg);
   }
 }
 
@@ -13,36 +56,39 @@
   /* テーブルのスタイリング */
   table {
     @apply w-full my-6 border-collapse;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--rule);
   }
 
   thead {
-    @apply bg-gray-100;
+    background-color: var(--bg-2);
   }
 
   th {
-    @apply px-4 py-3 text-left font-semibold border border-gray-300;
-    background-color: #f5f5f5;
+    @apply px-4 py-3 text-left font-semibold;
+    border: 1px solid var(--rule);
+    background-color: var(--bg-3);
+    color: var(--fg);
   }
 
   td {
-    @apply px-4 py-3 border border-gray-300;
+    @apply px-4 py-3;
+    border: 1px solid var(--rule);
+    color: var(--fg);
   }
 
   tbody tr:nth-child(odd) {
-    @apply bg-white;
+    background-color: var(--bg);
   }
 
   tbody tr:nth-child(even) {
-    @apply bg-gray-50;
+    background-color: var(--bg-2);
   }
 
   tbody tr:hover {
-    @apply bg-gray-100;
+    background-color: var(--bg-3);
     transition: background-color 0.2s ease;
   }
 
-  /* レスポンシブ対応：小さい画面ではスクロール可能に */
   @media (max-width: 768px) {
     table {
       @apply block overflow-x-auto;
