@@ -14,7 +14,7 @@ context: |
   - ドメイン層: src/domain/（models/, interfaces/）
     - privateコンストラクタ + staticファクトリメソッドパターン
     - 不変性重視（readonly）
-  - インフラストラクチャ層: src/infrastructure/（di/, newt/, r2/, htmlParser/）
+  - インフラストラクチャ層: src/infrastructure/（di/, r2/, htmlParser/）
     - DIContainerで全Repository・UseCaseを管理
 
   ## 技術スタック

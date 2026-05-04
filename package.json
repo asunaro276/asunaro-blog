@@ -34,7 +34,6 @@
     "lodash": "^4.17.21",
     "marked": "^18.0.3",
     "material-icons": "^1.13.12",
-    "newt-client-js": "^3.3.3",
     "open-graph-scraper": "^6.7.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
