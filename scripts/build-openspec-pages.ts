@@ -123,14 +123,14 @@ function buildIndexPage(specs: string[]) {
 ${changeItems}
 </ul>
 
-<h2>Archive</h2>
-<ul>
-${archiveItems}
-</ul>
-
 <h2>Specs</h2>
 <ul>
 ${specItems}
+</ul>
+
+<h2>Archive</h2>
+<ul>
+${archiveItems}
 </ul>
 `;
 
