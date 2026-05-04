@@ -79,16 +79,30 @@ function convertMarkdownFile(mdPath: string, relativeTo: string) {
   return relPath;
 }
 
-function buildIndexPage(changes: string[], specs: string[]) {
-  const changeItems =
-    changes.length === 0
-      ? "<li>（なし）</li>"
-      : changes
-          .map((name) => {
-            const link = `changes/${name}/proposal.html`;
-            return `<li><a href="${link}">${name}</a></li>`;
-          })
-          .join("\n");
+function buildChangeItems(dir: string, urlPrefix: string): string {
+  if (!existsSync(dir)) return "<li>（なし）</li>";
+  const entries = readdirSync(dir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  if (entries.length === 0) return "<li>（なし）</li>";
+
+  return entries
+    .map((entry) => {
+      const childDir = join(dir, entry.name);
+      const childPrefix = `${urlPrefix}/${entry.name}`;
+      if (existsSync(join(childDir, "proposal.md"))) {
+        return `<li><a href="${childPrefix}/proposal.html">${entry.name}</a></li>`;
+      }
+      // グループフォルダ（archive 等）: 子を再帰展開
+      const children = buildChangeItems(childDir, childPrefix);
+      return `<li><strong>${entry.name}</strong><ul>${children}</ul></li>`;
+    })
+    .join("\n");
+}
+
+function buildIndexPage(specs: string[]) {
+  const changeItems = buildChangeItems(CHANGES_DIR, "changes");
 
   const specItems =
     specs.length === 0
@@ -122,10 +136,9 @@ ${specItems}
 
 ensureDir(OUT_DIR);
 
-const changes = collectSubdirs(CHANGES_DIR);
 const specs = collectSubdirs(SPECS_DIR);
 
-buildIndexPage(changes, specs);
+buildIndexPage(specs);
 console.log("✓ index.html を生成しました");
 
 for (const mdPath of collectMarkdownFiles(OPENSPEC_DIR)) {
