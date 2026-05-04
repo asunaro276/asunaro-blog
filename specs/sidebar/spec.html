@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Requirements</h2>
+<h3>Requirement: サイドバーコンテナ構造</h3>
+<p>サイドバーはプロフィール・タグ・アーカイブヒートマップの3セクションを縦積みで構成する。各セクションは <code>border-top: 1px solid var(--rule)</code> で区切られる。</p>
+<h4>Scenario: デスクトップでサイドバーを表示する</h4>
+<ul>
+<li><strong>WHEN</strong> 記事一覧・カテゴリ・タグ・月別アーカイブページをデスクトップで表示する</li>
+<li><strong>THEN</strong> サイドバーに <code>border-left: 1px solid var(--rule)</code> と <code>padding-left: 36px</code> が適用される</li>
+<li><strong>THEN</strong> プロフィールセクション → タグセクション（border-top）→ アーカイブセクション（border-top）の順で縦積みになる</li>
+</ul>
+<h4>Scenario: モバイルでサイドバーを表示する</h4>
+<ul>
+<li><strong>WHEN</strong> 1024px 未満でページを表示する</li>
+<li><strong>THEN</strong> サイドバーの <code>border-left</code> が消え、<code>border-top: 1px solid var(--rule)</code> に切り替わる</li>
+<li><strong>THEN</strong> <code>padding-left: 0</code>・<code>padding-top: 32px</code> が適用される</li>
+</ul>
+<h3>Requirement: ページタイプ別サイドバー表示</h3>
+<p>サイドバーはすべての一覧系ページ（トップ・カテゴリ・タグ・月別アーカイブ）で表示される。記事詳細ページには表示されない（記事詳細は PostBody の右カラムに ToC を表示）。</p>
+<h4>Scenario: 一覧ページでサイドバーが表示される</h4>
+<ul>
+<li><strong>WHEN</strong> トップページ・カテゴリ・タグ・月別アーカイブページを表示する</li>
+<li><strong>THEN</strong> プロフィール・タグ・アーカイブヒートマップを含むサイドバーが右カラムに表示される</li>
+</ul>
+<h4>Scenario: 記事詳細ページにはサイドバーがない</h4>
+<ul>
+<li><strong>WHEN</strong> 記事詳細ページを表示する</li>
+<li><strong>THEN</strong> サイドバーは表示されない（PostBody の右カラムに ToC が表示される）</li>
+</ul>
+
+</body>
+</html>

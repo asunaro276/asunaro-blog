@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: GitHub Actions による自動デプロイワークフロー</h3>
+<p><code>.github/workflows/deploy-storybook.yml</code> が存在し、main ブランチへのプッシュ時に Storybook をビルドして Cloudflare Pages にデプロイする。</p>
+<h4>Scenario: ワークフローファイルが存在する</h4>
+<ul>
+<li><strong>WHEN</strong> <code>.github/workflows/</code> を確認する</li>
+<li><strong>THEN</strong> <code>deploy-storybook.yml</code> が存在する</li>
+</ul>
+<h4>Scenario: main ブランチへのプッシュでデプロイがトリガーされる</h4>
+<ul>
+<li><strong>WHEN</strong> <code>deploy-storybook.yml</code> を確認する</li>
+<li><strong>THEN</strong> <code>on.push.branches</code> に <code>main</code> が含まれている</li>
+</ul>
+<h4>Scenario: ワークフローが Storybook をビルドしてデプロイする</h4>
+<ul>
+<li><strong>WHEN</strong> <code>deploy-storybook.yml</code> のジョブを確認する</li>
+<li><strong>THEN</strong> <code>bun run build-storybook</code> を実行するステップが存在する</li>
+<li><strong>THEN</strong> <code>wrangler pages deploy storybook-static</code> を実行するステップが存在する</li>
+<li><strong>THEN</strong> <code>CLOUDFLARE_API_TOKEN</code> シークレットを参照している</li>
+</ul>
+<h3>Requirement: designsystem.asunaroblog.net での公開アクセス</h3>
+<p>デプロイ後に <code>https://designsystem.asunaroblog.net</code> で Storybook に公開アクセスできる。</p>
+<h4>Scenario: カスタムドメインでアクセスできる</h4>
+<ul>
+<li><strong>WHEN</strong> <code>https://designsystem.asunaroblog.net</code> にブラウザでアクセスする</li>
+<li><strong>THEN</strong> Storybook のトップページが表示される</li>
+<li><strong>THEN</strong> コンポーネントのサイドバーナビゲーションが正常に機能する</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>proposal</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../index.html">← インデックスに戻る</a></nav>
+<h2>Why</h2>
+<p>デザインプロトタイプ（<code>asunaroblog (1).zip</code>）が完成し、Favion・フォント・タグ一覧ページ・月別アーカイブページ・記事ToC の5点について、プロトタイプと実装の乖離を解消するため。リブランドのUIが「森の緑（forest green）」テーマで統一されているが、これらの箇所だけ旧デザインのままになっている。</p>
+<h2>What Changes</h2>
+<ul>
+<li><strong>Favicon 差し替え（候補C採用）</strong>: 既存のファビコン一式（PNG + ICO + SVG）を、プロトタイプで候補Cとして定義された「ヒノキの枝シルエット」に置き換える</li>
+<li><strong>タイトル・見出しフォント修正</strong>: <code>font-serif-jp</code> クラスの定義を <code>Noto Serif JP</code> から <code>Inter / Noto Sans JP</code> に変更し、デザインの <code>data-headline=&quot;sans&quot;</code> デフォルトに合わせる</li>
+<li><strong>タグ一覧ページ リデザイン</strong>: タグ名・記事数・関連タグチップ・パンくずを含む専用ヘッダーを新設し、<code>VTag</code> コンポーネントのデザインを実装する</li>
+<li><strong>月別アーカイブページ リデザイン</strong>: 年・月名の大きな見出し・月チップ付き年ストリップ・前後月ナビ・タイムライン形式の記事リストを含む専用ヘッダーを新設し、<code>VMonth</code> コンポーネントのデザインを実装する</li>
+<li><strong>ToC 候補A 採用</strong>: 現行のフラットなToC をインデント+サイズ+左ボーダー方式（Variant A &quot;Indent&quot;）に更新し、h2/h3/h4 の階層を視覚化する</li>
+</ul>
+<h2>Capabilities</h2>
+<h3>New Capabilities</h3>
+<ul>
+<li><code>tag-header</code>: タグ一覧ページ専用のヘッダーセクション（タグ名・記事数・パンくず・関連タグチップ）</li>
+<li><code>yearmonth-header</code>: 月別アーカイブページ専用のヘッダーセクション（年月見出し・前後ナビ・年ストリップ）</li>
+<li><code>yearmonth-article-list</code>: 月別アーカイブページのタイムライン形式記事リスト</li>
+</ul>
+<h3>Modified Capabilities</h3>
+<ul>
+<li><code>archive-heatmap</code>: 月別アーカイブページに移動するため sidebar から独立した表示要件が変わる（ただし sidebar は維持）</li>
+<li><code>post-layout</code>: ToC に階層表示（h2/h3/h4 インデント・サイズ・左ボーダー）が追加される</li>
+</ul>
+<h2>Impact</h2>
+<ul>
+<li><code>public/favicons/</code>: favicon PNG・ICO・SVG ファイルの全差し替え</li>
+<li><code>src/presentation/styles/globals.scss</code>: <code>font-serif-jp</code> クラスのフォントスタック変更</li>
+<li><code>src/presentation/layouts/Layout.astro</code>: Google Fonts 読み込みへの <code>Noto+Serif+JP</code> 維持確認（ToC向けに <code>Instrument+Serif</code> は不要）</li>
+<li><code>src/presentation/components/common/CategoryHeader/index.astro</code>: タグ専用・月専用ヘッダーへの分岐または新規コンポーネント化</li>
+<li><code>src/presentation/components/HomePage/index.astro</code>: tag / yearmonth 向け表示の切り替えロジック更新</li>
+<li><code>src/presentation/components/PostPage/PostBody/TableOfContents/index.tsx</code>: 階層インデント対応</li>
+<li><code>src/domain/models/article/heading/Heading.ts</code>: ToC の <code>level</code> フィールド参照（既存確認）</li>
+</ul>
+
+<hr>
+<h2>このChangeのドキュメント</h2>
+<ul>
+<li><a href="./design.html">Design</a></li>
+<li><a href="./tasks.html">Tasks</a></li>
+</ul>
+<h3>Specs</h3>
+<ul>
+<li><a href="./specs/post-layout/spec.html">post-layout</a></li>
+<li><a href="./specs/tag-header/spec.html">tag-header</a></li>
+<li><a href="./specs/yearmonth-article-list/spec.html">yearmonth-article-list</a></li>
+<li><a href="./specs/yearmonth-header/spec.html">yearmonth-header</a></li>
+</ul>
+
+</body>
+</html>

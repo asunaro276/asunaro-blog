@@ -59,6 +59,17 @@
 <li><strong>THEN</strong> &quot;Suggested for you&quot; セクションが <code>border-top</code> で区切られて表示される</li>
 <li><strong>THEN</strong> 関連記事が 3カラムの記事カードで表示される</li>
 </ul>
+<h3>Requirement: ToC 階層表示（Variant A: Indent）</h3>
+<p>記事詳細ページの目次（ToC）は、h2/h3/h4 の見出し階層をインデント・フォントサイズ・左ボーダーで視覚的に区別して表示する SHALL。</p>
+<h4>Scenario: ToC に階層が表示される</h4>
+<ul>
+<li><strong>WHEN</strong> h2/h3/h4 が混在する記事の詳細ページを表示する</li>
+<li><strong>THEN</strong> h2 の目次項目は左インデント 0px・フォントサイズ 13px・font-weight 500 で表示される</li>
+<li><strong>THEN</strong> h3 の目次項目は左インデント 14px・フォントサイズ 12px・font-weight 400 で表示される</li>
+<li><strong>THEN</strong> h4 の目次項目は左インデント 28px・フォントサイズ 11.5px・font-weight 400 で表示される</li>
+<li><strong>THEN</strong> アクティブな項目は <code>border-left: 2px solid var(--accent)</code> と <code>color: var(--fg)</code> で強調される</li>
+<li><strong>THEN</strong> 非アクティブな h2 は <code>color: var(--fg-2)</code>、h3/h4 は <code>color: var(--fg-3)</code> で表示される</li>
+</ul>
 
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Requirements</h2>
+<h3>Requirement: モバイルハンバーガーメニュー</h3>
+<p>ビューポート幅 768px 未満ではデスクトップナビを非表示にし、ハンバーガーボタンでトグル開閉する縦積みナビに切り替える。</p>
+<h4>Scenario: モバイルでヘッダーを表示する</h4>
+<ul>
+<li><strong>WHEN</strong> ビューポート幅が 768px 未満でページを表示する</li>
+<li><strong>THEN</strong> デスクトップ用ナビ（<code>&lt;nav&gt;</code>）が非表示になる</li>
+<li><strong>THEN</strong> ハンバーガーボタン（<code>☰</code>）がヘッダー右端に表示される</li>
+<li><strong>THEN</strong> ヘッダーは2カラム（ロゴ／ハンバーガー）に変わる</li>
+</ul>
+<h4>Scenario: ハンバーガーボタンをタップする</h4>
+<ul>
+<li><strong>WHEN</strong> ハンバーガーボタンをタップする</li>
+<li><strong>THEN</strong> 縦積みナビが <code>border-top: 1px solid var(--rule)</code> 付きでヘッダー直下に展開する</li>
+<li><strong>THEN</strong> ボタンアイコンが <code>☰</code> から <code>✕</code> に変わる</li>
+<li><strong>THEN</strong> 再タップすると縦積みナビが閉じてアイコンが <code>☰</code> に戻る</li>
+</ul>
+<h4>Scenario: モバイルナビのアクティブ強調</h4>
+<ul>
+<li><strong>WHEN</strong> 縦積みナビを表示する</li>
+<li><strong>THEN</strong> 現在のページに対応する項目が <code>--accent</code> 色 + <code>border-left: 3px solid var(--accent)</code> で強調される</li>
+</ul>
+<h4>Scenario: ページ遷移後にメニューを閉じる</h4>
+<ul>
+<li><strong>WHEN</strong> View Transitions でページ遷移が完了する（<code>astro:page-load</code>）</li>
+<li><strong>THEN</strong> 縦積みナビが自動的に閉じる</li>
+<li><strong>THEN</strong> ボタンアイコンが <code>☰</code> に戻る</li>
+</ul>
+
+</body>
+</html>

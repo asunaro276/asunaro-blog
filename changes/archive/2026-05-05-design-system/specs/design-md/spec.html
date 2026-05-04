@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: DESIGN.md ファイルの存在と仕様準拠</h3>
+<p>プロジェクトルートに <code>DESIGN.md</code> ファイルが存在し、Google Stitch 公式仕様に準拠した YAML フロントマター（機械可読トークン）と Markdown ボディ（人間可読設計解説）の2層構造を持つ。</p>
+<h4>Scenario: YAML フロントマターが存在する</h4>
+<ul>
+<li><strong>WHEN</strong> <code>DESIGN.md</code> の先頭を確認する</li>
+<li><strong>THEN</strong> <code>---</code> で囲まれた YAML フロントマターブロックが存在する</li>
+<li><strong>THEN</strong> <code>version: alpha</code> と <code>name: asunaroblog</code> が含まれる</li>
+</ul>
+<h4>Scenario: カラートークンが hex 形式で定義されている</h4>
+<ul>
+<li><strong>WHEN</strong> <code>DESIGN.md</code> の <code>colors</code> セクションを確認する</li>
+<li><strong>THEN</strong> <code>primary</code>, <code>secondary</code>, <code>surface</code>, <code>accent</code> 以上のトークンが定義されている</li>
+<li><strong>THEN</strong> すべてのカラー値が <code>&quot;#RRGGBB&quot;</code> 形式である</li>
+</ul>
+<h4>Scenario: タイポグラフィトークンが定義されている</h4>
+<ul>
+<li><strong>WHEN</strong> <code>DESIGN.md</code> の <code>typography</code> セクションを確認する</li>
+<li><strong>THEN</strong> <code>headline-display</code>, <code>body-md</code>, <code>label-caps</code> 以上のトークンが定義されている</li>
+<li><strong>THEN</strong> 各トークンに <code>fontFamily</code>, <code>fontSize</code>, <code>fontWeight</code>, <code>lineHeight</code> が含まれる</li>
+</ul>
+<h4>Scenario: スペーシングと角丸トークンが定義されている</h4>
+<ul>
+<li><strong>WHEN</strong> <code>DESIGN.md</code> の <code>spacing</code> および <code>rounded</code> セクションを確認する</li>
+<li><strong>THEN</strong> <code>spacing</code> に <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code> 以上のスケールが存在する</li>
+<li><strong>THEN</strong> <code>rounded</code> に <code>sm</code>, <code>md</code>, <code>lg</code>, <code>full</code> のスケールが存在する</li>
+</ul>
+<h4>Scenario: コンポーネントトークンがトークン参照を使用している</h4>
+<ul>
+<li><strong>WHEN</strong> <code>DESIGN.md</code> の <code>components</code> セクションを確認する</li>
+<li><strong>THEN</strong> <code>post-card</code>, <code>tab-active</code>, <code>tab-inactive</code> 以上のコンポーネントが定義されている</li>
+<li><strong>THEN</strong> 各プロパティが <code>{colors.xxx}</code> や <code>{spacing.xxx}</code> 形式のトークン参照を使用している</li>
+</ul>
+<h3>Requirement: DESIGN.md の Markdown ボディ構成</h3>
+<p>Markdown ボディは公式仕様のセクション順序に従って構成される。</p>
+<h4>Scenario: 必須セクションが正しい順序で存在する</h4>
+<ul>
+<li><strong>WHEN</strong> <code>DESIGN.md</code> のボディを確認する</li>
+<li><strong>THEN</strong> <code>## Overview</code>, <code>## Colors</code>, <code>## Typography</code>, <code>## Layout</code>, <code>## Elevation &amp; Depth</code>, <code>## Shapes</code>, <code>## Components</code>, <code>## Do&#39;s and Don&#39;ts</code> が順番に存在する</li>
+</ul>
+<h4>Scenario: CSS 変数との対応テーブルが存在する</h4>
+<ul>
+<li><strong>WHEN</strong> <code>DESIGN.md</code> の <code>## Colors</code> セクションを確認する</li>
+<li><strong>THEN</strong> DESIGN.md トークン名（<code>primary</code> 等）と CSS カスタムプロパティ名（<code>--fg</code> 等）の対応テーブルが記載されている</li>
+</ul>
+<h3>Requirement: CLAUDE.md からの DESIGN.md 参照</h3>
+<p><code>CLAUDE.md</code> に、コンポーネント実装時は <code>DESIGN.md</code> を参照するよう指示が追記されている。</p>
+<h4>Scenario: CLAUDE.md に DESIGN.md への参照が存在する</h4>
+<ul>
+<li><strong>WHEN</strong> <code>CLAUDE.md</code> を確認する</li>
+<li><strong>THEN</strong> <code>DESIGN.md</code> を参照するよう明示した記述が存在する</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Requirements</h2>
+<h3>Requirement: テーマトグルボタン</h3>
+<p>ヘッダー右端にダーク/ライトテーマを切り替えるボタンを設ける。現在のテーマに応じたアイコンを表示し、クリックでトグルする。選択状態は localStorage に永続化する。</p>
+<h4>Scenario: ページ初回表示時にテーマが復元される</h4>
+<ul>
+<li><strong>WHEN</strong> ページを表示する</li>
+<li><strong>THEN</strong> localStorage の <code>theme</code> 値（<code>&quot;dark&quot;</code> / <code>&quot;light&quot;</code>）に基づいて <code>&lt;html&gt;</code> に <code>theme-dark</code> または <code>theme-light</code> クラスが適用される</li>
+<li><strong>THEN</strong> localStorage に値がない場合は <code>prefers-color-scheme</code> メディアクエリに従う</li>
+</ul>
+<h4>Scenario: トグルボタンのアイコン表示</h4>
+<ul>
+<li><strong>WHEN</strong> ライトモードでヘッダーを表示する</li>
+<li><strong>THEN</strong> ボタンに <code>☀</code> アイコンが表示される</li>
+<li><strong>WHEN</strong> ダークモードでヘッダーを表示する</li>
+<li><strong>THEN</strong> ボタンに <code>🌙</code> アイコンが表示される</li>
+</ul>
+<h4>Scenario: テーマを切り替える</h4>
+<ul>
+<li><strong>WHEN</strong> テーマトグルボタンをクリックする</li>
+<li><strong>THEN</strong> <code>&lt;html&gt;</code> の <code>theme-dark</code> / <code>theme-light</code> クラスがトグルされる</li>
+<li><strong>THEN</strong> localStorage の <code>theme</code> 値が更新される</li>
+<li><strong>THEN</strong> アイコンが切り替え後のテーマに対応するものに変わる</li>
+</ul>
+<h4>Scenario: トグルボタンの外観</h4>
+<ul>
+<li><strong>WHEN</strong> ヘッダーを表示する</li>
+<li><strong>THEN</strong> ボタンは <code>border: 1px solid var(--rule-2)</code> の 32×32px 角丸ボタンで表示される</li>
+<li><strong>THEN</strong> ボタンは <code>transition:persist</code> でページ遷移後も状態を保持する</li>
+</ul>
+
+</body>
+</html>

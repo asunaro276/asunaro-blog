@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>design</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../index.html">← インデックスに戻る</a></nav>
+<h2>Context</h2>
+<p>プロトタイプ（<code>asunaroblog (1).zip</code>）で定義された5つのデザイン変更を実装する。現行の実装はリブランド後のカラーパレットとレイアウトは適用済みだが、Favicon・フォント・タグ/月別アーカイブのヘッダー・ToC 階層表示の4点が旧状態のまま。</p>
+<h3>現行状態</h3>
+<table>
+<thead>
+<tr>
+<th>対象</th>
+<th>現状</th>
+<th>目標</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Favicon</td>
+<td>汎用グリーン正方形</td>
+<td>候補C「ヒノキの枝シルエット」</td>
+</tr>
+<tr>
+<td><code>font-serif-jp</code></td>
+<td><code>Noto Serif JP, serif</code></td>
+<td><code>Inter, Noto Sans JP, sans-serif</code> （<code>data-headline=&quot;sans&quot;</code> 相当）</td>
+</tr>
+<tr>
+<td>タグ一覧ページヘッダー</td>
+<td>単行テキスト「{tag}に関する記事一覧」</td>
+<td><code>#TagName</code> 大見出し + 記事数 + 関連タグチップ + パンくず</td>
+</tr>
+<tr>
+<td>月別アーカイブヘッダー</td>
+<td>単行テキスト「YYYY年M月の記事一覧」</td>
+<td>年・月名の大見出し + 年ストリップ + 前後月ナビ + タイムライン記事リスト</td>
+</tr>
+<tr>
+<td>ToC</td>
+<td>フラット（全項目同一スタイル）</td>
+<td>Variant A: インデント+サイズ+左ボーダーで h2/h3/h4 を区別</td>
+</tr>
+</tbody></table>
+<h2>Goals / Non-Goals</h2>
+<p><strong>Goals:</strong></p>
+<ul>
+<li>Favicon を候補C SVG パスに差し替え、16px〜180px の全スケールで読める状態にする</li>
+<li><code>font-serif-jp</code> フォントスタックを <code>Inter, Noto Sans JP</code> に変更してプロトタイプのデフォルト見出しスタイルと一致させる</li>
+<li>タグ一覧ページに専用ヘッダーコンポーネント <code>TagHeader</code> を実装する</li>
+<li>月別アーカイブページに専用ヘッダーコンポーネント <code>YearMonthHeader</code> と、タイムライン形式の記事リスト <code>YearMonthArticleList</code> を実装する</li>
+<li>ToC に h2/h3/h4 の深さに応じたインデント・フォントサイズ変化・左ボーダー強調を実装する</li>
+</ul>
+<p><strong>Non-Goals:</strong></p>
+<ul>
+<li>ダークモード対応（既存テーマシステムに乗るため個別対応不要）</li>
+<li>Favicon PNG の自動生成スクリプト（SVG を元に手動または既存ツールで生成）</li>
+<li>カテゴリ一覧ページのヘッダー変更（<code>CategoryHeader</code> は既に実装済み）</li>
+<li><code>font-serif-jp</code> の使用箇所以外（記事本文・引用等）のタイポグラフィ変更</li>
+</ul>
+<h2>Decisions</h2>
+<h3>1. Favicon: SVG primary + PNG fallback</h3>
+<p><strong>決定</strong>: <code>favicon.svg</code> を primary として <code>&lt;link rel=&quot;icon&quot; type=&quot;image/svg+xml&quot;&gt;</code> で指定し、<code>favicon-32x32.png</code> / <code>favicon-16x16.png</code> は SVG から生成した PNG で上書きする。<code>safari-pinned-tab.svg</code> は単色 mask 用に同じパスデータを使用。</p>
+<p><strong>理由</strong>: 現代ブラウザは SVG favicon を優先するため、まず SVG を置けば高解像度で表示できる。PNG fallback は ICO に内包するため旧ブラウザも対応。<code>apple-touch-icon.png</code> / <code>android-chrome-*.png</code> は 180px・192px・384px の PNG を生成。</p>
+<p><strong>代替案</strong>: ICO ファイルのみ差し替え → 解像度が16/32pxに限定される、SVG が使えるモダン環境で粗く見える。</p>
+<p><strong>SVG パスデータ（候補C）</strong>:</p>
+<pre><code class="language-xml">&lt;svg viewBox=&quot;0 0 64 64&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+  &lt;rect width=&quot;64&quot; height=&quot;64&quot; rx=&quot;14&quot; fill=&quot;#f4f3ef&quot;/&gt;
+  &lt;g fill=&quot;#2f6b3f&quot;&gt;
+    &lt;path d=&quot;M32 8 L26 18 L32 16 L38 18 Z&quot;/&gt;
+    &lt;path d=&quot;M32 18 L20 28 L28 26 L32 28 L36 26 L44 28 Z&quot;/&gt;
+    &lt;path d=&quot;M32 28 L16 40 L26 36 L32 40 L38 36 L48 40 Z&quot;/&gt;
+    &lt;rect x=&quot;30&quot; y=&quot;38&quot; width=&quot;4&quot; height=&quot;14&quot; rx=&quot;1.5&quot;/&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+</code></pre>
+<p>ダークモード対応として <code>&lt;svg&gt;</code> に <code>@media (prefers-color-scheme: dark)</code> を使い、背景 <code>#1a1f1c</code>・前景 <code>#6cb47a</code> に切り替える（SVG favicon は CSS メディアクエリをサポート）。</p>
+<h3>2. フォント変更: font-serif-jp を Inter/Noto Sans JP に</h3>
+<p><strong>決定</strong>: <code>globals.scss</code> の <code>.font-serif-jp</code> を <code>&#39;Inter&#39;, &#39;Noto Sans JP&#39;, sans-serif</code> に変更し、<code>letter-spacing: -0.025em</code> を追加する。</p>
+<p><strong>理由</strong>: プロトタイプのデフォルト見出しスタイル <code>data-headline=&quot;sans&quot;</code> と一致させる。<code>Noto Serif JP</code> は本文・引用・インラインでは現在使われておらず、<code>.font-serif-jp</code> クラスのみで参照されているため影響範囲が限定的。</p>
+<p><strong>代替案</strong>: <code>data-headline</code> 属性をページ全体に付与 → テーマシステムを大きく変更する必要がある。フォントクラス変更の方が最小変更で済む。</p>
+<h3>3. TagHeader・YearMonthHeader を新コンポーネントとして追加</h3>
+<p><strong>決定</strong>: <code>src/presentation/components/common/TagHeader/index.astro</code> と <code>src/presentation/components/common/YearMonthHeader/index.astro</code> を新設し、<code>HomePage/index.astro</code> で分岐表示する。<code>YearMonthArticleList/index.astro</code> もタイムライン専用コンポーネントとして追加。</p>
+<p><strong>理由</strong>: <code>CategoryHeader</code> と同じ構造で追加することで統一性を保てる。<code>HomePage/index.astro</code> の分岐は <code>category</code> / <code>tag</code> / <code>yearmonth</code> props が既に存在するため影響が少ない。</p>
+<p><strong>代替案</strong>: <code>CategoryHeader</code> を汎用 <code>PageHeader</code> に拡張 → 既存テストやスナップショットへの影響が大きい。</p>
+<h3>4. ToC 階層表示: htmlTag から level を導出</h3>
+<p><strong>決定</strong>: <code>Heading</code> ドメインモデルには <code>level</code> フィールドを追加しない。<code>TableOfContents</code> コンポーネント内で <code>parseInt(item.htmlTag.replace(&#39;h&#39;, &#39;&#39;)) || 2</code> として level を導出し、インデント計算に使用する。</p>
+<p><strong>理由</strong>: <code>htmlTag</code> が &quot;h2&quot;/&quot;h3&quot;/&quot;h4&quot; のいずれかであることは既存の HTML パーサーが保証している。<code>Heading</code> ドメインモデルへの変更は他コンポーネントへの影響が大きい。インデント幅: <code>(level - 2) * 14px</code>、フォントサイズ: h2=13px, h3=12px, h4=11.5px。</p>
+<p><strong>代替案</strong>: <code>Heading</code> に <code>level: number</code> を追加 → より正規化された設計だが本変更のスコープを超える。</p>
+<h2>Risks / Trade-offs</h2>
+<ul>
+<li><strong>フォント変更の視覚的影響</strong>: <code>font-serif-jp</code> は記事タイトル・カテゴリヘッダー・セクション見出しに使われている。セリフ体からサンセリフ体への変更は日本語見出しの印象を大きく変える。 → デザインプロトタイプで承認済みのため問題なし。</li>
+<li><strong>PNG Favicon 生成</strong>: SVG から PNG へのラスタライズは手動または外部ツールが必要。CI パイプラインには含めない。 → <code>public/favicons/</code> に事前生成済み PNG を含めてコミット。</li>
+<li><strong>YearMonth ページの記事リスト UI 変更</strong>: 現行のカード形式からタイムライン形式への変更は、ユーザーが慣れた UI を変える。 → プロトタイプで決定済み。ページング等の既存機能は維持。</li>
+</ul>
+<h2>Migration Plan</h2>
+<ol>
+<li><code>public/favicons/</code> に新 SVG・PNG・ICO を配置（<code>Layout.astro</code> に SVG favicon の <code>&lt;link&gt;</code> 追加）</li>
+<li><code>globals.scss</code> の <code>font-serif-jp</code> を変更（影響: 全ページの見出し）</li>
+<li><code>TagHeader</code> コンポーネント新設 → <code>HomePage/index.astro</code> で <code>tag</code> 時に使用</li>
+<li><code>YearMonthHeader</code> + <code>YearMonthArticleList</code> コンポーネント新設 → <code>HomePage/index.astro</code> で <code>yearmonth</code> 時に使用</li>
+<li><code>TableOfContents</code> コンポーネントを階層対応に更新</li>
+</ol>
+<p>ロールバック: 各ファイルは独立しているため、問題があれば該当ファイルを個別に差し戻せる。</p>
+
+</body>
+</html>

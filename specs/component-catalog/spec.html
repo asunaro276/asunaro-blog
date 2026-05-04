@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: Storybook のセットアップ</h3>
+<p><code>.storybook/main.ts</code> と <code>.storybook/preview.ts</code> が存在し、<code>@storybook-astro/framework</code> を使って Astro・React コンポーネントを読み込める状態になっている。</p>
+<h4>Scenario: Storybook が起動できる</h4>
+<ul>
+<li><strong>WHEN</strong> <code>bun run storybook</code> を実行する</li>
+<li><strong>THEN</strong> エラーなく Storybook 開発サーバーが起動する</li>
+<li><strong>THEN</strong> ブラウザで localhost:6006 にアクセスできる</li>
+</ul>
+<h4>Scenario: グローバルスタイルが適用されている</h4>
+<ul>
+<li><strong>WHEN</strong> Storybook でコンポーネントを表示する</li>
+<li><strong>THEN</strong> <code>tokens.scss</code> と <code>globals.scss</code> のスタイルが適用されている</li>
+<li><strong>THEN</strong> CSS カスタムプロパティ（<code>--bg</code>, <code>--fg</code>, <code>--accent</code> 等）が有効になっている</li>
+</ul>
+<h3>Requirement: 共通コンポーネントのストーリー</h3>
+<p><code>common/</code> 配下の Astro コンポーネントのストーリーが存在する。</p>
+<h4>Scenario: CategoryHeader のストーリーが存在する</h4>
+<ul>
+<li><strong>WHEN</strong> Storybook の <code>common/CategoryHeader</code> を確認する</li>
+<li><strong>THEN</strong> カテゴリ名・記事数・タブ一覧を表示するストーリーが存在する</li>
+</ul>
+<h4>Scenario: Header のストーリーが存在する</h4>
+<ul>
+<li><strong>WHEN</strong> Storybook の <code>common/Header</code> を確認する</li>
+<li><strong>THEN</strong> ナビゲーション付きのヘッダーを表示するストーリーが存在する</li>
+</ul>
+<h4>Scenario: Footer のストーリーが存在する</h4>
+<ul>
+<li><strong>WHEN</strong> Storybook の <code>common/Footer</code> を確認する</li>
+<li><strong>THEN</strong> フッターを表示するストーリーが存在する</li>
+</ul>
+<h3>Requirement: ページ固有コンポーネントのストーリー</h3>
+<p><code>HomePage/</code> および <code>PostPage/</code> 配下のコンポーネントのストーリーが存在する。</p>
+<h4>Scenario: PostCard のストーリーが存在する</h4>
+<ul>
+<li><strong>WHEN</strong> Storybook の <code>HomePage/PostCard</code> を確認する</li>
+<li><strong>THEN</strong> 記事タイトル・カテゴリ・日付・カバー画像を表示するストーリーが存在する</li>
+</ul>
+<h4>Scenario: PaginationItem のストーリーが存在する</h4>
+<ul>
+<li><strong>WHEN</strong> Storybook の <code>HomePage/PaginationItem</code> を確認する</li>
+<li><strong>THEN</strong> アクティブ・非アクティブの2バリアントのストーリーが存在する</li>
+</ul>
+<h4>Scenario: ArchiveHeatmap のストーリーが存在する</h4>
+<ul>
+<li><strong>WHEN</strong> Storybook の <code>common/SideBar/ArchiveHeatmap</code> を確認する</li>
+<li><strong>THEN</strong> ヒートマップデータを渡したストーリーが存在する</li>
+</ul>
+<h3>Requirement: Storybook のビルド</h3>
+<p><code>bun run build-storybook</code> でエラーなく静的ファイルが生成される。</p>
+<h4>Scenario: Storybook ビルドが成功する</h4>
+<ul>
+<li><strong>WHEN</strong> <code>bun run build-storybook</code> を実行する</li>
+<li><strong>THEN</strong> エラーなく完了し、<code>storybook-static/</code> ディレクトリが生成される</li>
+</ul>
+
+</body>
+</html>

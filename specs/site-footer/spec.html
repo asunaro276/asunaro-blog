@@ -20,19 +20,19 @@
 <body>
 <nav><a href="../../index.html">← インデックスに戻る</a></nav>
 <h2>ADDED Requirements</h2>
-<h3>Requirement: 4カラムグリッドフッター</h3>
-<p>フッターは <code>2fr 1fr 1fr 1fr</code> の4カラムグリッドで構成する。左からブランド・カテゴリ・Elsewhere・Newsletter の各セクションを配置する。背景色は <code>--bg-2</code>。</p>
+<h3>Requirement: 3カラムグリッドフッター</h3>
+<p>フッターは <code>2fr 1fr 1fr</code> の3カラムグリッドで構成する。左からブランド・カテゴリ・Elsewhere の各セクションを配置する。背景色は <code>--bg-2</code>。</p>
 <h4>Scenario: フッターが表示される</h4>
 <ul>
 <li><strong>WHEN</strong> ページのフッターを表示する</li>
-<li><strong>THEN</strong> ロゴと説明文（ブランドセクション）が左端に表示される</li>
-<li><strong>THEN</strong> Category・Elsewhere・Newsletter の3カラムがその右に続く</li>
-<li><strong>THEN</strong> 最下部にコピーライトと &quot;built with Astro · Newt CMS&quot; が <code>JetBrains Mono</code> 11px で表示される</li>
+<li><strong>THEN</strong> ロゴと説明文（ブランドセクション）が左端（2fr）に表示される</li>
+<li><strong>THEN</strong> Category・Elsewhere の2カラムがその右に続く</li>
+<li><strong>THEN</strong> 最下部に <code>© Asunaro</code> コピーライトが <code>JetBrains Mono</code> 11px で表示される</li>
 </ul>
 <h4>Scenario: モバイルでフッターを表示する</h4>
 <ul>
 <li><strong>WHEN</strong> モバイル（768px 未満）でフッターを表示する</li>
-<li><strong>THEN</strong> 4カラムが縦積みに変わる</li>
+<li><strong>THEN</strong> 3カラムが縦積みに変わる</li>
 </ul>
 
 </body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Requirements</h2>
+<h3>Requirement: 全ページへの SEO メタタグ付与</h3>
+<p>すべてのページに <code>&lt;title&gt;</code> と <code>&lt;meta name=&quot;description&quot;&gt;</code> を設定する。<code>@astrolib/seo</code> の <code>AstroSeo</code> コンポーネントを使用する。</p>
+<h4>Scenario: トップページの SEO タグ</h4>
+<ul>
+<li><strong>WHEN</strong> トップページを表示する</li>
+<li><strong>THEN</strong> <code>&lt;title&gt;</code> が &quot;Asunaro Blog&quot; になっている</li>
+<li><strong>THEN</strong> <code>&lt;meta name=&quot;description&quot;&gt;</code> にブログの説明文が設定されている</li>
+</ul>
+<h4>Scenario: 記事ページの SEO タグ</h4>
+<ul>
+<li><strong>WHEN</strong> 記事詳細ページを表示する</li>
+<li><strong>THEN</strong> <code>&lt;title&gt;</code> が記事タイトルになっている</li>
+<li><strong>THEN</strong> <code>&lt;meta name=&quot;description&quot;&gt;</code> が記事の説明文（HTML タグ除去済み）になっている</li>
+</ul>
+<h3>Requirement: Open Graph タグの付与</h3>
+<p>SNS シェア時に適切なプレビューが表示されるよう OGP タグを全ページに設定する。</p>
+<h4>Scenario: 記事ページの OGP タグ</h4>
+<ul>
+<li><strong>WHEN</strong> 記事詳細ページを表示する</li>
+<li><strong>THEN</strong> <code>og:title</code> に記事タイトルが設定されている</li>
+<li><strong>THEN</strong> <code>og:description</code> に記事の説明文が設定されている</li>
+<li><strong>THEN</strong> <code>og:image</code> に記事のカバー画像 URL が設定されている</li>
+</ul>
+<h3>Requirement: Twitter Card タグの付与</h3>
+<p>Twitter（X）での大型画像プレビューを有効化する。</p>
+<h4>Scenario: Twitter Card タグが設定される</h4>
+<ul>
+<li><strong>WHEN</strong> 任意のページを表示する</li>
+<li><strong>THEN</strong> <code>twitter:card</code> が <code>summary_large_image</code> に設定されている</li>
+</ul>
+<h3>Requirement: サイトマップの自動生成</h3>
+<p><code>@astrojs/sitemap</code> により <code>sitemap-index.xml</code> を自動生成し、検索エンジンのクロールを支援する。</p>
+<h4>Scenario: サイトマップが生成される</h4>
+<ul>
+<li><strong>WHEN</strong> サイトをビルドする</li>
+<li><strong>THEN</strong> <code>dist/sitemap-index.xml</code> が生成される</li>
+<li><strong>THEN</strong> <code>&lt;link rel=&quot;sitemap&quot; href=&quot;/sitemap-index.xml&quot;&gt;</code> が <code>&lt;head&gt;</code> に含まれる</li>
+</ul>
+
+</body>
+</html>

@@ -29,11 +29,11 @@
 <li><strong>THEN</strong> ヘッダー背景はコンテンツ上で半透明 + blur で表示される</li>
 </ul>
 <h3>Requirement: 3カラムヘッダーレイアウト</h3>
-<p>ヘッダー内部は <code>grid-template-columns: 1fr auto 1fr</code> の3カラムグリッドで構成する。左にロゴ、中央にナビゲーション、右に検索/RSS リンクを配置する。</p>
+<p>ヘッダー内部は <code>grid-template-columns: 1fr auto 1fr</code> の3カラムグリッドで構成する。左にロゴ、中央にナビゲーション、右にテーマトグルボタンを配置する。</p>
 <h4>Scenario: デスクトップでヘッダーを表示する</h4>
 <ul>
 <li><strong>WHEN</strong> ビューポート幅が 1024px 以上</li>
-<li><strong>THEN</strong> ロゴ・ナビ・検索/RSS が横並びの3カラムで表示される</li>
+<li><strong>THEN</strong> ロゴ・ナビ・テーマトグルボタンが横並びの3カラムで表示される</li>
 </ul>
 <h3>Requirement: ロゴ表示</h3>
 <p>ロゴは <code>asunaro</code> + <code>blog</code>（accent カラー）のインラインテキストで表示する。<code>font-weight: 600</code>, <code>font-size: 20px</code>, <code>letter-spacing: -0.02em</code>。<code>since 2022</code> をモノスペースで小さく添える。</p>
