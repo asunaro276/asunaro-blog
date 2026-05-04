@@ -66,15 +66,49 @@ function collectMarkdownFiles(dir: string): string[] {
   return results;
 }
 
+function buildChangeSiblingLinks(changeDir: string): string {
+  const links: string[] = [];
+
+  if (existsSync(join(changeDir, "design.md"))) {
+    links.push(`<li><a href="./design.html">Design</a></li>`);
+  }
+  if (existsSync(join(changeDir, "tasks.md"))) {
+    links.push(`<li><a href="./tasks.html">Tasks</a></li>`);
+  }
+
+  const specsDir = join(changeDir, "specs");
+  if (existsSync(specsDir)) {
+    const specDirs = collectSubdirs(specsDir);
+    for (const specName of specDirs) {
+      links.push(`<li><a href="./specs/${specName}/spec.html">${specName}</a></li>`);
+    }
+  }
+
+  if (links.length === 0) return "";
+
+  return `
+<hr>
+<h2>このChangeのドキュメント</h2>
+<ul>
+${links.join("\n")}
+</ul>
+`;
+}
+
 function convertMarkdownFile(mdPath: string, relativeTo: string) {
   const relPath = relative(relativeTo, mdPath).replace(/\.md$/, ".html");
   const outPath = join(OUT_DIR, relPath);
   ensureDir(dirname(outPath));
 
   const md = readFileSync(mdPath, "utf-8");
-  const html = marked(md) as string;
+  let html = marked(md) as string;
   const title = basename(mdPath, ".md");
   const depth = relPath.split("/").length - 1;
+
+  if (basename(mdPath) === "proposal.md") {
+    html += buildChangeSiblingLinks(dirname(mdPath));
+  }
+
   writeFileSync(outPath, htmlPage(title, html, depth));
   return relPath;
 }
