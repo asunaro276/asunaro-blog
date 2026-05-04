@@ -7,8 +7,8 @@
       .fg { fill: #6cb47a; }
     }
   </style>
-  <rect class="bg" width="64" height="64" rx="14"/>
-  <g class="fg">
+  <rect class="bg" width="64" height="64" rx="14" fill="#f4f3ef"/>
+  <g class="fg" fill="#2f6b3f">
     <path d="M32 8 L26 18 L32 16 L38 18 Z"/>
     <path d="M32 18 L20 28 L28 26 L32 28 L36 26 L44 28 Z"/>
     <path d="M32 28 L16 40 L26 36 L32 40 L38 36 L48 40 Z"/>
