@@ -4,6 +4,9 @@ import Pagination from "./Pagination"
 import PostsList from "./PostsList/index.astro";
 import HeroSection from "./HeroSection/index.astro";
 import CategoryHeader from "../common/CategoryHeader/index.astro";
+import TagHeader from "../common/TagHeader/index.astro";
+import YearMonthHeader from "../common/YearMonthHeader/index.astro";
+import YearMonthArticleList from "../common/YearMonthArticleList/index.astro";
 import Footer from "../common/Footer/index.astro";
 import SideBar from "../../components/common/SideBar/index.astro";
 import type { Article } from "/domain/models/article/Article";
@@ -47,6 +50,22 @@ const gridArticles = isTopPage && props.articles.length > 0 ? props.articles.sli
     />
   )}
 
+  {props.tag && (
+    <TagHeader
+      tag={props.tag}
+      tags={props.tags}
+      totalCount={props.totalCount}
+    />
+  )}
+
+  {props.yearmonth && (
+    <YearMonthHeader
+      yearmonth={props.yearmonth}
+      yearmonths={props.yearmonths}
+      totalCount={props.totalCount}
+    />
+  )}
+
   <div class="flex justify-center px-[16px] md:px-[32px] py-[32px]">
     <div class="xl:max-w-screen-xl w-full grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-6">
       <div class:list={["lg:col-span-3"]}>
@@ -56,32 +75,23 @@ const gridArticles = isTopPage && props.articles.length > 0 ? props.articles.sli
               <a href="/1" class="font-mono" style="font-size: 11px; letter-spacing: 0.14em; color: var(--fg-3); text-decoration: none; text-transform: uppercase; transition: color 0.15s;">VIEW ALL →</a>
             </div>
           )}
-          {props.tag && (
-            <div class='mt-[16px] mb-[32px] text-center'>
-              {props.articles.length === 0 ? (
-                <p>該当するタグの記事はありません</p>
-              ) : (
-                <p style="color: var(--fg);">{props.tag.name}に関する記事一覧</p>
-              )}
-            </div>
+          {props.tag && props.articles.length === 0 && (
+            <p style="color: var(--fg); text-align: center; margin: 32px 0;">該当するタグの記事はありません</p>
           )}
           {props.category && props.articles.length === 0 && (
             <p style="color: var(--fg); text-align: center; margin: 32px 0;">該当するカテゴリーの記事はありません</p>
           )}
-          {props.yearmonth && (
-            <div class='my-12 text-center'>
-              {props.articles.length === 0 ? (
-                <p>該当する期間の記事はありません</p>
-              ) : (
-                <p style="color: var(--fg);">{props.yearmonth.displayValue}の記事一覧</p>
-              )}
-            </div>
+          {props.yearmonth && props.articles.length === 0 && (
+            <p style="color: var(--fg); text-align: center; margin: 32px 0;">該当する期間の記事はありません</p>
           )}
           {props.statusCode && (
             <div style="color: var(--fg);">Error{props.statusCode}</div>
           )}
+          {props.yearmonth && !props.statusCode && props.articles.length > 0 && (
+            <YearMonthArticleList articles={gridArticles} />
+          )}
           {
-            !props.statusCode && (
+            !props.yearmonth && !props.statusCode && (
               <PostsList articles={gridArticles} />
             )
           }

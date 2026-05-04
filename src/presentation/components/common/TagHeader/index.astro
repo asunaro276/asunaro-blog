@@ -1,0 +1,72 @@
+---
+import type { Tag } from "/domain/models/article/tag/Tag";
+
+type Props = {
+  tag: Tag;
+  tags: Tag[];
+  totalCount: number;
+};
+
+const { tag, tags, totalCount } = Astro.props;
+---
+
+<div
+  data-tag-header
+  style="background-color: var(--bg-2); border-bottom: 1px solid var(--rule); padding: 48px 0 32px;"
+>
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px;">
+    <!-- パンくず -->
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+      <a
+        href="/tag/1"
+        style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); text-decoration: none;"
+      >
+        ← TAGS
+      </a>
+      <span style="font-size: 11px; color: var(--fg-3);">/</span>
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--fg-2);">{tag.name}</span>
+    </div>
+
+    <!-- タグ名 + 記事数 -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
+      <h1 style="margin: 0; line-height: 1.1;">
+        <span style="font-size: 52px; font-weight: 700; color: var(--accent);">#</span><span
+          class="font-serif-jp"
+          style="font-size: 52px; font-weight: 700; color: var(--fg);"
+        >{tag.name}</span>
+      </h1>
+      <span class="font-mono" style="font-size: 12px; color: var(--fg-3);">{totalCount} entries</span>
+    </div>
+
+    <!-- Related tags -->
+    <div>
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-3); display: block; margin-bottom: 8px;">
+        Related tags
+      </span>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+        {tags.map(t => {
+          const isActive = t.id === tag.id;
+          return (
+            <a
+              href={`/tag/${t.name}/1`}
+              style={`
+                padding: 4px 12px;
+                border-radius: 4px;
+                font-size: 12px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: background-color 0.15s, color 0.15s;
+                ${isActive
+                  ? 'background-color: var(--fg); color: var(--bg);'
+                  : 'border: 1px solid var(--rule); background-color: transparent; color: var(--fg-2);'
+                }
+              `}
+            >
+              #{t.name}
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</div>
