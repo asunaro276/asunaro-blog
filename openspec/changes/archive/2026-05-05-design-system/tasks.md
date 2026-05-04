@@ -43,7 +43,7 @@
 ## 7. Cloudflare Pages デプロイ
 
 - [x] 7.1 既存 Cloudflare Pages プロジェクト名を確認し、`wrangler pages deploy storybook-static --project-name=<名前>` で手動デプロイを確認する
-- [ ] 7.2 Cloudflare Pages のダッシュボードでカスタムドメイン `designsystem.asunaroblog.net` を設定する
+- [x] 7.2 Cloudflare Pages のダッシュボードでカスタムドメイン `designsystem.asunaroblog.net` を設定する
 - [x] 7.3 `.github/workflows/deploy-storybook.yml` を作成する（checkout → bun install → build-storybook → wrangler deploy）
-- [ ] 7.4 GitHub リポジトリに `CLOUDFLARE_API_TOKEN` シークレットを設定する
-- [ ] 7.5 main へのプッシュでワークフローが成功し、`https://designsystem.asunaroblog.net` でアクセスできることを確認する
+- [x] 7.4 GitHub リポジトリに `CLOUDFLARE_API_TOKEN` シークレットを設定する
+- [x] 7.5 main へのプッシュでワークフローが成功し、`https://designsystem.asunaroblog.net` でアクセスできることを確認する
