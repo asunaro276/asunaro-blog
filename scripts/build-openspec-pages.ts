@@ -67,32 +67,36 @@ function collectMarkdownFiles(dir: string): string[] {
 }
 
 function buildChangeSiblingLinks(changeDir: string): string {
-  const links: string[] = [];
+  const docLinks: string[] = [];
 
   if (existsSync(join(changeDir, "design.md"))) {
-    links.push(`<li><a href="./design.html">Design</a></li>`);
+    docLinks.push(`<li><a href="./design.html">Design</a></li>`);
   }
   if (existsSync(join(changeDir, "tasks.md"))) {
-    links.push(`<li><a href="./tasks.html">Tasks</a></li>`);
+    docLinks.push(`<li><a href="./tasks.html">Tasks</a></li>`);
   }
 
+  const specLinks: string[] = [];
   const specsDir = join(changeDir, "specs");
   if (existsSync(specsDir)) {
-    const specDirs = collectSubdirs(specsDir);
-    for (const specName of specDirs) {
-      links.push(`<li><a href="./specs/${specName}/spec.html">${specName}</a></li>`);
+    for (const specName of collectSubdirs(specsDir)) {
+      specLinks.push(`<li><a href="./specs/${specName}/spec.html">${specName}</a></li>`);
     }
   }
 
-  if (links.length === 0) return "";
+  if (docLinks.length === 0 && specLinks.length === 0) return "";
 
-  return `
-<hr>
-<h2>このChangeのドキュメント</h2>
-<ul>
-${links.join("\n")}
-</ul>
-`;
+  let html = "\n<hr>\n<h2>このChangeのドキュメント</h2>\n";
+
+  if (docLinks.length > 0) {
+    html += `<ul>\n${docLinks.join("\n")}\n</ul>\n`;
+  }
+
+  if (specLinks.length > 0) {
+    html += `<h3>Specs</h3>\n<ul>\n${specLinks.join("\n")}\n</ul>\n`;
+  }
+
+  return html;
 }
 
 function convertMarkdownFile(mdPath: string, relativeTo: string) {
