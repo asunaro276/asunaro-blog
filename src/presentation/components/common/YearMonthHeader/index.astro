@@ -1,0 +1,144 @@
+---
+import type { YearMonth } from "/domain/models/article/yearmonth/YearMonth";
+
+type Props = {
+  yearmonth: YearMonth;
+  yearmonths: YearMonth[];
+  totalCount: number;
+};
+
+const { yearmonth, yearmonths, totalCount } = Astro.props;
+
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+const MONTH_ABBR = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+const prevYear = yearmonth.month === 1 ? yearmonth.year - 1 : yearmonth.year;
+const prevMonth = yearmonth.month === 1 ? 12 : yearmonth.month - 1;
+const prevValue = `${prevYear}-${prevMonth}`;
+const prevLabel = `${prevYear}.${String(prevMonth).padStart(2, "0")}`;
+
+const nextParts = yearmonth.next.split("-");
+const nextYear = parseInt(nextParts[0]);
+const nextMonth = parseInt(nextParts[1]);
+const nextLabel = `${nextYear}.${String(nextMonth).padStart(2, "0")}`;
+const nextValue = yearmonth.next;
+
+const hasPrevPage = prevYear >= 2023 && prevYear <= new Date().getFullYear();
+const hasNextPage =
+  nextYear < new Date().getFullYear() ||
+  (nextYear === new Date().getFullYear() && nextMonth <= new Date().getMonth() + 1);
+
+const yearMonthsInYear = Array.from({ length: 12 }, (_, i) => i + 1).map(m => {
+  const hasPost = yearmonths.some(ym => ym.year === yearmonth.year && ym.month === m);
+  const value = `${yearmonth.year}-${m}`;
+  const isCurrent = m === yearmonth.month;
+  return { month: m, hasPost, value, isCurrent };
+});
+---
+
+<div
+  data-yearmonth-header
+  style="background-color: var(--bg-2); border-bottom: 1px solid var(--rule); padding: 48px 0 32px;"
+>
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px;">
+    <!-- パンくず -->
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+      <a
+        href="/yearmonth"
+        style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); text-decoration: none;"
+      >
+        ← ARCHIVE
+      </a>
+      <span style="font-size: 11px; color: var(--fg-3);">/</span>
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--fg-2);">Monthly</span>
+    </div>
+
+    <!-- 年 + 月名 + 記事数 -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+      <div>
+        <div
+          class="font-mono"
+          style="font-size: 14px; color: var(--accent); margin-bottom: 4px; letter-spacing: 0.06em;"
+        >
+          {yearmonth.year}
+        </div>
+        <h1
+          style="margin: 0; font-size: 64px; font-weight: 700; color: var(--fg); line-height: 1.0;"
+        >
+          {MONTH_NAMES[yearmonth.month - 1]}
+        </h1>
+      </div>
+      <span style="font-size: 13px; color: var(--fg-3); padding-bottom: 8px;">
+        この月に書いた {totalCount} 件の記事
+      </span>
+    </div>
+
+    <!-- 前後月ナビ -->
+    <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+      {hasPrevPage ? (
+        <a
+          href={`/yearmonth/${prevValue}/1`}
+          style="font-size: 12px; font-weight: 500; color: var(--fg-2); text-decoration: none; padding: 6px 12px; border: 1px solid var(--rule); border-radius: 4px; transition: color 0.15s, border-color 0.15s;"
+        >
+          ← {prevLabel}
+        </a>
+      ) : (
+        <span style="font-size: 12px; color: var(--fg-3); padding: 6px 12px; border: 1px solid var(--rule); border-radius: 4px; opacity: 0.4;">
+          ← {prevLabel}
+        </span>
+      )}
+      {hasNextPage ? (
+        <a
+          href={`/yearmonth/${nextValue}/1`}
+          style="font-size: 12px; font-weight: 500; color: var(--fg-2); text-decoration: none; padding: 6px 12px; border: 1px solid var(--rule); border-radius: 4px; transition: color 0.15s, border-color 0.15s;"
+        >
+          {nextLabel} →
+        </a>
+      ) : (
+        <span style="font-size: 12px; color: var(--fg-3); padding: 6px 12px; border: 1px solid var(--rule); border-radius: 4px; opacity: 0.4;">
+          {nextLabel} →
+        </span>
+      )}
+    </div>
+
+    <!-- 年ストリップ（12ヶ月チップ） -->
+    <div>
+      <span
+        class="font-mono"
+        style="font-size: 11px; color: var(--fg-3); letter-spacing: 0.1em; display: block; margin-bottom: 6px;"
+      >
+        {yearmonth.year}
+      </span>
+      <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+        {yearMonthsInYear.map(({ month, hasPost, value, isCurrent }) => (
+          <a
+            href={`/yearmonth/${value}/1`}
+            style={`
+              padding: 4px 10px;
+              border-radius: 4px;
+              font-size: 11px;
+              font-weight: 500;
+              text-decoration: none;
+              transition: background-color 0.15s, color 0.15s;
+              ${isCurrent
+                ? 'background-color: var(--accent); color: var(--bg);'
+                : hasPost
+                  ? 'background-color: var(--bg-3); color: var(--fg-2);'
+                  : 'background-color: transparent; color: var(--fg-3); opacity: 0.5;'
+              }
+            `}
+          >
+            {MONTH_ABBR[month - 1]}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

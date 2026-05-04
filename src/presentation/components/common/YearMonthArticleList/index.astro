@@ -1,0 +1,114 @@
+---
+import type { Article } from "/domain/models/article/Article";
+
+type Props = {
+  articles: Article[];
+};
+
+const { articles } = Astro.props;
+
+const MONTH_ABBR = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+function getImageSrc(article: Article): string {
+  if (article.coverImage.src instanceof URL) return article.coverImage.src.href;
+  if (typeof article.coverImage.src === "object" && (article.coverImage.src as any)?.src) {
+    return (article.coverImage.src as any).src;
+  }
+  if (typeof article.coverImage.src === "string") return article.coverImage.src;
+  return "/images/default-cover.jpg";
+}
+---
+
+<div data-yearmonth-article-list>
+  {articles.map((article, i) => {
+    const date = new Date(article.publishedAt);
+    const day = String(date.getDate()).padStart(2, "0");
+    const monthAbbr = MONTH_ABBR[date.getMonth()];
+    const year = date.getFullYear();
+    const imageSrc = getImageSrc(article);
+
+    return (
+      <div
+        style={`
+          display: grid;
+          grid-template-columns: 80px 1fr;
+          gap: 20px;
+          padding: 20px 0;
+          ${i > 0 ? 'border-top: 1px solid var(--rule);' : ''}
+        `}
+      >
+        <!-- 日付レール -->
+        <div style="display: flex; flex-direction: column; align-items: flex-start; padding-top: 4px;">
+          <span
+            class="font-mono"
+            style="font-size: 26px; font-weight: 500; color: var(--fg); line-height: 1;"
+          >
+            {day}
+          </span>
+          <span
+            class="font-mono"
+            style="font-size: 10px; color: var(--fg-3); margin-top: 4px;"
+          >
+            {monthAbbr} {year}
+          </span>
+        </div>
+
+        <!-- 記事カード -->
+        <a
+          href={`/blog/${article.articleId}`}
+          style="display: flex; gap: 16px; text-decoration: none; align-items: flex-start;"
+        >
+          <!-- サムネイル 180px -->
+          <div
+            style="width: 180px; flex-shrink: 0; aspect-ratio: 4/3; overflow: hidden; background: var(--bg-3); border-radius: 6px;"
+          >
+            <img
+              src={imageSrc}
+              alt={article.coverImage.altText ?? article.title}
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- テキスト情報 -->
+          <div style="flex: 1; min-width: 0; padding-top: 4px;">
+            {article.category && (
+              <span
+                style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px;"
+              >
+                {article.category.name}
+              </span>
+            )}
+            <h2
+              class="font-serif-jp"
+              style="margin: 0 0 8px; font-size: 19px; font-weight: 700; color: var(--fg); line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;"
+            >
+              {article.title}
+            </h2>
+            {article.description && (
+              <p
+                style="margin: 0 0 10px; font-size: 13px; color: var(--fg-2); line-height: 1.6; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;"
+              >
+                {article.description}
+              </p>
+            )}
+            {article.tags.length > 0 && (
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                {article.tags.map(tag => (
+                  <span
+                    style="font-size: 11px; color: var(--fg-3); padding: 2px 8px; border: 1px solid var(--rule); border-radius: 3px;"
+                  >
+                    #{tag.name}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </a>
+      </div>
+    );
+  })}
+</div>
