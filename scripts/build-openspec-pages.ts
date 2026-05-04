@@ -79,39 +79,40 @@ function convertMarkdownFile(mdPath: string, relativeTo: string) {
   return relPath;
 }
 
-function buildChangeItems(dir: string, urlPrefix: string): string {
+function buildChangeListItems(dir: string, urlPrefix: string): string {
   if (!existsSync(dir)) return "<li>（なし）</li>";
   const entries = readdirSync(dir, { withFileTypes: true })
     .filter((d) => d.isDirectory())
     .sort((a, b) => a.name.localeCompare(b.name));
-
   if (entries.length === 0) return "<li>（なし）</li>";
-
   return entries
     .map((entry) => {
-      const childDir = join(dir, entry.name);
-      const childPrefix = `${urlPrefix}/${entry.name}`;
-      if (existsSync(join(childDir, "proposal.md"))) {
-        return `<li><a href="${childPrefix}/proposal.html">${entry.name}</a></li>`;
-      }
-      // グループフォルダ（archive 等）: 子を再帰展開
-      const children = buildChangeItems(childDir, childPrefix);
-      return `<li><strong>${entry.name}</strong><ul>${children}</ul></li>`;
+      const link = `${urlPrefix}/${entry.name}/proposal.html`;
+      return `<li><a href="${link}">${entry.name}</a></li>`;
     })
     .join("\n");
 }
 
 function buildIndexPage(specs: string[]) {
-  const changeItems = buildChangeItems(CHANGES_DIR, "changes");
+  const ARCHIVE_DIR = join(CHANGES_DIR, "archive");
+
+  const activeEntries = readdirSync(CHANGES_DIR, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && d.name !== "archive")
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const changeItems =
+    activeEntries.length === 0
+      ? "<li>（なし）</li>"
+      : activeEntries
+          .map((e) => `<li><a href="changes/${e.name}/proposal.html">${e.name}</a></li>`)
+          .join("\n");
+
+  const archiveItems = buildChangeListItems(ARCHIVE_DIR, "changes/archive");
 
   const specItems =
     specs.length === 0
       ? "<li>（なし）</li>"
       : specs
-          .map((name) => {
-            const link = `specs/${name}/spec.html`;
-            return `<li><a href="${link}">${name}</a></li>`;
-          })
+          .map((name) => `<li><a href="specs/${name}/spec.html">${name}</a></li>`)
           .join("\n");
 
   const body = `
@@ -120,6 +121,11 @@ function buildIndexPage(specs: string[]) {
 <h2>Changes</h2>
 <ul>
 ${changeItems}
+</ul>
+
+<h2>Archive</h2>
+<ul>
+${archiveItems}
 </ul>
 
 <h2>Specs</h2>
