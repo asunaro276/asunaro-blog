@@ -9,11 +9,11 @@
 - **THEN** ヘッダー背景はコンテンツ上で半透明 + blur で表示される
 
 ### Requirement: 3カラムヘッダーレイアウト
-ヘッダー内部は `grid-template-columns: 1fr auto 1fr` の3カラムグリッドで構成する。左にロゴ、中央にナビゲーション、右に検索/RSS リンクを配置する。
+ヘッダー内部は `grid-template-columns: 1fr auto 1fr` の3カラムグリッドで構成する。左にロゴ、中央にナビゲーション、右にテーマトグルボタンを配置する。
 
 #### Scenario: デスクトップでヘッダーを表示する
 - **WHEN** ビューポート幅が 1024px 以上
-- **THEN** ロゴ・ナビ・検索/RSS が横並びの3カラムで表示される
+- **THEN** ロゴ・ナビ・テーマトグルボタンが横並びの3カラムで表示される
 
 ### Requirement: ロゴ表示
 ロゴは `asunaro` + `blog`（accent カラー）のインラインテキストで表示する。`font-weight: 600`, `font-size: 20px`, `letter-spacing: -0.02em`。`since 2022` をモノスペースで小さく添える。
