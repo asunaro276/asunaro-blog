@@ -1,5 +1,4 @@
 import type { StorybookConfig } from "@storybook-astro/framework";
-import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
   framework: {
@@ -14,7 +13,12 @@ const config: StorybookConfig = {
   viteFinal: (config) => {
     return {
       ...config,
-      plugins: [...(config.plugins || []), tsconfigPaths()],
+      resolve: {
+        ...config.resolve,
+        // Vite 6 / Astro 5 ではネイティブで tsconfig のパス解決をサポートしています
+        // @ts-ignore - Storybook の ViteConfig 型定義に未反映の場合があるため
+        tsconfigPaths: true,
+      },
     };
   },
 };
