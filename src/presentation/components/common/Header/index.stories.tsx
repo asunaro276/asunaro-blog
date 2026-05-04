@@ -5,6 +5,9 @@ import Header from "./index.astro";
 const meta: Meta<typeof Header> = {
   title: "common/Header",
   component: Header,
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 export default meta;

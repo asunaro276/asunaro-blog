@@ -8,7 +8,20 @@ import PostCard from "./index.astro";
 const meta: Meta<typeof PostCard> = {
   title: "HomePage/PostCard",
   component: PostCard,
-};
+  parameters: {
+    layout: "padded",
+    viewport: {
+      defaultViewport: "postcard",
+      viewports: {
+        postcard: {
+          name: "PostCard",
+          styles: { width: "160px", height: "300px" },
+          type: "mobile" as const,
+        },
+      },
+    },
+  },
+}
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -5,6 +5,9 @@ import CategoryHeader from "./index.astro";
 const meta: Meta<typeof CategoryHeader> = {
   title: "common/CategoryHeader",
   component: CategoryHeader,
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 export default meta;

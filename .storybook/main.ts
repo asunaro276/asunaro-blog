@@ -1,10 +1,12 @@
 import type { StorybookConfig } from "@storybook-astro/framework";
+import { react } from "@storybook-astro/framework/integrations";
 
 const config: StorybookConfig = {
   framework: {
     name: "@storybook-astro/framework",
     options: {
       renderMode: "static",
+      integrations: [react()],
     },
   },
   stories: ["../src/presentation/**/*.stories.{tsx,jsx,astro}"],

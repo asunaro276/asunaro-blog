@@ -5,6 +5,9 @@ import Footer from "./index.astro";
 const meta: Meta<typeof Footer> = {
   title: "common/Footer",
   component: Footer,
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 export default meta;

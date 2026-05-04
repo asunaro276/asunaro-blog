@@ -1,16 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import PaginationItem from "./index";
+import PaginationItem from "./index.tsx";
 
 const meta: Meta<typeof PaginationItem> = {
   title: "HomePage/PaginationItem",
   component: PaginationItem,
-  decorators: [
-    (Story) => (
-      <ul style={{ display: "flex", listStyle: "none", padding: 0, margin: 0, gap: "4px" }}>
-        <Story />
-      </ul>
-    ),
-  ],
+  parameters: {
+    renderer: "react",
+    layout: "centered",
+  },
 };
 
 export default meta;

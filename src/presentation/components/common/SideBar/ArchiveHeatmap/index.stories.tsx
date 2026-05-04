@@ -1,9 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ArchiveHeatmap } from "./index";
+import ArchiveHeatmap from "./index.tsx";
 
 const meta: Meta<typeof ArchiveHeatmap> = {
   title: "common/SideBar/ArchiveHeatmap",
   component: ArchiveHeatmap,
+  parameters: {
+    renderer: "react",
+    viewport: {
+      defaultViewport: "sidebar",
+      viewports: {
+        sidebar: {
+          name: "Sidebar",
+          styles: { width: "280px", height: "600px" },
+          type: "mobile" as const,
+        },
+      },
+    },
+  },
 };
 
 export default meta;
