@@ -39,6 +39,9 @@ export const TableOfContents = ({ tableOfContents }: Props) => {
 
   if (!tableOfContents || tableOfContents.length === 0) return null
 
+  const rawLevels = tableOfContents.map(item => parseInt(item.htmlTag.replace('h', '')) || 2)
+  const minLevel = Math.min(...rawLevels)
+
   return (
     <div>
       <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: 'var(--fg-3)', marginBottom: 14 }}>
@@ -47,15 +50,24 @@ export const TableOfContents = ({ tableOfContents }: Props) => {
       <ol style={{ margin: 0, padding: 0, listStyle: 'none' }}>
         {tableOfContents.map((item, i) => {
           const isActive = item.attribsId === activeId
+          const rawLevel = parseInt(item.htmlTag.replace('h', '')) || 2
+          const level = 2 + (rawLevel - minLevel)
+          const indent = (level - 2) * 14
+          const fontSize = level === 2 ? 13 : level === 3 ? 12 : 11.5
+          const fontWeight = level === 2 ? 500 : 400
+          const inactiveColor = level === 2 ? 'var(--fg-2)' : 'var(--fg-3)'
           return (
             <li
               key={i}
               style={{
-                padding: '7px 0 7px 12px',
+                paddingTop: 7,
+                paddingBottom: 7,
+                paddingRight: 0,
+                paddingLeft: 12 + indent,
                 borderLeft: `2px solid ${isActive ? 'var(--accent)' : 'transparent'}`,
-                fontSize: 12.5,
-                color: isActive ? 'var(--fg)' : 'var(--fg-2)',
-                fontWeight: isActive ? 500 : 400,
+                fontSize,
+                color: isActive ? 'var(--fg)' : inactiveColor,
+                fontWeight,
                 transition: 'color 0.15s, border-color 0.15s',
               }}
             >
