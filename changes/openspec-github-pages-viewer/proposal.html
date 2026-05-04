@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>proposal</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Why</h2>
+<p>OpenSpec の <code>changes/</code> や <code>specs/</code> に蓄積した設計ドキュメントは Markdown ファイルとして存在するが、GitHub リポジトリのファイルツリーを手動で辿らないと参照できない。静的サイトとして GitHub Pages に公開することで、ブラウザから一覧・検索・閲覧できる開発者ポータルを整備する。</p>
+<h2>What Changes</h2>
+<ul>
+<li>GitHub Actions ワークフローを追加し、<code>main</code> ブランチへのプッシュ時に <code>openspec/</code> 配下の Markdown を HTML 化して GitHub Pages へデプロイする</li>
+<li><code>openspec/</code> ディレクトリを入力とし、changes・specs のインデックスページおよび各ドキュメントページを生成する静的サイトジェネレーター（スクリプト）を追加する</li>
+<li>トップページにはすべての changes と specs の一覧を表示し、各ページにはそのドキュメントの Markdown をレンダリングして表示する</li>
+</ul>
+<h2>Capabilities</h2>
+<h3>New Capabilities</h3>
+<ul>
+<li><code>openspec-pages-site</code>: <code>openspec/</code> の Markdown を GitHub Pages 向け静的 HTML に変換するビルドスクリプト</li>
+<li><code>openspec-pages-deploy</code>: GitHub Actions で変換・デプロイを自動化するワークフロー</li>
+</ul>
+<h3>Modified Capabilities</h3>
+<p>（なし）</p>
+<h2>Impact</h2>
+<ul>
+<li><code>openspec/</code> ディレクトリの Markdown ファイル（読み取りのみ）</li>
+<li>GitHub Actions ワークフローファイル（<code>.github/workflows/</code>）の追加</li>
+<li><code>package.json</code> にビルドスクリプト追加の可能性</li>
+<li>本番ブログサイト（asunaroblog.net）のコードには一切影響しない</li>
+</ul>
+
+</body>
+</html>

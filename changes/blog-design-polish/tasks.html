@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tasks</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>1. Favicon 差し替え（候補C）</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 1.1 <code>public/favicons/favicon.svg</code> を候補C「ヒノキの枝シルエット」SVG で作成する（ライトモード背景 <code>#f4f3ef</code>・ダークモード対応 <code>@media prefers-color-scheme: dark</code>）</li>
+<li><input disabled="" type="checkbox"> 1.2 SVG から PNG を生成し <code>favicon-16x16.png</code>・<code>favicon-32x32.png</code>・<code>apple-touch-icon.png</code>・<code>android-chrome-192x192.png</code>・<code>android-chrome-384x384.png</code>・<code>mstile-150x150.png</code> を上書きする</li>
+<li><input disabled="" type="checkbox"> 1.3 <code>public/favicons/safari-pinned-tab.svg</code> を候補C の単色マスク用 SVG（fill=&quot;#2f6b3f&quot;）で上書きする</li>
+<li><input disabled="" type="checkbox"> 1.4 <code>public/favicons/favicon.ico</code> を 16px・32px を含む ICO で上書きする</li>
+<li><input disabled="" type="checkbox"> 1.5 <code>src/presentation/layouts/Layout.astro</code> に <code>&lt;link rel=&quot;icon&quot; type=&quot;image/svg+xml&quot; href=&quot;/favicons/favicon.svg&quot;&gt;</code> を追加する</li>
+</ul>
+<h2>2. フォント修正</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 2.1 <code>src/presentation/styles/globals.scss</code> の <code>.font-serif-jp</code> を <code>&#39;Inter&#39;, &#39;Noto Sans JP&#39;, sans-serif</code> に変更し、<code>letter-spacing: -0.025em</code> を追加する</li>
+<li><input disabled="" type="checkbox"> 2.2 <code>src/presentation/layouts/Layout.astro</code> の Google Fonts リンクに <code>Instrument+Serif</code> が含まれていないことを確認する（不要なら削除）</li>
+</ul>
+<h2>3. タグ一覧ページ 専用ヘッダー</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 3.1 <code>src/presentation/components/common/TagHeader/index.astro</code> を新規作成する（props: <code>tag: Tag, tags: Tag[], totalCount: number</code>）</li>
+<li><input disabled="" type="checkbox"> 3.2 TagHeader に：パンくず（← TAGS / Tag）・<code>#TagName</code> 大見出し・記事数・Related tags チップ一覧を実装する</li>
+<li><input disabled="" type="checkbox"> 3.3 <code>src/presentation/components/HomePage/index.astro</code> で <code>tag</code> props がある場合に <code>TagHeader</code> を表示し、既存のシンプルなテキスト表示を削除する</li>
+</ul>
+<h2>4. 月別アーカイブページ 専用ヘッダー + 記事リスト</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 4.1 <code>src/presentation/components/common/YearMonthHeader/index.astro</code> を新規作成する（props: <code>yearmonth: YearMonth, yearmonths: YearMonth[], totalCount: number</code>）</li>
+<li><input disabled="" type="checkbox"> 4.2 YearMonthHeader に：パンくず（← ARCHIVE / Monthly）・年・月名大見出し・記事件数・前後月ナビ・年ストリップ（12ヶ月チップ）を実装する</li>
+<li><input disabled="" type="checkbox"> 4.3 <code>src/presentation/components/common/YearMonthArticleList/index.astro</code> を新規作成する（props: <code>articles: Article[]</code>）</li>
+<li><input disabled="" type="checkbox"> 4.4 YearMonthArticleList にタイムライン形式（日付レール + 記事サムネイル + テキスト情報）を実装する</li>
+<li><input disabled="" type="checkbox"> 4.5 <code>src/presentation/components/HomePage/index.astro</code> で <code>yearmonth</code> props がある場合に <code>YearMonthHeader</code> と <code>YearMonthArticleList</code> を使用し、既存のシンプルなテキスト表示を削除する</li>
+</ul>
+<h2>5. ToC 階層表示（Variant A）</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 5.1 <code>src/presentation/components/PostPage/PostBody/TableOfContents/index.tsx</code> で <code>item.htmlTag</code>（&quot;h2&quot;/&quot;h3&quot;/&quot;h4&quot;）から level を導出する</li>
+<li><input disabled="" type="checkbox"> 5.2 level に応じたインデント（<code>(level-2)*14px</code>）・フォントサイズ（h2=13px, h3=12px, h4=11.5px）・フォントウェイト（h2=500, h3/h4=400）を適用する</li>
+<li><input disabled="" type="checkbox"> 5.3 非アクティブな h2 を <code>--fg-2</code>、h3/h4 を <code>--fg-3</code> で表示し、アクティブは全レベル <code>--fg</code> で表示する</li>
+</ul>
+
+</body>
+</html>

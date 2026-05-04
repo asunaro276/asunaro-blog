@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tasks</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>1. 依存パッケージの追加</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 1.1 <code>marked</code> を devDependencies に追加する（<code>bun add -d marked</code>）</li>
+<li><input checked="" disabled="" type="checkbox"> 1.2 <code>@types/marked</code> を devDependencies に追加する（型情報）（marked v18 に型定義同梱のためスキップ）</li>
+</ul>
+<h2>2. ビルドスクリプトの実装</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 2.1 <code>scripts/build-openspec-pages.ts</code> を新規作成する</li>
+<li><input checked="" disabled="" type="checkbox"> 2.2 <code>openspec/changes/</code> を走査して変更一覧を収集するロジックを実装する</li>
+<li><input checked="" disabled="" type="checkbox"> 2.3 <code>openspec/specs/</code> を走査して仕様一覧を収集するロジックを実装する</li>
+<li><input checked="" disabled="" type="checkbox"> 2.4 トップページ（<code>dist-openspec/index.html</code>）を生成するロジックを実装する（changes・specs の一覧リンク含む）</li>
+<li><input checked="" disabled="" type="checkbox"> 2.5 各 Markdown ファイルを HTML に変換して <code>dist-openspec/</code> 以下に出力するロジックを実装する（ディレクトリ構造を保持）</li>
+<li><input checked="" disabled="" type="checkbox"> 2.6 各 HTML ページにトップページへ戻るナビゲーションリンクを追加する</li>
+</ul>
+<h2>3. package.json へのスクリプト登録</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 3.1 <code>package.json</code> の <code>scripts</code> に <code>&quot;build:openspec-pages&quot;: &quot;bun scripts/build-openspec-pages.ts&quot;</code> を追加する</li>
+</ul>
+<h2>4. .gitignore の更新</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 4.1 <code>.gitignore</code> に <code>dist-openspec/</code> を追加する</li>
+</ul>
+<h2>5. GitHub Actions ワークフローの作成</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 5.1 <code>.github/workflows/deploy-openspec-pages.yml</code> を新規作成する</li>
+<li><input checked="" disabled="" type="checkbox"> 5.2 トリガーを <code>push: branches: [main]</code> に設定する</li>
+<li><input checked="" disabled="" type="checkbox"> 5.3 Bun セットアップステップ（<code>oven-sh/setup-bun</code>）を追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 5.4 依存インストール（<code>bun install</code>）ステップを追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 5.5 ビルドステップ（<code>bun run build:openspec-pages</code>）を追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 5.6 <code>peaceiris/actions-gh-pages</code> を使って <code>dist-openspec/</code> を <code>gh-pages</code> ブランチにデプロイするステップを追加する</li>
+</ul>
+<h2>6. GitHub リポジトリの設定</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 6.1 GitHub リポジトリの Settings &gt; Pages で Source を <code>gh-pages</code> ブランチ・<code>/（root）</code> に設定する（手動作業）</li>
+<li><input disabled="" type="checkbox"> 6.2 初回デプロイ後に公開 URL でアクセスできることを確認する</li>
+</ul>
+
+</body>
+</html>

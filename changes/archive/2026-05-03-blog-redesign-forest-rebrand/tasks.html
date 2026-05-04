@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tasks</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../index.html">← インデックスに戻る</a></nav>
+<h2>0. テスト基盤の整備</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 0.1 <code>playwright.config.ts</code> に2つ目の <code>webServer</code> を追加し、デザインファイル（<code>openspec/changes/blog-redesign-forest-rebrand/design/</code>）を静的サーバー（port 4322）として起動する設定を追加する<pre><code class="language-ts">// 追加するwebServer設定
+{ command: &#39;npx serve openspec/changes/blog-redesign-forest-rebrand/design -p 4322 --no-clipboard&#39;, url: &#39;http://localhost:4322&#39;, reuseExistingServer: !process.env.CI }
+</code></pre>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 0.2 <code>playwright.config.ts</code> にモバイルプロジェクト（Pixel 5 / iPhone 12）を追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 0.3 <code>e2e/helpers/design-reference.ts</code> を作成する（デザインHTMLの特定アートボードをスクリーンショット取得するユーティリティ）<ul>
+<li><code>screenshotArtboard(page, slotId: &#39;home&#39;|&#39;post&#39;|&#39;category&#39;, theme: &#39;light&#39;|&#39;dark&#39;)</code> 関数</li>
+<li><code>http://localhost:4322/Rebrand.html</code> をロードし、テーマを設定後 <code>[data-dc-slot=&quot;${slotId}&quot;] .dc-card</code> 要素をスクリーンショット</li>
+<li>デザインキャンバスのロード完了を <code>page.waitForSelector(&#39;[data-dc-slot]&#39;)</code> で待機</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 0.4 <code>e2e/helpers/theme.ts</code> を作成する（CSS custom properties 取得・テーマクラス検証ユーティリティ）<ul>
+<li><code>getCssVar(page, varName)</code> 関数: <code>getComputedStyle(document.documentElement).getPropertyValue(varName)</code> を返す</li>
+<li><code>getThemeClass(page)</code> 関数: <code>&lt;html&gt;</code> 要素のテーマクラスを返す</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 0.5 <code>e2e/fixtures/design-tokens.ts</code> を作成する（デザイン案の色・フォント・レイアウト値を定数として定義する）<pre><code class="language-ts">// variantFinal.jsx / Rebrand.html から抽出した参照値
+export const LIGHT = { accent: &#39;oklch(0.46 0.09 155)&#39;, bg: &#39;oklch(0.985 0.008 110)&#39;, fg: &#39;oklch(0.28 0.020 145)&#39; };
+export const DARK  = { accent: &#39;oklch(0.78 0.10 145)&#39;, bg: &#39;oklch(0.17 0.012 150)&#39; };
+export const FONTS = { serifJp: &#39;Noto Serif JP&#39;, mono: &#39;JetBrains Mono&#39; };
+export const SIZES = { heroTitle: 52, postTitle: 48, categoryTitle: 56 }; // variantFinal.jsx L61/L309/L385
+</code></pre>
+</li>
+</ul>
+<h2>1. テーマシステム（TDD）</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 1.1 <strong>[テスト作成]</strong> <code>e2e/theme-system.spec.ts</code> を作成する<ul>
+<li>Light テーマ時に <code>getCssVar(page, &#39;--accent&#39;)</code> が <code>oklch(0.46 0.09 155)</code> を返すことを検証</li>
+<li>Dark テーマ時に <code>getCssVar(page, &#39;--accent&#39;)</code> が <code>oklch(0.78 0.10 145)</code> を返すことを検証</li>
+<li><code>page.emulateMedia({ colorScheme: &#39;dark&#39; })</code> でロード時に <code>&lt;html&gt;</code> に <code>theme-dark</code> クラスが付与されることを検証</li>
+<li>テーマトグルボタンをクリック後に <code>&lt;html&gt;</code> クラスが <code>theme-dark</code> に変わることを検証</li>
+<li>テーマ切替後に <code>page.evaluate(() =&gt; localStorage.getItem(&#39;theme&#39;))</code> が <code>&#39;dark&#39;</code> を返すことを検証</li>
+<li>ページリロード後もテーマが保持されることを検証</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 1.2 <strong>[RED確認]</strong> <code>bun run test:integration -- e2e/theme-system.spec.ts</code> を実行してテストが失敗することを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 1.3 <code>globals.scss</code> に oklch ベースの CSS custom properties を Light/Dark 両テーマ分定義する（<code>--bg</code>, <code>--bg-2</code>, <code>--bg-3</code>, <code>--fg</code>, <code>--fg-2</code>, <code>--fg-3</code>, <code>--rule</code>, <code>--rule-2</code>, <code>--accent</code>, <code>--tint</code>）</li>
+<li><input checked="" disabled="" type="checkbox"> 1.4 <code>tailwind.config.mjs</code> を CSS vars 参照に更新する</li>
+<li><input checked="" disabled="" type="checkbox"> 1.5 <code>globals.scss</code> に <code>.font-sans-jp</code>, <code>.font-serif-jp</code>, <code>.font-mono</code> クラスを定義する</li>
+<li><input checked="" disabled="" type="checkbox"> 1.6 <code>Layout.astro</code> の Google Fonts リンクを Inter・Noto Sans JP・Noto Serif JP・JetBrains Mono に変更する</li>
+<li><input checked="" disabled="" type="checkbox"> 1.7 <code>Layout.astro</code> にテーマ初期化インラインスクリプトを追加する（<code>prefers-color-scheme</code> → <code>localStorage</code> → <code>&lt;html&gt;</code> クラス）</li>
+<li><input checked="" disabled="" type="checkbox"> 1.8 ヘッダーにテーマトグルボタンを追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 1.9 <strong>[GREEN確認]</strong> <code>bun run test:integration -- e2e/theme-system.spec.ts</code> を実行してテストが全て通ることを確認する</li>
+</ul>
+<h2>2. サイトヘッダー（TDD）</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 2.1 <strong>[テスト作成]</strong> <code>e2e/site-header.spec.ts</code> を作成する<ul>
+<li>ヘッダーの <code>position</code> が <code>sticky</code>、<code>top</code> が <code>0px</code> であることを検証</li>
+<li>ヘッダーに <code>backdrop-filter</code> が <code>blur(14px)</code> を含むことを検証</li>
+<li>ロゴ内に &quot;asunaro&quot; テキストと &quot;blog&quot; テキストが存在し、&quot;blog&quot; が <code>--accent</code> 色であることを検証（<code>variantFinal.jsx</code> L24-25）</li>
+<li>&quot;since 2022&quot; テキストに <code>JetBrains Mono</code> フォントが適用されていることを検証（<code>variantFinal.jsx</code> L26）</li>
+<li>HOME / CODE / BUSINESS / MATH / OTHER の5ナビ項目が存在することを検証（<code>data.jsx</code> NAV 定義）</li>
+<li>CODE カテゴリページで CODE ナビ項目が <code>border-bottom</code> に <code>--accent</code> 色を持つことを検証（<code>variantFinal.jsx</code> L32-35）</li>
+<li>SEARCH・RSS テキストがヘッダー右側に存在することを検証（<code>variantFinal.jsx</code> L40-41）</li>
+<li>スクロール後もヘッダーが <code>getBoundingClientRect().top === 0</code> であることを検証</li>
+<li><strong>[デザイン比較]</strong> <code>screenshotArtboard(designPage, &#39;home&#39;, &#39;light&#39;)</code> の上部とアプリのヘッダースクリーンショットを <code>test-results/compare/</code> に保存する</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.2 <strong>[RED確認]</strong> <code>bun run test:integration -- e2e/site-header.spec.ts</code> を実行してテストが失敗することを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 2.3 <code>Header/index.astro</code> を新デザインに全面書き換える（sticky + blur backdrop + <code>grid-template-columns: 1fr auto 1fr</code>）</li>
+<li><input checked="" disabled="" type="checkbox"> 2.4 ロゴを &quot;asunaro<strong>blog</strong>&quot;（accent 色）テキスト + &quot;since 2022&quot; モノスペーステキストに変更する</li>
+<li><input checked="" disabled="" type="checkbox"> 2.5 ナビゲーションにアクティブ判定ロジックを追加し、現在ページ項目を accent ボーダーボトムで強調する</li>
+<li><input checked="" disabled="" type="checkbox"> 2.6 ヘッダー右側に SEARCH・RSS ↗ ラベルを追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 2.7 <strong>[GREEN確認]</strong> <code>bun run test:integration -- e2e/site-header.spec.ts</code> を実行してテストが全て通ることを確認する</li>
+</ul>
+<h2>3. ヒーローセクション（TDD）</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 3.1 <strong>[テスト作成]</strong> <code>e2e/hero-section.spec.ts</code> を作成する<ul>
+<li>トップページに <code>data-testid=&quot;hero-section&quot;</code> 要素が存在することを検証</li>
+<li>&quot;FEATURED&quot; テキストの <code>color</code> が <code>--accent</code> 値であることを検証（<code>variantFinal.jsx</code> L57）</li>
+<li>ヒーロータイトルの <code>font-size</code> が <code>52px</code> であることを検証（<code>variantFinal.jsx</code> L61）</li>
+<li>ヒーロータイトルに <code>Noto Serif JP</code> フォントが適用されていることを検証</li>
+<li>タグチップの <code>border-radius</code> が <code>99px</code> であることを検証（<code>variantFinal.jsx</code> L64）</li>
+<li>「本文を読む →」テキストが存在しリンクであることを検証（<code>variantFinal.jsx</code> L67）</li>
+<li>ヒーロー内の画像エリアの <code>aspect-ratio</code> が <code>3/2</code> であることを検証（<code>variantFinal.jsx</code> L70）</li>
+<li>モバイル（375px幅）でヒーローが縦積みになることを検証</li>
+<li><strong>[デザイン比較]</strong> デザイン参照のヒーロー部分とアプリのスクリーンショットを <code>test-results/compare/</code> に保存する</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 3.2 <strong>[RED確認]</strong> <code>bun run test:integration -- e2e/hero-section.spec.ts</code> を実行してテストが失敗することを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 3.3 <code>HeroSection/index.astro</code> を新規作成する（FEATURED ラベル・カテゴリ・日付・見出し 52px serif・説明文・タグチップ・「本文を読む →」・カバー画像 3/2）</li>
+<li><input checked="" disabled="" type="checkbox"> 3.4 <code>HomePage/index.astro</code> を更新し <code>POSTS[0]</code> を <code>HeroSection</code> に、<code>POSTS.slice(1)</code> を 3カラムグリッドに渡す</li>
+<li><input checked="" disabled="" type="checkbox"> 3.5 <strong>[GREEN確認]</strong> <code>bun run test:integration -- e2e/hero-section.spec.ts</code> を実行してテストが全て通ることを確認する</li>
+</ul>
+<h2>4. 記事カード（TDD）</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 4.1 <strong>[テスト作成]</strong> <code>e2e/article-card.spec.ts</code> を作成する<ul>
+<li>カードの画像エリアの <code>aspect-ratio</code> が <code>4/3</code> であることを検証（<code>variantFinal.jsx</code> L81）</li>
+<li>カテゴリラベルの <code>letter-spacing</code> が <code>0.18em</code>、<code>text-transform</code> が <code>uppercase</code> であることを検証（<code>Rebrand.html</code> L40）</li>
+<li>日付テキストに <code>JetBrains Mono</code> フォントが適用されていることを検証（<code>variantFinal.jsx</code> L84）</li>
+<li>見出しの <code>font-family</code> が <code>Noto Serif JP</code>、<code>font-weight</code> が <code>600</code> であることを検証（<code>variantFinal.jsx</code> L86）</li>
+<li>タグが <code>#タグ名</code> 形式で表示されることを検証（<code>variantFinal.jsx</code> L88-90）</li>
+<li>カードにホバーすると <code>transform</code> に <code>translateY(-2px)</code> が適用されることを検証</li>
+<li>トップページの記事グリッドが <code>grid-template-columns</code> で3カラムであることを検証（<code>variantFinal.jsx</code> L287）</li>
+<li><strong>[デザイン比較]</strong> デザイン参照のカードグリッド部分とアプリのスクリーンショットを保存する</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 4.2 <strong>[RED確認]</strong> <code>bun run test:integration -- e2e/article-card.spec.ts</code> を実行してテストが失敗することを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 4.3 <code>PostCard/index.astro</code> を新デザインに書き換える（カバー画像 4/3・カテゴリ label・日付 mono・見出し serif 18px・説明・タグ）</li>
+<li><input checked="" disabled="" type="checkbox"> 4.4 <code>PostCard</code> に CSS transition によるホバーインタラクション（<code>translateY(-2px)</code> + box-shadow）を追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 4.5 <code>PostsList/index.astro</code> のグリッドを <code>grid-cols-3</code> に変更する</li>
+<li><input checked="" disabled="" type="checkbox"> 4.6 <strong>[GREEN確認]</strong> <code>bun run test:integration -- e2e/article-card.spec.ts</code> を実行してテストが全て通ることを確認する</li>
+</ul>
+<h2>5. サイドバー（TDD）</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 5.1 <strong>[テスト作成]</strong> <code>e2e/sidebar.spec.ts</code> を作成する<ul>
+<li>&quot;About&quot; ラベルテキストが存在することを検証</li>
+<li>アバター要素の <code>border-radius</code> が <code>9999px</code> 相当で幅が <code>88px</code> であることを検証（<code>variantFinal.jsx</code> L152）</li>
+<li>名前テキストの <code>font-family</code> が <code>Noto Serif JP</code>、<code>font-size</code> が <code>20px</code> であることを検証（<code>variantFinal.jsx</code> L153）</li>
+<li>&quot;GITHUB ↗&quot; と &quot;X ↗&quot; リンクが存在することを検証（<code>variantFinal.jsx</code> L156-157）</li>
+<li>&quot;Tags&quot; ラベルが存在することを検証</li>
+<li>タグチップに <code>border: 1px solid</code> スタイルと <code>border-radius: 99px</code> が適用されていることを検証（<code>variantFinal.jsx</code> L164）</li>
+<li>タグチップ内に記事数が <code>JetBrains Mono</code> フォントで表示されることを検証（<code>variantFinal.jsx</code> L165）</li>
+<li>&quot;Archive&quot; ラベルと &quot;by month&quot; テキストが存在することを検証（<code>variantFinal.jsx</code> L171-172）</li>
+<li>各年のヒートマップに12個のセルが存在することを検証（<code>variantFinal.jsx</code> L117）</li>
+<li>投稿のある月のセルに <code>color-mix</code> を含む <code>background</code> が設定されていることを検証（<code>variantFinal.jsx</code> L127）</li>
+<li>投稿のある月のセルをクリックすると <code>/yearmonth/</code> パスに遷移することを検証</li>
+<li>凡例の4段階カラーチップが表示されることを検証（<code>variantFinal.jsx</code> L181-188）</li>
+<li><strong>[デザイン比較]</strong> デザイン参照のサイドバー部分とアプリのスクリーンショットを保存する</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 5.2 <strong>[RED確認]</strong> <code>bun run test:integration -- e2e/sidebar.spec.ts</code> を実行してテストが失敗することを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 5.3 <code>SideProfile/index.astro</code> を新デザインに書き換える（About ラベル・円形アバター 88px・名前 serif 20px・自己紹介・GitHub/X リンク）</li>
+<li><input checked="" disabled="" type="checkbox"> 5.4 <code>SideTags/index.astro</code> のタグを <code>--rule-2</code> ボーダーのチップスタイルに変更する</li>
+<li><input checked="" disabled="" type="checkbox"> 5.5 <code>ArchiveHeatmap/index.tsx</code> を新規作成する（年×月グリッド・<code>color-mix</code> による色密度・月クリックで遷移）</li>
+<li><input checked="" disabled="" type="checkbox"> 5.6 <code>ArchiveHeatmap</code> に「少〜多」凡例（4段階カラーチップ）を追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 5.7 <code>SideBar/index.astro</code> で <code>ArchivePerYear</code> を <code>ArchiveHeatmap client:load</code> に差し替える</li>
+<li><input checked="" disabled="" type="checkbox"> 5.8 サイドバーに <code>border-left: 1px solid var(--rule)</code> と <code>padding-left: 36px</code> を追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 5.9 <strong>[GREEN確認]</strong> <code>bun run test:integration -- e2e/sidebar.spec.ts</code> を実行してテストが全て通ることを確認する</li>
+</ul>
+<h2>6. 記事詳細レイアウト（TDD）</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 6.1 <strong>[テスト作成]</strong> <code>e2e/post-layout.spec.ts</code> を作成する<ul>
+<li>記事詳細ページの本文エリアが <code>display: grid</code> でカラム数が3であることを検証（<code>variantFinal.jsx</code> L313）</li>
+<li>左カラムの <code>position</code> が <code>sticky</code>、<code>top</code> が <code>80px</code> であることを検証（<code>variantFinal.jsx</code> L315）</li>
+<li>記事タイトルの <code>font-size</code> が <code>48px</code>、<code>text-align</code> が <code>center</code> であることを検証（<code>variantFinal.jsx</code> L307-309）</li>
+<li>カテゴリ・日付ラベルの <code>color</code> が <code>--accent</code> 値であることを検証（<code>variantFinal.jsx</code> L308）</li>
+<li>H2 見出しの <code>font-size</code> が <code>24px</code>、<code>font-family</code> が <code>Noto Serif JP</code> であることを検証（<code>variantFinal.jsx</code> L328）</li>
+<li>blockquote の <code>border-left</code> が <code>2px solid</code> かつ <code>--accent</code> 色であることを検証（<code>variantFinal.jsx</code> L333）</li>
+<li>右カラム（TOC）の <code>position</code> が <code>sticky</code>、<code>top</code> が <code>80px</code> であることを検証（<code>variantFinal.jsx</code> L339）</li>
+<li>&quot;Suggested for you&quot; テキストが本文下部に存在することを検証（<code>variantFinal.jsx</code> L358-360）</li>
+<li>Suggested Posts のグリッドが3カラムであることを検証（<code>variantFinal.jsx</code> L362）</li>
+<li>モバイル（375px幅）で1カラムレイアウトになることを検証</li>
+<li><strong>[デザイン比較]</strong> デザイン参照（<code>data-dc-slot=&quot;post&quot;</code>）とアプリの記事詳細ページのスクリーンショットを保存する</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 6.2 <strong>[RED確認]</strong> <code>bun run test:integration -- e2e/post-layout.spec.ts</code> を実行してテストが失敗することを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 6.3 <code>PostBody/index.astro</code> のレイアウトを <code>grid-cols-[180px_1fr_220px]</code> の3カラムに変更する</li>
+<li><input checked="" disabled="" type="checkbox"> 6.4 左カラム（タグ+シェア）を <code>position: sticky; top: 80px</code> で配置する</li>
+<li><input checked="" disabled="" type="checkbox"> 6.5 既存の <code>SideToc</code> コンポーネントを右カラムに移動し <code>sticky</code> を適用する</li>
+<li><input checked="" disabled="" type="checkbox"> 6.6 記事ヘッダーをセンタリングレイアウト（max-width: 880px・中央揃え）に変更する</li>
+<li><input checked="" disabled="" type="checkbox"> 6.7 本文タイポグラフィを更新する（H2 serif 24px・blockquote accent border-left 2px・本文 16px line-height 2.05）</li>
+<li><input checked="" disabled="" type="checkbox"> 6.8 <code>SuggestedPost</code> セクションを3カラム記事カードグリッドに変更する</li>
+<li><input checked="" disabled="" type="checkbox"> 6.9 <strong>[GREEN確認]</strong> <code>bun run test:integration -- e2e/post-layout.spec.ts</code> を実行してテストが全て通ることを確認する</li>
+</ul>
+<h2>7. カテゴリページ（TDD）</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 7.1 <strong>[テスト作成]</strong> <code>e2e/category-header.spec.ts</code> を作成する<ul>
+<li>カテゴリページ上部に &quot;Category&quot; ラベルが存在することを検証（<code>variantFinal.jsx</code> L381）</li>
+<li>カテゴリ名の <code>font-size</code> が <code>56px</code>、<code>font-family</code> が <code>Noto Serif JP</code> であることを検証（<code>variantFinal.jsx</code> L385）</li>
+<li>カテゴリ名末尾に <code>color: var(--accent)</code> のピリオド要素が存在することを検証（<code>variantFinal.jsx</code> L386）</li>
+<li>記事数テキストに <code>JetBrains Mono</code> フォントが適用されていることを検証（<code>variantFinal.jsx</code> L390-393）</li>
+<li>全カテゴリ（CODE / BUSINESS / MATH / OTHER）のタブが横並びで存在することを検証（<code>variantFinal.jsx</code> L395-399）</li>
+<li>現在カテゴリタブの <code>background-color</code> が <code>--fg</code> 値、<code>color</code> が <code>--bg</code> 値であることを検証（<code>variantFinal.jsx</code> L397）</li>
+<li>他カテゴリタブをクリックすると対応するカテゴリページに遷移することを検証</li>
+<li><strong>[デザイン比較]</strong> デザイン参照（<code>data-dc-slot=&quot;category&quot;</code>）とアプリのカテゴリページのスクリーンショットを保存する</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 7.2 <strong>[RED確認]</strong> <code>bun run test:integration -- e2e/category-header.spec.ts</code> を実行してテストが失敗することを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 7.3 <code>CategoryHeader/index.astro</code> を新規作成する（Category ラベル・カテゴリ名 56px serif + accent ピリオド・説明文・記事数 mono 右寄せ）</li>
+<li><input checked="" disabled="" type="checkbox"> 7.4 <code>CategoryHeader</code> にカテゴリ切替タブ（全カテゴリ横並び・現在カテゴリハイライト）を追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 7.5 <code>pages/category/[category]/[page].astro</code> に <code>CategoryHeader</code> を組み込む</li>
+<li><input checked="" disabled="" type="checkbox"> 7.6 <strong>[GREEN確認]</strong> <code>bun run test:integration -- e2e/category-header.spec.ts</code> を実行してテストが全て通ることを確認する</li>
+</ul>
+<h2>8. フッター・ページネーション（TDD）</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 8.1 <strong>[テスト作成]</strong> <code>e2e/site-footer.spec.ts</code> を作成する<ul>
+<li>フッターの <code>grid-template-columns</code> に <code>2fr 1fr 1fr 1fr</code> が設定されていることを検証（<code>variantFinal.jsx</code> L244）</li>
+<li>フッター内に &quot;asunaroblog&quot; テキストが存在することを検証（<code>variantFinal.jsx</code> L245）</li>
+<li>&quot;Category&quot; &quot;Elsewhere&quot; &quot;Newsletter&quot; の各ラベルが存在することを検証（<code>variantFinal.jsx</code> L248-260）</li>
+<li>&quot;GitHub ↗&quot; &quot;X ↗&quot; &quot;RSS ↗&quot; テキストが存在することを検証（<code>variantFinal.jsx</code> L257）</li>
+<li>コピーライトテキストに <code>JetBrains Mono</code> が適用されていることを検証（<code>variantFinal.jsx</code> L265）</li>
+<li>&quot;built with Astro · Newt CMS&quot; テキストが存在することを検証（<code>variantFinal.jsx</code> L266）</li>
+<li>モバイル（375px幅）でフッターが縦積みになることを検証</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 8.2 <strong>[テスト作成]</strong> <code>e2e/pagination.spec.ts</code> を作成する<ul>
+<li>&quot;Previous&quot; テキストを含む要素が存在することを検証（<code>variantFinal.jsx</code> L212）</li>
+<li>&quot;Next&quot; テキストを含む要素が存在することを検証（<code>variantFinal.jsx</code> L231）</li>
+<li>現在ページのボタンの <code>background-color</code> が <code>--accent</code> 値であることを検証（<code>variantFinal.jsx</code> L222-223）</li>
+<li>1ページ目では Previous ボタンの <code>opacity</code> が <code>0.4</code> であることを検証（<code>variantFinal.jsx</code> L210）</li>
+<li>総ページ数が5以上の場合に &quot;…&quot; テキストが表示されることを検証（<code>variantFinal.jsx</code> L216-217）</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 8.3 <strong>[RED確認]</strong> <code>bun run test:integration -- e2e/site-footer.spec.ts e2e/pagination.spec.ts</code> を実行してテストが失敗することを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 8.4 <code>Footer/index.astro</code> を <code>2fr 1fr 1fr 1fr</code> の4カラムグリッドに全面書き換える（ブランド・カテゴリ・Elsewhere・Newsletter）</li>
+<li><input checked="" disabled="" type="checkbox"> 8.5 フッター最下部にコピーライトバー（&quot;© Asunaro&quot; + &quot;built with Astro · Newt CMS&quot;）を追加する</li>
+<li><input checked="" disabled="" type="checkbox"> 8.6 <code>Pagination/index.tsx</code> を「← Previous / Next → + ページ番号チップ + 省略表示」デザインに書き換える</li>
+<li><input checked="" disabled="" type="checkbox"> 8.7 <strong>[GREEN確認]</strong> <code>bun run test:integration -- e2e/site-footer.spec.ts e2e/pagination.spec.ts</code> を実行してテストが全て通ることを確認する</li>
+</ul>
+<h2>9. レスポンシブ対応</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 9.1 モバイル（768px 未満）でのヘッダーをハンバーガーメニューまたは縦積みナビに変更する</li>
+<li><input checked="" disabled="" type="checkbox"> 9.2 記事詳細の3カラムをモバイルで1カラムに折りたたむ（タグは本文上部に移動）</li>
+<li><input checked="" disabled="" type="checkbox"> 9.3 <code>playwright.config.ts</code> のモバイルプロジェクトを有効化して全テストをモバイルでも実行する</li>
+<li><input checked="" disabled="" type="checkbox"> 9.4 <code>bun run test:integration</code> を Pixel 5 / iPhone 12 プロジェクトで実行し、全テストが通ることを確認する</li>
+</ul>
+<h2>10. デザイン比較・修正</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 10.1 <code>bun run build</code> でビルドエラーがないことを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 10.2 <code>bun run test:integration</code> で全テストが通ることを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 10.3 <strong>[全ページデザイン比較]</strong> 以下の6パターンについてデザイン参照とアプリのスクリーンショットを <code>test-results/compare/</code> に並べて保存する<ul>
+<li><code>home-light</code>: デザイン参照（Light）× トップページ（Light）</li>
+<li><code>home-dark</code>: デザイン参照（Dark）× トップページ（Dark）</li>
+<li><code>post-light</code>: デザイン参照（Light）× 記事詳細（Light）</li>
+<li><code>post-dark</code>: デザイン参照（Dark）× 記事詳細（Dark）</li>
+<li><code>category-light</code>: デザイン参照（Light）× カテゴリページ（Light）</li>
+<li><code>category-dark</code>: デザイン参照（Dark）× カテゴリページ（Dark）</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 10.4 スクリーンショット比較で発見した視覚的差異をリストアップする</li>
+<li><input checked="" disabled="" type="checkbox"> 10.5 <strong>[デザイン修正]</strong> リストアップした差異を修正する（色・フォントサイズ・余白・グリッド幅等）</li>
+<li><input checked="" disabled="" type="checkbox"> 10.6 修正後に <code>bun run test:integration</code> で全テストが引き続き通ることを確認する</li>
+<li><input checked="" disabled="" type="checkbox"> 10.7 修正後に再度スクリーンショット比較を実施し、デザイン案との一致を確認する</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: PRごとにLighthouse CIが自動実行される</h3>
+<p>GitHub Actionsワークフローは、Cloudflare Pagesへのデプロイ完了後にLighthouse CIをプレビューURLに対して実行しなければならない（SHALL）。</p>
+<h4>Scenario: デプロイ成功後にLighthouse CIが起動する</h4>
+<ul>
+<li><strong>WHEN</strong> Cloudflare Pagesへのデプロイが成功しプレビューURLが取得できる</li>
+<li><strong>THEN</strong> <code>@lhci/cli</code> がそのプレビューURLに対してLighthouseを実行する</li>
+</ul>
+<h4>Scenario: 計測は複数回実行されメジアン値を使用する</h4>
+<ul>
+<li><strong>WHEN</strong> Lighthouse CIが実行される</li>
+<li><strong>THEN</strong> 同一URLに対して3回計測が行われ、メジアン値がレポートに使用される</li>
+</ul>
+<h3>Requirement: 単一ページ計測はトップページと代表記事ページの2URLとする</h3>
+<p><code>lhci autorun</code> による単一ページ計測はトップページおよび代表的な記事ページのURLを対象としなければならない（SHALL）。</p>
+<h4>Scenario: トップページが計測される</h4>
+<ul>
+<li><strong>WHEN</strong> Lighthouse CIが実行される</li>
+<li><strong>THEN</strong> <code>{PREVIEW_URL}/</code> のLighthouseレポートが生成される</li>
+</ul>
+<h4>Scenario: 記事ページが計測される</h4>
+<ul>
+<li><strong>WHEN</strong> Lighthouse CIが実行される</li>
+<li><strong>THEN</strong> <code>{PREVIEW_URL}/blog/{ARTICLE_SLUG}/</code> のLighthouseレポートが生成される</li>
+</ul>
+<h3>Requirement: User Flowsによるページ遷移計測を行う</h3>
+<p>View Transitionsを経由した画面遷移のパフォーマンスをLighthouse User Flowsで計測しなければならない（SHALL）。</p>
+<h4>Scenario: 記事一覧から詳細ページへの遷移が計測される</h4>
+<ul>
+<li><strong>WHEN</strong> User Flowsスクリプトが実行される</li>
+<li><strong>THEN</strong> トップページの初期ロード（navigation step）が記録される</li>
+<li><strong>THEN</strong> 記事カードへのクリック操作（timespan step）が記録される</li>
+<li><strong>THEN</strong> 記事詳細ページへのView Transitions遷移完了後のスナップショット（snapshot step）が記録される</li>
+<li><strong>THEN</strong> 一連のフローレポートが生成される</li>
+</ul>
+<h4>Scenario: User Flowsのレポートがアップロードされる</h4>
+<ul>
+<li><strong>WHEN</strong> User Flowsスクリプトの実行が完了する</li>
+<li><strong>THEN</strong> フローレポートがHTMLファイルとして出力され、GitHub ActionsのArtifactsとしてアップロードされる</li>
+</ul>
+<h3>Requirement: Lighthouseスコアのレポートがアップロードされる</h3>
+<p>Lighthouse CIの計測結果はLHCI公開ストレージにアップロードされ、レポートURLがGitHub Actionsのログから確認できなければならない（SHALL）。</p>
+<h4>Scenario: レポートがLHCI公開ストレージに保存される</h4>
+<ul>
+<li><strong>WHEN</strong> Lighthouse CIの計測が完了する</li>
+<li><strong>THEN</strong> レポートが <code>temporary-public-storage</code> にアップロードされる</li>
+<li><strong>THEN</strong> レポートURLがActionsのログに出力される</li>
+</ul>
+<h3>Requirement: パフォーマンス目標値をLighthouse CIアサーションで管理する</h3>
+<p><code>lighthouserc.json</code> にパフォーマンス目標値をアサーションとして定義しなければならない（SHALL）。目標値はベースライン計測後に調整される。</p>
+<h4>Scenario: Performance Scoreが目標値を下回った場合に警告が出る</h4>
+<ul>
+<li><strong>WHEN</strong> LighthouseのPerformance Scoreが90未満である</li>
+<li><strong>THEN</strong> Lighthouse CIがアサーション違反として警告を出力する</li>
+</ul>
+<h4>Scenario: LCPが目標値を超えた場合に警告が出る</h4>
+<ul>
+<li><strong>WHEN</strong> LCPが2,500msを超える</li>
+<li><strong>THEN</strong> Lighthouse CIがアサーション違反として警告を出力する</li>
+</ul>
+<h4>Scenario: TBTが目標値を超えた場合に警告が出る</h4>
+<ul>
+<li><strong>WHEN</strong> TBTが200msを超える</li>
+<li><strong>THEN</strong> Lighthouse CIがアサーション違反として警告を出力する</li>
+</ul>
+<h4>Scenario: CLSが目標値を超えた場合に警告が出る</h4>
+<ul>
+<li><strong>WHEN</strong> CLSが0.1を超える</li>
+<li><strong>THEN</strong> Lighthouse CIがアサーション違反として警告を出力する</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>proposal</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Why</h2>
+<p>色・スペーシング・タイポグラフィ・コンポーネントのデザイン判断がコードに暗黙的に散在しており、AI と人間が新しいコンポーネントを実装する際に「なぜこの値を使うか」の共通認識がない。DESIGN.md を軸としたデザインシステムを整備することで、Claude が実装時に参照できる唯一の正解ファイルを確立し、一貫性のある UI 生成を可能にする。</p>
+<h2>What Changes</h2>
+<ul>
+<li>プロジェクトルートに <code>DESIGN.md</code> を新設 — カラートークン・タイポグラフィ・スペーシングスケール・コンポーネント原則・Do/Don&#39;t を記述した AI + 人間の共通参照ドキュメント</li>
+<li>デザイントークンの拡充 — 既存のカラー変数（<code>--bg</code>, <code>--fg</code>, <code>--accent</code> 等）に加え、スペーシング・フォントサイズ・フォントウェイト・行間・角丸の CSS カスタムプロパティを体系化し <code>tokens.scss</code> として分離する</li>
+<li>Storybook のセットアップ — <code>@storybook-astro/framework</code> を用いて <code>.storybook/</code> 設定を作成し、既存の Astro・React コンポーネント（Header, Footer, SideBar, Pagination, PostBody 系等）のストーリーを追加する</li>
+<li>Storybook の公開デプロイ — ビルドした Storybook を既存の Cloudflare Pages プロジェクトへ GitHub Actions で自動デプロイし、<code>designsystem.asunaroblog.net</code> で公開アクセス可能にする</li>
+</ul>
+<h2>Capabilities</h2>
+<h3>New Capabilities</h3>
+<ul>
+<li><code>design-md</code>: プロジェクトルートの <code>DESIGN.md</code> — AI と人間が参照するデザイン仕様の唯一の情報源。カラーパレット・タイポグラフィ・スペーシングスケール・コンポーネント原則・禁止事項を含む</li>
+<li><code>design-tokens</code>: <code>src/presentation/styles/tokens.scss</code> — 色・スペーシング・タイポグラフィの CSS カスタムプロパティ定義を一元管理するトークンファイル</li>
+<li><code>component-catalog</code>: Storybook (<code>@storybook-astro/framework</code>) による Astro + React コンポーネントカタログ — <code>.storybook/</code> 設定 + 各コンポーネントの <code>.stories.tsx</code> ファイル群</li>
+<li><code>storybook-deploy</code>: <code>designsystem.asunaroblog.net</code> への Storybook 公開デプロイ — GitHub Actions ワークフロー（<code>wrangler pages deploy</code>）で main ブランチへのプッシュ時に自動ビルド・デプロイ</li>
+</ul>
+<h3>Modified Capabilities</h3>
+<ul>
+<li><code>theme-system</code>: 既存のカラー変数定義を <code>globals.scss</code> から <code>tokens.scss</code> に移動し、<code>globals.scss</code> は <code>@use</code> でインポートする形に再構成する</li>
+</ul>
+<h2>Impact</h2>
+<ul>
+<li><code>DESIGN.md</code> — プロジェクトルートに新規作成</li>
+<li><code>src/presentation/styles/tokens.scss</code> — 新規作成（カラー・スペーシング・タイポグラフィ変数）</li>
+<li><code>src/presentation/styles/globals.scss</code> — トークン定義を <code>tokens.scss</code> に移動し <code>@use</code> で参照</li>
+<li><code>.storybook/main.ts</code>, <code>.storybook/preview.ts</code> — Storybook 設定ファイルの新規作成</li>
+<li><code>src/presentation/components/**/*.stories.tsx</code> — 各 Astro・React コンポーネントのストーリー追加</li>
+<li><code>CLAUDE.md</code> — DESIGN.md の参照方法を追記</li>
+<li><code>.github/workflows/deploy-storybook.yml</code> — Storybook ビルド &amp; Cloudflare Pages デプロイの GitHub Actions ワークフロー</li>
+</ul>
+
+</body>
+</html>

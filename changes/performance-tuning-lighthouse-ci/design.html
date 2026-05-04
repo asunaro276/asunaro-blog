@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>design</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Context</h2>
+<p>現在、Cloudflare PagesはGitHubリポジトリとの直接統合（Cloudflare Dashboard経由）でデプロイされている。この方式ではGitHub Actionsからプレビュー URLを取得する手段がなく、Lighthouse CIとの連携が困難である。</p>
+<p>パフォーマンス改善の前提として、PRごとに自動でLighthouseスコアを計測・比較できる基盤が必要。計測基盤ができた後、施策を1つずつブランチで実装してスコアを比較し、採用判断を行う。</p>
+<h2>Goals / Non-Goals</h2>
+<p><strong>Goals:</strong></p>
+<ul>
+<li>GitHub ActionsからCloudflare Pagesへデプロイし、ブランチごとのプレビューURLを取得できるようにする</li>
+<li>Lighthouse CIをGitHub Actionsで実行し、PRにスコアレポートをコメントする</li>
+<li>ベースライン計測を行い、改善目標値（LCP・TBT・CLS・Performanceスコア）を設定する</li>
+<li>目標値を達成するまで施策ブランチで改善を繰り返す</li>
+</ul>
+<p><strong>Non-Goals:</strong></p>
+<ul>
+<li>バックエンド（Newt CMS）側のパフォーマンス改善</li>
+<li>Cloudflare DashboardのGitHub統合設定の削除（移行後に手動で無効化する）</li>
+<li>Lighthouse以外の計測ツール（WebPageTest等）の導入</li>
+</ul>
+<h2>Decisions</h2>
+<h3>1. CloudflareデプロイはWrangler CLIを使用する</h3>
+<p><code>wrangler pages deploy</code> コマンドでビルド済み成果物（<code>dist/</code>）をデプロイする。<code>cloudflare/wrangler-action</code> GitHub Actionを使用することで、デプロイ出力からプレビューURLを取得できる。</p>
+<p><strong>代替案：</strong> Cloudflare Pages Action（<code>cloudflare/pages-action</code>）→ 非推奨・メンテが止まっているため採用しない。</p>
+<p><strong>必要なSecrets：</strong></p>
+<ul>
+<li><code>CLOUDFLARE_API_TOKEN</code>：Pages:Edit権限を持つAPIトークン</li>
+<li><code>CLOUDFLARE_ACCOUNT_ID</code>：CloudflareアカウントID</li>
+</ul>
+<h3>2. Lighthouse CIは <code>@lhci/cli</code> をGitHub Actionsで直接実行する</h3>
+<p><code>lhci autorun</code> コマンドを使い、プレビュー URLに対して計測を実行する。レポートは <code>--upload.target=temporary-public-storage</code> でLHCI公開ストレージにアップロードし、URLをPRコメントに記載する。</p>
+<p><strong>代替案：</strong> <code>treosh/lighthouse-ci-action</code> → 内部的に同じ <code>@lhci/cli</code> を使うが、設定の柔軟性が低いため採用しない。</p>
+<h3>3. 計測は「単一ページ計測」と「User Flowsによる遷移計測」の2種類を行う</h3>
+<p>サイトはAstro View Transitionsを使用しており、遷移速度が体感パフォーマンスに直結する。標準のLighthouse CIは単一URLの初期ロードしか計測できないため、View Transitions経由のページ遷移には<strong>Lighthouse User Flows</strong>を併用する。</p>
+<p><strong>単一ページ計測（<code>lhci autorun</code>）：</strong></p>
+<ul>
+<li><code>{PREVIEW_URL}/</code>：トップページの初期ロード</li>
+<li><code>{PREVIEW_URL}/blog/{ARTICLE_SLUG}/</code>：記事ページの初期ロード</li>
+</ul>
+<p><strong>User Flows計測（Puppeteer + <code>lighthouse/flow</code> API）：</strong></p>
+<ul>
+<li>トップページをロード → 記事カードをクリック → 記事詳細ページへの遷移を記録</li>
+<li><code>timespan</code> モードでView Transitions中のレイアウトシフトやスクリプト実行時間を計測</li>
+<li>スクリプトは <code>scripts/lighthouse-flow.js</code> として管理し、GitHub Actionsから実行する</li>
+</ul>
+<p><strong>代替案：</strong> Playwrightのみで計測 → Lighthouseほどの詳細な診断情報（Opportunities/Diagnostics）が得られないため、User Flowsを採用する。</p>
+<h3>4. パフォーマンス目標値（Lighthouse CI assertions）</h3>
+<p>初回ベースライン計測後に実績値を確認して調整するが、初期設定として下記を使用する：</p>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>目標値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Performance Score</td>
+<td>≥ 90</td>
+</tr>
+<tr>
+<td>LCP</td>
+<td>≤ 2,500ms</td>
+</tr>
+<tr>
+<td>TBT</td>
+<td>≤ 200ms</td>
+</tr>
+<tr>
+<td>CLS</td>
+<td>≤ 0.1</td>
+</tr>
+<tr>
+<td>FCP</td>
+<td>≤ 1,800ms</td>
+</tr>
+</tbody></table>
+<p>assertionsはベースライン後に <code>warn</code> から <code>error</code> に昇格させる段階的アプローチを取る。</p>
+<h3>5. ワークフローは用途別に2つ構成する</h3>
+<ul>
+<li><strong><code>preview.yml</code></strong>：PRへのpushでトリガー。ブランチをプレビューデプロイし、Lighthouse CIを実行する。</li>
+<li><strong><code>deploy.yml</code></strong>：mainへのpushでトリガー。<code>wrangler pages deploy --branch=main</code> でproductionデプロイを行う。Lighthouse CIは実行しない（PRで評価済みのため）。</li>
+</ul>
+<p>Cloudflare Pagesはブランチがmainのときproductionエイリアス（<code>https://asunaroblog.net</code>）にルーティングする仕様を利用する。</p>
+<h2>Risks / Trade-offs</h2>
+<ul>
+<li><strong>Cloudflare二重デプロイ</strong>：GitHub統合とGitHub ActionsのCIが同時に動くと二重デプロイが発生する。→ CI導入後、Cloudflare DashboardでGitHub統合を手動で無効化する。</li>
+<li><strong>ビルド時間増加</strong>：デプロイ＋Lighthouseで約3〜5分追加される。→ 許容範囲とする。</li>
+<li><strong>Lighthouseのネットワーク変動</strong>：GitHub ActionsのランナーからCloudflareプレビュー環境への計測はネットワーク環境に左右される。→ 単一ページ計測は3回計測してメジアンを使用（<code>numberOfRuns: 3</code>）。User Flowsは1回実行のみ（複数回はコスト大）。</li>
+<li><strong>User Flowsの実行コスト</strong>：PuppeteerをGitHub Actionsで動かすため、Chromiumのインストールが必要。→ <code>playwright</code> は既導入済みのため、Puppeteerを別途インストールせず <code>@playwright/browser-chromium</code> を流用することを検討する。</li>
+<li><strong>Cloudflare APIトークン管理</strong>：Secretsが漏洩するとデプロイが乗っ取られる。→ Pages:Editのみの最小権限トークンを発行する。</li>
+</ul>
+<h2>Migration Plan</h2>
+<ol>
+<li>CloudflareでAPIトークン（Pages:Edit）を発行し、GitHub Secretsに登録</li>
+<li><code>wrangler.toml</code>（またはCLIフラグ）でPages projectを指定</li>
+<li><code>.github/workflows/preview.yml</code> を追加（PRブランチ：ビルド→プレビューデプロイ→Lighthouse CI）
+3b. <code>.github/workflows/deploy.yml</code> を追加（main：ビルド→productionデプロイ）</li>
+<li><code>lighthouserc.json</code> を追加</li>
+<li>PRを作成して動作確認</li>
+<li>問題なければCloudflare DashboardのGitHub統合を無効化</li>
+<li>ベースラインスコアをPRコメントで確認し、目標値を調整</li>
+<li>改善施策ブランチを順次作成・評価</li>
+</ol>
+<p><strong>ロールバック：</strong> Cloudflare DashboardのGitHub統合を再有効化すれば元の状態に戻せる。</p>
+<h2>Open Questions</h2>
+<ul>
+<li><code>wrangler pages deploy</code> 時のプロジェクト名（Cloudflare Dashboard上の名前）の確認が必要</li>
+<li>記事ページのサンプルスラッグ（代表的な記事のパス）をどれにするか</li>
+<li>User Flows実行にPuppeteer（<code>puppeteer-core</code>）を使うか、Playwrightの既存Chromiumを使うか（互換性の確認が必要）</li>
+</ul>
+
+</body>
+</html>

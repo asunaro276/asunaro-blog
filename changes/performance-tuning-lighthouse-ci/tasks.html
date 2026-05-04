@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tasks</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>1. Cloudflare CI デプロイ基盤の構築</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 1.1 Cloudflare DashboardでPages:Edit権限を持つAPIトークンを発行する</li>
+<li><input disabled="" type="checkbox"> 1.2 GitHubリポジトリのSecretsに <code>CLOUDFLARE_API_TOKEN</code> と <code>CLOUDFLARE_ACCOUNT_ID</code> を登録する</li>
+<li><input disabled="" type="checkbox"> 1.3 <code>.github/workflows/preview.yml</code> を作成し、PRへのpushでビルドとCloudflare Pagesプレビューデプロイが実行されるようにする（<code>cloudflare/wrangler-action</code> を使用）</li>
+<li><input disabled="" type="checkbox"> 1.4b <code>.github/workflows/deploy.yml</code> を作成し、mainへのpushでビルドとCloudflare Pagesのproductionデプロイが実行されるようにする</li>
+<li><input disabled="" type="checkbox"> 1.4 PRを作成してデプロイが正常に動作し、プレビューURLが取得できることを確認する</li>
+<li><input disabled="" type="checkbox"> 1.5 Cloudflare DashboardのGitHub統合を無効化する（二重デプロイを防ぐ）</li>
+</ul>
+<h2>2. Lighthouse CI の導入（単一ページ計測）</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 2.1 <code>@lhci/cli</code> を devDependencies に追加する（<code>bun add -d @lhci/cli</code>）</li>
+<li><input disabled="" type="checkbox"> 2.2 <code>lighthouserc.json</code> を作成し、計測URL・numberOfRuns（3回）・assertionsを設定する</li>
+<li><input disabled="" type="checkbox"> 2.3 <code>.github/workflows/preview.yml</code> にLighthouse CIステップを追加し、デプロイ後のプレビューURLを渡して計測を実行する</li>
+<li><input disabled="" type="checkbox"> 2.4 LHCI結果を <code>temporary-public-storage</code> にアップロードする設定を追加する</li>
+<li><input disabled="" type="checkbox"> 2.5 PRを作成してLighthouse CIが正常に実行され、レポートURLがActionsログに出力されることを確認する</li>
+</ul>
+<h2>3. Lighthouse User Flows の導入（遷移計測）</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 3.1 Puppeteer（<code>puppeteer-core</code>）またはPlaywright既存ChromiumとLighthouse User Flows APIの互換性を確認し、使用するブラウザドライバを決定する</li>
+<li><input disabled="" type="checkbox"> 3.2 <code>scripts/lighthouse-flow.js</code> を作成する（トップページロード → 記事カードクリック → 遷移完了の3ステップ）</li>
+<li><input disabled="" type="checkbox"> 3.3 <code>.github/workflows/preview.yml</code> にUser Flowsステップを追加し、フローレポートHTMLを生成する</li>
+<li><input disabled="" type="checkbox"> 3.4 フローレポートHTMLをGitHub Actions Artifactsとしてアップロードする設定を追加する</li>
+<li><input disabled="" type="checkbox"> 3.5 PRを作成してUser Flowsが正常に実行され、遷移のレポートが確認できることを検証する</li>
+</ul>
+<h2>4. ベースライン計測と目標値の確定</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 4.1 mainブランチのプレビューで単一ページLighthouse CIを実行し、現状のスコアを記録する（Performance / LCP / TBT / CLS / FCP）</li>
+<li><input disabled="" type="checkbox"> 4.2 User Flowsを実行し、View Transitions遷移の現状パフォーマンスを記録する</li>
+<li><input disabled="" type="checkbox"> 4.3 計測結果をもとに <code>lighthouserc.json</code> のアサーション目標値を調整し、<code>warn</code> から <code>error</code> に昇格させる</li>
+<li><input disabled="" type="checkbox"> 4.4 目標値をREADME等に記録する</li>
+</ul>
+<h2>5. パフォーマンス施策の実装と評価</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 5.1 施策候補をLighthouseレポートのOpportunities/DiagnosticsおよびUser Flowsレポートをもとに洗い出し、優先順位を決める</li>
+<li><input disabled="" type="checkbox"> 5.2 施策1（例: <code>prefetch: true</code> 設定によるView Transitions遷移の先読み）をブランチで実装し、User Flowsのスコアを確認して採用判断する</li>
+<li><input disabled="" type="checkbox"> 5.3 施策2（例: 画像フォーマット最適化・<code>width</code>/<code>height</code> 属性追加によるCLS改善）をブランチで実装し、Lighthouse CIのスコアを確認して採用判断する</li>
+<li><input disabled="" type="checkbox"> 5.4 施策3（例: フォント読み込み最適化・<code>font-display: swap</code> / preloadの設定）をブランチで実装し、スコアを確認して採用判断する</li>
+<li><input disabled="" type="checkbox"> 5.5 施策4（例: JavaScriptバンドル削減・未使用コードのtree-shaking強化）をブランチで実装し、スコアを確認して採用判断する</li>
+<li><input disabled="" type="checkbox"> 5.6 採用した施策をmainにマージし、最終スコアが全目標値を達成していることを確認する</li>
+</ul>
+
+</body>
+</html>

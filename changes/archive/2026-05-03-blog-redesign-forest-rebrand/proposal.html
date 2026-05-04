@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>proposal</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../index.html">← インデックスに戻る</a></nav>
+<h2>Why</h2>
+<p>現在のブログは技術ブログとして最低限の機能性と可読性は確保されているが、デザイン評価26/40点（独自性2.0/5・トレンド適合性2.5/5）と視覚的魅力・ブランドアイデンティティ・モダンさが大きく不足している（#42 #44 #47）。「迷わないが記憶に残らない」現状を脱するため、Forest Green を軸にした編集誌スタイルのリブランドを実施する。</p>
+<h2>What Changes</h2>
+<ul>
+<li><strong>カラーシステム</strong>: oklch ベースの CSS custom properties による Light/Dark 2テーマに全面移行。Tailwind のユーティリティカラーを廃止 → #44 #30 解消</li>
+<li><strong>フォント</strong>: Montserrat Subrayada を廃止し、Inter・Noto Sans JP・Noto Serif JP・JetBrains Mono の4書体体系に変更 → #47 貢献</li>
+<li><strong>ヘッダー</strong>: ベタ背景 → スティッキー + blur backdrop。ロゴ・ナビ・検索/RSS を3カラムグリッドで整列 → #47 貢献</li>
+<li><strong>トップページ</strong>: 最新記事をフィーチャーヒーロー（大見出し + 説明 + カバー画像）で先頭表示し、以降を3カラムカードグリッドに変更 → #45 #43 解消</li>
+<li><strong>記事カード</strong>: サムネイル・カテゴリラベル・等幅日付・タグ一覧を含む統一カードに刷新。固定アスペクト比で画像高さ統一 → #45 解消</li>
+<li><strong>サイドバー</strong>: プロフィール・タグチップ・月別ヒートマップ（年×月グリッド）の3セクション構成に再設計 → #42 #47 貢献</li>
+<li><strong>記事詳細ページ</strong>: 左（タグ+シェア sticky）・中（本文）・右（TOC sticky）の3カラムレイアウトに変更。ホバーインタラクション追加 → #43 解消</li>
+<li><strong>カテゴリページ</strong>: カテゴリタイトル・説明・記事数を表示するヘッダーセクションと、カテゴリ切替チップを追加</li>
+<li><strong>フッター</strong>: 現行のシンプルフッターを4カラムグリッド（ブランド / カテゴリ / Elsewhere / Newsletter）に拡張 → #42 貢献</li>
+<li><strong>ページネーション</strong>: Prev/Next を主役とし、ページ番号チップをセカンダリに配置する新デザインに変更。現在ページのハイライト強化 → #43 解消</li>
+<li><strong>ホバーインタラクション</strong>: カード・ナビ・ボタン全体にフィードバックを追加 → #43 解消</li>
+</ul>
+<h2>Capabilities</h2>
+<h3>New Capabilities</h3>
+<ul>
+<li><code>theme-system</code>: CSS custom properties（oklch）による Light/Dark テーマの定義と切替機構</li>
+<li><code>site-header</code>: スティッキー blur ヘッダー（ロゴ・ナビ・検索/RSS）</li>
+<li><code>hero-section</code>: トップページの Featured ヒーローセクション</li>
+<li><code>article-card</code>: サムネイル付き統一記事カード（一覧・Suggested 共通）</li>
+<li><code>sidebar-profile</code>: プロフィール + ソーシャルリンクサイドバーセクション</li>
+<li><code>sidebar-tags</code>: タグチップ型サイドバーセクション</li>
+<li><code>archive-heatmap</code>: 年×月グリッドヒートマップ形式のアーカイブウィジェット</li>
+<li><code>post-layout</code>: 3カラム記事詳細レイアウト（タグ sticky / 本文 / TOC sticky）</li>
+<li><code>category-header</code>: カテゴリページのヘッダーセクション（タイトル・説明・記事数・切替タブ）</li>
+<li><code>site-footer</code>: 4カラムグリッドフッター</li>
+<li><code>pagination</code>: Prev/Next + ページ番号チップのページネーション</li>
+</ul>
+<h3>Modified Capabilities</h3>
+<p>（既存 spec なし）</p>
+<h2>Impact</h2>
+<ul>
+<li><strong>CSS/スタイル</strong>: <code>globals.scss</code> を新テーマ変数定義に全面置換。CSS custom properties 中心へ移行</li>
+<li><strong>フォント</strong>: <code>Layout.astro</code> の Google Fonts リンクを変更（Inter, Noto Sans/Serif JP, JetBrains Mono）</li>
+<li><strong>コンポーネント</strong>: <code>Header</code>, <code>Footer</code>, <code>SideBar</code>, <code>PostCard</code>, <code>Pagination</code> を全面刷新。<code>HeroSection</code>, <code>ArchiveHeatmap</code>, <code>CategoryHeader</code> を新規作成</li>
+<li><strong>依存関係</strong>: 新規フォントは Google Fonts CDN 経由。Tailwind config を CSS vars に対応させる</li>
+<li><strong>既存機能</strong>: ページルーティング・CMS連携・DDDレイヤーには変更なし</li>
+</ul>
+
+</body>
+</html>

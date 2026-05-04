@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: サイドバーに RSS 購読ボタンを表示する</h3>
+<p>SideProfile コンポーネントは RSS フィードへのリンクボタンを表示しなければならない（SHALL）。ボタンは RSS SVG アイコンとラベル「RSS」を含み、フォレストリブランドのデザイントークン（<code>--accent</code>, <code>--fg-2</code>）を使用してスタイリングされなければならない（SHALL）。</p>
+<h4>Scenario: サイドバーの購読ボタンが表示される</h4>
+<ul>
+<li><strong>WHEN</strong> サイドバーを含むページを表示する</li>
+<li><strong>THEN</strong> SideProfile 内に <code>/rss.xml</code> へのリンクを持つ RSS ボタンが表示される</li>
+</ul>
+<h4>Scenario: ボタンがデザイントークンに準拠する</h4>
+<ul>
+<li><strong>WHEN</strong> ライトモードまたはダークモードでページを表示する</li>
+<li><strong>THEN</strong> RSS ボタンのアイコン色は <code>--accent</code> カスタムプロパティ値を使用し、テーマに追従する</li>
+</ul>
+<h3>Requirement: フッターの Elsewhere セクションに RSS リンクを追加する</h3>
+<p>フッターの Elsewhere セクションは GitHub・X リンクと並んで RSS フィードリンクを表示しなければならない（SHALL）。</p>
+<h4>Scenario: フッターに RSS リンクが表示される</h4>
+<ul>
+<li><strong>WHEN</strong> フッターを含むページを表示する</li>
+<li><strong>THEN</strong> Elsewhere セクションに <code>href=&quot;/rss.xml&quot;</code> を持つ「RSS ↗」リンクが表示される</li>
+</ul>
+<h4>Scenario: リンクのスタイルが既存リンクと一貫する</h4>
+<ul>
+<li><strong>WHEN</strong> フッターを表示する</li>
+<li><strong>THEN</strong> RSS リンクは GitHub・X リンクと同一のフォントサイズ・色（<code>--fg-2</code>）・スタイルで表示される</li>
+</ul>
+
+</body>
+</html>

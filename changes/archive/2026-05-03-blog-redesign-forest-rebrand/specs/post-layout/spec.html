@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: 3カラム記事詳細レイアウト</h3>
+<p>記事詳細ページの本文エリアを <code>180px 1fr 220px</code> の3カラムグリッドで構成する。左カラムにタグ+シェア、中央カラムに本文、右カラムに目次を配置する。</p>
+<h4>Scenario: デスクトップで記事詳細を表示する</h4>
+<ul>
+<li><strong>WHEN</strong> 記事詳細ページをデスクトップ（1024px 以上）で表示する</li>
+<li><strong>THEN</strong> 左カラム（タグ+シェア）・中央（本文）・右（TOC）の3カラムが表示される</li>
+<li><strong>THEN</strong> 左カラムと右カラムは <code>position: sticky; top: 80px</code> でスクロール時に固定される</li>
+</ul>
+<h4>Scenario: モバイルで記事詳細を表示する</h4>
+<ul>
+<li><strong>WHEN</strong> 記事詳細ページをモバイル（768px 未満）で表示する</li>
+<li><strong>THEN</strong> 1カラムレイアウトに折りたたまれる</li>
+<li><strong>THEN</strong> タグは本文上部に表示される</li>
+</ul>
+<h3>Requirement: 記事ヘッダー（センタリング）</h3>
+<p>記事タイトル・カテゴリ・日付・読了時間・説明文は中央揃えで表示する。タイトルは <code>Noto Serif JP</code> 48px。</p>
+<h4>Scenario: 記事ヘッダーが表示される</h4>
+<ul>
+<li><strong>WHEN</strong> 記事詳細ページを表示する</li>
+<li><strong>THEN</strong> カテゴリ・日付・読了時間が <code>--accent</code> 色のラベルで表示される</li>
+<li><strong>THEN</strong> タイトルが中央揃えで 48px 表示される</li>
+<li><strong>THEN</strong> 説明文が中央揃えで <code>--fg-2</code> 色で表示される</li>
+</ul>
+<h3>Requirement: 本文のタイポグラフィ</h3>
+<p>本文は <code>Noto Sans JP</code> 16px・<code>line-height: 2.05</code> で表示する。H2 見出しは <code>Noto Serif JP</code> 24px。引用は左ボーダー（2px <code>--accent</code>）付きで表示する。</p>
+<h4>Scenario: 本文の各要素が表示される</h4>
+<ul>
+<li><strong>WHEN</strong> 記事詳細ページの本文エリアを表示する</li>
+<li><strong>THEN</strong> H2 見出しは <code>Noto Serif JP</code> 24px で表示される</li>
+<li><strong>THEN</strong> 引用（blockquote）は <code>border-left: 2px solid var(--accent)</code> で表示される</li>
+</ul>
+<h3>Requirement: Suggested Posts セクション</h3>
+<p>記事詳細の最下部に「Suggested for you」として関連記事 3件を表示する。</p>
+<h4>Scenario: Suggested Posts が表示される</h4>
+<ul>
+<li><strong>WHEN</strong> 記事詳細ページの最下部を表示する</li>
+<li><strong>THEN</strong> &quot;Suggested for you&quot; セクションが <code>border-top</code> で区切られて表示される</li>
+<li><strong>THEN</strong> 関連記事が 3カラムの記事カードで表示される</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tasks</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>1. 依存パッケージのインストール</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 1.1 <code>@astrojs/rss</code> を bun add でインストールする</li>
+</ul>
+<h2>2. RSS フィードエンドポイントの実装</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 2.1 <code>Article</code> ドメインモデルの <code>publishedAt</code> フィールド（または代替フィールド）を確認し、pubDate として使用できる値を特定する</li>
+<li><input disabled="" type="checkbox"> 2.2 <code>Article</code> の概要として使用する description フィールド（<code>meta.description</code> 等）を確認する</li>
+<li><input disabled="" type="checkbox"> 2.3 <code>src/presentation/pages/rss.xml.ts</code> を作成し、<code>@astrojs/rss</code> の <code>rss()</code> を使って直近 50 件の記事フィードを生成する</li>
+<li><input disabled="" type="checkbox"> 2.4 DIContainer 経由で <code>GetArticleList</code> ユースケースを呼び出して記事データを取得するよう実装する</li>
+</ul>
+<h2>3. head タグへの自動検出リンク追加</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 3.1 共通レイアウトファイル（<code>src/presentation/layouts/</code>）を特定する</li>
+<li><input disabled="" type="checkbox"> 3.2 全ページの <code>&lt;head&gt;</code> に <code>&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;asunaroblog RSS&quot; href=&quot;/rss.xml&quot;&gt;</code> を追加する</li>
+</ul>
+<h2>4. サイドバー RSS 購読ボタンの実装</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 4.1 <code>src/presentation/components/common/SideBar/SideProfile/index.astro</code> に RSS アイコン（SVG inline）と <code>/rss.xml</code> へのリンクボタンを追加する</li>
+<li><input disabled="" type="checkbox"> 4.2 ボタンのスタイルに <code>--accent</code> カラーを使用し、light/dark テーマに追従するよう CSS カスタムプロパティで指定する</li>
+</ul>
+<h2>5. フッター Elsewhere セクションへの RSS リンク追加</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 5.1 <code>src/presentation/components/common/Footer/index.astro</code> の Elsewhere セクションに <code>href=&quot;/rss.xml&quot;</code> の「RSS ↗」リンクを追加する</li>
+<li><input disabled="" type="checkbox"> 5.2 スタイルが既存の GitHub・X リンク（<code>font-size: 13px; color: var(--fg-2)</code>）と一致していることを確認する</li>
+</ul>
+<h2>6. 動作確認</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 6.1 <code>bun run build</code> が成功することを確認する</li>
+<li><input disabled="" type="checkbox"> 6.2 <code>bun run preview</code> で <code>/rss.xml</code> にアクセスし、有効な RSS 2.0 XML が返ることを確認する</li>
+<li><input disabled="" type="checkbox"> 6.3 ブラウザで各ページの <code>&lt;head&gt;</code> に alternate link が存在することを確認する</li>
+<li><input disabled="" type="checkbox"> 6.4 サイドバーとフッターに RSS リンクが表示され、クリックで <code>/rss.xml</code> に遷移することを確認する</li>
+</ul>
+
+</body>
+</html>

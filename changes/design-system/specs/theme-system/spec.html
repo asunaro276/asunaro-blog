@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../../index.html">← インデックスに戻る</a></nav>
+<h2>MODIFIED Requirements</h2>
+<h3>Requirement: CSS custom properties によるテーマ変数の定義</h3>
+<p>サイト全体の色・背景・ルール色・アクセント色を CSS custom properties で定義する。変数は <code>--bg</code>, <code>--bg-2</code>, <code>--bg-3</code>, <code>--fg</code>, <code>--fg-2</code>, <code>--fg-3</code>, <code>--rule</code>, <code>--rule-2</code>, <code>--accent</code>, <code>--tint</code> の10変数とし、oklch 色空間で指定する。変数の定義場所は <code>globals.scss</code> から <code>tokens.scss</code> に移動する。</p>
+<h4>Scenario: Light テーマの変数が適用される</h4>
+<ul>
+<li><strong>WHEN</strong> <code>&lt;html&gt;</code> 要素が <code>theme-light</code> クラスを持つ</li>
+<li><strong>THEN</strong> <code>--bg</code> は暖かみのある白（oklch(0.985 0.008 110)）が適用される</li>
+<li><strong>THEN</strong> <code>--accent</code> は Forest Green（oklch(0.46 0.09 155)）が適用される</li>
+</ul>
+<h4>Scenario: Dark テーマの変数が適用される</h4>
+<ul>
+<li><strong>WHEN</strong> <code>&lt;html&gt;</code> 要素が <code>theme-dark</code> クラスを持つ</li>
+<li><strong>THEN</strong> <code>--bg</code> は深い森緑がかった黒（oklch(0.17 0.012 150)）が適用される</li>
+<li><strong>THEN</strong> <code>--accent</code> は Sage（oklch(0.78 0.10 145)）が適用される</li>
+</ul>
+<h4>Scenario: カラー変数が tokens.scss で定義されている</h4>
+<ul>
+<li><strong>WHEN</strong> <code>src/presentation/styles/tokens.scss</code> を確認する</li>
+<li><strong>THEN</strong> <code>:root, .theme-light</code> と <code>.theme-dark</code> のカラー変数定義が存在する</li>
+<li><strong>THEN</strong> <code>globals.scss</code> にはカラー変数の直接定義が存在しない</li>
+</ul>
+
+</body>
+</html>

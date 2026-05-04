@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: CSS custom properties によるテーマ変数の定義</h3>
+<p>サイト全体の色・背景・ルール色・アクセント色を <code>globals.scss</code> の CSS custom properties で定義する。変数は <code>--bg</code>, <code>--bg-2</code>, <code>--bg-3</code>, <code>--fg</code>, <code>--fg-2</code>, <code>--fg-3</code>, <code>--rule</code>, <code>--rule-2</code>, <code>--accent</code>, <code>--tint</code> の10変数とし、oklch 色空間で指定する。</p>
+<h4>Scenario: Light テーマの変数が適用される</h4>
+<ul>
+<li><strong>WHEN</strong> <code>&lt;html&gt;</code> 要素が <code>theme-light</code> クラスを持つ</li>
+<li><strong>THEN</strong> <code>--bg</code> は暖かみのある白（oklch(0.985 0.008 110)）が適用される</li>
+<li><strong>THEN</strong> <code>--accent</code> は Forest Green（oklch(0.46 0.09 155)）が適用される</li>
+</ul>
+<h4>Scenario: Dark テーマの変数が適用される</h4>
+<ul>
+<li><strong>WHEN</strong> <code>&lt;html&gt;</code> 要素が <code>theme-dark</code> クラスを持つ</li>
+<li><strong>THEN</strong> <code>--bg</code> は深い森緑がかった黒（oklch(0.17 0.012 150)）が適用される</li>
+<li><strong>THEN</strong> <code>--accent</code> は Sage（oklch(0.78 0.10 145)）が適用される</li>
+</ul>
+<h3>Requirement: テーマの初期化</h3>
+<p>ページ読み込み時にシステムの <code>prefers-color-scheme</code> を参照し、<code>&lt;html&gt;</code> に適切なテーマクラスを付与する。<code>localStorage</code> に保存された設定がある場合はそれを優先する。</p>
+<h4>Scenario: システム設定 Dark のユーザーが初回訪問する</h4>
+<ul>
+<li><strong>WHEN</strong> <code>prefers-color-scheme: dark</code> で <code>localStorage</code> に設定なし</li>
+<li><strong>THEN</strong> <code>&lt;html&gt;</code> に <code>theme-dark</code> クラスが付与される</li>
+</ul>
+<h4>Scenario: ユーザーが以前 Light を選択していた</h4>
+<ul>
+<li><strong>WHEN</strong> <code>localStorage.theme === &#39;light&#39;</code></li>
+<li><strong>THEN</strong> システム設定に関わらず <code>theme-light</code> クラスが付与される</li>
+</ul>
+<h3>Requirement: テーマトグル</h3>
+<p>ヘッダーにテーマ切替ボタンを配置し、クリックでテーマを切り替える。選択は <code>localStorage</code> に保存する。</p>
+<h4>Scenario: ユーザーがテーマトグルをクリックする</h4>
+<ul>
+<li><strong>WHEN</strong> Light テーマ中にトグルボタンをクリック</li>
+<li><strong>THEN</strong> <code>&lt;html&gt;</code> のクラスが <code>theme-dark</code> に変わる</li>
+<li><strong>THEN</strong> <code>localStorage.theme</code> に <code>&#39;dark&#39;</code> が保存される</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: 年×月グリッドヒートマップの表示</h3>
+<p>アーカイブウィジェットは年単位のセクションに分かれ、各年に 12ヶ月分のグリッドセルを表示する。セルの色の濃さはその月の投稿数に比例する。</p>
+<h4>Scenario: アーカイブヒートマップが表示される</h4>
+<ul>
+<li><strong>WHEN</strong> サイドバーのアーカイブセクションを表示する</li>
+<li><strong>THEN</strong> &quot;Archive&quot; ラベルと &quot;by month&quot; が上部に表示される</li>
+<li><strong>THEN</strong> 年が降順で並ぶ</li>
+<li><strong>THEN</strong> 各年の下に 12ヶ月分のグリッドセルが 6×2 で表示される</li>
+<li><strong>THEN</strong> 投稿のある月のセルは <code>--accent</code> の濃淡で着色される</li>
+<li><strong>THEN</strong> 投稿のない月のセルは <code>--bg-2</code> の薄い色で表示される</li>
+</ul>
+<h4>Scenario: 月セルにカーソルを乗せる</h4>
+<ul>
+<li><strong>WHEN</strong> 投稿のある月のセルにカーソルを乗せる</li>
+<li><strong>THEN</strong> ツールチップで &quot;YYYY.MM · N 件&quot; が表示される</li>
+</ul>
+<h4>Scenario: 月セルをクリックする</h4>
+<ul>
+<li><strong>WHEN</strong> 投稿のある月のセルをクリックする</li>
+<li><strong>THEN</strong> その月のアーカイブページ（<code>/yearmonth/[yearmonth]/1</code>）に遷移する</li>
+</ul>
+<h3>Requirement: 凡例の表示</h3>
+<p>ヒートマップ下部に投稿数と色の濃さの対応を示す凡例を表示する。</p>
+<h4>Scenario: 凡例が表示される</h4>
+<ul>
+<li><strong>WHEN</strong> アーカイブセクションを表示する</li>
+<li><strong>THEN</strong> &quot;少&quot; ～ &quot;多&quot; のラベルとともに 4段階のカラーチップが表示される</li>
+</ul>
+
+</body>
+</html>

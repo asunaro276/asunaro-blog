@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>design</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Context</h2>
+<p>asunaroblog は Astro + Astro Content Collections で構築され、Cloudflare Pages でホスト。記事データのソースは環境によって切り替わる：</p>
+<ul>
+<li><strong>開発環境</strong>: <code>./src/posts</code> 以下のローカル Markdown ファイル（<code>glob</code> ローダー）</li>
+<li><strong>本番環境</strong>: Cloudflare R2 バケット上の Markdown ファイル（カスタム <code>r2Loader</code>）</li>
+</ul>
+<p>どちらの環境でも <code>getCollection(&#39;posts&#39;)</code> で同一インターフェース越しに記事を取得できる。Newt CMS は現在利用していない（インフラ層に残骸コードはあるが DIContainer から参照されていない）。</p>
+<p>UIデザインは blog-redesign-forest-rebrand のデザイントークン（CSS カスタムプロパティ: <code>--accent</code>, <code>--fg-2</code>, <code>--rule</code> 等）に準拠している。現状 RSS フィードは存在しない。</p>
+<h2>Goals / Non-Goals</h2>
+<p><strong>Goals:</strong></p>
+<ul>
+<li><code>/rss.xml</code> で標準的な RSS 2.0 フィードを配信する</li>
+<li>サイドバー（SideProfile）とフッター（Elsewhere セクション）に RSS 購読リンクを追加する</li>
+<li><code>&lt;head&gt;</code> に <code>&lt;link rel=&quot;alternate&quot;&gt;</code> を追加し、ブラウザ・リーダーによる自動検出を可能にする</li>
+</ul>
+<p><strong>Non-Goals:</strong></p>
+<ul>
+<li>Atom フィードや JSON Feed の生成</li>
+<li>フィードの認証・購読者管理</li>
+<li>メール購読機能</li>
+</ul>
+<h2>Decisions</h2>
+<h3>1. <code>@astrojs/rss</code> を使用する</h3>
+<p>Astro 公式インテグレーションであり、<code>rss()</code> ヘルパーが RSS 2.0 XML を生成する。カスタム実装より保守コストが低く、Astro のビルドパイプラインに自然に統合できる。</p>
+<p>代替: 手書き XML テンプレート → メンテナンスが煩雑、バリデーションが困難なため却下。</p>
+<h3>2. RSS エンドポイントは <code>getCollection(&#39;posts&#39;)</code> を直接呼ぶ</h3>
+<p><code>src/presentation/pages/rss.xml.ts</code> に Astro の <code>GET</code> エンドポイントを作成し、<code>getCollection(&#39;posts&#39;)</code> で全記事を取得する。DIContainer 経由にしないのは、RSS 生成には HTML 変換・ページネーションが不要であり、フロントマターの生データ（<code>publishedAt</code> の Date 型など）をそのまま使える方が余計な変換を挟まずシンプルなため。</p>
+<p>フィールドマッピング（Content Collections frontmatter → RSS）:</p>
+<table>
+<thead>
+<tr>
+<th>RSS フィールド</th>
+<th>frontmatter フィールド</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td><code>data.title</code></td>
+</tr>
+<tr>
+<td><code>pubDate</code></td>
+<td><code>data.publishedAt</code>（Date 型、<code>@astrojs/rss</code> に直接渡せる）</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>data.description</code></td>
+</tr>
+<tr>
+<td><code>link</code></td>
+<td><code>https://asunaroblog.net/blog/${entry.id}</code></td>
+</tr>
+</tbody></table>
+<h3>3. 記事フィルタリングと件数上限</h3>
+<ul>
+<li><code>data.status === &#39;published&#39;</code> の記事のみ含める（本番環境と同様のルール）</li>
+<li><code>publishedAt</code> 降順で最新 50 件に絞る</li>
+<li>記事URLは既存の <code>/blog/[id]</code> ルーティングに合わせる</li>
+</ul>
+<h3>4. 購読ボタンの配置</h3>
+<p>SideProfile は既存の GitHub・X のアイコンリンク群と同じ行（横並び）に RSS アイコンを追加する。フッターの Elsewhere セクションは既存の外部リンクと同列に「RSS ↗」テキストリンクを追加する。ボタンスタイルは <code>--accent</code> カラーを使用してフォレストリブランドのデザイントークンに準拠する。</p>
+<h2>Risks / Trade-offs</h2>
+<ul>
+<li><strong>R2 からの記事件数が多い場合のビルド時間増加</strong> → 最新 50 件に絞ることで軽減。RSS の性質上（定期ポーリング）静的ビルドでの遅延は許容範囲</li>
+<li><strong><code>entry.id</code> が slug またはファイル名の MD5 ハッシュになる場合がある</strong> → <code>data.slug</code> が存在すればそれが <code>entry.id</code> になる（<code>r2Loader</code> の実装より）。ハッシュになるケースでは URL が不自然になるが、記事側で <code>slug</code> frontmatter を設定することで回避できる</li>
+</ul>
+<h2>Migration Plan</h2>
+<ol>
+<li><code>@astrojs/rss</code> をインストール（<code>bun add @astrojs/rss</code>）</li>
+<li><code>src/presentation/pages/rss.xml.ts</code> に RSS エンドポイントを作成</li>
+<li><code>src/presentation/layouts/Layout.astro</code> の <code>&lt;head&gt;</code> に alternate link を追加</li>
+<li><code>SideProfile/index.astro</code> に RSS アイコンリンクを追加</li>
+<li><code>Footer/index.astro</code> の Elsewhere セクションに RSS リンクを追加</li>
+<li>ビルド確認・プレビューで <code>/rss.xml</code> の XML 検証</li>
+</ol>
+<p>ロールバック: エンドポイントファイルを削除し、UI の変更を revert するだけで元に戻せる。破壊的変更なし。</p>
+<h2>Open Questions</h2>
+<p>（なし）</p>
+
+</body>
+</html>

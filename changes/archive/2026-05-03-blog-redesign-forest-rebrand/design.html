@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>design</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../index.html">← インデックスに戻る</a></nav>
+<h2>Context</h2>
+<p>現在の asunaro-blog は Tailwind CSS のユーティリティクラスを直接コンポーネントに記述するスタイルで構築されており、カラーパレットは Tailwind のデフォルト色（slate, gray 系）に依存している。フォントは <code>Montserrat Subrayada</code> のみ Google Fonts から読み込み、日本語フォントは OS デフォルトに委ねている。レイアウトは 2 カラム（メイン + サイドバー）で、記事一覧はシンプルなカードリストで構成されている。</p>
+<p>デザイン評価 26/40 点という結果を受け、独自性・トレンド適合性・配色の 3 項目を中心に全面リデザインを行う。デザイン案（<code>Rebrand.html</code>）は React+CSS custom properties で作成済みで、これを Astro + Tailwind のコンポーネント構成に移植する。</p>
+<h2>Goals / Non-Goals</h2>
+<p><strong>Goals:</strong></p>
+<ul>
+<li>oklch ベースの CSS custom properties でテーマシステムを確立し、Light/Dark 切替に対応</li>
+<li>編集誌スタイルのレイアウト（ヒーロー + 3カラムグリッド）を実装</li>
+<li>デザイン案 (<code>variantFinal.jsx</code>) の視覚的アウトプットを忠実に再現</li>
+<li><code>#42 #44 #45 #47 #30 #3</code> の GitHub Issue を解消</li>
+<li>ホバーインタラクション・明確なページネーションで #43 も解消</li>
+</ul>
+<p><strong>Non-Goals:</strong></p>
+<ul>
+<li>検索機能の実装（#29 はヘッダーに検索ラベルを置くのみ、機能は別 Issue）</li>
+<li>CMS データ構造・ドメインモデルの変更</li>
+<li>パフォーマンス最適化（Core Web Vitals は別フェーズ）</li>
+<li>アニメーションライブラリの導入（CSS transition のみ）</li>
+</ul>
+<h2>Decisions</h2>
+<h3>1. カラーシステム: Tailwind デフォルト色 → CSS custom properties (oklch)</h3>
+<p><strong>決定</strong>: <code>globals.scss</code> にテーマ変数を定義し、Tailwind の <code>theme.extend</code> で CSS vars を参照する形に移行する。</p>
+<pre><code class="language-css">:root, .theme-light {
+  --bg:     oklch(0.985 0.008 110);
+  --fg:     oklch(0.28  0.020 145);
+  --accent: oklch(0.46  0.09  155);
+  /* ... */
+}
+.theme-dark {
+  --bg:     oklch(0.17  0.012 150);
+  --fg:     oklch(0.94  0.010 130);
+  --accent: oklch(0.78  0.10  145);
+  /* ... */
+}
+</code></pre>
+<p><strong>却下した代替案</strong>:</p>
+<ul>
+<li>Tailwind の <code>darkMode: &#39;class&#39;</code> + カスタムカラーパレット → oklch の <code>color-mix()</code> 関数と相性が悪く、ヒートマップのグラデーション表現が困難</li>
+<li>CSS-in-JS（styled-components 等）→ Astro の SSR モデルと相性が悪い</li>
+</ul>
+<h3>2. テーマ切替: システム設定を基準に <code>&lt;html&gt;</code> クラスで制御</h3>
+<p><strong>決定</strong>: <code>Layout.astro</code> の <code>&lt;html&gt;</code> タグに <code>theme-light</code> / <code>theme-dark</code> クラスを付与する。初期値はシステムの <code>prefers-color-scheme</code> を参照し、ユーザーがトグルすると <code>localStorage</code> に保存する。</p>
+<h3>3. フォント: 4書体体系（CDN）</h3>
+<p><strong>決定</strong>: Google Fonts から Inter・Noto Sans JP・Noto Serif JP・JetBrains Mono を読み込む。<code>font-display: swap</code> を指定し、CLS を最小化する。</p>
+<pre><code class="language-html">&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;family=Noto+Serif+JP:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap&quot; rel=&quot;stylesheet&quot; /&gt;
+</code></pre>
+<p>CSS クラス <code>.font-sans-jp</code>, <code>.font-serif-jp</code>, <code>.font-mono</code> を定義して使い分ける。</p>
+<h3>4. ヒーローセクション: 新規 Astro コンポーネント</h3>
+<p><strong>決定</strong>: <code>src/presentation/components/HomePage/HeroSection/index.astro</code> を新規作成し、最初の記事を Featured として表示する。<code>HomePage/index.astro</code> で <code>POSTS[0]</code> を Hero に、<code>POSTS.slice(1)</code> を 3カラムグリッドに渡す。</p>
+<h3>5. アーカイブヒートマップ: React クライアントコンポーネント</h3>
+<p><strong>決定</strong>: インタラクティブなヒートマップは <code>ArchiveHeatmap/index.tsx</code> として React コンポーネントで実装し、<code>client:load</code> でハイドレートする。<code>YearMonth</code> ドメインモデルからデータを受け取る既存インターフェースを維持する。</p>
+<h3>6. 3カラム記事詳細レイアウト: Astro テンプレート変更</h3>
+<p><strong>決定</strong>: <code>PostPage/PostBody/index.astro</code> のグリッドを <code>grid-cols-[180px_1fr_220px]</code> に変更。左カラム（タグ+シェア）は <code>position: sticky</code> で実装。既存の <code>SideToc</code> コンポーネントを右カラムに移動。</p>
+<h3>7. ホバーインタラクション: CSS transition のみ</h3>
+<p><strong>決定</strong>: Framer Motion 等のライブラリは導入せず、CSS の <code>transition</code> と <code>transform</code> のみで実装する。カードのホバーで <code>translateY(-2px)</code> + <code>shadow</code> の変化、リンクのホバーで <code>color</code> 変化を付ける。</p>
+<h2>Risks / Trade-offs</h2>
+<ul>
+<li><strong>[Risk] oklch の ブラウザサポート</strong> → <code>@supports (color: oklch(...))</code> フォールバックを用意する。ただし 2025年時点で主要ブラウザは全対応済みのため実用上問題ない</li>
+<li><strong>[Risk] Tailwind と CSS custom properties の混在</strong> → Tailwind ユーティリティを残しつつ <code>bg-[var(--bg)]</code> の形で CSS vars を参照できるため共存可能。段階的に移行する</li>
+<li><strong>[Risk] Google Fonts CDN のパフォーマンス影響</strong> → <code>preconnect</code> ヒントと <code>font-display: swap</code> で CLS を抑制。Lighthouse スコアへの影響は許容範囲内</li>
+<li><strong>[Risk] 3カラムレイアウトのモバイル対応</strong> → モバイルでは記事詳細を 1カラムに折り畳む。サイドのタグ・TOC は本文上部に移動する</li>
+<li><strong>[Trade-off] 既存 Tailwind クラスの部分残存</strong> → 全コンポーネントの書き直しは工数が大きいため、主要コンポーネントのみ CSS vars ベースに移行し、細部の Tailwind クラスは残す</li>
+</ul>
+<h2>Migration Plan</h2>
+<ol>
+<li><code>globals.scss</code> にテーマ変数を追加（既存スタイルを壊さない）</li>
+<li><code>Layout.astro</code> のフォント差し替えとテーマクラス初期化スクリプト追加</li>
+<li>共通コンポーネント（Header / Footer）を新デザインに差し替え</li>
+<li><code>SideBar</code> を新構成（Profile / Tags / ArchiveHeatmap）に差し替え</li>
+<li><code>PostCard</code> を新カードデザインに差し替え</li>
+<li><code>HeroSection</code> を新規作成し <code>HomePage</code> に組み込む</li>
+<li><code>PostPage</code> の3カラムレイアウトに変更</li>
+<li><code>CategoryHeader</code> を新規作成し カテゴリページに組み込む</li>
+<li><code>Pagination</code> を新デザインに差し替え</li>
+<li>ビルド確認 + 各ページの目視確認</li>
+</ol>
+<p><strong>ロールバック</strong>: 各コンポーネントの変更は独立しているため、問題が発生したコンポーネントのみ git revert で戻せる。</p>
+<h2>Open Questions</h2>
+<ul>
+<li>ダークモード初期値: システム設定に追従するか、Light 固定にするか（現状 Light をデフォルトとして進める）</li>
+<li>カテゴリページの検索ラベル: ヘッダーの SEARCH はリンクとして <code>&lt;a href=&quot;/search&quot;&gt;</code> を置くのみで OK か（機能実装は別 Issue）</li>
+<li><code>Noto Serif JP</code> の使用範囲: 見出しのみか、記事本文にも使用するか（デザイン案では見出し・ヒーロータイトル・カード見出しに限定）</li>
+</ul>
+
+</body>
+</html>
