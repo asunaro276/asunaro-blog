@@ -14,7 +14,8 @@
     "test:integration": "playwright test",
     "test:integration:ui": "playwright test --ui",
     "test:integration:debug": "playwright test --debug",
-    "test:integration:report": "playwright show-report"
+    "test:integration:report": "playwright show-report",
+    "build:openspec-pages": "bun scripts/build-openspec-pages.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -31,7 +32,7 @@
     "highlight.js": "^11.10.0",
     "katex": "^0.16.11",
     "lodash": "^4.17.21",
-    "marked": "^16.4.0",
+    "marked": "^18.0.3",
     "material-icons": "^1.13.12",
     "newt-client-js": "^3.3.3",
     "open-graph-scraper": "^6.7.1",
