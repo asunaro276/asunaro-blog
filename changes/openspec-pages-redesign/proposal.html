@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>proposal</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Why</h2>
+<p>既存の OpenSpec GitHub Pages サイトはデザインが最低限のインラインスタイルのみで、可読性・見栄えが乏しい。また公開URLが <code>asunaro276.github.io/asunaro-blog</code> と長く、独自ドメインでアクセスできない。これらを解消してドキュメントポータルとしての体裁を整える。</p>
+<h2>What Changes</h2>
+<ul>
+<li>GitHub Pages にカスタムドメイン <code>specs.asunaroblog.net</code> を設定し、短いURLでアクセスできるようにする</li>
+<li>ビルドスクリプト（<code>scripts/build-openspec-pages.ts</code>）が生成する HTML のスタイルを、Claude で作成した既存デザイン（HTML/CSS）に置き換える</li>
+</ul>
+<h2>Capabilities</h2>
+<h3>New Capabilities</h3>
+<p>なし（既存機能の改善のみ）</p>
+<h3>Modified Capabilities</h3>
+<ul>
+<li><code>openspec-pages-site</code>: HTML 生成時に適用するスタイルを既存のインラインスタイルから新デザインに変更する</li>
+</ul>
+<h2>Impact</h2>
+<ul>
+<li><code>scripts/build-openspec-pages.ts</code>：HTML テンプレート部分のスタイルを差し替え</li>
+<li><code>.github/workflows/</code>：カスタムドメイン設定のため <code>cname</code> オプションを追加</li>
+<li>DNS（asunaroblog.net）：<code>specs</code> サブドメインの CNAME レコード追加が必要（リポジトリ外作業）</li>
+<li>GitHub リポジトリ設定：Pages のカスタムドメイン欄への入力が必要（リポジトリ外作業）</li>
+<li>本番ブログサイト（Cloudflare Pages / asunaroblog.net）には影響なし</li>
+</ul>
+
+</body>
+</html>
