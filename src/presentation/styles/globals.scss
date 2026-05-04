@@ -1,34 +1,8 @@
+@use './tokens';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* ---- Theme variables (oklch) ---- */
-:root,
-.theme-light {
-  --bg:     oklch(0.985 0.008 110);
-  --bg-2:   oklch(0.965 0.010 110);
-  --bg-3:   oklch(0.940 0.012 110);
-  --fg:     oklch(0.28  0.020 145);
-  --fg-2:   oklch(0.45  0.015 145);
-  --fg-3:   oklch(0.60  0.010 145);
-  --rule:   oklch(0.86  0.008 110);
-  --rule-2: oklch(0.80  0.010 120);
-  --accent: oklch(0.46  0.09  155);
-  --tint:   oklch(0.92  0.030 155);
-}
-
-.theme-dark {
-  --bg:     oklch(0.17  0.012 150);
-  --bg-2:   oklch(0.22  0.014 150);
-  --bg-3:   oklch(0.27  0.016 150);
-  --fg:     oklch(0.94  0.010 130);
-  --fg-2:   oklch(0.76  0.010 140);
-  --fg-3:   oklch(0.60  0.008 145);
-  --rule:   oklch(0.32  0.014 150);
-  --rule-2: oklch(0.40  0.016 150);
-  --accent: oklch(0.78  0.10  145);
-  --tint:   oklch(0.30  0.040 155);
-}
 
 /* ---- Font utility classes ---- */
 .font-sans-jp {

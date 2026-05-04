@@ -1,8 +1,3 @@
-
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## コミュニケーション
 ユーザーとのやり取りについては基本的に全て日本語で行ってください。
 また、ユーザーとのやり取りに際しては迎合的な言葉は使わず、冷静に対応してください。
@@ -145,6 +140,16 @@ describe('ClassName', () => {
 
 - Markdown形式の記事は`src/posts/`に配置
 - Newt CMSから取得される記事と、ローカルMarkdownの両方に対応
+
+## デザインシステム
+
+コンポーネントを実装・修正する際は、必ず **`DESIGN.md`** を参照してください。
+
+- カラー: CSS変数（`var(--bg)`, `var(--fg)`, `var(--accent)` 等）を使用する。ハードコードした色値は禁止
+- スペーシング: `var(--space-xs)` 〜 `var(--space-3xl)` のトークンを優先する
+- 角丸: `var(--rounded-sm)` 〜 `var(--rounded-full)` のトークンのみ使用する
+- タイポグラフィ: `DESIGN.md` の `typography` セクションのスケールに従う
+- コンポーネントの視覚的仕様（余白・色・角丸）は `DESIGN.md` の `components` セクションを参照する
 
 ## 技術・ライブラリ
 Context7など信頼性の高いドキュメントを参照し、最新の情報をもとに意思決定を行うようにしてください

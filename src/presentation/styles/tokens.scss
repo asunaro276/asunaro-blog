@@ -1,0 +1,62 @@
+/* ---- Theme variables (oklch) ---- */
+:root,
+.theme-light {
+  /* Colors — light (hex approx: #F9FAF7) */
+  --bg:     oklch(0.985 0.008 110);
+  /* Colors — light (hex approx: #F3F5EF) */
+  --bg-2:   oklch(0.965 0.010 110);
+  /* Colors — light (hex approx: #EBEDE6) */
+  --bg-3:   oklch(0.940 0.012 110);
+  /* Colors — light (hex approx: #2D3B2F) */
+  --fg:     oklch(0.28  0.020 145);
+  /* Colors — light (hex approx: #5A6B5C) */
+  --fg-2:   oklch(0.45  0.015 145);
+  /* Colors — light (hex approx: #8A9A8C) */
+  --fg-3:   oklch(0.60  0.010 145);
+  /* Colors — light (hex approx: #D6D9D2) */
+  --rule:   oklch(0.86  0.008 110);
+  /* Colors — light (hex approx: #C5C9C0) */
+  --rule-2: oklch(0.80  0.010 120);
+  /* Colors — light (hex approx: #3A7050) */
+  --accent: oklch(0.46  0.09  155);
+  /* Colors — light (hex approx: #DDF0E4) */
+  --tint:   oklch(0.92  0.030 155);
+
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Rounded */
+  --rounded-sm:   4px;
+  --rounded-md:   8px;
+  --rounded-lg:   12px;
+  --rounded-full: 9999px;
+}
+
+.theme-dark {
+  /* Colors — dark (hex approx: #1C2420) */
+  --bg:     oklch(0.17  0.012 150);
+  /* Colors — dark (hex approx: #252E29) */
+  --bg-2:   oklch(0.22  0.014 150);
+  /* Colors — dark (hex approx: #2E3831) */
+  --bg-3:   oklch(0.27  0.016 150);
+  /* Colors — dark (hex approx: #EDF0EA) */
+  --fg:     oklch(0.94  0.010 130);
+  /* Colors — dark (hex approx: #B8C5BB) */
+  --fg-2:   oklch(0.76  0.010 140);
+  /* Colors — dark (hex approx: #8A9A8C) */
+  --fg-3:   oklch(0.60  0.008 145);
+  /* Colors — dark (hex approx: #3D5044) */
+  --rule:   oklch(0.32  0.014 150);
+  /* Colors — dark (hex approx: #4D6357) */
+  --rule-2: oklch(0.40  0.016 150);
+  /* Colors — dark (hex approx: #C5DFB8) */
+  --accent: oklch(0.78  0.10  145);
+  /* Colors — dark (hex approx: #2D4A35) */
+  --tint:   oklch(0.30  0.040 155);
+}

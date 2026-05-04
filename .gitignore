@@ -34,3 +34,7 @@ playwright/.cache/
 
 # Symlinked assets directory (local development only)
 public/assets
+
+# storybook
+storybook-server
+storybook-static
