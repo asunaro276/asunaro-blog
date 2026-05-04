@@ -51,7 +51,7 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
         undefined
       )
     } else if (typeof entry.data.coverImage === 'string') {
-      // R2やNewtからのURL文字列、または相対パス
+      // R2からのURL文字列、または相対パス
       const coverImageUrl = transformCoverImagePath(entry.data.coverImage)
       coverImage = new CoverImage(
         entry.data.title,
@@ -157,7 +157,7 @@ export class LocalMarkdownArticleRepository implements IArticleRepository {
             undefined
           )
         } else if (typeof entry.data.coverImage === 'string') {
-          // R2やNewtからのURL文字列、または相対パス
+          // R2からのURL文字列、または相対パス
           const coverImageUrl = transformCoverImagePath(entry.data.coverImage)
           coverImage = new CoverImage(
             entry.data.title,

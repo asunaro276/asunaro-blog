@@ -1,6 +1,6 @@
 # asunaroblog
 
-This is my personal blog ([asunaroblog](https://asunaroblog.net/)) repository. It's built with astro(react) and Newt (Jamstack).
+This is my personal blog ([asunaroblog](https://asunaroblog.net/)) repository. It's built with astro(react).
 
 ## Framework
 - [Astro](https://astro.build/)
@@ -12,11 +12,6 @@ This is my personal blog ([asunaroblog](https://asunaroblog.net/)) repository. I
 
 - [Tailwind CSS](https://tailwindcss.com/)
   - To style all components.
-
-## CMS (Contents Management System)
-
-- [Newt](https://www.newt.so/)
-  - It's a very convenient and highliy avalable CMS that is made in Japan.
 
 ## Hosting service
 
