@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "setup": "test -L public/assets || ln -sf ../src/assets public/assets",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "astro build && storybook build",
     "test:integration": "playwright test",
     "test:integration:ui": "playwright test --ui",
     "test:integration:debug": "playwright test --debug",
