@@ -86,7 +86,7 @@ if (article.coverImage.src instanceof URL) {
   </div>
 
   <!-- 中央カラム: 本文 -->
-  <div data-post-content class="post-content">
+  <div data-post-content class="post-content" style="min-width: 0;">
     <Body htmlBody={article.htmlBody} client:load />
   </div>
 
@@ -232,6 +232,10 @@ if (article.coverImage.src instanceof URL) {
     height: auto;
     border-radius: 4px;
     margin: 1em 0;
+  }
+
+  .post-content :global(pre) {
+    overflow-x: auto;
   }
 
   [data-suggested-scroll]::-webkit-scrollbar {
