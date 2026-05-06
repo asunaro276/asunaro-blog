@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>proposal</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Why</h2>
+<p>現行の OpenSpec GitHub Pages サイト（<code>asunaro276.github.io/asunaro-blog</code>）は Markdown をそのまま HTML 変換した最小限のスタイルのみで、仕様書としての可読性が低い。エンジニア以外（PdM 等）が参照しても内容を把握しにくく、<code>DESIGN.md</code> で管理されているデザインシステムへのアクセス手段も存在しない。<code>specs.asunaroblog.net</code> として公開する統合ドキュメントポータルに刷新し、仕様書とデザインシステムの両方を一元管理・参照できる場にする。</p>
+<h2>What Changes</h2>
+<ul>
+<li>GitHub Pages のカスタムドメインを <code>specs.asunaroblog.net</code> に設定する</li>
+<li><code>build-openspec-pages.ts</code> が生成するサイトを <strong>Changes / Specs</strong> と <strong>Design System</strong> の2セクションで構成されるポータルに刷新する</li>
+<li>仕様ページを Requirement/Scenario の視覚的ブロック・カテゴリチップ・タスク進捗チェックリストを含むリッチな構造に変更する</li>
+<li><code>design.md</code> 内の Mermaid コードブロックをビルド時に SVG へ変換し、フロー図として表示する</li>
+<li><code>.openspec.yaml</code> の <code>stories:</code> フィールドに宣言されたストーリーを <code>storybook.asunaroblog.net</code> への iframe embed として spec ページに表示する</li>
+<li><code>DESIGN.md</code> をパースして Design System セクション（カラースウォッチ・タイポグラフィ見本・スペーシング・角丸トークン）を自動生成する</li>
+<li>サイト自体のスタイルを asunaroblog デザインシステムのトークン（CSS 変数）で実装する</li>
+</ul>
+<h2>Capabilities</h2>
+<h3>New Capabilities</h3>
+<ul>
+<li><code>docs-portal-design-system-section</code>: <code>DESIGN.md</code> のフロントマター（YAML）と本文を解析し、Design System セクション（カラースウォッチ・タイポグラフィ見本・スペーシング・角丸の視覚化）を生成する</li>
+<li><code>docs-portal-storybook-embed</code>: <code>.openspec.yaml</code> の <code>stories:</code> フィールドに列挙されたストーリー ID を <code>storybook.asunaroblog.net</code> への iframe embed として spec ページ内に表示する</li>
+<li><code>docs-portal-mermaid-rendering</code>: <code>design.md</code> 内の <code>mermaid</code> コードブロックをビルド時に SVG へ変換して表示する</li>
+</ul>
+<h3>Modified Capabilities</h3>
+<ul>
+<li><code>openspec-pages-site</code>: サイト全体の構造をポータル（Changes 一覧 + Spec 詳細 + Design System）に刷新する。ステータスフィルタ・カテゴリチップ・Requirement/Scenario の視覚ブロック・タスク進捗チェックリストを含む新しい HTML テンプレートへ置き換える</li>
+<li><code>openspec-pages-deploy</code>: CNAME ファイル（<code>specs.asunaroblog.net</code>）を gh-pages デプロイに含める</li>
+</ul>
+<h2>Impact</h2>
+<ul>
+<li><code>scripts/build-openspec-pages.ts</code>：サイト生成ロジックの全面刷新（HTML テンプレート・Markdown パーサー・Mermaid 変換・DESIGN.md パーサー）</li>
+<li><code>openspec/changes/**/.openspec.yaml</code>：<code>stories:</code> フィールドの追加（任意）</li>
+<li><code>.github/workflows/</code>：CNAME 設定の追加</li>
+<li>DNS（asunaroblog.net）：<code>specs</code> サブドメインの CNAME レコード追加が必要（リポジトリ外作業）</li>
+<li>GitHub リポジトリ設定：Pages のカスタムドメイン欄への入力が必要（リポジトリ外作業）</li>
+<li>本番ブログサイト（asunaroblog.net / Cloudflare Pages）には影響なし</li>
+</ul>
+
+<hr>
+<h2>このChangeのドキュメント</h2>
+<ul>
+<li><a href="./design.html">Design</a></li>
+<li><a href="./tasks.html">Tasks</a></li>
+</ul>
+<h3>Specs</h3>
+<ul>
+<li><a href="./specs/docs-portal-design-system-section/spec.html">docs-portal-design-system-section</a></li>
+<li><a href="./specs/docs-portal-mermaid-rendering/spec.html">docs-portal-mermaid-rendering</a></li>
+<li><a href="./specs/docs-portal-storybook-embed/spec.html">docs-portal-storybook-embed</a></li>
+<li><a href="./specs/openspec-pages-deploy/spec.html">openspec-pages-deploy</a></li>
+<li><a href="./specs/openspec-pages-site/spec.html">openspec-pages-site</a></li>
+</ul>
+
+</body>
+</html>

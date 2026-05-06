@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: Design System セクションを生成する</h3>
+<p>ビルドスクリプトはリポジトリルートの <code>DESIGN.md</code> をパースし、<code>dist-openspec/design/index.html</code> を生成しなければならない（SHALL）。</p>
+<h4>Scenario: DESIGN.md が存在する場合</h4>
+<ul>
+<li><strong>WHEN</strong> リポジトリルートに <code>DESIGN.md</code> が存在する状態でビルドを実行する</li>
+<li><strong>THEN</strong> <code>dist-openspec/design/index.html</code> が生成される</li>
+</ul>
+<h4>Scenario: DESIGN.md が存在しない場合</h4>
+<ul>
+<li><strong>WHEN</strong> リポジトリルートに <code>DESIGN.md</code> が存在しない状態でビルドを実行する</li>
+<li><strong>THEN</strong> <code>dist-openspec/design/index.html</code> は生成されない</li>
+<li><strong>THEN</strong> ビルドはエラーなく完了する</li>
+</ul>
+<h3>Requirement: カラーパレットをスウォッチ付きテーブルで表示する</h3>
+<p>Design System ページは <code>DESIGN.md</code> フロントマターの <code>colors</code> オブジェクトをカラースウォッチ付きのテーブルとして表示しなければならない（SHALL）。</p>
+<h4>Scenario: カラーテーブルの表示</h4>
+<ul>
+<li><strong>WHEN</strong> <code>design/index.html</code> を表示する</li>
+<li><strong>THEN</strong> Colors セクションに各トークンのスウォッチ（色付き正方形）・CSS 変数名（<code>--fg</code> 等）・Light の hex 値・Dark の hex 値・用途が表示される</li>
+</ul>
+<h3>Requirement: タイポグラフィをフォントプレビュー付きで表示する</h3>
+<p>Design System ページは <code>DESIGN.md</code> フロントマターの <code>typography</code> オブジェクトを実フォントで描画したプレビューとともに表示しなければならない（SHALL）。</p>
+<h4>Scenario: タイポグラフィプレビューの表示</h4>
+<ul>
+<li><strong>WHEN</strong> <code>design/index.html</code> を表示する</li>
+<li><strong>THEN</strong> Typography セクションに各タイポグラフィトークンのフォント名・サイズ・ウェイトと、そのスタイルを実際に適用したプレビューテキストが表示される</li>
+</ul>
+<h3>Requirement: スペーシングをバー表示で可視化する</h3>
+<p>Design System ページは <code>DESIGN.md</code> フロントマターの <code>spacing</code> オブジェクトを横バーの長さで視覚的に表示しなければならない（SHALL）。</p>
+<h4>Scenario: スペーシングバーの表示</h4>
+<ul>
+<li><strong>WHEN</strong> <code>design/index.html</code> を表示する</li>
+<li><strong>THEN</strong> Spacing セクションに各トークン（<code>--space-xs</code> 〜 <code>--space-3xl</code>）の CSS 変数名・px 値・その値に対応する幅のカラーバーが表示される</li>
+</ul>
+<h3>Requirement: 角丸をボックスデモで可視化する</h3>
+<p>Design System ページは <code>DESIGN.md</code> フロントマターの <code>rounded</code> オブジェクトを角丸ボックスで視覚的に表示しなければならない（SHALL）。</p>
+<h4>Scenario: 角丸ボックスの表示</h4>
+<ul>
+<li><strong>WHEN</strong> <code>design/index.html</code> を表示する</li>
+<li><strong>THEN</strong> Border Radius セクションに各トークン（<code>--rounded-sm</code> 〜 <code>--rounded-full</code>）の CSS 変数名・px 値・そのトークンを適用した正方形ボックスが表示される</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>design</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>Context</h2>
+<p><code>scripts/build-openspec-pages.ts</code> は現在 <code>marked</code> で Markdown を HTML に変換し、インラインスタイルの最小テンプレートで出力する（約200行）。<code>DESIGN.md</code> の参照・Mermaid 変換・Storybook embed の仕組みは存在しない。デプロイは <code>peaceiris/actions-gh-pages@v4</code> で <code>gh-pages</code> ブランチへ push しているが CNAME 設定がない。</p>
+<h2>Goals / Non-Goals</h2>
+<p><strong>Goals:</strong></p>
+<ul>
+<li><code>build-openspec-pages.ts</code> を全面刷新し、ポータル構造（Changes 一覧・Change 詳細・Spec 詳細・Design System）の HTML を生成する</li>
+<li><code>DESIGN.md</code> から Design System セクションを自動生成する</li>
+<li><code>design.md</code> 内の Mermaid ブロックをブラウザ側でレンダリングする</li>
+<li><code>.openspec.yaml</code> の <code>stories:</code> フィールドから Storybook embed を生成する</li>
+<li><code>specs.asunaroblog.net</code> カスタムドメインを設定する</li>
+</ul>
+<p><strong>Non-Goals:</strong></p>
+<ul>
+<li>本番ブログサイト（asunaroblog.net）のコードへの変更</li>
+<li>Storybook 本体（<code>storybook.asunaroblog.net</code>）のコードへの変更</li>
+<li>インタラクティブな検索・全文検索機能の実装</li>
+</ul>
+<h2>Decisions</h2>
+<h3>1. ビルドスクリプトのファイル構成</h3>
+<p><strong>決定</strong>: <code>build-openspec-pages.ts</code> 単一ファイルを維持しつつ、内部を役割別の関数グループに整理する。</p>
+<p><strong>理由</strong>: 現在も単一ファイルで機能している。モジュール分割はスクリプト実行時の import パス解決が Bun の <code>import.meta.dir</code> に依存するため複雑になる。将来的に500行を超えたら分割を検討する。</p>
+<p><strong>代替案</strong>: <code>lib/design-system.ts</code>, <code>lib/mermaid.ts</code> 等に分割 → import パス管理が増えコストが上がる。</p>
+<hr>
+<h3>2. Mermaid レンダリング方式</h3>
+<p><strong>決定</strong>: クライアントサイドレンダリング（CDN 経由）を採用する。</p>
+<pre><code>ビルド時: ```mermaid ... ``` → &lt;pre class=&quot;mermaid&quot;&gt;...&lt;/pre&gt; に変換
+ブラウザ: mermaid.js (CDN) が自動検出して SVG にレンダリング
+</code></pre>
+<p><strong>理由</strong>: サーバーサイドレンダリングは headless ブラウザか仮想 DOM が必要で Bun 環境での動作保証が難しい。このサイトはすでに JS（フィルタ・iframe）を使っており、CDN 追加は一貫している。</p>
+<p><strong>代替案</strong>: サーバーサイド（<code>@mermaid-js/mermaid-js</code>）→ 新規依存追加・Bun での動作検証コストが高い。</p>
+<hr>
+<h3>3. DESIGN.md のパース</h3>
+<p><strong>決定</strong>: 既存依存の <code>gray-matter</code> でフロントマター（YAML）を解析し、本文（Markdown）は <code>marked</code> で HTML 変換する。</p>
+<p><strong>理由</strong>: <code>gray-matter</code> はすでに <code>package.json</code> に存在する。DESIGN.md のフロントマターには <code>colors</code>, <code>typography</code>, <code>spacing</code>, <code>rounded</code>, <code>components</code> オブジェクトが定義されており、そのまま Design System ページの各セクション生成に使える。</p>
+<p><strong>代替案</strong>: 正規表現で YAML を手動パース → gray-matter のほうが安全で保守しやすい。</p>
+<hr>
+<h3>4. 出力ディレクトリ構造</h3>
+<p><strong>決定</strong>: 以下の構造で生成する。</p>
+<pre><code>dist-openspec/
+├── index.html                      ← Changes 一覧（ステータスフィルタ付き）
+├── changes/&lt;name&gt;/index.html       ← Change 詳細（proposal + design + tasks を1ページに統合）
+├── specs/&lt;name&gt;/index.html         ← Spec 詳細（Requirement/Scenario ブロック）
+├── design/index.html               ← Design System（DESIGN.md から生成）
+└── assets/
+    ├── tokens.css                  ← CSS 変数定義
+    └── style.css                   ← サイトスタイル
+</code></pre>
+<p><strong>理由</strong>: 現行の <code>.html</code> 拡張子付き URL（<code>proposal.html</code>, <code>spec.html</code>）から <code>index.html</code> ベースの URL（<code>changes/&lt;name&gt;/</code>, <code>specs/&lt;name&gt;/</code>）に変更する。GitHub Pages では <code>index.html</code> が自動解決されるため URL がクリーンになる。</p>
+<p><strong>代替案</strong>: 現行の URL 構造を維持 → 拡張子が露出し、後からクリーンにしにくい。</p>
+<hr>
+<h3>5. CSS の配信方式</h3>
+<p><strong>決定</strong>: <code>assets/tokens.css</code> + <code>assets/style.css</code> を <code>dist-openspec/assets/</code> にコピーし、各 HTML から相対パスで参照する。</p>
+<p><strong>理由</strong>: テンプレートに CSS をインライン埋め込みすると各ページに数 KB の重複が生じる。外部ファイルにするとブラウザキャッシュが効き、スタイル変更時に HTML の再生成が不要になる。</p>
+<p><strong>代替案</strong>: インライン <code>&lt;style&gt;</code> → HTML サイズが増加し保守しにくい。</p>
+<hr>
+<h3>6. レイアウト案の選択</h3>
+<p>デザインファイルに提示された3案（A: サイドバー型・B: トップナビ + 2カラム・C: ランディング）のうち、<strong>案 B を採用することを推奨する</strong>。</p>
+<p><strong>理由</strong>: 現状（4 Changes・28 Specs）のスケールに最適で、エンジニアと PdM の両方に対応できる。Spec ページの「左 ToC + 右本文」2カラムは長文仕様の読みやすさが最も高い。</p>
+<p><strong>代替案</strong>:</p>
+<ul>
+<li>案 A（サイドバー）→ Changes が 30 件を超えたとき有利だが現状は情報密度が高すぎる</li>
+<li>案 C（ランディング）→ PdM への説明には向くが、日常的な参照ユースケースでは縦に長くなりすぎる</li>
+</ul>
+<hr>
+<h3>7. Storybook embed の URL 生成</h3>
+<p><strong>決定</strong>: <code>.openspec.yaml</code> の <code>stories:</code> フィールドに列挙されたストーリー ID を以下の URL フォーマットで embed する。</p>
+<pre><code>https://storybook.asunaroblog.net/iframe.html?id=&lt;story-id&gt;&amp;viewMode=story
+</code></pre>
+<p><code>stories:</code> フィールドがない・空の場合は embed セクション自体を生成しない。</p>
+<p><strong>理由</strong>: <code>storybook.asunaroblog.net</code> はすでに Cloudflare Pages にデプロイ済みで外部アクセス可能。<code>/iframe.html</code> エンドポイントは Storybook の標準 embed URL。</p>
+<hr>
+<h2>ビルドパイプライン</h2>
+<pre><code class="language-mermaid">flowchart LR
+  A[openspec/changes/**] --&gt; B[build-openspec-pages.ts]
+  C[openspec/specs/**] --&gt; B
+  D[DESIGN.md\ngray-matter でパース] --&gt; B
+  E[.openspec.yaml\nstories: フィールド] --&gt; B
+  B --&gt; F[dist-openspec/]
+  F --&gt; G[index.html\nChanges 一覧]
+  F --&gt; H[changes/name/index.html\nChange 詳細]
+  F --&gt; I[specs/name/index.html\nSpec 詳細]
+  F --&gt; J[design/index.html\nDesign System]
+  F --&gt; K[assets/\ntokens.css + style.css]
+</code></pre>
+<h2>Risks / Trade-offs</h2>
+<ul>
+<li><strong>既存 URL の破壊</strong>: 現行の <code>proposal.html</code> / <code>spec.html</code> 形式の URL が <code>changes/&lt;name&gt;/</code> / <code>specs/&lt;name&gt;/</code> に変わる。外部からのリンクが存在する場合は 404 になる。→ 現時点で外部リンクは確認されていないため許容する</li>
+<li><strong>Mermaid CDN 依存</strong>: オフライン環境や CDN 障害時に図が表示されない。→ ドキュメントサイトの性質上、常時オフライン利用は想定しない</li>
+<li><strong>スタイル選択（案 B）の確定</strong>: 3案のうち B を選択したが、実装後に変更する場合は CSS の大幅な差し替えが必要。→ 実装前にユーザーに確認する</li>
+</ul>
+<h2>Migration Plan</h2>
+<ol>
+<li><code>dist-openspec/</code> は毎回 CI でフルビルドするため、出力構造の変更はデプロイ時に自動反映される</li>
+<li><code>gh-pages</code> ブランチの旧 URL（<code>proposal.html</code> 等）は新ビルドで上書きされ消滅する</li>
+<li>CNAME ファイルの追加と DNS 設定（外部作業）は実装完了後に行う</li>
+</ol>
+<h2>Open Questions</h2>
+<ul>
+<li><strong>レイアウト案の確定</strong>: 案 B を推奨しているが、実装前にユーザーの確認が必要</li>
+<li><strong>Change 詳細ページのタブ構成</strong>: proposal / design / tasks を1ページに縦スクロールで並べるか、タブで切り替えるか未定（縦スクロールを推奨）</li>
+</ul>
+
+</body>
+</html>

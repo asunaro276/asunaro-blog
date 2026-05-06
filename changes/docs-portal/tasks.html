@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tasks</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../index.html">← インデックスに戻る</a></nav>
+<h2>0. 事前準備（ユーザー対応）</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 0.1 DNS に <code>specs</code> サブドメインの CNAME レコードを追加する（<code>specs.asunaroblog.net</code> → <code>asunaro276.github.io</code>）</li>
+<li><input disabled="" type="checkbox"> 0.2 GitHub リポジトリの Settings &gt; Pages &gt; Custom domain に <code>specs.asunaroblog.net</code> を入力して保存する</li>
+</ul>
+<h2>1. CSS アセットの整備</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 1.1 【確認手順の定義】<code>bun run build:openspec-pages</code> 実行後に <code>dist-openspec/assets/tokens.css</code> と <code>dist-openspec/assets/style.css</code> が存在することをシェルで確認できる手順を用意する</li>
+<li><input disabled="" type="checkbox"> 1.2 <code>scripts/assets/tokens.css</code> を作成し、デザインシステムの CSS 変数（<code>--fg</code>, <code>--bg</code>, <code>--accent</code> 等）を定義する（<code>/tmp/asunaro-design/specs/tokens.css</code> を参照）</li>
+<li><input disabled="" type="checkbox"> 1.3 <code>scripts/assets/style.css</code> を作成し、案 B のスタイルを実装する（<code>/tmp/asunaro-design/specs/style-b.css</code> を参照）</li>
+<li><input disabled="" type="checkbox"> 1.4 <code>scripts/build-openspec-pages.ts</code> に <code>scripts/assets/</code> を <code>dist-openspec/assets/</code> へコピーする処理を追加する</li>
+<li><input disabled="" type="checkbox"> 1.5 【検証】<code>bun run build:openspec-pages</code> を実行し、<code>dist-openspec/assets/tokens.css</code> と <code>dist-openspec/assets/style.css</code> が生成されることを確認する</li>
+</ul>
+<h2>2. Change 一覧ページ（index.html）の刷新</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 2.1 【確認手順の定義】ブラウザで <code>dist-openspec/index.html</code> を開き、以下を確認できる手順を定義する：Change カードが表示される・ステータスフィルタが動作する・&quot;Design System&quot; リンクが <code>design/</code> に遷移する</li>
+<li><input disabled="" type="checkbox"> 2.2 <code>build-openspec-pages.ts</code> の <code>buildIndexPage</code> 関数を全面書き換えし、以下を生成する：グローバルナビバー・カード形式の Change 一覧（Change 名・ステータスバッジ・概要・作成日）・ステータスフィルタ（All / Done / In Progress / Draft）</li>
+<li><input disabled="" type="checkbox"> 2.3 各 Change の <code>.openspec.yaml</code> から <code>status</code> フィールドを読み取り、カードのバッジに反映する（<code>status</code> フィールドがない場合は <code>draft</code> 扱い）</li>
+<li><input disabled="" type="checkbox"> 2.4 【検証】<code>bun run build:openspec-pages</code> 後にブラウザで <code>dist-openspec/index.html</code> を開き、2.1 の確認手順をすべて満たすことを確認する</li>
+</ul>
+<h2>3. Change 詳細ページの統合</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 3.1 【確認手順の定義】ブラウザで <code>dist-openspec/changes/docs-portal/index.html</code> を開き、以下を確認できる手順を定義する：proposal / design / tasks が1ページに縦並びで表示される・グローバルナビが表示される</li>
+<li><input disabled="" type="checkbox"> 3.2 <code>build-openspec-pages.ts</code> に <code>buildChangePage</code> 関数を追加する：<code>proposal.md</code> / <code>design.md</code>（存在する場合）/ <code>tasks.md</code>（存在する場合）を読み込み、セクション別に連結した HTML を <code>changes/&lt;name&gt;/index.html</code> として出力する</li>
+<li><input disabled="" type="checkbox"> 3.3 旧来の <code>proposal.html</code> / <code>design.html</code> / <code>tasks.html</code> を個別生成していたコードを削除する</li>
+<li><input disabled="" type="checkbox"> 3.4 【検証】<code>bun run build:openspec-pages</code> 後にブラウザで <code>dist-openspec/changes/docs-portal/index.html</code> を開き、3.1 の確認手順をすべて満たすことを確認する</li>
+</ul>
+<h2>4. Spec 詳細ページの視覚化</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 4.1 【確認手順の定義】ブラウザで <code>dist-openspec/specs/archive-heatmap/index.html</code> を開き、Requirement 見出し・WHEN / THEN ラベル付きの Scenario ブロックがスタイルされていることを確認できる手順を定義する</li>
+<li><input disabled="" type="checkbox"> 4.2 <code>build-openspec-pages.ts</code> に <code>buildSpecPage</code> 関数を追加する：<code>spec.md</code> を読み込み、<code>#### Scenario:</code> を検出して WHEN / THEN に識別スタイルを付けた HTML を <code>specs/&lt;name&gt;/index.html</code> として出力する</li>
+<li><input disabled="" type="checkbox"> 4.3 旧来の <code>spec.html</code> を個別生成していたコードを削除する</li>
+<li><input disabled="" type="checkbox"> 4.4 【検証】<code>bun run build:openspec-pages</code> 後にブラウザで <code>dist-openspec/specs/archive-heatmap/index.html</code> を開き、4.1 の確認手順をすべて満たすことを確認する</li>
+</ul>
+<h2>5. Design System ページの生成</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 5.1 【テストの作成】<code>scripts/build-openspec-pages.test.ts</code> を作成し、<code>parseDesignMd</code> 関数のユニットテストを書く（<code>DESIGN.md</code> の YAML フロントマターをパースして <code>colors</code> / <code>typography</code> / <code>spacing</code> / <code>rounded</code> オブジェクトが正しく返ることを確認）</li>
+<li><input disabled="" type="checkbox"> 5.2 <code>build-openspec-pages.ts</code> に <code>parseDesignMd</code> 関数を追加する：<code>gray-matter</code> で <code>DESIGN.md</code> のフロントマターを解析し <code>colors</code> / <code>typography</code> / <code>spacing</code> / <code>rounded</code> を返す</li>
+<li><input disabled="" type="checkbox"> 5.3 <code>build-openspec-pages.ts</code> に <code>buildDesignSystemPage</code> 関数を追加する：<code>parseDesignMd</code> の結果からカラースウォッチテーブル・タイポグラフィプレビュー・スペーシングバー・角丸ボックスを含む <code>dist-openspec/design/index.html</code> を生成する</li>
+<li><input disabled="" type="checkbox"> 5.4 <code>bun test</code> を実行し 5.1 のテストがパスすることを確認する</li>
+<li><input disabled="" type="checkbox"> 5.5 【検証】<code>bun run build:openspec-pages</code> 後にブラウザで <code>dist-openspec/design/index.html</code> を開き、Colors / Typography / Spacing / Border Radius の各セクションが正しく表示されることを確認する</li>
+</ul>
+<h2>6. Mermaid レンダリング</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 6.1 【確認手順の定義】<code>design.md</code> に <code>```mermaid ```</code> ブロックを含む Change の詳細ページをブラウザで開き、SVG 図が表示されることを確認できる手順を定義する</li>
+<li><input disabled="" type="checkbox"> 6.2 <code>build-openspec-pages.ts</code> の Markdown 変換処理で <code>```mermaid ```</code> コードブロックを <code>&lt;pre class=&quot;mermaid&quot;&gt;</code> 要素に変換するよう <code>marked</code> のレンダラーをカスタマイズする</li>
+<li><input disabled="" type="checkbox"> 6.3 Mermaid ブロックを含むページの HTML テンプレートに <code>&lt;script type=&quot;module&quot;&gt;</code> で Mermaid.js CDN（<code>cdn.jsdelivr.net/npm/mermaid@11</code>）を読み込む処理を追加する</li>
+<li><input disabled="" type="checkbox"> 6.4 【検証】<code>bun run build:openspec-pages</code> 後にブラウザで <code>dist-openspec/changes/docs-portal/index.html</code> を開き、design.md の Mermaid ブロックが SVG 図として表示されることを確認する</li>
+</ul>
+<h2>7. Storybook embed</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 7.1 【確認手順の定義】<code>stories:</code> フィールドを含む <code>.openspec.yaml</code> を持つ Change の詳細ページをブラウザで開き、Storybook の iframe が表示されることを確認できる手順を定義する</li>
+<li><input disabled="" type="checkbox"> 7.2 <code>build-openspec-pages.ts</code> の Change ページ生成処理で <code>.openspec.yaml</code> を読み込み、<code>stories:</code> フィールドを取得する処理を追加する</li>
+<li><input disabled="" type="checkbox"> 7.3 <code>stories:</code> フィールドがある場合、各ストーリー ID を <code>https://storybook.asunaroblog.net/iframe.html?id=&lt;id&gt;&amp;viewMode=story</code> の <code>&lt;iframe&gt;</code> として Change 詳細ページに追加する</li>
+<li><input disabled="" type="checkbox"> 7.4 <code>docs-portal</code> change の <code>.openspec.yaml</code> にダミーの <code>stories:</code> フィールドを追加し動作確認用データとして使用する（確認後に削除）</li>
+<li><input disabled="" type="checkbox"> 7.5 【検証】<code>bun run build:openspec-pages</code> 後にブラウザで対象 Change の詳細ページを開き、7.1 の確認手順をすべて満たすことを確認する</li>
+</ul>
+<h2>8. カスタムドメインの設定</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 8.1 <code>.github/workflows/deploy-openspec-pages.yml</code> の <code>peaceiris/actions-gh-pages</code> ステップに <code>cname: specs.asunaroblog.net</code> オプションを追加する</li>
+<li><input disabled="" type="checkbox"> 8.2 <code>main</code> ブランチへ push し GitHub Actions が正常完了することを確認する</li>
+<li><input disabled="" type="checkbox"> 8.3 【検証】<code>https://specs.asunaroblog.net</code> にブラウザでアクセスし、ドキュメントポータルのトップページが表示されることを確認する（0.1・0.2 の DNS / GitHub Pages 設定完了後）</li>
+</ul>
+
+</body>
+</html>

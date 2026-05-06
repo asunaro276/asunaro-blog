@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../../index.html">← インデックスに戻る</a></nav>
+<h2>ADDED Requirements</h2>
+<h3>Requirement: .openspec.yaml の stories フィールドから Storybook embed を生成する</h3>
+<p>ビルドスクリプトは Change の <code>.openspec.yaml</code> に <code>stories:</code> フィールドが存在する場合、各ストーリーの Storybook iframe embed を Change 詳細ページに表示しなければならない（SHALL）。</p>
+<h4>Scenario: stories フィールドが存在する場合</h4>
+<ul>
+<li><strong>WHEN</strong> <code>.openspec.yaml</code> に <code>stories:</code> フィールドが存在し、1件以上のストーリー ID が列挙されている</li>
+<li><strong>THEN</strong> Change 詳細ページの「関連コンポーネント」セクションに各ストーリーの <code>&lt;iframe&gt;</code> が表示される</li>
+<li><strong>THEN</strong> iframe の <code>src</code> は <code>https://storybook.asunaroblog.net/iframe.html?id=&lt;story-id&gt;&amp;viewMode=story</code> 形式になっている</li>
+</ul>
+<h4>Scenario: stories フィールドが存在しない場合</h4>
+<ul>
+<li><strong>WHEN</strong> <code>.openspec.yaml</code> に <code>stories:</code> フィールドが存在しない、または空配列である</li>
+<li><strong>THEN</strong> Change 詳細ページに「関連コンポーネント」セクションは表示されない</li>
+</ul>
+<h4>Scenario: 複数のストーリーが列挙されている場合</h4>
+<ul>
+<li><strong>WHEN</strong> <code>.openspec.yaml</code> の <code>stories:</code> に複数のストーリー ID が列挙されている</li>
+<li><strong>THEN</strong> Change 詳細ページに各ストーリーの iframe が列挙された順番で表示される</li>
+</ul>
+
+</body>
+</html>

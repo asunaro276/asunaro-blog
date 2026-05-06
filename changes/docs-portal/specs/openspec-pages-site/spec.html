@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spec</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  nav { margin-bottom: 1.5rem; }
+  nav a { color: #0066cc; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  h1, h2, h3 { border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  a { color: #0066cc; }
+  ul { padding-left: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="../../../../index.html">← インデックスに戻る</a></nav>
+<h2>MODIFIED Requirements</h2>
+<h3>Requirement: インデックスページを生成する</h3>
+<p>ビルドスクリプトは <code>openspec/changes/</code> を走査し、各 Change をカード形式で一覧表示する <code>index.html</code> を生成しなければならない（SHALL）。</p>
+<h4>Scenario: changes が存在する場合</h4>
+<ul>
+<li><strong>WHEN</strong> <code>openspec/changes/</code> に1件以上のサブディレクトリが存在する</li>
+<li><strong>THEN</strong> 各 Change のカードが生成され、Change 名・ステータスバッジ・概要（proposal.md の Why セクション1文）・カテゴリチップ・作成日が表示される</li>
+</ul>
+<h4>Scenario: ステータスフィルタの動作</h4>
+<ul>
+<li><strong>WHEN</strong> インデックスページで &quot;Done&quot; フィルタボタンをクリックする</li>
+<li><strong>THEN</strong> <code>status: done</code> の Change カードのみが表示される</li>
+<li><strong>WHEN</strong> &quot;All&quot; フィルタボタンをクリックする</li>
+<li><strong>THEN</strong> すべての Change カードが表示される</li>
+</ul>
+<h4>Scenario: changes ディレクトリが空の場合</h4>
+<ul>
+<li><strong>WHEN</strong> <code>openspec/changes/</code> にサブディレクトリが存在しない</li>
+<li><strong>THEN</strong> 「Changes なし」等のメッセージが表示される</li>
+</ul>
+<h3>Requirement: Change 詳細ページを生成する</h3>
+<p>ビルドスクリプトは各 Change に対して proposal / design / tasks を1ページに統合した <code>changes/&lt;name&gt;/index.html</code> を生成しなければならない（SHALL）。</p>
+<h4>Scenario: Change 詳細ページの生成</h4>
+<ul>
+<li><strong>WHEN</strong> <code>openspec/changes/&lt;name&gt;/</code> に <code>proposal.md</code> が存在する</li>
+<li><strong>THEN</strong> <code>dist-openspec/changes/&lt;name&gt;/index.html</code> が生成される</li>
+<li><strong>THEN</strong> ページ内に proposal・design（存在する場合）・tasks（存在する場合）のセクションが縦スクロールで並ぶ</li>
+</ul>
+<h4>Scenario: Mermaid ブロックの変換</h4>
+<ul>
+<li><strong>WHEN</strong> <code>design.md</code> に <code>```mermaid ```</code> ブロックが含まれる</li>
+<li><strong>THEN</strong> <code>&lt;pre class=&quot;mermaid&quot;&gt;</code> 要素として出力される</li>
+</ul>
+<h3>Requirement: Spec 詳細ページを生成する</h3>
+<p>ビルドスクリプトは <code>openspec/specs/&lt;name&gt;/spec.md</code> を Requirement/Scenario の視覚ブロック付きで <code>specs/&lt;name&gt;/index.html</code> に変換しなければならない（SHALL）。</p>
+<h4>Scenario: Spec 詳細ページの生成</h4>
+<ul>
+<li><strong>WHEN</strong> <code>openspec/specs/&lt;name&gt;/spec.md</code> が存在する</li>
+<li><strong>THEN</strong> <code>dist-openspec/specs/&lt;name&gt;/index.html</code> が生成される</li>
+</ul>
+<h4>Scenario: Scenario ブロックの視覚化</h4>
+<ul>
+<li><strong>WHEN</strong> <code>spec.md</code> に <code>#### Scenario:</code> ブロックが含まれる</li>
+<li><strong>THEN</strong> 生成された HTML で WHEN / THEN がそれぞれ識別可能なラベル付きスタイルで表示される</li>
+</ul>
+<h3>Requirement: グローバルナビゲーションを含む</h3>
+<p>すべての生成ページはトップナビゲーションバーを含まなければならない（SHALL）。</p>
+<h4>Scenario: ナビゲーションの存在確認</h4>
+<ul>
+<li><strong>WHEN</strong> 任意の生成ページを表示する</li>
+<li><strong>THEN</strong> &quot;Changes&quot; と &quot;Design System&quot; へのリンクを含むナビゲーションバーが表示される</li>
+</ul>
+<h3>Requirement: CSS アセットを出力する</h3>
+<p>ビルドスクリプトは <code>dist-openspec/assets/tokens.css</code> と <code>dist-openspec/assets/style.css</code> を出力しなければならない（SHALL）。</p>
+<h4>Scenario: アセットの生成</h4>
+<ul>
+<li><strong>WHEN</strong> ビルドを実行する</li>
+<li><strong>THEN</strong> <code>dist-openspec/assets/tokens.css</code> が存在する</li>
+<li><strong>THEN</strong> <code>dist-openspec/assets/style.css</code> が存在する</li>
+</ul>
+<h2>REMOVED Requirements</h2>
+<h3>Requirement: 各 Markdown ファイルを HTML ページとして生成する</h3>
+<p><strong>Reason</strong>: <code>proposal.html</code> / <code>spec.html</code> 形式の個別変換は廃止し、Change 詳細・Spec 詳細の専用ページ生成に置き換える
+<strong>Migration</strong>: <code>changes/&lt;name&gt;/proposal.html</code> → <code>changes/&lt;name&gt;/index.html</code>、<code>specs/&lt;name&gt;/spec.html</code> → <code>specs/&lt;name&gt;/index.html</code></p>
+<h3>Requirement: 各 HTML ページにはナビゲーションリンクを含む</h3>
+<p><strong>Reason</strong>: 「← インデックスに戻る」単一リンクのナビゲーションは、グローバルナビゲーションバー（Changes / Design System）に統合する
+<strong>Migration</strong>: 新しいグローバルナビゲーションバーが同等の機能を提供する</p>
+
+</body>
+</html>
