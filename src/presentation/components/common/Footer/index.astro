@@ -11,16 +11,13 @@ const { categories } = Astro.props;
   <!-- 3カラムグリッド -->
   <div
     data-footer-grid
-    style="max-width: 1200px; margin: 0 auto; padding: 0 32px 48px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;"
+    style="max-width: 1200px; margin: 0 auto; padding: 0 32px 48px; display: grid; grid-template-columns: auto 1fr 1fr; gap: 48px; align-items: start;"
   >
     <!-- ブランドセクション -->
     <div>
-      <div style="font-size: 20px; font-weight: 600; color: var(--fg); letter-spacing: -0.02em; margin-bottom: 12px;">
+      <div style="font-size: 20px; font-weight: 600; color: var(--fg); letter-spacing: -0.02em;">
         asunaro<span style="color: var(--accent);">blog</span>
       </div>
-      <p style="font-size: 13px; line-height: 1.7; color: var(--fg-2); margin: 0;">
-        技術と日常をつなぐ、あすなろのブログ。Web技術を中心に、日々の学びを発信しています。
-      </p>
     </div>
 
     <!-- Category -->

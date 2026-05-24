@@ -46,7 +46,7 @@ export function ArchiveHeatmap({ yearmonths }: Props) {
         return (
           <div key={year} data-heatmap-year={year.toString()} style={{ marginBottom: 18 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 8 }}>
-              <span style={{ fontSize: 18, fontWeight: 600, color: 'var(--fg)', fontFamily: 'Noto Serif JP, serif' }}>
+              <span className="font-mono" style={{ fontSize: 14, fontWeight: 600, color: 'var(--fg)' }}>
                 {year}
               </span>
               <span style={{ fontSize: 11, color: 'var(--fg-3)', fontFamily: 'JetBrains Mono, monospace' }}>
