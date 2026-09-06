@@ -30,7 +30,7 @@
     "astro": "^5.14.5",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.10.0",
-    "katex": "^0.16.11",
+    "katex": "^0.18.0",
     "lodash": "^4.17.21",
     "marked": "^18.0.3",
     "material-icons": "^1.13.12",
